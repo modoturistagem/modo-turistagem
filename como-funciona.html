@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como Funciona | Modo Turistagem</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .como-funciona-hero {
+            margin-top: 70px;
+            background: linear-gradient(135deg, var(--laranja) 0%, #ff8533 100%);
+            color: var(--branco);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .como-funciona-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .passos {
+            padding: 4rem 2rem;
+            background: var(--branco);
+        }
+
+        .passos-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .passos-timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--laranja), var(--azul));
+            border-radius: 2px;
+        }
+
+        .passo-item {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .passo-numero {
+            width: 60px;
+            height: 60px;
+            background: var(--branco);
+            border: 4px solid var(--laranja);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--laranja);
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        .passo-conteudo {
+            background: var(--cinza);
+            padding: 2rem;
+            border-radius: 20px;
+            flex-grow: 1;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .passo-conteudo h3 {
+            color: var(--azul);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .passo-conteudo p {
+            color: var(--texto);
+            line-height: 1.7;
+        }
+
+        .destaque-box {
+            background: var(--azul-claro);
+            border-left: 5px solid var(--laranja);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 15px 15px 0;
+        }
+
+        .destaque-box h4 {
+            color: var(--azul);
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .como-funciona-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .passos-timeline::before {
+                left: 20px;
+            }
+            
+            .passo-numero {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navegação -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/icone.png" alt="Modo Turistagem" class="logo-img">
+                <div class="logo-text">
+                    <span class="logo-modo">modo</span>
+                    <span class="logo-turistagem">turistagem.</span>
+                </div>
+            </a>
+            <button class="mobile-menu" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="destinos.html">Destinos Testados</a></li>
+                <li><a href="como-funciona.html">Como Funciona</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="quem-somos.html">Quem Somos</a></li>
+                <li><a href="https://wa.me/SEUNUMERO" class="btn-nav" target="_blank">Fale Conosco</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="como-funciona-hero">
+        <div class="container fade-in">
+            <h1>
+                <span class="emoji">⚙️</span> Como Funciona
+            </h1>
+            <p>Simples, transparente e do seu jeito. Assim é a Modo Turistagem!</p>
+        </div>
+    </section>
+
+    <!-- Passos -->
+    <section class="passos">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">
+                    <span class="emoji">🚀</span> Processo
+                </span>
+                <h2>5 Passos para sua Viagem dos Sonhos</h2>
+            </div>
+
+            <div class="passos-timeline">
+                <!-- Passo 1 -->
+                <div class="passo-item fade-in">
+                    <div class="passo-numero">1</div>
+                    <div class="passo-conteudo">
+                        <h3>
+                            <span class="emoji">🎯</span> Eu te ajudo a escolher o plano ideal
+                        </h3>
+                        <p>
+                            Antes de comprar, você pode responder um rapidinho (ou me chamar) que eu te direciono pro plano certo 
+                            (Partiu / Check-in / Embarque / VIP) e pros extras que fazem sentido.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Passo 2 -->
+                <div class="passo-item fade-in">
+                    <div class="passo-numero">2</div>
+                    <div class="passo-conteudo">
+                        <h3>
+                            <span class="emoji">📝</span> Compra confirmada = formulário liberado
+                        </h3>
+                        <p>
+                            Depois da compra, você recebe o link do formulário pra me contar datas, estilo, orçamento, 
+                            prioridades e, se tiver, conexão/layover.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Passo 3 -->
+                <div class="passo-item fade-in">
+                    <div class="passo-numero">3</div>
+                    <div class="passo-conteudo">
+                        <h3>
+                            <span class="emoji">✍️</span> Eu monto seu roteiro
+                        </h3>
+                        <p>
+                            Com o formulário completo e pagamento/entrada confirmados, eu começo a criação. 
+                            É aqui que a mágica acontece! <span class="emoji">✨</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Passo 4 -->
+                <div class="passo-item fade-in">
+                    <div class="passo-numero">4</div>
+                    <div class="passo-conteudo">
+                        <h3>
+                            <span class="emoji">📄</span>
+                            <span class="emoji">🔗</span> Entrega em PDF clicável
+                        </h3>
+                        <p>
+                            Você recebe um PDF organizado e com links, com roteiro dia a dia + logística + 
+                            sugestões alinhadas ao seu estilo. Tudo pronto pra usar no celular!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Passo 5 -->
+                <div class="passo-item fade-in">
+                    <div class="passo-numero">5</div>
+                    <div class="passo-conteudo">
+                        <h3>
+                            <span class="emoji">🔁</span> Ajustes
+                        </h3>
+                        <p>
+                            Você pode pedir ajustes dentro do mesmo destino/estrutura (trocar passeios, 
+                            reorganizar dias, etc.). A quantidade de alterações depende do plano contratado.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="destaque-box fade-in">
+                <h4>
+                    <span class="emoji">💡</span> Dica importante
+                </h4>
+                <p>
+                    O prazo de entrega começa a contar quando você envia: 
+                    <strong>✅ formulário completo + ✅ confirmação do pagamento da entrada (20%)</strong>. 
+                    Se faltar informação, o processo pode pausar e o prazo pode ser impactado.
+                </p>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;" class="fade-in">
+                <a href="index.html#planos" class="btn-primary">
+                    <span class="emoji">🎒</span> Ver Planos e Preços
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <img src="images/logotipo.png" alt="Modo Turistagem" class="footer-logo">
+            <p class="footer-text">
+                Consultoria de viagens feita por quem realmente viaja. 
+                <span class="emoji">🌍</span>
+            </p>
+            <div class="social-links">
+                <a href="https://instagram.com/modoturistagem" target="_blank">
+                    <span class="emoji">📷</span>
+                </a>
+                <a href="https://wa.me/SEUNUMERO" target="_blank">
+                    <span class="emoji">💬</span>
+                </a>
+                <a href="mailto:contato@modoturistagem.com">
+                    <span class="emoji">✉️</span>
+                </a>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Modo Turistagem. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        document.querySelectorAll('a[href*="SEUNUMERO"]').forEach(link => {
+            link.href = link.href.replace('SEUNUMERO', '5511999999999');
+        });
+    </script>
+</body>
+</html>
