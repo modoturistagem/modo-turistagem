@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quem Somos | Modo Turistagem</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .quem-somos-hero {
+            margin-top: 70px;
+            background: linear-gradient(135deg, var(--azul-claro) 0%, var(--branco) 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .quem-somos-hero h1 {
+            font-size: 3rem;
+            color: var(--azul);
+            margin-bottom: 1rem;
+        }
+
+        .quem-somos-hero p {
+            font-size: 1.2rem;
+            color: var(--texto);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .manifesto-box {
+            background: var(--laranja);
+            color: var(--branco);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .manifesto-box h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .manifesto-texto {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.3rem;
+            line-height: 1.9;
+        }
+
+        .diferenciais {
+            padding: 4rem 2rem;
+            background: var(--branco);
+        }
+
+        .diferenciais-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .diferencial-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--cinza);
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+
+        .diferencial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .diferencial-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-family: "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+        }
+
+        .diferencial-card h3 {
+            color: var(--azul);
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-final {
+            background: var(--azul);
+            color: var(--branco);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .cta-final h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .quem-somos-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .manifesto-box h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navegação -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/icone.png" alt="Modo Turistagem" class="logo-img">
+                <div class="logo-text">
+                    <span class="logo-modo">modo</span>
+                    <span class="logo-turistagem">turistagem.</span>
+                </div>
+            </a>
+            <button class="mobile-menu" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="destinos.html">Destinos Testados</a></li>
+                <li><a href="como-funciona.html">Como Funciona</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="quem-somos.html">Quem Somos</a></li>
+                <li><a href="https://wa.me/SEUNUMERO" class="btn-nav" target="_blank">Fale Conosco</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="quem-somos-hero">
+        <div class="container fade-in">
+            <h1>
+                <span class="emoji">👋</span> Quem Somos
+            </h1>
+            <p>Uma consultoria de viagem feita por quem realmente ama viajar!</p>
+        </div>
+    </section>
+
+    <!-- Manifesto -->
+    <section class="manifesto-box">
+        <div class="container fade-in">
+            <h2>Nossa História</h2>
+            <div class="manifesto-texto">
+                <p>
+                    A <strong>Modo Turistagem</strong> é uma consultoria de viagem pra quem ama viajar — 
+                    mas não quer perder tempo, cair em cilada ou gastar à toa.
+                </p>
+                <br>
+                <p>
+                    A gente faz o trabalho pesado por você: <strong>planejamento, organização e curadoria</strong>. 
+                    Você conta sua vibe, seu ritmo e seu bolso — e a gente transforma isso em um roteiro redondinho, 
+                    com recomendações práticas, logística clara e links que facilitam a vida.
+                </p>
+                <br>
+                <p>
+                    Aqui não tem "pacote fechado" nem empurrão de comissão. A Modo Turistagem <strong>não é agência de turismo</strong>: 
+                    a ideia é te dar o caminho das pedras pra você comprar direto, com autonomia e segurança, 
+                    sabendo exatamente o que vale a pena pra sua viagem.
+                </p>
+                <br>
+                <p style="font-size: 1.5rem;">
+                    Se você é do tipo que quer viajar bem — do seu jeito — pode deixar com a gente. 
+                    <span class="emoji">✈️✨</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diferenciais -->
+    <section class="diferenciais">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">
+                    <span class="emoji">⭐</span> Por que a gente?
+                </span>
+                <h2>O que nos diferencia</h2>
+            </div>
+
+            <div class="diferenciais-grid">
+                <div class="diferencial-card fade-in">
+                    <div class="diferencial-icon">
+                        <span class="emoji">🎯</span>
+                    </div>
+                    <h3>Personalização Real</h3>
+                    <p>Cada roteiro é único, feito sob medida pro seu estilo e orçamento.</p>
+                </div>
+
+                <div class="diferencial-card fade-in">
+                    <div class="diferencial-icon">
+                        <span class="emoji">💰</span>
+                    </div>
+                    <h3>Sem Intermediação</h3>
+                    <p>Você compra direto, sem taxas ocultas ou pacotes engessados.</p>
+                </div>
+
+                <div class="diferencial-card fade-in">
+                    <div class="diferencial-icon">
+                        <span class="emoji">🌍</span>
+                    </div>
+                    <h3>Experiência Real</h3>
+                    <p>Recomendamos lugares que conhecemos de verdade, não do Google.</p>
+                </div>
+
+                <div class="diferencial-card fade-in">
+                    <div class="diferencial-icon">
+                        <span class="emoji">💬</span>
+                    </div>
+                    <h3>Próximo de Você</h3>
+                    <p>Atendimento humano, direto e sem frescura. Como uma amiga que entende de viagem!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-final">
+        <div class="container fade-in">
+            <h2>
+                <span class="emoji">🚀</span> Pronto pra viajar do seu jeito?
+            </h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.9;">
+                Vamos criar juntos o roteiro perfeito pra sua próxima aventura!
+            </p>
+            <a href="index.html#planos" class="btn-primary" style="background: var(--laranja);">
+                <span class="emoji">🎒</span> Ver Planos
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="margin-top: 0;">
+        <div class="footer-content">
+            <img src="images/logotipo.png" alt="Modo Turistagem" class="footer-logo">
+            <p class="footer-text">
+                Consultoria de viagens feita por quem realmente viaja. 
+                <span class="emoji">🌍</span>
+            </p>
+            <div class="social-links">
+                <a href="https://instagram.com/modoturistagem" target="_blank">
+                    <span class="emoji">📷</span>
+                </a>
+                <a href="https://wa.me/SEUNUMERO" target="_blank">
+                    <span class="emoji">💬</span>
+                </a>
+                <a href="mailto:contato@modoturistagem.com">
+                    <span class="emoji">✉️</span>
+                </a>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Modo Turistagem. Todos os direitos reservados.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.8rem;">
+                    Feito com <span class="emoji">💙</span> e <span class="emoji">🧡</span> por quem ama viajar
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        document.querySelectorAll('a[href*="SEUNUMERO"]').forEach(link => {
+            link.href = link.href.replace('SEUNUMERO', '5511999999999');
+        });
+    </script>
+</body>
+</html>

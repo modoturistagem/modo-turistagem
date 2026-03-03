@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ | Modo Turistagem</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .faq-hero {
+            margin-top: 70px;
+            background: linear-gradient(135deg, var(--azul) 0%, #0044cc 100%);
+            color: var(--branco);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .faq-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .faq-section {
+            padding: 4rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--branco);
+            border-radius: 15px;
+            margin-bottom: 1rem;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            overflow: hidden;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            border-color: var(--laranja-claro);
+        }
+
+        .faq-pergunta {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            color: var(--azul);
+            font-size: 1.1rem;
+        }
+
+        .faq-pergunta::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--laranja);
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-pergunta::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-resposta {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s;
+            color: var(--texto);
+            line-height: 1.8;
+        }
+
+        .faq-item.active .faq-resposta {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 500px;
+        }
+
+        .faq-categoria {
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--laranja);
+            font-size: 1.3rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .faq-hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navegação -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/icone.png" alt="Modo Turistagem" class="logo-img">
+                <div class="logo-text">
+                    <span class="logo-modo">modo</span>
+                    <span class="logo-turistagem">turistagem.</span>
+                </div>
+            </a>
+            <button class="mobile-menu" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="destinos.html">Destinos Testados</a></li>
+                <li><a href="como-funciona.html">Como Funciona</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="quem-somos.html">Quem Somos</a></li>
+                <li><a href="https://wa.me/SEUNUMERO" class="btn-nav" target="_blank">Fale Conosco</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="faq-hero">
+        <div class="container fade-in">
+            <h1>
+                <span class="emoji">❓</span> FAQ
+            </h1>
+            <p>Tire suas dúvidas sobre como funciona a consultoria</p>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <!-- Sobre a Empresa -->
+        <h3 class="faq-categoria fade-in">
+            <span class="emoji">🏢</span> Sobre a Modo Turistagem
+        </h3>
+        
+        <div class="faq-item fade-in">
+            <div class="faq-pergunta">
+                Vocês são uma agência de turismo?
+            </div>
+            <div class="faq-resposta">
+                <p>
+                    Não <span class="emoji">🙂</span> A Modo Turistagem é consultoria de viagem: a gente planeja, 
+                    organiza e recomenda — sem vender pacote e sem intermediar compra obrigatória com fornecedores.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item fade-in">
+            <div class="faq-pergunta">
+                Vocês fazem compras e reservas por mim?
+            </div>
+            <div class="faq-resposta">
+                <p>
+                    As compras e reservas são responsabilidade do cliente. A gente orienta, indica links e caminhos, 
+                    mas não faz emissão e não garante disponibilidade, preço, reserva ou condições comerciais.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item fade-in">
+            <div class="faq-pergunta">
+                O que exatamente vocês entregam?
+            </div>
+            <div class="faq-resposta">
+                <p>
+                    Você recebe o material final (ex.: PDF/roteiro/painel contratado) pelos canais combinados 
+                    (e-mail/WhatsApp). E um detalhe importante: conta como entregue quando é enviado, mesmo que 
+                    você ainda não tenha aberto/baixado.
+                </p>
+            </div>
+        </div>
+
+        <!-- Preços e Pagamento -->
+        <h3 class="faq-categoria fade-in">
+            <span class="emoji">💰</span> Preços e Pagamento
+        </h3>
+
+        <div class="faq-item fade-in">
+            <div class="faq-pergunta">
+                Os valores do roteiro são finais?
+            </div>
+            <div class="faq-resposta">
+                <p>
+                    São estimativas, muitas vezes na moeda local — e podem variar por câmbio, IOF/taxas, datas, 
+                    sazonalidade, disponibilidade, políticas do fornecedor e alteração de tarifa em tempo real.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item fade-in">
+            <div class="faq-pergunta">
+                Vocês garantem preço, promoções e disponibilidade?
+            </div>
+            <div class="faq-resposta">
+                <p>
+                    Não — e aqui é vida real de viagem <span class="emoji">😅</span> Hotel, voo, ingresso e 
+                    experiência podem mudar de valor ou esgotar a qualquer momento. A gente não se responsabiliza 
+                    por indisponibilidade depois do envio do roteiro/recomendação.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item fade-in">
+            <div class="faq-pergunta">
+                Como funciona reembolso e cancelamento?
+            </div>
+            <div class="faq-resposta">
+                <p>
+                    A entrada (20%) pode ser reembolsada integralmente se você solicitar cancelamento em até 
+                    3 dias corridos após a confirmação do pagamento. Depois desse prazo, ou após a entrega do 
+                    produto, não há reembolso total ou parcial.
+                </p>
+            </div>
+        </div>
+
+        <!-- Responsabilidades -->
+        <h3 class="faq-categoria fade-in">
+            <span class="emoji">⚖️</span> Responsabilidades
+        </h3>
+
+        <div class="faq-item fade-in">
+            <div class="faq-pergunta">
+                Quem toma a decisão final do que comprar e fazer?
+            </div>
+            <div class="faq-resposta">
+                <p>
+                    Você. A gente entrega a curadoria e o direcionamento com base no seu briefing, mas a decisão 
+                    final e a execução são do cliente — inclusive conferir e aceitar as políticas de 
+                    cancelamento/remarcação de cada fornecedor.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item fade-in">
+            <div class="faq-pergunta">
+                Vocês se responsabilizam por imprevistos durante a viagem?
+            </div>
+            <div class="faq-resposta">
+                <p>
+                    Não. A consultoria não se responsabiliza por atrasos, cancelamentos, overbooking, greves, 
+                    clima, mudanças de rota/horário, fechamentos de atrações ou qualquer evento fora do controle 
+                    do planejamento.<br><br>
+                    <span class="emoji">➡️</span> Por isso, a gente recomenda fortemente seguro viagem.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item fade-in">
+            <div class="faq-pergunta">
+                Requisitos de entrada (passaporte, visto, vacinas) vocês cuidam?
+            </div>
+            <div class="faq-resposta">
+                <p>
+                    Isso é responsabilidade do cliente. A gente pode orientar, mas não substitui fontes oficiais 
+                    e não assume a verificação/garantia de regras de imigração, vistos, vacinas, autorizações 
+                    e exigências do destino/companhias.
+                </p>
+            </div>
+        </div>
+
+        <!-- Processo -->
+        <h3 class="faq-categoria fade-in">
+            <span class="emoji">📝</span> Processo e Entrega
+        </h3>
+
+        <div class="faq-item fade-in">
+            <div class="faq-pergunta">
+                Quando começa a contar o prazo de entrega?
+            </div>
+            <div class="faq-resposta">
+                <p>
+                    O prazo começa a contar quando você envia: <strong>✅ formulário completo + ✅ confirmação 
+                    do pagamento da entrada (20%)</strong>. Se faltar informação, o processo pode pausar e o 
+                    prazo pode ser impactado.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item fade-in">
+            <div class="faq-pergunta">
+                Posso mudar destino, datas ou estilo depois de enviar o briefing?
+            </div>
+            <div class="faq-resposta">
+                <p>
+                    Mudanças significativas (destino, datas, pessoas, orçamento, estilo) podem exigir 
+                    readequação de prazo e/ou novo orçamento, combinado com você.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item fade-in">
+            <div class="faq-pergunta">
+                E se eu preencher o formulário errado ou esquecer informações?
+            </div>
+            <div class="faq-resposta">
+                <p>
+                    As recomendações são feitas com base no que você informa. Se algo importante for omitido 
+                    ou preenchido incorretamente, isso pode impactar a adequação do roteiro e das sugestões.
+                </p>
+            </div>
+        </div>
+
+        <!-- Suporte -->
+        <h3 class="faq-categoria fade-in">
+            <span class="emoji">💬</span> Suporte e Comunicação
+        </h3>
+
+        <div class="faq-item fade-in">
+            <div class="faq-pergunta">
+                Vocês fazem guia presencial? Tem suporte 24h?
+            </div>
+            <div class="faq-resposta">
+                <p>
+                    A consultoria não é guia turístico presencial e não oferece suporte 24h, exceto se isso 
+                    estiver explicitamente contratado (como no Modo VIP).
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item fade-in">
+            <div class="faq-pergunta">
+                Como funciona a comunicação e prazo de resposta?
+            </div>
+            <div class="faq-resposta">
+                <p>
+                    Os canais, horários de atendimento e prazos de resposta seguem o combinado no plano 
+                    contratado (ex.: suporte em horário comercial BR no Modo VIP).
+                </p>
+            </div>
+        </div>
+
+        <!-- Uso do Material -->
+        <h3 class="faq-categoria fade-in">
+            <span class="emoji">📄</span> Uso do Material
+        </h3>
+
+        <div class="faq-item fade-in">
+            <div class="faq-pergunta">
+                Posso compartilhar ou revender o PDF/roteiro?
+            </div>
+            <div class="faq-resposta">
+                <p>
+                    O material é de uso pessoal do cliente e do grupo da viagem. Não pode revender, 
+                    distribuir publicamente ou reproduzir como produto.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item fade-in">
+            <div class="faq-pergunta">
+                Vocês compartilham meus dados?
+            </div>
+            <div class="faq-resposta">
+                <p>
+                    Não. As informações são usadas só para executar a consultoria e organizar seu roteiro, 
+                    e não são compartilhadas com terceiros — exceto quando necessário para cumprir uma 
+                    solicitação sua (ex.: você pedir ajuda para conferir uma reserva).
+                </p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;" class="fade-in">
+            <p style="margin-bottom: 1rem;">Ainda tem dúvidas?</p>
+            <a href="https://wa.me/SEUNUMERO" class="btn-primary" target="_blank">
+                <span class="emoji">💬</span> Falar no WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <img src="images/logotipo.png" alt="Modo Turistagem" class="footer-logo">
+            <p class="footer-text">
+                Consultoria de viagens feita por quem realmente viaja. 
+                <span class="emoji">🌍</span>
+            </p>
+            <div class="social-links">
+                <a href="https://instagram.com/modoturistagem" target="_blank">
+                    <span class="emoji">📷</span>
+                </a>
+                <a href="https://wa.me/SEUNUMERO" target="_blank">
+                    <span class="emoji">💬</span>
+                </a>
+                <a href="mailto:contato@modoturistagem.com">
+                    <span class="emoji">✉️</span>
+                </a>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Modo Turistagem. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-pergunta').forEach(pergunta => {
+            pergunta.addEventListener('click', () => {
+                const item = pergunta.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Fechar todos
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                
+                // Abrir clicado se não estava ativo
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Animações
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        document.querySelectorAll('a[href*="SEUNUMERO"]').forEach(link => {
+            link.href = link.href.replace('SEUNUMERO', '5511999999999');
+        });
+    </script>
+</body>
+</html>
