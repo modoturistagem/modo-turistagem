@@ -50,6 +50,7 @@
     --texto: #333333;
     --font-titulo: 'Neulis Cursive', cursive;
     --font-texto: 'Neulis Sans', sans-serif;
+    --font-emoji: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
 }
 
 * {
@@ -78,8 +79,28 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Textos em Neulis Sans */
-p, span, a, button, input, li, div {
+p, a, button, input, li, label, select, textarea {
     font-family: var(--font-texto);
+}
+
+/* Emojis em fonte nativa do sistema */
+.emoji {
+    font-family: var(--font-emoji);
+    font-style: normal;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+.emoji-inline {
+    font-size: 1rem;
+}
+
+.social-icon {
+    font-size: 1.4rem;
+    line-height: 1;
 }
 
 /* ============================================
@@ -380,9 +401,9 @@ footer {
     transform: translateY(-3px);
 }
 
-.social-links a img {
-    height: 24px;
-    width: auto;
+.social-links a .emoji {
+    font-size: 1.4rem;
+    line-height: 1;
 }
 
 .footer-bottom {
@@ -422,7 +443,9 @@ footer {
         font-size: 2rem;
     }
 
-    .btn-primary, .btn-secondary, .btn-ajuda {
+    .btn-primary,
+    .btn-secondary,
+    .btn-ajuda {
         padding: 0.8rem 1.5rem;
         font-size: 0.9rem;
     }
