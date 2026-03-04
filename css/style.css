@@ -403,7 +403,16 @@ nav {
     color: var(--texto);
     font-family: var(--font-texto);
 }
+.inclusos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.9rem;
+}
 
+.inclusos-grid > div {
+  flex: 0 1 260px;
+}
 
 /* ============================================
    ANIMAÇÕES
@@ -817,6 +826,7 @@ footer {
         line-height: 1.7;
     }
 }
+
 
 
 
