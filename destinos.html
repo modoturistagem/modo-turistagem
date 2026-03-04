@@ -153,135 +153,161 @@
       margin-top: 0.35rem;
     }
 
-    /* ===== DEPOIMENTOS ===== */
-    .depoimentos {
-      padding: 4rem 2rem 0;
-      background: var(--branco);
-    }
+    /* ===== DEPOIMENTOS (carrossel horizontal animado) ===== */
+.depoimentos{
+  padding: 4rem 2rem 0;
+  background: var(--branco);
+}
 
-    .depo-wrap {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+.depo-wrap{
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-    .testi-grid {
-      margin-top: 1.8rem;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 2rem;
-      align-items: stretch;
-    }
+.testi-carousel{
+  margin-top: 1.8rem;
+  overflow: hidden;
+  position: relative;
+}
 
-    .testi-card {
-      border-radius: 26px;
-      overflow: hidden;
-      background: var(--branco);
-      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-      min-width: 0;
-      display: flex;
-      flex-direction: column;
-    }
+.testi-viewport{
+  overflow: hidden;
+  padding: 0.2rem 0;
+}
 
-    .testi-card:nth-child(3) {
-      grid-column: 1 / -1;
-      max-width: 560px;
-      width: 100%;
-      justify-self: center;
-    }
+.testi-track{
+  display: flex;
+  width: max-content;
+  animation: testiScroll 26s linear infinite;
+  will-change: transform;
+}
 
-    .testi-media {
-      height: 300px;
-      overflow: hidden;
-      background: rgba(0,0,0,0.06);
-    }
+.testi-carousel:hover .testi-track{
+  animation-play-state: paused;
+}
 
-    .testi-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: var(--img-pos, center 35%);
-      display: block;
-      filter: saturate(1.05) contrast(1.02);
-    }
+.testi-group{
+  display: flex;
+  gap: 2rem;
+  flex-shrink: 0;
+}
 
-    .testi-body {
-      padding: 1.25rem 1.35rem 1.35rem;
-      color: var(--branco);
-      background: var(--card-bg, var(--laranja));
-      min-height: 210px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      gap: 0.8rem;
-    }
+@keyframes testiScroll{
+  0%{
+    transform: translateX(0);
+  }
+  100%{
+    transform: translateX(-50%);
+  }
+}
 
-    .testi--orange { --card-bg: var(--laranja); }
-    .testi--blue   { --card-bg: var(--azul); }
+.testi-card{
+  width: clamp(320px, 32vw, 380px);
+  border-radius: 26px;
+  overflow: hidden;
+  background: var(--branco);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+}
 
-    .testi-top {
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-    }
+.testi-media{
+  height: 300px; /* controla a foto pra não ficar gigante */
+  overflow: hidden;
+  background: rgba(0,0,0,0.06);
+}
 
-    .testi-name {
-      margin: 0;
-      font-size: 1.15rem;
-      font-weight: 600;
-      line-height: 1.1;
-    }
+.testi-media img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--img-pos, center 35%);
+  display: block;
+  filter: saturate(1.05) contrast(1.02);
+}
 
-    .testi-loc {
-      margin: 0;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      line-height: 1.1;
-      flex-wrap: wrap;
-    }
+.testi-body{
+  padding: 1.25rem 1.35rem 1.35rem;
+  color: var(--branco);
+  background: var(--card-bg, var(--laranja));
+  min-height: 210px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.8rem;
+}
 
-    .testi-code {
-      font-size: 0.92rem;
-      font-weight: 800;
-      opacity: 0.95;
-    }
+.testi--orange{ --card-bg: var(--laranja); }
+.testi--blue{ --card-bg: var(--azul); }
 
-    .testi-city {
-      font-size: 1.28rem;
-      font-weight: 900;
-    }
+.testi-top{
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
 
-    .testi-text {
-      margin: 0;
-      font-size: 1rem;
-      font-weight: 600;
-      line-height: 1.55;
-      opacity: 0.98;
-      white-space: normal;
-      overflow-wrap: anywhere;
-      word-break: break-word;
-    }
+.testi-name{
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.1;
+}
 
-    @media (max-width: 900px) {
-      .testi-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
+.testi-loc{
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  line-height: 1.1;
+  flex-wrap: wrap;
+}
 
-      .testi-card:nth-child(3) {
-        grid-column: auto;
-        max-width: none;
-        justify-self: stretch;
-      }
+.testi-code{
+  font-size: 0.92rem;
+  font-weight: 800;
+  opacity: 0.95;
+}
 
-      .testi-media {
-        height: 260px;
-      }
+.testi-city{
+  font-size: 1.28rem;
+  font-weight: 900;
+}
 
-      .testi-body {
-        min-height: 0;
-      }
-    }
+.testi-text{
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.55;
+  opacity: 0.98;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .testi-track{
+    animation: none;
+  }
+}
+
+@media (max-width: 900px){
+  .testi-card{
+    width: 84vw;
+  }
+
+  .testi-media{
+    height: 250px;
+  }
+
+  .testi-body{
+    min-height: 0;
+  }
+
+  .testi-track{
+    animation-duration: 22s;
+  }
+}
 
     /* ===== CTA ===== */
     .cta-entre {
@@ -510,68 +536,131 @@
   </section>
 
   <!-- Depoimentos -->
-  <section class="depoimentos">
-    <div class="depo-wrap">
-      <div class="section-header fade-in">
-        <span class="section-tag">💬 Depoimentos</span>
-        <h2>Quem já viajou com roteiro da Modo</h2>
-        <p>Gente real, no destino, vivendo o que foi planejado.</p>
-      </div>
+<section class="depoimentos">
+  <div class="depo-wrap">
+    <div class="section-header fade-in">
+      <span class="section-tag">💬 Depoimentos</span>
+      <h2>Quem já viajou com roteiro da Modo</h2>
+      <p>Gente real, no destino, vivendo o que foi planejado.</p>
+    </div>
 
-      <div class="testi-grid fade-in">
-        <article class="testi-card testi--orange">
-          <div class="testi-media" style="--img-pos: center 35%;">
-            <img src="images/depoimentos/exemplo 01.JPG" alt="Ana Luiza em Tokyo, Japão" loading="lazy" />
-          </div>
-          <div class="testi-body">
-            <div class="testi-top">
-              <p class="testi-name">Ana Luiza</p>
-              <p class="testi-loc">
-                <span class="emoji" aria-hidden="true">🇯🇵</span>
-                <span class="testi-code">JP</span>
-                <span class="testi-city">Tokyo</span>
-              </p>
-            </div>
-            <p class="testi-text">“Eu estava surtando com transporte e bairros pra ficar. O roteiro veio redondinho, com mapa no Google Maps, dicas do que vale a pena e um plano B real. Economizei tempo e viajei com segurança.”</p>
-          </div>
-        </article>
+    <div class="testi-carousel fade-in" aria-label="Carrossel de depoimentos">
+      <div class="testi-viewport">
+        <div class="testi-track">
 
-        <article class="testi-card testi--blue">
-          <div class="testi-media" style="--img-pos: center 30%;">
-            <img src="images/depoimentos/exemplo 02.JPG" alt="Ana Luiza em Curitiba, Brasil" loading="lazy" />
-          </div>
-          <div class="testi-body">
-            <div class="testi-top">
-              <p class="testi-name">Ana Luiza</p>
-              <p class="testi-loc">
-                <span class="emoji" aria-hidden="true">🇧🇷</span>
-                <span class="testi-code">BR</span>
-                <span class="testi-city">Curitiba</span>
-              </p>
-            </div>
-            <p class="testi-text">“Eu queria um roteiro funcional, sem perder tempo decidindo tudo na hora. Veio dia a dia bem organizado, com sugestões de restaurantes e deslocamentos fáceis. Foi a viagem mais prática que já fiz.”</p>
-          </div>
-        </article>
+          <!-- Grupo 1 -->
+          <div class="testi-group">
+            <article class="testi-card testi--orange">
+              <div class="testi-media" style="--img-pos: center 35%;">
+                <img src="images/depoimentos/exemplo 01.JPG" alt="Ana Luiza em Tokyo, Japão" loading="lazy" />
+              </div>
+              <div class="testi-body">
+                <div class="testi-top">
+                  <p class="testi-name">Ana Luiza</p>
+                  <p class="testi-loc">
+                    <span class="emoji" aria-hidden="true">🇯🇵</span>
+                    <span class="testi-code">JP</span>
+                    <span class="testi-city">Tokyo</span>
+                  </p>
+                </div>
+                <p class="testi-text">“Eu estava surtando com transporte e bairros pra ficar. O roteiro veio redondinho, com mapa no Google Maps, dicas do que vale a pena e um plano B real. Economizei tempo e viajei com segurança.”</p>
+              </div>
+            </article>
 
-        <article class="testi-card testi--orange">
-          <div class="testi-media" style="--img-pos: center 22%;">
-            <img src="images/depoimentos/exemplo 03.JPG" alt="Ana Luiza em Engelberg, Suíça" loading="lazy" />
+            <article class="testi-card testi--blue">
+              <div class="testi-media" style="--img-pos: center 30%;">
+                <img src="images/depoimentos/exemplo 02.JPG" alt="Ana Luiza em Curitiba, Brasil" loading="lazy" />
+              </div>
+              <div class="testi-body">
+                <div class="testi-top">
+                  <p class="testi-name">Ana Luiza</p>
+                  <p class="testi-loc">
+                    <span class="emoji" aria-hidden="true">🇧🇷</span>
+                    <span class="testi-code">BR</span>
+                    <span class="testi-city">Curitiba</span>
+                  </p>
+                </div>
+                <p class="testi-text">“Eu queria um roteiro funcional, sem perder tempo decidindo tudo na hora. Veio dia a dia bem organizado, com sugestões de restaurantes e deslocamentos fáceis. Foi a viagem mais prática que já fiz.”</p>
+              </div>
+            </article>
+
+            <article class="testi-card testi--orange">
+              <div class="testi-media" style="--img-pos: center 22%;">
+                <img src="images/depoimentos/exemplo 03.JPG" alt="Ana Luiza em Engelberg, Suíça" loading="lazy" />
+              </div>
+              <div class="testi-body">
+                <div class="testi-top">
+                  <p class="testi-name">Ana Luiza</p>
+                  <p class="testi-loc">
+                    <span class="emoji" aria-hidden="true">🇨🇭</span>
+                    <span class="testi-code">CH</span>
+                    <span class="testi-city">Engelberg</span>
+                  </p>
+                </div>
+                <p class="testi-text">“Neve me dava medo por causa de imprevistos. Ter um plano B e orientações claras de transporte e logística fez toda a diferença. Foi zero perrengue e eu aproveitei muito mais.”</p>
+              </div>
+            </article>
           </div>
-          <div class="testi-body">
-            <div class="testi-top">
-              <p class="testi-name">Ana Luiza</p>
-              <p class="testi-loc">
-                <span class="emoji" aria-hidden="true">🇨🇭</span>
-                <span class="testi-code">CH</span>
-                <span class="testi-city">Engelberg</span>
-              </p>
-            </div>
-            <p class="testi-text">“Neve me dava medo por causa de imprevistos. Ter um plano B e orientações claras de transporte e logística fez toda a diferença. Foi zero perrengue e eu aproveitei muito mais.”</p>
+
+          <!-- Grupo 2 (duplicado para loop infinito) -->
+          <div class="testi-group" aria-hidden="true">
+            <article class="testi-card testi--orange">
+              <div class="testi-media" style="--img-pos: center 35%;">
+                <img src="images/depoimentos/exemplo 01.JPG" alt="" loading="lazy" />
+              </div>
+              <div class="testi-body">
+                <div class="testi-top">
+                  <p class="testi-name">Ana Luiza</p>
+                  <p class="testi-loc">
+                    <span class="emoji" aria-hidden="true">🇯🇵</span>
+                    <span class="testi-code">JP</span>
+                    <span class="testi-city">Tokyo</span>
+                  </p>
+                </div>
+                <p class="testi-text">“Eu estava surtando com transporte e bairros pra ficar. O roteiro veio redondinho, com mapa no Google Maps, dicas do que vale a pena e um plano B real. Economizei tempo e viajei com segurança.”</p>
+              </div>
+            </article>
+
+            <article class="testi-card testi--blue">
+              <div class="testi-media" style="--img-pos: center 30%;">
+                <img src="images/depoimentos/exemplo 02.JPG" alt="" loading="lazy" />
+              </div>
+              <div class="testi-body">
+                <div class="testi-top">
+                  <p class="testi-name">Ana Luiza</p>
+                  <p class="testi-loc">
+                    <span class="emoji" aria-hidden="true">🇧🇷</span>
+                    <span class="testi-code">BR</span>
+                    <span class="testi-city">Curitiba</span>
+                  </p>
+                </div>
+                <p class="testi-text">“Eu queria um roteiro funcional, sem perder tempo decidindo tudo na hora. Veio dia a dia bem organizado, com sugestões de restaurantes e deslocamentos fáceis. Foi a viagem mais prática que já fiz.”</p>
+              </div>
+            </article>
+
+            <article class="testi-card testi--orange">
+              <div class="testi-media" style="--img-pos: center 22%;">
+                <img src="images/depoimentos/exemplo 03.JPG" alt="" loading="lazy" />
+              </div>
+              <div class="testi-body">
+                <div class="testi-top">
+                  <p class="testi-name">Ana Luiza</p>
+                  <p class="testi-loc">
+                    <span class="emoji" aria-hidden="true">🇨🇭</span>
+                    <span class="testi-code">CH</span>
+                    <span class="testi-city">Engelberg</span>
+                  </p>
+                </div>
+                <p class="testi-text">“Neve me dava medo por causa de imprevistos. Ter um plano B e orientações claras de transporte e logística fez toda a diferença. Foi zero perrengue e eu aproveitei muito mais.”</p>
+              </div>
+            </article>
           </div>
-        </article>
+
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- CTA -->
   <section class="cta-entre">
@@ -908,6 +997,7 @@
   </script>
 </body>
 </html>
+
 
 
 
