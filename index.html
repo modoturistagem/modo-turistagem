@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Modo Turistagem | Consultoria de Viagens Personalizada</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" />
 
     <style>
-        /* Estilos específicos da home */
+        /* =========================
+           HOME (ajustes específicos)
+           ========================= */
+
+        /* HERO */
         .hero {
             margin-top: 70px;
             background: linear-gradient(135deg, var(--azul-claro) 0%, var(--branco) 50%, var(--laranja-claro) 100%);
@@ -28,7 +32,7 @@
             top: -50px;
             right: -50px;
             animation: float 6s ease-in-out infinite;
-            font-family: var(--font-emoji);
+            font-family: var(--font-emoji, "Apple Color Emoji", "Segoe UI Emoji", sans-serif);
             line-height: 1;
         }
 
@@ -58,7 +62,7 @@
             font-size: 1.25rem;
             color: var(--texto);
             margin-bottom: 2rem;
-            max-width: 500px;
+            max-width: 520px;
             line-height: 1.8;
         }
 
@@ -101,33 +105,6 @@
             position: relative;
             z-index: 1;
         }
-        .social-icon-img {
-    height: 24px;
-    width: auto;
-    display: block;
-}
-        /* Roteiros Prontos — botões em 1 linha */
-.roteiros-grid .btn-plano,
-.roteiros-grid .btn-secondary {
-    white-space: nowrap;          /* não quebra linha */
-    line-height: 1;               /* mais compacto */
-    font-size: 0.95rem;           /* reduz levemente */
-    padding: 0.95rem 1.25rem;     /* ajusta altura/largura */
-}
-
-/* Ícones dos botões (se você está usando <img>) */
-.roteiros-grid .btn-plano img,
-.roteiros-grid .btn-secondary img {
-    flex: 0 0 auto;
-    height: 18px;
-    width: auto;
-}
-
-/* Container dos botões: deixa alinhado e consistente */
-.roteiros-grid .roteiro-card .botoes-roteiro,
-.roteiros-grid .roteiro-card div[style*="flex-direction: column"] {
-    gap: 0.6rem !important;
-}
 
         /* Manifesto */
         .manifesto {
@@ -188,20 +165,20 @@
         }
 
         .plano-card.destaque::before {
-    content: '⭐ MAIS POPULAR';
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: var(--laranja);
-    color: var(--branco);
-    padding: 0.55rem 0.9rem;
-    font-size: 0.8rem;
-    font-weight: 700;
-    border-radius: 12px;
-    font-family: 'Neulis Sans', sans-serif !important;
-    z-index: 2;
-    line-height: 1;
-}
+            content: '⭐ MAIS POPULAR';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--laranja);
+            color: var(--branco);
+            padding: 0.55rem 0.9rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border-radius: 12px;
+            font-family: 'Neulis Sans', sans-serif !important;
+            z-index: 2;
+            line-height: 1;
+        }
 
         .plano-header {
             margin-bottom: 1.5rem;
@@ -212,6 +189,7 @@
             margin-bottom: 0.5rem;
             display: inline-flex;
             line-height: 1;
+            font-family: var(--font-emoji, "Apple Color Emoji", "Segoe UI Emoji", sans-serif);
         }
 
         .plano-card h3 {
@@ -256,6 +234,43 @@
             font-family: 'Neulis Sans', sans-serif !important;
         }
 
+        .plano-precos-duplos {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .preco-box {
+            background: var(--azul-claro);
+            padding: 1rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .preco-box .preco-label {
+            font-size: 0.8rem;
+            color: var(--azul);
+            font-weight: 700;
+            margin-bottom: 0.35rem;
+            font-family: 'Neulis Sans', sans-serif !important;
+        }
+
+        .preco-box .preco-valor {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--azul);
+            font-family: 'Neulis Cursive', cursive !important;
+            line-height: 1.1;
+        }
+
+        .preco-box .preco-descricao {
+            font-size: 0.8rem;
+            color: var(--texto);
+            margin-top: 0.35rem;
+            font-family: 'Neulis Sans', sans-serif !important;
+        }
+
         .plano-features {
             list-style: none;
             margin-bottom: 2rem;
@@ -283,42 +298,6 @@
             color: var(--azul);
             font-weight: 700;
         }
-        .plano-precos-duplos {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.8rem;
-    margin-bottom: 1.5rem;
-}
-
-.preco-box {
-    background: var(--azul-claro);
-    padding: 1rem;
-    border-radius: 15px;
-    text-align: center;
-}
-
-.preco-box .preco-label {
-    font-size: 0.8rem;
-    color: var(--azul);
-    font-weight: 700;
-    margin-bottom: 0.35rem;
-    font-family: 'Neulis Sans', sans-serif !important;
-}
-
-.preco-box .preco-valor {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--azul);
-    font-family: 'Neulis Cursive', cursive !important;
-    line-height: 1.1;
-}
-
-.preco-box .preco-descricao {
-    font-size: 0.8rem;
-    color: var(--texto);
-    margin-top: 0.35rem;
-    font-family: 'Neulis Sans', sans-serif !important;
-}
 
         .btn-plano {
             width: 100%;
@@ -359,7 +338,7 @@
             font-family: 'Neulis Sans', sans-serif !important;
         }
 
-        /* Regras */
+        /* REGRAS (aumentar largura) */
         .regras {
             background: var(--azul);
             color: var(--branco);
@@ -375,40 +354,36 @@
         }
 
         .regras-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* centraliza a última linha */
-    gap: 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
-}
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 1200px; /* mais largo */
+            margin: 0 auto;
+        }
 
-.regra-card {
-    flex: 0 1 300px; /* mesma largura mínima que você usava no grid */
+        .regra-card {
+            flex: 0 1 420px; /* MAIS LARGO */
             background: rgba(255,255,255,0.1);
-            padding: 1.8rem;
-            border-radius: 15px;
+            padding: 2rem; /* levemente maior */
+            border-radius: 18px;
             backdrop-filter: blur(10px);
         }
 
         .regra-card h4 {
             color: var(--laranja);
             margin-bottom: 1rem;
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             font-family: 'Neulis Cursive', cursive !important;
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
 
-        .regra-card h4 .emoji {
-            font-size: 24px;
-        }
-
         .regra-card p,
         .regra-card ul {
-            font-size: 0.95rem;
-            line-height: 1.7;
+            font-size: 0.98rem;
+            line-height: 1.75;
             opacity: 0.95;
             font-family: 'Neulis Sans', sans-serif !important;
         }
@@ -445,158 +420,142 @@
             font-family: 'Neulis Sans', sans-serif !important;
         }
 
-        /* Conexão */
-        .conexao {
-            background: var(--laranja-claro);
-            padding: 4rem 2rem;
-        }
-
-        .conexao-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .conexao-content h2 {
-            font-size: 2.2rem;
-            color: var(--azul);
-            margin-bottom: 1rem;
-            font-family: 'Neulis Cursive', cursive !important;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .conexao-content h2 .emoji {
-            font-size: 32px;
-        }
-
-        .conexao-content p {
-            margin-bottom: 1.5rem;
-            color: var(--texto);
-            line-height: 1.8;
-            font-family: 'Neulis Sans', sans-serif !important;
-        }
-
-        .conexao-precos {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .conexao-card {
-            background: var(--branco);
-            padding: 1.5rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            flex: 1;
-            min-width: 200px;
-            text-align: center;
-        }
-
-        .conexao-card h4 {
-            color: var(--azul);
-            margin-bottom: 0.5rem;
-            font-family: 'Neulis Cursive', cursive !important;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-
-        .conexao-card h4 .emoji {
-            font-size: 20px;
-        }
-
-        .conexao-card .preco {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--laranja);
-            font-family: 'Neulis Cursive', cursive !important;
-        }
-
-        .conexao-visual {
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .conexao-visual .emoji {
-            font-size: 80px;
-        }
-
-        .btn-whatsapp {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: #25D366;
-            color: var(--branco);
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1rem;
-            margin-top: 1.5rem;
-            transition: all 0.3s;
-            font-family: 'Neulis Sans', sans-serif !important;
-        }
-
-        .btn-whatsapp:hover {
-            background: #128C7E;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
-        }
-
-        /* Roteiros Prontos */
+        /* Roteiros Prontos (aumentar tamanho dos cards) */
         .roteiros {
             background: var(--branco);
             padding: 4rem 2rem;
         }
 
         .roteiros-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* centraliza a última linha */
-    gap: 1.5rem;
-    max-width: 1000px;
-    margin: 0 auto;
-}
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* centraliza última linha */
+            gap: 1.8rem;
+            max-width: 1200px; /* mais largo */
+            margin: 0 auto;
+        }
 
-.roteiro-card {
-    flex: 0 1 250px; /* mesma largura mínima que você usava no grid */
+        .roteiro-card {
+            flex: 0 1 320px; /* MAIOR */
             background: linear-gradient(135deg, var(--azul-claro), var(--branco));
-            padding: 2rem;
-            border-radius: 20px;
+            padding: 2.25rem; /* MAIOR */
+            border-radius: 22px;
             text-align: center;
             transition: all 0.3s;
             border: 2px solid transparent;
+            box-shadow: 0 10px 30px rgba(0,51,153,0.06);
         }
 
         .roteiro-card:hover {
             transform: translateY(-5px);
             border-color: var(--laranja);
-            box-shadow: 0 10px 30px rgba(0,51,153,0.1);
+            box-shadow: 0 16px 40px rgba(0,51,153,0.12);
         }
 
         .roteiro-card h4 {
             color: var(--azul);
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
+            margin-bottom: 0.6rem;
+            font-size: 1.22rem;
             font-family: 'Neulis Cursive', cursive !important;
         }
 
         .roteiro-card .preco {
-            font-size: 2rem;
+            font-size: 2.15rem;
             color: var(--laranja);
             font-weight: 700;
             font-family: 'Neulis Cursive', cursive !important;
-            margin: 1rem 0;
+            margin: 1rem 0 0.8rem;
         }
+
+        /* Mini-card: inclusos (centralizar último no meio) */
+        .roteiro-inclusos-card {
+            background: var(--azul-claro);
+            border-radius: 20px;
+            padding: 1.8rem;
+            max-width: 1200px;
+            margin: 0 auto 2rem;
+            box-shadow: 0 10px 30px rgba(0,51,153,0.08);
+        }
+
+        .inclusos-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* último no meio */
+            gap: 0.9rem;
+        }
+
+        .inclusos-grid > div {
+            flex: 0 1 280px; /* um pouco maior */
+        }
+
+        /* Botões dos roteiros (laranja + azul) + microtexto abaixo */
+        .botoes-roteiro {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .btn-roteiro {
+            width: 100%;
+            border-radius: 50px;
+            padding: 0.95rem 1.2rem;
+            text-decoration: none;
+            font-family: 'Neulis Sans', sans-serif !important;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            transition: all 0.3s;
+            border: 3px solid transparent;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .btn-roteiro:hover { transform: translateY(-2px); }
+
+        .btn-ico {
+            height: 20px;
+            width: auto;
+            flex: 0 0 auto;
+            display: block;
+        }
+
+        .btn-mp {
+            background: var(--laranja);
+            color: var(--branco);
+            box-shadow: 0 4px 15px rgba(255,102,0,0.25);
+        }
+
+        .btn-mp:hover {
+            background: #e55a00;
+            box-shadow: 0 8px 25px rgba(255,102,0,0.35);
+        }
+
+        .btn-pix {
+            background: transparent;
+            color: var(--azul);
+            border-color: var(--azul);
+        }
+
+        .btn-pix:hover {
+            background: var(--azul);
+            color: var(--branco);
+        }
+
+        .pagamento-sub {
+            margin-top: -0.4rem;
+            font-size: 0.82rem;
+            font-weight: 400;
+            font-family: 'Neulis Sans', sans-serif !important;
+            text-align: center;
+            opacity: 0.95;
+            line-height: 1.3;
+        }
+
+        .pagamento-sub.mp { color: var(--laranja); }
+        .pagamento-sub.pix { color: var(--azul); }
 
         /* Modal */
         .modal {
@@ -647,25 +606,14 @@
             gap: 0.5rem;
         }
 
-        .modal-header h3 .emoji {
-            font-size: 28px;
-        }
-
         .modal-header p {
             font-family: 'Neulis Sans', sans-serif !important;
         }
 
-        .modal-body {
-            padding: 2rem;
-        }
+        .modal-body { padding: 2rem; }
 
-        .quiz-step {
-            display: none;
-        }
-
-        .quiz-step.active {
-            display: block;
-        }
+        .quiz-step { display: none; }
+        .quiz-step.active { display: block; }
 
         .quiz-question {
             font-size: 1.2rem;
@@ -701,10 +649,6 @@
             background: var(--laranja-claro);
         }
 
-        .quiz-option .emoji {
-            font-size: 20px;
-        }
-
         .quiz-result {
             text-align: center;
             padding: 2rem;
@@ -713,33 +657,21 @@
         .quiz-result h4 {
             color: var(--azul);
             font-size: 1.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
             font-family: 'Neulis Cursive', cursive !important;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-
-        .quiz-result h4 .emoji {
-            font-size: 24px;
         }
 
         .recomendacao {
             background: var(--laranja-claro);
-            padding: 1.5rem;
+            padding: 1.2rem 1.4rem;
             border-radius: 15px;
-            margin: 1.5rem 0;
+            margin: 1rem 0 0.9rem;
         }
 
-        .recomendacao h5 {
-            color: var(--laranja);
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            font-family: 'Neulis Cursive', cursive !important;
-        }
-
-        .recomendacao p {
+        .quiz-preco {
+            margin-top: 0.75rem;
+            font-weight: 800;
+            color: var(--azul);
             font-family: 'Neulis Sans', sans-serif !important;
         }
 
@@ -767,58 +699,42 @@
             transform: rotate(90deg);
         }
 
-        .btn-formulario {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: linear-gradient(135deg, var(--azul), #0044cc);
-            color: var(--branco);
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1rem;
-            margin-top: 1rem;
-            transition: all 0.3s;
-            font-family: 'Neulis Sans', sans-serif !important;
+        /* Footer icons */
+        .social-icon-img {
+            height: 24px;
+            width: auto;
+            display: block;
         }
 
-        .btn-formulario:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 20px rgba(0,51,153,0.4);
-        }
-
+        /* RESPONSIVO */
         @media (max-width: 768px) {
-            .hero-container,
-            .conexao-container {
+            .hero-container {
                 grid-template-columns: 1fr;
                 text-align: center;
             }
 
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
+            .hero-content h1 { font-size: 2.5rem; }
+            .hero-visual { order: -1; }
+            .hero-logo-img { width: 200px; }
+            .plano-card.destaque { transform: none; }
 
-            .hero-visual {
-                order: -1;
-            }
+            .regra-card { flex: 0 1 340px; }
+            .roteiro-card { flex: 0 1 320px; }
+        }
 
-            .hero-logo-img {
-                width: 200px;
-            }
-
-            .plano-card.destaque {
-                transform: none;
-            }
+        @media (max-width: 480px) {
+            .hero-content h1 { font-size: 2.25rem; }
+            .pagamento-sub { font-size: 0.78rem; }
         }
     </style>
 </head>
+
 <body>
     <!-- Navegação -->
     <nav>
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <img src="images/logotipo.png" alt="Modo Turistagem" class="logo-img">
+                <img src="images/logotipo.png" alt="Modo Turistagem" class="logo-img" />
             </a>
 
             <button class="mobile-menu" onclick="toggleMenu()" aria-label="Abrir menu">☰</button>
@@ -838,7 +754,7 @@
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content fade-in">
-                <h1>Viajar bem não precisa custar caro, <span>só precisa ser bem pensado.</span></h1>
+                <h1>Viajar bem não precisa custar caro,&nbsp;<span>só precisa ser bem pensado.</span></h1>
                 <p>Somos uma consultoria feita por viajantes, para viajantes. Traduzimos sonhos em planos concretos, sem enrolação e sem estresse.</p>
 
                 <div class="hero-buttons">
@@ -856,7 +772,7 @@
 
             <div class="hero-visual fade-in">
                 <div class="hero-logo-box">
-                    <img src="images/logotipo.png" alt="Modo Turistagem" class="hero-logo-img">
+                    <img src="images/logotipo.png" alt="Modo Turistagem" class="hero-logo-img" />
                 </div>
             </div>
         </div>
@@ -898,204 +814,204 @@
             </button>
         </div>
 
-       <div class="planos-grid">
-    <!-- Painel de Partidas -->
-    <div class="plano-card fade-in">
-        <div class="plano-header">
-            <span class="plano-icon emoji" aria-hidden="true">🧭</span>
-            <h3>Painel de Partidas</h3>
-            <p class="subtitle">Descubra seu destino ideal</p>
-        </div>
+        <div class="planos-grid">
+            <!-- Painel de Partidas -->
+            <div class="plano-card fade-in">
+                <div class="plano-header">
+                    <span class="plano-icon" aria-hidden="true">🧭</span>
+                    <h3>Painel de Partidas</h3>
+                    <p class="subtitle">Descubra seu destino ideal</p>
+                </div>
 
-        <div class="plano-preco">
-            <div class="preco-start">A partir de</div>
-            <div class="preco-valor">R$ 79,90</div>
-            <div class="preco-periodo">Direcionamento completo</div>
-        </div>
+                <div class="plano-preco">
+                    <div class="preco-start">A partir de</div>
+                    <div class="preco-valor">R$ 79,90</div>
+                    <div class="preco-periodo">Direcionamento completo</div>
+                </div>
 
-        <ul class="plano-features">
-            <li>Direcionamento de destinos possíveis</li>
-            <li>Sugestão de estilo de viagem</li>
-            <li>Recomendações de prioridades</li>
-            <li class="destaque-item">
-                <span class="emoji emoji-inline" aria-hidden="true">💸</span>
-                Crédito de R$ 79,90 para qualquer plano (15 dias)
-            </li>
-        </ul>
+                <ul class="plano-features">
+                    <li>Direcionamento de destinos possíveis</li>
+                    <li>Sugestão de estilo de viagem</li>
+                    <li>Recomendações de prioridades</li>
+                    <li class="destaque-item">
+                        <span class="emoji emoji-inline" aria-hidden="true">💸</span>
+                        Crédito de R$ 79,90 para qualquer plano (15 dias)
+                    </li>
+                </ul>
 
-        <a href="https://wa.me/5549999562143?text=Olá! Quero saber mais sobre o Painel de Partidas!" class="btn-plano" target="_blank" rel="noopener noreferrer">
-            Quero Esse Plano →
-        </a>
+                <a href="https://wa.me/5549999562143?text=Olá! Quero saber mais sobre o Painel de Partidas!" class="btn-plano" target="_blank" rel="noopener noreferrer">
+                    Quero Esse Plano →
+                </a>
 
-        <p class="plano-footer">Ideal para quem ainda não sabe para onde ir</p>
-    </div>
-
-    <!-- Modo Conexão -->
-    <div class="plano-card fade-in">
-        <div class="plano-header">
-            <span class="plano-icon emoji" aria-hidden="true">🔁</span>
-            <h3>Modo Conexão</h3>
-            <p class="subtitle">Layover inteligente</p>
-        </div>
-
-        <div class="plano-precos-duplos">
-            <div class="preco-box">
-                <div class="preco-label">Aeroporto</div>
-                <div class="preco-valor">R$ 59,90</div>
-                <div class="preco-descricao">Descanso e organização</div>
+                <p class="plano-footer">Ideal para quem ainda não sabe para onde ir</p>
             </div>
 
-            <div class="preco-box">
-                <div class="preco-label">Turismo na Cidade</div>
-                <div class="preco-valor">R$ 89,90</div>
-                <div class="preco-descricao">Roteiro rápido</div>
+            <!-- Modo Conexão -->
+            <div class="plano-card fade-in">
+                <div class="plano-header">
+                    <span class="plano-icon" aria-hidden="true">🔁</span>
+                    <h3>Modo Conexão</h3>
+                    <p class="subtitle">Layover inteligente</p>
+                </div>
+
+                <div class="plano-precos-duplos">
+                    <div class="preco-box">
+                        <div class="preco-label">Aeroporto</div>
+                        <div class="preco-valor">R$ 59,90</div>
+                        <div class="preco-descricao">Descanso e organização</div>
+                    </div>
+
+                    <div class="preco-box">
+                        <div class="preco-label">Turismo na Cidade</div>
+                        <div class="preco-valor">R$ 89,90</div>
+                        <div class="preco-descricao">Roteiro rápido</div>
+                    </div>
+                </div>
+
+                <ul class="plano-features">
+                    <li>Dicas para conexões e escalas</li>
+                    <li>Opção de descanso no aeroporto</li>
+                    <li>Opção de bate-volta rápido na cidade</li>
+                    <li>Planejamento seguro para não perder o voo</li>
+                </ul>
+
+                <a href="https://wa.me/5549999562143?text=Olá! Tenho interesse no Modo Conexão!" class="btn-plano" target="_blank" rel="noopener noreferrer">
+                    Quero Esse Plano →
+                </a>
+
+                <p class="plano-footer">Ideal para aproveitar a conexão sem perrengue</p>
+            </div>
+
+            <!-- Modo Partiu -->
+            <div class="plano-card fade-in">
+                <div class="plano-header">
+                    <span class="plano-icon" aria-hidden="true">🎟️</span>
+                    <h3>Modo Partiu</h3>
+                    <p class="subtitle">Já tem passagem e hospedagem?</p>
+                </div>
+
+                <div class="plano-preco">
+                    <div class="preco-start">A partir de</div>
+                    <div class="preco-valor">R$ 139,90</div>
+                    <div class="preco-periodo">até 7 dias</div>
+                </div>
+
+                <ul class="plano-features">
+                    <li>Roteiro dia a dia completo</li>
+                    <li>Como sair do aeroporto</li>
+                    <li>Locomoção entre pontos</li>
+                    <li>Dicas práticas do país</li>
+                    <li>Restaurantes com links</li>
+                    <li>2 alterações inclusas</li>
+                </ul>
+
+                <a href="https://wa.me/5549999562143?text=Olá! Tenho interesse no Modo Partiu!" class="btn-plano" target="_blank" rel="noopener noreferrer">
+                    Quero Esse Plano →
+                </a>
+
+                <p class="plano-footer">Perfeito para quem já resolveu a base da viagem</p>
+            </div>
+
+            <!-- Modo Check-in -->
+            <div class="plano-card fade-in">
+                <div class="plano-header">
+                    <span class="plano-icon" aria-hidden="true">🧳</span>
+                    <h3>Modo Check-in</h3>
+                    <p class="subtitle">Roteiro + Hospedagem</p>
+                </div>
+
+                <div class="plano-preco">
+                    <div class="preco-start">A partir de</div>
+                    <div class="preco-valor">R$ 239,90</div>
+                    <div class="preco-periodo">até 7 dias</div>
+                </div>
+
+                <ul class="plano-features">
+                    <li class="destaque-item">Tudo do Modo Partiu</li>
+                    <li>Mapa personalizado no Google Maps</li>
+                    <li>Sugestões de acomodação</li>
+                    <li>Faixas de preço e melhores bairros</li>
+                    <li>Links Booking/Airbnb</li>
+                    <li>5 alterações inclusas</li>
+                </ul>
+
+                <a href="https://wa.me/5549999562143?text=Olá! Quero o Modo Check-in!" class="btn-plano" target="_blank" rel="noopener noreferrer">
+                    Quero Esse Plano →
+                </a>
+
+                <p class="plano-footer">Ideal para quem quer roteiro e hospedagem bem alinhados</p>
+            </div>
+
+            <!-- Modo Embarque -->
+            <div class="plano-card destaque fade-in">
+                <div class="plano-header">
+                    <span class="plano-icon" aria-hidden="true">✈️</span>
+                    <h3>Modo Embarque</h3>
+                    <p class="subtitle">Estratégico e completo</p>
+                </div>
+
+                <div class="plano-preco">
+                    <div class="preco-start">A partir de</div>
+                    <div class="preco-valor">R$ 339,90</div>
+                    <div class="preco-periodo">até 7 dias</div>
+                </div>
+
+                <ul class="plano-features">
+                    <li class="destaque-item">Tudo do Check-in</li>
+                    <li>Plano B de chuva/mau tempo</li>
+                    <li>Call de alinhamento (15-20 min)</li>
+                    <li>Glossário de frases úteis</li>
+                    <li>Cotação de seguro viagem</li>
+                    <li class="destaque-item">
+                        <span class="emoji emoji-inline" aria-hidden="true">🛬</span>
+                        Conexão Aeroporto inclusa!
+                    </li>
+                    <li>7 alterações inclusas</li>
+                </ul>
+
+                <a href="https://wa.me/5549999562143?text=Olá! Me interessei pelo Modo Embarque!" class="btn-plano" target="_blank" rel="noopener noreferrer">
+                    Quero Esse Plano →
+                </a>
+
+                <p class="plano-footer">O mais completo!</p>
+            </div>
+
+            <!-- Modo VIP -->
+            <div class="plano-card fade-in">
+                <div class="plano-header">
+                    <span class="plano-icon" aria-hidden="true">💎</span>
+                    <h3>Modo VIP</h3>
+                    <p class="subtitle">Acompanhamento durante a viagem</p>
+                </div>
+
+                <div class="plano-preco">
+                    <div class="preco-start">A partir de</div>
+                    <div class="preco-valor">R$ 659,90</div>
+                    <div class="preco-periodo">até 7 dias</div>
+                </div>
+
+                <ul class="plano-features">
+                    <li class="destaque-item">✓ Tudo do Embarque</li>
+                    <li>Apresentação em call (45-60 min)</li>
+                    <li class="destaque-item">
+                        <span class="emoji emoji-inline" aria-hidden="true">💬</span>
+                        Suporte durante a viagem
+                    </li>
+                    <li>Ajuda ao vivo na compra (1h)</li>
+                    <li>Alterações ilimitadas (30 dias)</li>
+                    <li class="destaque-item">
+                        <span class="emoji emoji-inline" aria-hidden="true">🛬</span>
+                        Conexão Aeroporto & Turismo inclusos!
+                    </li>
+                </ul>
+
+                <a href="https://wa.me/5549999562143?text=Olá! Quero o Modo VIP!" class="btn-plano" target="_blank" rel="noopener noreferrer">
+                    Quero Esse Plano →
+                </a>
+
+                <p class="plano-footer">Experiência premium</p>
             </div>
         </div>
-
-        <ul class="plano-features">
-            <li>Dicas para conexões e escalas</li>
-            <li>Opção de descanso no aeroporto</li>
-            <li>Opção de bate-volta rápido na cidade</li>
-            <li>Planejamento seguro para não perder o voo</li>
-        </ul>
-
-        <a href="https://wa.me/5549999562143?text=Olá! Tenho interesse no Modo Conexão!" class="btn-plano" target="_blank" rel="noopener noreferrer">
-            Quero Esse Plano →
-        </a>
-
-        <p class="plano-footer">Ideal para aproveitar a conexão sem perrengue</p>
-    </div>
-
-    <!-- Modo Partiu -->
-    <div class="plano-card fade-in">
-        <div class="plano-header">
-            <span class="plano-icon emoji" aria-hidden="true">🎒</span>
-            <h3>Modo Partiu</h3>
-            <p class="subtitle">Já tem passagem e hospedagem?</p>
-        </div>
-
-        <div class="plano-preco">
-            <div class="preco-start">A partir de</div>
-            <div class="preco-valor">R$ 139,90</div>
-            <div class="preco-periodo">até 7 dias</div>
-        </div>
-
-        <ul class="plano-features">
-            <li>Roteiro dia a dia completo</li>
-            <li>Como sair do aeroporto</li>
-            <li>Locomoção entre pontos</li>
-            <li>Dicas práticas do país</li>
-            <li>Restaurantes com links</li>
-            <li>2 alterações inclusas</li>
-        </ul>
-
-        <a href="https://wa.me/5549999562143?text=Olá! Tenho interesse no Modo Partiu!" class="btn-plano" target="_blank" rel="noopener noreferrer">
-            Quero Esse Plano →
-        </a>
-
-        <p class="plano-footer">Perfeito para quem já resolveu a base da viagem</p>
-    </div>
-
-    <!-- Modo Check-in -->
-    <div class="plano-card fade-in">
-        <div class="plano-header">
-            <span class="plano-icon emoji" aria-hidden="true">🧳</span>
-            <h3>Modo Check-in</h3>
-            <p class="subtitle">Roteiro + Hospedagem</p>
-        </div>
-
-        <div class="plano-preco">
-            <div class="preco-start">A partir de</div>
-            <div class="preco-valor">R$ 239,90</div>
-            <div class="preco-periodo">até 7 dias</div>
-        </div>
-
-        <ul class="plano-features">
-            <li class="destaque-item">Tudo do Modo Partiu</li>
-            <li>Mapa personalizado no Google Maps</li>
-            <li>Sugestões de acomodação</li>
-            <li>Faixas de preço e melhores bairros</li>
-            <li>Links Booking/Airbnb</li>
-            <li>5 alterações inclusas</li>
-        </ul>
-
-        <a href="https://wa.me/5549999562143?text=Olá! Quero o Modo Check-in!" class="btn-plano" target="_blank" rel="noopener noreferrer">
-            Quero Esse Plano →
-        </a>
-
-        <p class="plano-footer">Ideal para quem quer roteiro e hospedagem bem alinhados</p>
-    </div>
-
-    <!-- Modo Embarque -->
-    <div class="plano-card destaque fade-in">
-        <div class="plano-header">
-            <span class="plano-icon emoji" aria-hidden="true">✈️</span>
-            <h3>Modo Embarque</h3>
-            <p class="subtitle">Estratégico e completo</p>
-        </div>
-
-        <div class="plano-preco">
-            <div class="preco-start">A partir de</div>
-            <div class="preco-valor">R$ 339,90</div>
-            <div class="preco-periodo">até 7 dias</div>
-        </div>
-
-        <ul class="plano-features">
-            <li class="destaque-item">Tudo do Check-in</li>
-            <li>Plano B de chuva/mau tempo</li>
-            <li>Call de alinhamento (15-20 min)</li>
-            <li>Glossário de frases úteis</li>
-            <li>Cotação de seguro viagem</li>
-            <li class="destaque-item">
-                <span class="emoji emoji-inline" aria-hidden="true">🛬</span>
-                Conexão Aeroporto inclusa!
-            </li>
-            <li>7 alterações inclusas</li>
-        </ul>
-
-        <a href="https://wa.me/5549999562143?text=Olá! Me interessei pelo Modo Embarque!" class="btn-plano" target="_blank" rel="noopener noreferrer">
-            Quero Esse Plano →
-        </a>
-
-        <p class="plano-footer">O mais completo!</p>
-    </div>
-
-    <!-- Modo VIP -->
-    <div class="plano-card fade-in">
-        <div class="plano-header">
-            <span class="plano-icon emoji" aria-hidden="true">💎</span>
-            <h3>Modo VIP</h3>
-            <p class="subtitle">Acompanhamento durante a viagem</p>
-        </div>
-
-        <div class="plano-preco">
-            <div class="preco-start">A partir de</div>
-            <div class="preco-valor">R$ 659,90</div>
-            <div class="preco-periodo">até 7 dias</div>
-        </div>
-
-        <ul class="plano-features">
-            <li class="destaque-item">✓ Tudo do Embarque</li>
-            <li>Apresentação em call (45-60 min)</li>
-            <li class="destaque-item">
-                <span class="emoji emoji-inline" aria-hidden="true">💬</span>
-                Suporte durante a viagem
-            </li>
-            <li>Ajuda ao vivo na compra (1h)</li>
-            <li>Alterações ilimitadas (30 dias)</li>
-            <li class="destaque-item">
-                <span class="emoji emoji-inline" aria-hidden="true">🛬</span>
-                Conexão Aeroporto & Turismo inclusos!
-            </li>
-        </ul>
-
-        <a href="https://wa.me/5549999562143?text=Olá! Quero o Modo VIP!" class="btn-plano" target="_blank" rel="noopener noreferrer">
-            Quero Esse Plano →
-        </a>
-
-        <p class="plano-footer">Experiência premium</p>
-    </div>
-</div>
     </section>
 
     <!-- Regras -->
@@ -1114,7 +1030,7 @@
                     </h4>
 
                     <p>Até <strong>4 adultos</strong> OU <strong>2 adultos + 3 crianças</strong></p>
-                    <br>
+                    <br />
                     <p>Acréscimo por pessoas extras:</p>
 
                     <ul>
@@ -1132,7 +1048,7 @@
                     </h4>
 
                     <p>Valores cobrem até <strong>2 cidades-base</strong> (com pernoite)</p>
-                    <br>
+                    <br />
                     <p>Acréscimo por cidades extras:</p>
 
                     <ul>
@@ -1142,7 +1058,7 @@
                         <li>9+: consulte orçamento</li>
                     </ul>
 
-                    <p style="margin-top: 1rem; font-size: 0.9rem;">
+                    <p style="margin-top: 1rem; font-size: 0.95rem; font-family: 'Neulis Sans', sans-serif !important;">
                         <span class="emoji emoji-inline" aria-hidden="true">✅</span>
                         Bate-volta não conta como cidade-base
                     </p>
@@ -1161,9 +1077,9 @@
                         <li><strong>Turismo na cidade:</strong> R$ 89,90</li>
                     </ul>
 
-                    <p style="margin-top: 1rem; font-size: 0.9rem;">
+                    <p style="margin-top: 1rem; font-size: 0.95rem; font-family: 'Neulis Sans', sans-serif !important;">
                         <span class="emoji emoji-inline" aria-hidden="true">✈️</span>
-                        <strong>Incluso nos planos Embarque e VIP!</strong><br>
+                        <strong>Incluso nos planos Embarque e VIP!</strong><br />
                         Add-on para outros planos: R$ 39,90 (Aeroporto) / R$ 59,90 (Cidade)
                     </p>
                 </div>
@@ -1172,734 +1088,638 @@
     </section>
 
     <!-- Roteiros Prontos -->
-<section class="roteiros">
-    <div class="container fade-in">
-        <div class="section-header">
-            <span class="section-tag">
-                <span class="emoji emoji-inline" aria-hidden="true">📚</span>
-                Produto Digital
-            </span>
+    <section class="roteiros">
+        <div class="container fade-in">
+            <div class="section-header">
+                <span class="section-tag">
+                    <span class="emoji emoji-inline" aria-hidden="true">📚</span>
+                    Produto Digital
+                </span>
 
-            <h2 style="font-family: 'Neulis Cursive', cursive !important;">Roteiros Prontos</h2>
+                <h2 style="font-family: 'Neulis Cursive', cursive !important;">Roteiros Prontos</h2>
 
-            <p style="font-family: 'Neulis Sans', sans-serif !important;">
-                Quer um roteiro pronto, mais barato e imediato? Baixe agora!
-            </p>
+                <p style="font-family: 'Neulis Sans', sans-serif !important;">
+                    Quer um roteiro pronto, mais barato e imediato? Baixe agora!
+                </p>
 
-            <p style="font-family: 'Neulis Sans', sans-serif !important; margin-top: 0.6rem; font-size: 1rem; opacity: 0.9;">
-                Entrega imediata + links confiáveis + roteiro dia a dia + dicas essenciais.
-            </p>
-        </div>
+                <p style="font-family: 'Neulis Sans', sans-serif !important; margin-top: 0.6rem; font-size: 1rem; opacity: 0.9;">
+                    Entrega imediata + links confiáveis + roteiro dia a dia + dicas essenciais.
+                </p>
+            </div>
 
-        <!-- Mini-card: O que está incluso -->
-        <div class="roteiro-inclusos-card" style="background: var(--azul-claro); border-radius: 20px; padding: 1.8rem; max-width: 1000px; margin: 0 auto 2rem; box-shadow: 0 10px 30px rgba(0,51,153,0.08);">
-            <h3 style="font-family: 'Neulis Cursive', cursive !important; color: var(--azul); font-size: 1.6rem; margin-bottom: 1rem; text-align: center;">
-                O que está incluso em cada Roteiro Pronto
-            </h3>
+            <!-- Mini-card: O que está incluso -->
+            <div class="roteiro-inclusos-card">
+                <h3 style="font-family: 'Neulis Cursive', cursive !important; color: var(--azul); font-size: 1.6rem; margin-bottom: 1rem; text-align: center;">
+                    O que está incluso em cada Roteiro Pronto
+                </h3>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.9rem;">
-                <div style="background: var(--branco); border-radius: 16px; padding: 1rem; box-shadow: 0 6px 18px rgba(0,0,0,0.06);">
-                    <strong style="font-family: 'Neulis Sans', sans-serif !important;">🗓️ Roteiro dia a dia</strong>
-                    <p style="margin-top: 0.4rem; font-family: 'Neulis Sans', sans-serif !important; opacity: 0.9;">
-                        Bem organizadinho e fácil de seguir.
+                <div class="inclusos-grid">
+                    <div style="background: var(--branco); border-radius: 16px; padding: 1rem; box-shadow: 0 6px 18px rgba(0,0,0,0.06);">
+                        <strong style="font-family: 'Neulis Sans', sans-serif !important;">🗓️ Roteiro dia a dia</strong>
+                        <p style="margin-top: 0.4rem; font-family: 'Neulis Sans', sans-serif !important; opacity: 0.9;">
+                            Bem organizadinho e fácil de seguir.
+                        </p>
+                    </div>
+
+                    <div style="background: var(--branco); border-radius: 16px; padding: 1rem; box-shadow: 0 6px 18px rgba(0,0,0,0.06);">
+                        <strong style="font-family: 'Neulis Sans', sans-serif !important;">🍽️ Sugestões de restaurantes</strong>
+                        <p style="margin-top: 0.4rem; font-family: 'Neulis Sans', sans-serif !important; opacity: 0.9;">
+                            Opções por região/estilo, com links.
+                        </p>
+                    </div>
+
+                    <div style="background: var(--branco); border-radius: 16px; padding: 1rem; box-shadow: 0 6px 18px rgba(0,0,0,0.06);">
+                        <strong style="font-family: 'Neulis Sans', sans-serif !important;">🏨 Sugestões de hospedagem</strong>
+                        <p style="margin-top: 0.4rem; font-family: 'Neulis Sans', sans-serif !important; opacity: 0.9;">
+                            Bairros recomendados + opções.
+                        </p>
+                    </div>
+
+                    <div style="background: var(--branco); border-radius: 16px; padding: 1rem; box-shadow: 0 6px 18px rgba(0,0,0,0.06);">
+                        <strong style="font-family: 'Neulis Sans', sans-serif !important;">🔗 Sites confiáveis</strong>
+                        <p style="margin-top: 0.4rem; font-family: 'Neulis Sans', sans-serif !important; opacity: 0.9;">
+                            Para passagens, hospedagem e passeios (links diretos).
+                        </p>
+                    </div>
+
+                    <div style="background: var(--branco); border-radius: 16px; padding: 1rem; box-shadow: 0 6px 18px rgba(0,0,0,0.06);">
+                        <strong style="font-family: 'Neulis Sans', sans-serif !important;">🧭 Infos essenciais do destino</strong>
+                        <p style="margin-top: 0.4rem; font-family: 'Neulis Sans', sans-serif !important; opacity: 0.9;">
+                            Moeda, internet/telefone, tomada, documentação, segurança e costumes.
+                        </p>
+                    </div>
+
+                    <div style="background: var(--branco); border-radius: 16px; padding: 1rem; box-shadow: 0 6px 18px rgba(0,0,0,0.06);">
+                        <strong style="font-family: 'Neulis Sans', sans-serif !important;">🚇 Dicas de transporte</strong>
+                        <p style="margin-top: 0.4rem; font-family: 'Neulis Sans', sans-serif !important; opacity: 0.9;">
+                            Como se locomover, cartões/apps úteis, como economizar.
+                        </p>
+                    </div>
+
+                    <div style="background: var(--branco); border-radius: 16px; padding: 1rem; box-shadow: 0 6px 18px rgba(0,0,0,0.06);">
+                        <strong style="font-family: 'Neulis Sans', sans-serif !important;">📌 Checklist de viagem</strong>
+                        <p style="margin-top: 0.4rem; font-family: 'Neulis Sans', sans-serif !important; opacity: 0.9;">
+                            Pra você não esquecer nada importante.
+                        </p>
+                    </div>
+                </div>
+
+                <p style="margin-top: 1.2rem; text-align: center; font-size: 0.95rem; color: #555; font-style: italic; font-family: 'Neulis Sans', sans-serif !important;">
+                    ⚠️ Dias de voo/traslado não estão contabilizados.
+                </p>
+            </div>
+
+            <!-- Cards dos roteiros -->
+            <div class="roteiros-grid">
+                <div class="roteiro-card">
+                    <h4>🏔️ Andes na Janela: 5 Dias em Santiago (Inverno)</h4>
+                    <div class="preco">R$ 49,90</div>
+
+                    <div class="botoes-roteiro">
+                        <a href="https://mpago.la/2eRhVqN" target="_blank" rel="noopener" class="btn-roteiro btn-mp">
+                            <img src="images/icons/mercadopago.png" alt="Mercado Pago" class="btn-ico">
+                            Comprar
+                        </a>
+                        <div class="pagamento-sub mp">Pix • Cartão à vista • Parcelado (com taxas)</div>
+
+                        <a href="https://wa.me/554999562143?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%205%20dias%20%E2%80%94%20Santiago%20(Inverno)%20via%20Pix.%20%F0%9F%98%8A%20Pode%20me%20enviar%20a%20chave%20e%20o%20valor%3F"
+                           target="_blank" rel="noopener noreferrer" class="btn-roteiro btn-pix">
+                            <img src="images/icons/whatsapp-logo.png" alt="WhatsApp" class="btn-ico">
+                            Comprar via Pix
+                        </a>
+                        <div class="pagamento-sub pix">Pix via WhatsApp</div>
+                    </div>
+
+                    <p style="margin-top: 0.95rem; font-size: 0.86rem; color: #666; font-family: 'Neulis Sans', sans-serif !important;">
+                        ⏱ Entrega do PDF: até 30 min após confirmação do pagamento.
                     </p>
                 </div>
 
-                <div style="background: var(--branco); border-radius: 16px; padding: 1rem; box-shadow: 0 6px 18px rgba(0,0,0,0.06);">
-                    <strong style="font-family: 'Neulis Sans', sans-serif !important;">🍽️ Sugestões de restaurantes</strong>
-                    <p style="margin-top: 0.4rem; font-family: 'Neulis Sans', sans-serif !important; opacity: 0.9;">
-                        Opções por região/estilo, com links.
+                <div class="roteiro-card">
+                    <h4>🚢 Rota do Prata: 7 dias em Cruzeiro Argentina + Uruguai</h4>
+                    <div class="preco">R$ 49,90</div>
+
+                    <div class="botoes-roteiro">
+                        <a href="https://mpago.la/1monhF9" target="_blank" rel="noopener" class="btn-roteiro btn-mp">
+                            <img src="images/icons/mercadopago.png" alt="Mercado Pago" class="btn-ico">
+                            Comprar
+                        </a>
+                        <div class="pagamento-sub mp">Pix • Cartão à vista • Parcelado (com taxas)</div>
+
+                        <a href="https://wa.me/554999562143?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%20Rota%20do%20Prata%20%E2%80%94%207%20dias%20(Cruzeiro%20Argentina%20%2B%20Uruguai)%20via%20Pix.%20%F0%9F%98%8A%20Pode%20me%20enviar%20a%20chave%20e%20o%20valor%3F"
+                           target="_blank" rel="noopener noreferrer" class="btn-roteiro btn-pix">
+                            <img src="images/icons/whatsapp-logo.png" alt="WhatsApp" class="btn-ico">
+                            Comprar via Pix
+                        </a>
+                        <div class="pagamento-sub pix">Pix via WhatsApp</div>
+                    </div>
+
+                    <p style="margin-top: 0.95rem; font-size: 0.86rem; color: #666; font-family: 'Neulis Sans', sans-serif !important;">
+                        ⏱ Entrega do PDF: até 30 min após confirmação do pagamento.
                     </p>
                 </div>
 
-                <div style="background: var(--branco); border-radius: 16px; padding: 1rem; box-shadow: 0 6px 18px rgba(0,0,0,0.06);">
-                    <strong style="font-family: 'Neulis Sans', sans-serif !important;">🏨 Sugestões de hospedagem</strong>
-                    <p style="margin-top: 0.4rem; font-family: 'Neulis Sans', sans-serif !important; opacity: 0.9;">
-                        Bairros recomendados + opções.
+                <div class="roteiro-card">
+                    <h4>Orlando Mágico: 15 Dias de Parques & Compras</h4>
+                    <div class="preco">R$ 79,90</div>
+
+                    <div class="botoes-roteiro">
+                        <a href="https://mpago.la/2TjCW5o" target="_blank" rel="noopener" class="btn-roteiro btn-mp">
+                            <img src="images/icons/mercadopago.png" alt="Mercado Pago" class="btn-ico">
+                            Comprar
+                        </a>
+                        <div class="pagamento-sub mp">Pix • Cartão à vista • Parcelado (com taxas)</div>
+
+                        <a href="https://wa.me/554999562143?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%20Orlando%20M%C3%A1gico%20%E2%80%94%2015%20dias%20de%20Parques%20%26%20Compras%20via%20Pix.%20%F0%9F%98%8A%20Pode%20me%20enviar%20a%20chave%20e%20o%20valor%3F"
+                           target="_blank" rel="noopener noreferrer" class="btn-roteiro btn-pix">
+                            <img src="images/icons/whatsapp-logo.png" alt="WhatsApp" class="btn-ico">
+                            Comprar via Pix
+                        </a>
+                        <div class="pagamento-sub pix">Pix via WhatsApp</div>
+                    </div>
+
+                    <p style="margin-top: 0.95rem; font-size: 0.86rem; color: #666; font-family: 'Neulis Sans', sans-serif !important;">
+                        ⏱ Entrega do PDF: até 30 min após confirmação do pagamento.
                     </p>
                 </div>
 
-                <div style="background: var(--branco); border-radius: 16px; padding: 1rem; box-shadow: 0 6px 18px rgba(0,0,0,0.06);">
-                    <strong style="font-family: 'Neulis Sans', sans-serif !important;">🔗 Sites confiáveis</strong>
-                    <p style="margin-top: 0.4rem; font-family: 'Neulis Sans', sans-serif !important; opacity: 0.9;">
-                        Para passagens, hospedagem e passeios (links diretos).
-                    </p>
-                </div>
+                <div class="roteiro-card">
+                    <h4>⛩️ Do Templo ao Izakaya: Japão em 20 Dias</h4>
+                    <div class="preco">R$ 99,90</div>
 
-                <div style="background: var(--branco); border-radius: 16px; padding: 1rem; box-shadow: 0 6px 18px rgba(0,0,0,0.06);">
-                    <strong style="font-family: 'Neulis Sans', sans-serif !important;">🧭 Infos essenciais do destino</strong>
-                    <p style="margin-top: 0.4rem; font-family: 'Neulis Sans', sans-serif !important; opacity: 0.9;">
-                        Moeda, internet/telefone, tomada, documentação, segurança e costumes.
-                    </p>
-                </div>
+                    <div class="botoes-roteiro">
+                        <a href="https://mpago.la/1BroPmr" target="_blank" rel="noopener" class="btn-roteiro btn-mp">
+                            <img src="images/icons/mercadopago.png" alt="Mercado Pago" class="btn-ico">
+                            Comprar
+                        </a>
+                        <div class="pagamento-sub mp">Pix • Cartão à vista • Parcelado (com taxas)</div>
 
-                <div style="background: var(--branco); border-radius: 16px; padding: 1rem; box-shadow: 0 6px 18px rgba(0,0,0,0.06);">
-                    <strong style="font-family: 'Neulis Sans', sans-serif !important;">🚇 Dicas de transporte</strong>
-                    <p style="margin-top: 0.4rem; font-family: 'Neulis Sans', sans-serif !important; opacity: 0.9;">
-                        Como se locomover, cartões/apps úteis, como economizar.
-                    </p>
-                </div>
+                        <a href="https://wa.me/554999562143?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%20Do%20Templo%20ao%20Izakaya%20%E2%80%94%20Jap%C3%A3o%20em%2020%20dias%20via%20Pix.%20%F0%9F%98%8A%20Pode%20me%20enviar%20a%20chave%20e%20o%20valor%3F"
+                           target="_blank" rel="noopener noreferrer" class="btn-roteiro btn-pix">
+                            <img src="images/icons/whatsapp-logo.png" alt="WhatsApp" class="btn-ico">
+                            Comprar via Pix
+                        </a>
+                        <div class="pagamento-sub pix">Pix via WhatsApp</div>
+                    </div>
 
-                <div style="background: var(--branco); border-radius: 16px; padding: 1rem; box-shadow: 0 6px 18px rgba(0,0,0,0.06);">
-                    <strong style="font-family: 'Neulis Sans', sans-serif !important;">📌 Checklist de viagem</strong>
-                    <p style="margin-top: 0.4rem; font-family: 'Neulis Sans', sans-serif !important; opacity: 0.9;">
-                        Pra você não esquecer nada importante.
+                    <p style="margin-top: 0.95rem; font-size: 0.86rem; color: #666; font-family: 'Neulis Sans', sans-serif !important;">
+                        ⏱ Entrega do PDF: até 30 min após confirmação do pagamento.
                     </p>
                 </div>
             </div>
-
-            <p style="margin-top: 1.2rem; text-align: center; font-size: 0.95rem; color: #555; font-style: italic; font-family: 'Neulis Sans', sans-serif !important;">
-                ⚠️ Dias de voo/traslado não estão contabilizados.
-            </p>
         </div>
-
-     <!-- Cards dos roteiros -->
-<div class="roteiros-grid">
-    <!-- Santiago -->
-    <div class="roteiro-card">
-        <h4>🏔️ 5 dias — Santiago (Inverno)</h4>
-        <div class="preco">R$ 49,90</div>
-
-        <div class="botoes-roteiro">
-            <a href="https://mpago.la/2eRhVqN" target="_blank" rel="noopener" class="btn-roteiro btn-mp">
-                <img src="/images/icons/mercadopago.png" alt="Mercado Pago" class="btn-ico">
-                Comprar
-            </a>
-            <div class="pagamento-sub mp">Pix • Cartão à vista • Parcelado (com taxas)</div>
-
-            <a href="https://wa.me/554999562143?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%205%20dias%20%E2%80%94%20Santiago%20(Inverno)%20via%20Pix.%20%F0%9F%98%8A%20Pode%20me%20enviar%20a%20chave%20e%20o%20valor%3F"
-               target="_blank" rel="noopener noreferrer"
-               class="btn-roteiro btn-pix">
-                <img src="/images/icons/whatsapp.png" alt="WhatsApp" class="btn-ico">
-                Comprar via Pix
-            </a>
-            <div class="pagamento-sub pix">Pix via WhatsApp</div>
-        </div>
-
-        <p style="margin-top: 0.9rem; font-size: 0.85rem; color: #666; font-family: 'Neulis Sans', sans-serif !important;">
-            ⏱ Entrega do PDF: até 30 min após confirmação do pagamento.
-        </p>
-    </div>
-
-    <!-- Cruzeiro -->
-    <div class="roteiro-card">
-        <h4>🚢 Rota do Prata — 7 dias (Cruzeiro Argentina + Uruguai)</h4>
-        <div class="preco">R$ 49,90</div>
-
-        <div class="botoes-roteiro">
-            <a href="https://mpago.la/1monhF9" target="_blank" rel="noopener" class="btn-roteiro btn-mp">
-                <img src="/images/icons/mercadopago.png" alt="Mercado Pago" class="btn-ico">
-                Comprar
-            </a>
-            <div class="pagamento-sub mp">Pix • Cartão à vista • Parcelado (com taxas)</div>
-
-            <a href="https://wa.me/554999562143?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%20Rota%20do%20Prata%20%E2%80%94%207%20dias%20(Cruzeiro%20Argentina%20%2B%20Uruguai)%20via%20Pix.%20%F0%9F%98%8A%20Pode%20me%20enviar%20a%20chave%20e%20o%20valor%3F"
-               target="_blank" rel="noopener noreferrer"
-               class="btn-roteiro btn-pix">
-                <img src="/images/icons/whatsapp.png" alt="WhatsApp" class="btn-ico">
-                Comprar via Pix
-            </a>
-            <div class="pagamento-sub pix">Pix via WhatsApp</div>
-        </div>
-
-        <p style="margin-top: 0.9rem; font-size: 0.85rem; color: #666; font-family: 'Neulis Sans', sans-serif !important;">
-            ⏱ Entrega do PDF: até 30 min após confirmação do pagamento.
-        </p>
-    </div>
-
-    <!-- Disney -->
-    <div class="roteiro-card">
-        <h4>✨ Orlando Mágico — 15 dias de Parques & Compras</h4>
-        <div class="preco">R$ 79,90</div>
-
-        <div class="botoes-roteiro">
-            <a href="https://mpago.la/2TjCW5o" target="_blank" rel="noopener" class="btn-roteiro btn-mp">
-                <img src="/images/icons/mercadopago.png" alt="Mercado Pago" class="btn-ico">
-                Comprar
-            </a>
-            <div class="pagamento-sub mp">Pix • Cartão à vista • Parcelado (com taxas)</div>
-
-            <a href="https://wa.me/554999562143?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%20Orlando%20M%C3%A1gico%20%E2%80%94%2015%20dias%20de%20Parques%20%26%20Compras%20via%20Pix.%20%F0%9F%98%8A%20Pode%20me%20enviar%20a%20chave%20e%20o%20valor%3F"
-               target="_blank" rel="noopener noreferrer"
-               class="btn-roteiro btn-pix">
-                <img src="/images/icons/whatsapp.png" alt="WhatsApp" class="btn-ico">
-                Comprar via Pix
-            </a>
-            <div class="pagamento-sub pix">Pix via WhatsApp</div>
-        </div>
-
-        <p style="margin-top: 0.9rem; font-size: 0.85rem; color: #666; font-family: 'Neulis Sans', sans-serif !important;">
-            ⏱ Entrega do PDF: até 30 min após confirmação do pagamento.
-        </p>
-    </div>
-
-    <!-- Japão -->
-    <div class="roteiro-card">
-        <h4>⛩️ Do Templo ao Izakaya — Japão em 20 dias</h4>
-        <div class="preco">R$ 99,90</div>
-
-        <div class="botoes-roteiro">
-            <a href="https://mpago.la/1BroPmr" target="_blank" rel="noopener" class="btn-roteiro btn-mp">
-                <img src="/images/icons/mercadopago.png" alt="Mercado Pago" class="btn-ico">
-                Comprar
-            </a>
-            <div class="pagamento-sub mp">Pix • Cartão à vista • Parcelado (com taxas)</div>
-
-            <a href="https://wa.me/554999562143?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%20Do%20Templo%20ao%20Izakaya%20%E2%80%94%20Jap%C3%A3o%20em%2020%20dias%20via%20Pix.%20%F0%9F%98%8A%20Pode%20me%20enviar%20a%20chave%20e%20o%20valor%3F"
-               target="_blank" rel="noopener noreferrer"
-               class="btn-roteiro btn-pix">
-                <img src="/images/icons/whatsapp.png" alt="WhatsApp" class="btn-ico">
-                Comprar via Pix
-            </a>
-            <div class="pagamento-sub pix">Pix via WhatsApp</div>
-        </div>
-
-        <p style="margin-top: 0.9rem; font-size: 0.85rem; color: #666; font-family: 'Neulis Sans', sans-serif !important;">
-            ⏱ Entrega do PDF: até 30 min após confirmação do pagamento.
-        </p>
-    </div>
-</div>
+    </section>
 
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <img src="images/LOGOTIPO%20branco.png" alt="Modo Turistagem" class="footer-logo">
+            <img src="images/LOGOTIPO%20branco.png" alt="Modo Turistagem" class="footer-logo" />
 
             <p class="footer-text">
                 Consultoria de viagens feita por quem realmente viaja.
-                <span class="emoji emoji-inline" aria-hidden="true">🌎</span><br>
+                <span class="emoji emoji-inline" aria-hidden="true">🌎</span><br />
                 Traduzindo sonhos em planos concretos desde 2024.
             </p>
 
             <div class="social-links">
-    <a href="https://instagram.com/modoturistagem" target="_blank" rel="noopener noreferrer" title="Instagram" aria-label="Instagram">
-        <img src="images/icons/instagram.png" alt="Instagram" class="social-icon-img">
-    </a>
+                <a href="https://instagram.com/modoturistagem" target="_blank" rel="noopener noreferrer" title="Instagram" aria-label="Instagram">
+                    <img src="images/icons/instagram.png" alt="Instagram" class="social-icon-img" />
+                </a>
 
-    <a href="https://wa.me/554999562143" target="_blank" rel="noopener noreferrer" title="WhatsApp" aria-label="WhatsApp">
-        <img src="images/icons/whatsapp.png" alt="WhatsApp" class="social-icon-img">
-    </a>
+                <a href="https://wa.me/554999562143" target="_blank" rel="noopener noreferrer" title="WhatsApp" aria-label="WhatsApp">
+                    <img src="images/icons/whatsapp.png" alt="WhatsApp" class="social-icon-img" />
+                </a>
 
-    <a href="mailto:modoturistagem@gmail.com" title="E-mail" aria-label="E-mail">
-        <img src="images/icons/email.png" alt="E-mail" class="social-icon-img">
-    </a>
-</div>
+                <a href="mailto:modoturistagem@gmail.com" title="E-mail" aria-label="E-mail">
+                    <img src="images/icons/email.png" alt="E-mail" class="social-icon-img" />
+                </a>
+            </div>
 
             <div class="footer-bottom">
                 <p>© 2024 Modo Turistagem. Todos os direitos reservados.</p>
-                <p style="margin-top: 0.5rem; font-size: 0.8rem;">
-                    Roteiros feitos por viajantes, para viajantes
-                    <span class="emoji emoji-inline" aria-hidden="true">💙</span>
+                <p style="margin-top: 0.5rem; font-size: 0.85rem; font-family: 'Neulis Sans', sans-serif !important;">
+                    Roteiros feitos por viajantes, para viajantes <span class="emoji emoji-inline" aria-hidden="true">💙</span>
                 </p>
             </div>
         </div>
     </footer>
 
-    <!-- Modal -->
-<div class="modal" id="helpModal">
-    <div class="modal-content">
-        <button class="close-modal" onclick="closeModal()" aria-label="Fechar modal">×</button>
+    <!-- Modal (Quiz) -->
+    <div class="modal" id="helpModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()" aria-label="Fechar modal">×</button>
 
-        <div class="modal-header">
-            <h3>
-                <span class="emoji" aria-hidden="true">🎯</span>
-                Descubra Seu Plano Ideal
-            </h3>
-            <p>Responda algumas perguntas rápidas</p>
-        </div>
-
-        <div class="modal-body">
-            <!-- Passo 1 -->
-            <div class="quiz-step active" id="step1">
-                <p class="quiz-question">1. Você já sabe pra onde vai?</p>
-
-                <div class="quiz-options">
-                    <button class="quiz-option" onclick="nextStep(1, 'q1a')">
-                        <span class="emoji" aria-hidden="true">✅</span>
-                        Sim, destino definido
-                    </button>
-
-                    <button class="quiz-option" onclick="nextStep(1, 'q1b')">
-                        <span class="emoji" aria-hidden="true">🧭</span>
-                        Ainda não sei
-                    </button>
-                </div>
+            <div class="modal-header">
+                <h3>
+                    <span class="emoji" aria-hidden="true">🎯</span>
+                    Descubra Seu Plano Ideal
+                </h3>
+                <p>Responda algumas perguntas rápidas</p>
             </div>
 
-            <!-- Passo 2 -->
-            <div class="quiz-step" id="step2">
-                <p class="quiz-question">2. Já comprou alguma coisa?</p>
+            <div class="modal-body">
+                <!-- Passo 1 -->
+                <div class="quiz-step active" id="step1">
+                    <p class="quiz-question">1. Você já sabe pra onde vai?</p>
 
-                <div class="quiz-options">
-                    <button class="quiz-option" onclick="nextStep(2, 'q2a')">
-                        <span class="emoji" aria-hidden="true">❌</span>
-                        Não
-                    </button>
+                    <div class="quiz-options">
+                        <button class="quiz-option" onclick="nextStep(1, 'q1a')">
+                            <span class="emoji" aria-hidden="true">✅</span>
+                            Sim, destino definido
+                        </button>
 
-                    <button class="quiz-option" onclick="nextStep(2, 'q2b')">
-                        <span class="emoji" aria-hidden="true">✈️</span>
-                        Sim, as passagens
-                    </button>
-
-                    <button class="quiz-option" onclick="nextStep(2, 'q2c')">
-                        <span class="emoji" aria-hidden="true">🏨</span>
-                        Sim, a hospedagem
-                    </button>
-
-                    <button class="quiz-option" onclick="nextStep(2, 'q2d')">
-                        <span class="emoji" aria-hidden="true">✅</span>
-                        Sim, passagem e hospedagem
-                    </button>
+                        <button class="quiz-option" onclick="nextStep(1, 'q1b')">
+                            <span class="emoji" aria-hidden="true">🧭</span>
+                            Ainda não sei
+                        </button>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Passo 3 -->
-            <div class="quiz-step" id="step3">
-                <p class="quiz-question">3. Você tem interesse em seguro de viagem?</p>
+                <!-- Passo 2 -->
+                <div class="quiz-step" id="step2">
+                    <p class="quiz-question">2. Já comprou alguma coisa?</p>
 
-                <div class="quiz-options">
-                    <button class="quiz-option" onclick="nextStep(3, 'q3a')">
-                        <span class="emoji" aria-hidden="true">🛡️</span>
-                        Sim
-                    </button>
+                    <div class="quiz-options">
+                        <button class="quiz-option" onclick="nextStep(2, 'q2a')">
+                            <span class="emoji" aria-hidden="true">❌</span>
+                            Não
+                        </button>
 
-                    <button class="quiz-option" onclick="nextStep(3, 'q3b')">
-                        <span class="emoji" aria-hidden="true">🙅‍♀️</span>
-                        Não
-                    </button>
+                        <button class="quiz-option" onclick="nextStep(2, 'q2b')">
+                            <span class="emoji" aria-hidden="true">✈️</span>
+                            Sim, as passagens
+                        </button>
+
+                        <button class="quiz-option" onclick="nextStep(2, 'q2c')">
+                            <span class="emoji" aria-hidden="true">🏨</span>
+                            Sim, a hospedagem
+                        </button>
+
+                        <button class="quiz-option" onclick="nextStep(2, 'q2d')">
+                            <span class="emoji" aria-hidden="true">✅</span>
+                            Sim, passagem e hospedagem
+                        </button>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Passo 4 -->
-            <div class="quiz-step" id="step4">
-                <p class="quiz-question">4. Que tipo de ajuda você precisa?</p>
+                <!-- Passo 3 -->
+                <div class="quiz-step" id="step3">
+                    <p class="quiz-question">3. Você tem interesse em seguro de viagem?</p>
 
-                <div class="quiz-options">
-                    <button class="quiz-option" onclick="nextStep(4, 'q4a')">
-                        <span class="emoji" aria-hidden="true">💎</span>
-                        Suporte durante a viagem
-                    </button>
+                    <div class="quiz-options">
+                        <button class="quiz-option" onclick="nextStep(3, 'q3a')">
+                            <span class="emoji" aria-hidden="true">🛡️</span>
+                            Sim
+                        </button>
 
-                    <button class="quiz-option" onclick="nextStep(4, 'q4b')">
-                        <span class="emoji" aria-hidden="true">📝</span>
-                        Só um roteiro mesmo
-                    </button>
-
-                    <button class="quiz-option" onclick="nextStep(4, 'q4c')">
-                        <span class="emoji" aria-hidden="true">🗺️</span>
-                        Um mapa personalizado no Google Maps
-                    </button>
+                        <button class="quiz-option" onclick="nextStep(3, 'q3b')">
+                            <span class="emoji" aria-hidden="true">🙅‍♀️</span>
+                            Não
+                        </button>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Passo 5 -->
-            <div class="quiz-step" id="step5">
-                <p class="quiz-question">5. O que é mais importante pra você?</p>
+                <!-- Passo 4 -->
+                <div class="quiz-step" id="step4">
+                    <p class="quiz-question">4. Que tipo de ajuda você precisa?</p>
 
-                <div class="quiz-options">
-                    <button class="quiz-option" onclick="nextStep(5, 'q5a')">
-                        <span class="emoji" aria-hidden="true">💰</span>
-                        Economizar e ter um roteiro funcional
-                    </button>
+                    <div class="quiz-options">
+                        <button class="quiz-option" onclick="nextStep(4, 'q4a')">
+                            <span class="emoji" aria-hidden="true">💎</span>
+                            Suporte durante a viagem
+                        </button>
 
-                    <button class="quiz-option" onclick="nextStep(5, 'q5b')">
-                        <span class="emoji" aria-hidden="true">📲</span>
-                        Ter tudo mapeado e organizado no celular
-                    </button>
+                        <button class="quiz-option" onclick="nextStep(4, 'q4b')">
+                            <span class="emoji" aria-hidden="true">📝</span>
+                            Só um roteiro mesmo
+                        </button>
 
-                    <button class="quiz-option" onclick="nextStep(5, 'q5c')">
-                        <span class="emoji" aria-hidden="true">🛡️</span>
-                        Segurança e um plano B
-                    </button>
-
-                    <button class="quiz-option" onclick="nextStep(5, 'q5d')">
-                        <span class="emoji" aria-hidden="true">🧳</span>
-                        Ajuda para comprar e fazer reservas
-                    </button>
+                        <button class="quiz-option" onclick="nextStep(4, 'q4c')">
+                            <span class="emoji" aria-hidden="true">🗺️</span>
+                            Um mapa personalizado no Google Maps
+                        </button>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Passo 6 -->
-            <div class="quiz-step" id="step6">
-                <p class="quiz-question">6. Como você prefere seu roteiro?</p>
+                <!-- Passo 5 -->
+                <div class="quiz-step" id="step5">
+                    <p class="quiz-question">5. O que é mais importante pra você?</p>
 
-                <div class="quiz-options">
-                    <button class="quiz-option" onclick="nextStep(6, 'q6a')">
-                        <span class="emoji" aria-hidden="true">⚡</span>
-                        Enxuto e certeiro
-                    </button>
+                    <div class="quiz-options">
+                        <button class="quiz-option" onclick="nextStep(5, 'q5a')">
+                            <span class="emoji" aria-hidden="true">💰</span>
+                            Economizar e ter um roteiro funcional
+                        </button>
 
-                    <button class="quiz-option" onclick="nextStep(6, 'q6b')">
-                        <span class="emoji" aria-hidden="true">🍽️</span>
-                        Mais completo e com variedade
-                    </button>
+                        <button class="quiz-option" onclick="nextStep(5, 'q5b')">
+                            <span class="emoji" aria-hidden="true">📲</span>
+                            Ter tudo mapeado e organizado no celular
+                        </button>
+
+                        <button class="quiz-option" onclick="nextStep(5, 'q5c')">
+                            <span class="emoji" aria-hidden="true">🛡️</span>
+                            Segurança e um plano B
+                        </button>
+
+                        <button class="quiz-option" onclick="nextStep(5, 'q5d')">
+                            <span class="emoji" aria-hidden="true">🧳</span>
+                            Ajuda para comprar e fazer reservas
+                        </button>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Resultado -->
-            <div class="quiz-step quiz-result" id="result">
-                <h4 id="resultTitle">
-                    Seu plano ideal é:
-                </h4>
+                <!-- Passo 6 -->
+                <div class="quiz-step" id="step6">
+                    <p class="quiz-question">6. Como você prefere seu roteiro?</p>
 
-                <div class="recomendacao" id="recomendacao"></div>
+                    <div class="quiz-options">
+                        <button class="quiz-option" onclick="nextStep(6, 'q6a')">
+                            <span class="emoji" aria-hidden="true">⚡</span>
+                            Enxuto e certeiro
+                        </button>
 
-                <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
-                    <a href="#" id="resultBtn" class="btn-primary" target="_blank" rel="noopener noreferrer" style="justify-content: center;">
-                        Quero esse plano
-                    </a>
+                        <button class="quiz-option" onclick="nextStep(6, 'q6b')">
+                            <span class="emoji" aria-hidden="true">🍽️</span>
+                            Mais completo e com variedade
+                        </button>
+                    </div>
+                </div>
 
-                    <a href="#planos" class="btn-secondary" onclick="closeModal()" style="justify-content: center; text-decoration: none;">
-                        Ver detalhes dos planos
-                    </a>
+                <!-- Resultado -->
+                <div class="quiz-step quiz-result" id="result">
+                    <h4 id="resultTitle">Seu plano ideal é:</h4>
+
+                    <div class="recomendacao" id="recomendacao"></div>
+
+                    <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
+                        <a href="#" id="resultBtn" class="btn-primary" target="_blank" rel="noopener noreferrer" style="justify-content: center;">
+                            Quero esse plano
+                        </a>
+
+                        <a href="#planos" class="btn-secondary" onclick="closeModal()" style="justify-content: center; text-decoration: none;">
+                            Ver detalhes dos planos
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
     <script>
-        // Animação de scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: "0px 0px -50px 0px"
-        };
-
+        // Scroll animation
+        const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
         }, observerOptions);
-
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        // Menu mobile
+        // Mobile menu
         function toggleMenu() {
-            document.getElementById('navLinks').classList.toggle('active');
+            const nav = document.getElementById('navLinks');
+            if (nav) nav.classList.toggle('active');
         }
 
-        // Modal
+        // Modal open/close
         function openModal() {
-            document.getElementById('helpModal').style.display = 'flex';
+            const modal = document.getElementById('helpModal');
+            if (!modal) return;
+            modal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
         }
 
         function closeModal() {
-            document.getElementById('helpModal').style.display = 'none';
+            const modal = document.getElementById('helpModal');
+            if (!modal) return;
+            modal.style.display = 'none';
             document.body.style.overflow = 'auto';
             resetQuiz();
         }
 
         // Quiz logic
-let respostas = {};
+        let respostas = {};
 
-const planMeta = {
-    painel: {
-        nome: 'Painel de Partidas'
-    },
-    partiu: {
-        nome: 'Modo Partiu',
-        preco: 'R$ 139,90'
-    },
-    checkin: {
-        nome: 'Modo Check-in',
-        preco: 'R$ 239,90'
-    },
-    embarque: {
-        nome: 'Modo Embarque',
-        preco: 'R$ 339,90'
-    },
-    vip: {
-        nome: 'Modo VIP',
-        preco: 'R$ 659,90'
-    }
-};
+        const planMeta = {
+            painel:   { nome: 'Painel de Partidas', emoji: '🧭', preco: 'R$ 79,90' },
+            partiu:   { nome: 'Modo Partiu',        emoji: '🎟️', preco: 'R$ 139,90' },
+            checkin:  { nome: 'Modo Check-in',      emoji: '🧳', preco: 'R$ 239,90' },
+            embarque: { nome: 'Modo Embarque',      emoji: '✈️', preco: 'R$ 339,90' },
+            vip:      { nome: 'Modo VIP',           emoji: '💎', preco: 'R$ 659,90' }
+        };
 
-function showOnlyStep(stepId) {
-    document.querySelectorAll('.quiz-step').forEach(step => {
-        step.classList.remove('active');
-    });
-    document.getElementById(stepId).classList.add('active');
-}
-
-function nextStep(step, answer) {
-    respostas['step' + step] = answer;
-
-    // Regra 1: encerra imediatamente no Painel
-    if (step === 1 && answer === 'q1b') {
-        renderResult('painel');
-        return;
-    }
-
-    if (step < 6) {
-        showOnlyStep('step' + (step + 1));
-        return;
-    }
-
-    // Ao terminar a pergunta 6
-    const vencedor = calcularPlanoVencedor();
-    renderResult(vencedor);
-}
-
-function calcularPlanoVencedor() {
-    const scores = {
-        partiu: 0,
-        checkin: 0,
-        embarque: 0,
-        vip: 0
-    };
-
-    const q2 = respostas.step2;
-    const q3 = respostas.step3;
-    const q4 = respostas.step4;
-    const q5 = respostas.step5;
-    const q6 = respostas.step6;
-
-    const partiuElegivel = q2 === 'q2d';
-    const vipForte = q4 === 'q4a' || q5 === 'q5d';
-    const embarqueTemSinal =
-        q4 === 'q4c' ||
-        q5 === 'q5b' ||
-        q5 === 'q5c' ||
-        q3 === 'q3a';
-
-    // Q2
-    if (q2 === 'q2a') {
-        scores.checkin += 2;
-        scores.embarque += 2;
-        scores.vip += 1;
-    } else if (q2 === 'q2b') {
-        scores.checkin += 2;
-        scores.embarque += 2;
-        scores.vip += 1;
-    } else if (q2 === 'q2c') {
-        scores.checkin += 2;
-        scores.embarque += 2;
-        scores.vip += 1;
-    } else if (q2 === 'q2d') {
-        scores.partiu += 2;
-        scores.checkin += 2;
-        scores.embarque += 2;
-        scores.vip += 1;
-    }
-
-    // Q3
-    if (q3 === 'q3a') {
-        scores.embarque += 3;
-        scores.vip += 1;
-    } else if (q3 === 'q3b') {
-        scores.partiu += 1;
-        scores.checkin += 2;
-    }
-
-    // Q4
-    if (q4 === 'q4a') {
-        scores.vip += 6;
-    } else if (q4 === 'q4b') {
-        scores.partiu += 2;
-        scores.checkin += 2;
-    } else if (q4 === 'q4c') {
-        scores.embarque += 5;
-        scores.vip += 1;
-    }
-
-    // Q5
-    if (q5 === 'q5a') {
-        scores.partiu += 2;
-        scores.checkin += 2;
-    } else if (q5 === 'q5b') {
-        scores.embarque += 4;
-        scores.vip += 1;
-    } else if (q5 === 'q5c') {
-        scores.embarque += 4;
-        scores.vip += 1;
-    } else if (q5 === 'q5d') {
-        scores.vip += 6;
-    }
-
-    // Q6
-    if (q6 === 'q6a') {
-        scores.partiu += 3;
-    } else if (q6 === 'q6b') {
-        scores.checkin += 3;
-        scores.embarque += 1;
-    }
-
-    // Partiu inelegível se não for Q2d
-    const candidatos = ['checkin', 'embarque', 'vip'];
-    if (partiuElegivel) {
-        candidatos.push('partiu');
-    }
-
-    // Regra especial: disputa Embarque x VIP "muito próxima"
-    // Interpretação prática: diferença de 1 ponto ou menos
-    if (!vipForte && (scores.vip > scores.embarque) && (scores.vip - scores.embarque <= 1)) {
-        scores.embarque = scores.vip;
-    }
-
-    if (vipForte && (scores.embarque > scores.vip) && (scores.embarque - scores.vip <= 1)) {
-        scores.vip = scores.embarque;
-    }
-
-    let maior = Math.max(...candidatos.map(plano => scores[plano]));
-    let empatados = candidatos.filter(plano => scores[plano] === maior);
-
-    // Regras de desempate
-    // VIP forte vence qualquer empate se estiver no empate
-    if (vipForte && empatados.includes('vip')) {
-        return 'vip';
-    }
-
-    // Embarque vence empates com VIP quando não há sinal forte de VIP
-    if (empatados.includes('embarque') && empatados.includes('vip')) {
-        empatados = empatados.filter(plano => plano !== 'vip');
-    }
-
-    // Partiu x Check-in
-    if (empatados.includes('partiu') && empatados.includes('checkin')) {
-        if (q6 === 'q6a' && partiuElegivel) {
-            return 'partiu';
+        function showOnlyStep(stepId) {
+            document.querySelectorAll('.quiz-step').forEach(step => step.classList.remove('active'));
+            const el = document.getElementById(stepId);
+            if (el) el.classList.add('active');
         }
-        return 'checkin';
-    }
 
-    // Check-in x Embarque
-    if (empatados.includes('checkin') && empatados.includes('embarque')) {
-        if (embarqueTemSinal) {
-            return 'embarque';
-        }
-        return 'checkin';
-    }
+        function nextStep(step, answer) {
+            respostas['step' + step] = answer;
 
-    // Se ainda restar empate e tiver Embarque, prioriza Embarque
-    if (empatados.includes('embarque')) {
-        return 'embarque';
-    }
-
-    // Se ainda restar empate e tiver Check-in, prioriza Check-in
-    if (empatados.includes('checkin')) {
-        return 'checkin';
-    }
-
-    // Se ainda restar empate e tiver Partiu
-    if (empatados.includes('partiu')) {
-        return 'partiu';
-    }
-
-    // Fallback final
-    return empatados[0] || 'checkin';
-}
-
-function buildJustificativas(plano) {
-    const q1 = respostas.step1;
-    const q2 = respostas.step2;
-    const q3 = respostas.step3;
-    const q4 = respostas.step4;
-    const q5 = respostas.step5;
-    const q6 = respostas.step6;
-
-    const bullets = [];
-
-    if (plano === 'painel') {
-        bullets.push('Você ainda não definiu o destino da viagem.');
-        bullets.push('Antes de montar um roteiro, o melhor próximo passo é descobrir qual destino faz mais sentido para você.');
-        bullets.push('O Painel de Partidas te ajuda a sair da dúvida com direção e clareza.');
-        return bullets.slice(0, 3);
-    }
-
-    if (plano === 'partiu') {
-        if (q2 === 'q2d') bullets.push('Você já tem passagem e hospedagem definidas.');
-        if (q4 === 'q4b') bullets.push('Você quer só um roteiro, sem precisar de camadas extras de suporte.');
-        if (q5 === 'q5a') bullets.push('Você prioriza economizar sem complicação.');
-        if (q6 === 'q6a') bullets.push('Você prefere um roteiro enxuto e certeiro.');
-    }
-
-    if (plano === 'checkin') {
-        if (q2 === 'q2a' || q2 === 'q2b' || q2 === 'q2c') bullets.push('Sua viagem ainda não está 100% fechada, então faz sentido ter ajuda com a base.');
-        if (q4 === 'q4b') bullets.push('Você quer um roteiro prático, sem necessidade de suporte durante a viagem.');
-        if (q5 === 'q5a') bullets.push('Você quer equilíbrio entre economia e organização.');
-        if (q6 === 'q6b') bullets.push('Você prefere um roteiro mais completo e com variedade.');
-        if (q3 === 'q3b') bullets.push('Seguro de viagem não apareceu como prioridade agora.');
-    }
-
-    if (plano === 'embarque') {
-        if (q3 === 'q3a') bullets.push('Você mostrou interesse em seguro de viagem.');
-        if (q4 === 'q4c') bullets.push('Você quer tudo mapeado no Google Maps.');
-        if (q5 === 'q5b') bullets.push('Você quer tudo organizado no celular.');
-        if (q5 === 'q5c') bullets.push('Você prioriza segurança e um plano B.');
-        if (q6 === 'q6b') bullets.push('Você gosta de um roteiro mais completo, mas sem chegar no nível de suporte do VIP.');
-    }
-
-    if (plano === 'vip') {
-        if (q4 === 'q4a') bullets.push('Você quer suporte durante a viagem.');
-        if (q5 === 'q5d') bullets.push('Você quer ajuda para comprar e fazer reservas.');
-        if (q5 === 'q5b') bullets.push('Você valoriza praticidade e organização total.');
-        if (q5 === 'q5c') bullets.push('Você quer mais segurança e respaldo ao longo da viagem.');
-    }
-
-    // Garante 2 a 3 bullets
-    const unicos = [...new Set(bullets)];
-
-    if (unicos.length < 2) {
-        if (plano === 'partiu') {
-            unicos.push('Esse plano funciona melhor para quem já está com a base da viagem resolvida.');
-        } else if (plano === 'checkin') {
-            unicos.push('Esse plano te ajuda a organizar melhor a estrutura da viagem antes de partir.');
-        } else if (plano === 'embarque') {
-            unicos.push('Esse plano é ideal para quem quer mais estratégia e menos chance de perrengue.');
-        } else if (plano === 'vip') {
-            unicos.push('Esse plano faz mais sentido para quem quer acompanhamento mais próximo e uma experiência premium.');
-        }
-    }
-
-    return unicos.slice(0, 3);
-}
-
-function renderResult(planKey) {
-    const plano = planMeta[planKey].nome;
-    const justificativas = buildJustificativas(planKey);
-
-    const mensagem = `Oi! Fiz o quiz no site e meu resultado foi: ${plano}. Quero fechar esse plano. 😊`;
-    const whatsappUrl = `https://wa.me/554999562143?text=${encodeURIComponent(mensagem)}`;
-
-    document.getElementById('resultTitle').textContent = `Seu plano ideal é: ${plano}`;
-
-    document.getElementById('recomendacao').innerHTML = `
-        <ul style="list-style: none; padding: 0; margin: 0; text-align: left;">
-            ${justificativas.map(item => `
-                <li style="margin-bottom: 0.75rem; padding-left: 1.4rem; position: relative; font-family: 'Neulis Sans', sans-serif;">
-                    <span style="position: absolute; left: 0; top: 0; color: var(--laranja); font-weight: 700;">•</span>
-                    ${item}
-                </li>
-            `).join('')}
-        </ul>
-    `;
-
-    document.getElementById('resultBtn').href = whatsappUrl;
-
-    showOnlyStep('result');
-}
-
-function resetQuiz() {
-    respostas = {};
-    document.getElementById('resultTitle').textContent = 'Seu plano ideal é:';
-    document.getElementById('recomendacao').innerHTML = '';
-    document.getElementById('resultBtn').href = '#';
-    showOnlyStep('step1');
-}
-
-        document.getElementById('helpModal').addEventListener('click', function (e) {
-            if (e.target === this) {
-                closeModal();
+            // Regra 1: encerra no Painel
+            if (step === 1 && answer === 'q1b') {
+                renderResult('painel');
+                return;
             }
-        });
+
+            if (step < 6) {
+                showOnlyStep('step' + (step + 1));
+                return;
+            }
+
+            const vencedor = calcularPlanoVencedor();
+            renderResult(vencedor);
+        }
+
+        function calcularPlanoVencedor() {
+            const scores = { partiu: 0, checkin: 0, embarque: 0, vip: 0 };
+
+            const q2 = respostas.step2;
+            const q3 = respostas.step3;
+            const q4 = respostas.step4;
+            const q5 = respostas.step5;
+            const q6 = respostas.step6;
+
+            const partiuElegivel = q2 === 'q2d';
+            const vipForte = q4 === 'q4a' || q5 === 'q5d';
+            const embarqueTemSinal = (q4 === 'q4c' || q5 === 'q5b' || q5 === 'q5c' || q3 === 'q3a');
+
+            // Q2
+            if (q2 === 'q2a' || q2 === 'q2b' || q2 === 'q2c') {
+                scores.checkin += 2;
+                scores.embarque += 2;
+                scores.vip += 1;
+            } else if (q2 === 'q2d') {
+                scores.partiu += 2;
+                scores.checkin += 2;
+                scores.embarque += 2;
+                scores.vip += 1;
+            }
+
+            // Q3
+            if (q3 === 'q3a') { scores.embarque += 3; scores.vip += 1; }
+            if (q3 === 'q3b') { scores.partiu += 1;  scores.checkin += 2; }
+
+            // Q4
+            if (q4 === 'q4a') { scores.vip += 6; }
+            if (q4 === 'q4b') { scores.partiu += 2; scores.checkin += 2; }
+            if (q4 === 'q4c') { scores.embarque += 5; scores.vip += 1; }
+
+            // Q5
+            if (q5 === 'q5a') { scores.partiu += 2; scores.checkin += 2; }
+            if (q5 === 'q5b') { scores.embarque += 4; scores.vip += 1; }
+            if (q5 === 'q5c') { scores.embarque += 4; scores.vip += 1; }
+            if (q5 === 'q5d') { scores.vip += 6; }
+
+            // Q6
+            if (q6 === 'q6a') { scores.partiu += 3; }
+            if (q6 === 'q6b') { scores.checkin += 3; scores.embarque += 1; }
+
+            // Candidatos
+            const candidatos = ['checkin', 'embarque', 'vip'];
+            if (partiuElegivel) candidatos.push('partiu');
+
+            // Embarque x VIP “muito próximo”: sem sinal forte → Embarque
+            if (!vipForte && scores.vip > scores.embarque && (scores.vip - scores.embarque <= 1)) {
+                scores.embarque = scores.vip;
+            }
+            // Com sinal forte de VIP: VIP vence proximidade
+            if (vipForte && scores.embarque > scores.vip && (scores.embarque - scores.vip <= 1)) {
+                scores.vip = scores.embarque;
+            }
+
+            let maior = Math.max(...candidatos.map(p => scores[p]));
+            let empatados = candidatos.filter(p => scores[p] === maior);
+
+            // Desempates
+            if (vipForte && empatados.includes('vip')) return 'vip';
+            if (empatados.includes('embarque') && empatados.includes('vip')) empatados = empatados.filter(p => p !== 'vip');
+
+            if (empatados.includes('partiu') && empatados.includes('checkin')) {
+                if (q6 === 'q6a' && partiuElegivel) return 'partiu';
+                return 'checkin';
+            }
+
+            if (empatados.includes('checkin') && empatados.includes('embarque')) {
+                if (embarqueTemSinal) return 'embarque';
+                return 'checkin';
+            }
+
+            if (empatados.includes('embarque')) return 'embarque';
+            if (empatados.includes('checkin')) return 'checkin';
+            if (empatados.includes('partiu')) return 'partiu';
+
+            return empatados[0] || 'checkin';
+        }
+
+        // Justificativas MAIS CURTAS + com emoji
+        function buildJustificativasShort(planKey) {
+            const q2 = respostas.step2;
+            const q3 = respostas.step3;
+            const q4 = respostas.step4;
+            const q5 = respostas.step5;
+            const q6 = respostas.step6;
+
+            if (planKey === 'painel') {
+                return [
+                    '🧭 Você ainda está decidindo o destino.',
+                    '🎯 Vamos achar o melhor destino pro seu perfil.',
+                    '💸 Você ganha crédito pro próximo plano.'
+                ];
+            }
+
+            if (planKey === 'partiu') {
+                const arr = [];
+                arr.push('✅ Base da viagem já fechada.');
+                if (q6 === 'q6a') arr.push('⚡ Você prefere um roteiro enxuto.');
+                if (q5 === 'q5a') arr.push('💰 Você quer economizar com estratégia.');
+                if (arr.length < 3) arr.push('🗓️ Roteiro prontinho, só aproveitar.');
+                return arr.slice(0, 3);
+            }
+
+            if (planKey === 'checkin') {
+                const arr = [];
+                arr.push('🏨 Você quer ajuda com hospedagem.');
+                if (q4 === 'q4b') arr.push('📝 Você quer só o roteiro (sem suporte).');
+                if (q6 === 'q6b') arr.push('🍽️ Você prefere mais variedade no roteiro.');
+                if (arr.length < 3) arr.push('📍 Tudo organizado de forma prática.');
+                return arr.slice(0, 3);
+            }
+
+            if (planKey === 'embarque') {
+                const arr = [];
+                if (q5 === 'q5c' || q3 === 'q3a') arr.push('🛡️ Você quer mais segurança e plano B.');
+                else arr.push('🗺️ Você quer tudo bem organizado.');
+                if (q4 === 'q4c' || q5 === 'q5b') arr.push('📲 Você quer tudo mapeado no celular.');
+                arr.push('✈️ Estratégia + menos perrengue.');
+                return arr.slice(0, 3);
+            }
+
+            // vip
+            return [
+                '💎 Você quer suporte durante a viagem.',
+                '🧳 Você quer ajuda pra comprar/reservar.',
+                '💬 Acompanhamento mais premium.'
+            ];
+        }
+
+        function renderResult(planKey) {
+            const meta = planMeta[planKey];
+            const plano = meta.nome;
+            const emoji = meta.emoji;
+            const preco = meta.preco;
+            const justificativas = buildJustificativasShort(planKey);
+
+            // WhatsApp: emoji + plano + A partir de + preço
+            const mensagem = `Oi! Fiz o quiz no site e meu resultado foi: ${emoji} ${plano} — A partir de ${preco}. Quero fechar esse plano. 😊`;
+            const whatsappUrl = `https://wa.me/554999562143?text=${encodeURIComponent(mensagem)}`;
+
+            const titleEl = document.getElementById('resultTitle');
+            const recEl = document.getElementById('recomendacao');
+            const btnEl = document.getElementById('resultBtn');
+
+            if (titleEl) titleEl.textContent = `Seu plano ideal é: ${plano}`;
+            if (btnEl) btnEl.href = whatsappUrl;
+
+            if (recEl) {
+                recEl.innerHTML = `
+                    <ul style="list-style: none; padding: 0; margin: 0; text-align: left;">
+                        ${justificativas.map(item => `
+                            <li style="margin-bottom: 0.55rem; font-family: 'Neulis Sans', sans-serif;">
+                                ${item}
+                            </li>
+                        `).join('')}
+                    </ul>
+                    <div class="quiz-preco">A partir de ${preco}</div>
+                `;
+            }
+
+            showOnlyStep('result');
+        }
+
+        function resetQuiz() {
+            respostas = {};
+            const titleEl = document.getElementById('resultTitle');
+            const recEl = document.getElementById('recomendacao');
+            const btnEl = document.getElementById('resultBtn');
+
+            if (titleEl) titleEl.textContent = 'Seu plano ideal é:';
+            if (recEl) recEl.innerHTML = '';
+            if (btnEl) btnEl.href = '#';
+
+            showOnlyStep('step1');
+        }
+
+        // Close modal on overlay click (safe)
+        const modalEl = document.getElementById('helpModal');
+        if (modalEl) {
+            modalEl.addEventListener('click', function (e) {
+                if (e.target === this) closeModal();
+            });
+        }
     </script>
 </body>
 </html>
 
-</html>
 
 
 
