@@ -276,6 +276,96 @@ nav {
     box-shadow: 0 10px 30px rgba(0,51,153,0.4);
 }
 
+/* Roteiros Prontos — botões novos (1 laranja + 1 azul, com subtítulo) */
+.botoes-roteiro {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.btn-roteiro {
+    width: 100%;
+    border-radius: 50px;
+    padding: 0.95rem 1.2rem;
+    text-decoration: none;
+    font-family: 'Neulis Sans', sans-serif !important;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    transition: all 0.3s;
+    border: 3px solid transparent;
+    cursor: pointer;
+    line-height: 1.1;
+}
+
+.btn-roteiro:hover {
+    transform: translateY(-2px);
+}
+
+/* Ícone */
+.btn-ico {
+    height: 20px;
+    width: auto;
+    flex: 0 0 auto;
+}
+
+/* Texto do botão */
+.btn-texto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.btn-titulo {
+    font-size: 1rem;
+}
+
+.btn-sub {
+    font-size: 0.78rem;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+/* Mercado Pago (laranja) */
+.btn-mp {
+    background: var(--laranja);
+    color: var(--branco);
+    box-shadow: 0 4px 15px rgba(255,102,0,0.25);
+}
+
+.btn-mp:hover {
+    background: #e55a00;
+    box-shadow: 0 8px 25px rgba(255,102,0,0.35);
+}
+
+/* Pix WhatsApp (azul) */
+.btn-pix {
+    background: transparent;
+    color: var(--azul);
+    border-color: var(--azul);
+}
+
+.btn-pix:hover {
+    background: var(--azul);
+    color: var(--branco);
+}
+
+/* Quando o botão azul fica azul no hover, mantém subtítulo legível */
+.btn-pix:hover .btn-sub {
+    opacity: 0.95;
+}
+
+/* Mobile: garante que fica bonito e sem quebrar */
+@media (max-width: 480px) {
+    .btn-sub {
+        font-size: 0.75rem;
+    }
+}
+
 /* ============================================
    SEÇÕES COMUNS
    ============================================ */
@@ -732,6 +822,7 @@ footer {
         line-height: 1.7;
     }
 }
+
 
 
 
