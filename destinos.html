@@ -172,9 +172,7 @@
       position: relative;
     }
 
-    .depo-viewport {
-      overflow: hidden;
-    }
+    .depo-viewport { overflow: hidden; }
 
     .depo-track {
       display: flex;
@@ -184,90 +182,80 @@
       will-change: transform;
     }
 
+    /* Foto maior (desktop) */
     .depo-slide {
       width: 100%;
       flex: 0 0 100%;
       display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 0;
-      min-height: 260px;
+      grid-template-columns: clamp(360px, 40vw, 520px) 1fr;
+      min-height: 280px;
     }
 
     .depo-foto {
       position: relative;
       height: 100%;
-      min-height: 260px;
+      min-height: 280px;
       overflow: hidden;
-      background: rgba(0,0,0,0.08);
+      background: transparent; /* remove qualquer “faixa” */
     }
 
     .depo-foto img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
       display: block;
       filter: saturate(1.05) contrast(1.02);
     }
 
+    /* Área do texto (laranja) */
     .depo-texto {
-      padding: 2rem 2rem 2.2rem;
+      padding: 2.2rem 5.2rem 2.2rem 2.2rem; /* espaço extra à direita pra seta não “encostar” */
       color: var(--branco);
       display: flex;
       flex-direction: column;
       justify-content: center;
+      gap: 0.75rem;
     }
 
-    .depo-topline {
-      font-weight: 900;
-      font-size: 1.15rem;
-      display: flex;
+    /* Nome: regular e um pouco maior */
+    .depo-name {
+      font-weight: 500;
+      font-size: 1.25rem;
+      line-height: 1.1;
+      margin: 0;
+    }
+
+    /* Bandeira + cidade: maior que o nome e em negrito */
+    .depo-place {
+      display: inline-flex;
       align-items: center;
-      gap: 0.6rem;
-      margin-bottom: 0.6rem;
+      gap: 0.55rem;
+      font-weight: 900;
+      font-size: 1.38rem;
+      line-height: 1.1;
+      margin: 0;
     }
 
-    .depo-local {
-      font-weight: 800;
-      opacity: 0.95;
-      font-size: 0.98rem;
-      margin-bottom: 0.9rem;
+    /* Caixa branca pro depoimento */
+    .depo-quoteBox {
+      margin-top: 0.4rem;
+      background: rgba(255,255,255,0.92);
+      border-radius: 16px;
+      padding: 1.2rem 1.2rem;
+      border: 1px solid rgba(255,255,255,0.55);
+      max-width: 680px;
     }
 
     .depo-quote {
       margin: 0;
-      font-size: 1.02rem;
-      font-weight: 650;
-      line-height: 1.5;
-      max-width: 640px;
+      color: var(--azul);
+      font-size: 1rem;      /* tamanho regular */
+      font-weight: 500;     /* regular */
+      line-height: 1.55;
     }
 
-    /* bolinhas */
-    .depo-dots {
-      display: flex;
-      justify-content: center;
-      gap: 0.5rem;
-      padding: 0.9rem 1rem 1rem;
-      background: rgba(0,0,0,0.08);
-    }
-
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      border: 2px solid rgba(255,255,255,0.75);
-      background: transparent;
-      cursor: pointer;
-      transition: transform 200ms ease, background 200ms ease, opacity 200ms ease;
-      opacity: 0.85;
-    }
-
-    .dot.active {
-      background: var(--branco);
-      opacity: 1;
-      transform: scale(1.05);
-    }
-
-    /* setinhas (opcional, mas ajuda) */
+    /* Setas: sem encostar no texto (e fora da caixa branca) */
     .depo-arrow {
       position: absolute;
       top: 50%;
@@ -276,7 +264,7 @@
       height: 42px;
       border-radius: 50%;
       border: 1px solid rgba(255,255,255,0.55);
-      background: rgba(0,0,0,0.15);
+      background: rgba(0,0,0,0.12);
       color: var(--branco);
       display: grid;
       place-items: center;
@@ -285,22 +273,58 @@
       transition: background 200ms ease, transform 200ms ease;
       user-select: none;
     }
-    .depo-arrow:hover { background: rgba(0,0,0,0.25); }
+    .depo-arrow:hover { background: rgba(0,0,0,0.18); }
     .depo-arrow:active { transform: translateY(-50%) scale(0.98); }
     .depo-prev { left: 14px; }
     .depo-next { right: 14px; }
 
+    /* Pontinhos: discretos e sem “faixa” diferente (área azul do print) */
+    .depo-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1rem 1.05rem;
+      background: transparent; /* remove diferenciação */
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      border: 1.5px solid rgba(255,255,255,0.65);
+      background: transparent;
+      cursor: pointer;
+      opacity: 0.75;
+      transition: transform 200ms ease, background 200ms ease, opacity 200ms ease;
+    }
+
+    .dot.active {
+      background: rgba(255,255,255,0.95);
+      opacity: 1;
+      transform: scale(1.05);
+    }
+
+    /* ===== MOBILE: foto em cima e texto embaixo (mais bonito e legível) ===== */
     @media (max-width: 860px) {
       .depo-slide {
         grid-template-columns: 1fr;
       }
+
       .depo-foto {
-        min-height: 210px;
+        min-height: 240px;
       }
+
       .depo-texto {
-        padding: 1.6rem 1.4rem 1.8rem;
+        padding: 1.6rem 1.4rem 1.4rem;
       }
-      .depo-arrow { display: none; }
+
+      .depo-quoteBox {
+        max-width: 100%;
+      }
+
+      .depo-arrow {
+        display: none; /* no mobile, swipe + dots */
+      }
     }
 
     /* ===== CTA ABAIXO DOS DEPOIMENTOS ===== */
@@ -309,6 +333,7 @@
       background: var(--branco);
       text-align: center;
     }
+
     .cta-box {
       max-width: 980px;
       margin: 0 auto;
@@ -320,7 +345,8 @@
       position: relative;
       overflow: hidden;
     }
-    .cta-box::after{
+
+    .cta-box::after {
       content:"✨";
       position:absolute;
       font-size: 14rem;
@@ -329,10 +355,12 @@
       bottom: -60px;
       pointer-events:none;
     }
+
     .cta-box h2 {
       font-size: 2rem;
       margin-bottom: 0.9rem;
     }
+
     .cta-box p {
       font-size: 1.1rem;
       margin-bottom: 1.8rem;
@@ -520,50 +548,76 @@
 
         <div class="depo-viewport">
           <div class="depo-track" id="depoTrack">
+
             <!-- Slide 1 -->
             <div class="depo-slide">
               <div class="depo-foto">
-                <img src="images/depoimentos/exemplo 01.HEIC" alt="Ana Luiza em Tokyo, Japão" loading="lazy" />
+                <img
+                  src="images/depoimentos/exemplo 01.JPG"
+                  alt="Ana Luiza em Tokyo, Japão"
+                  loading="lazy"
+                />
               </div>
+
               <div class="depo-texto">
-                <div class="depo-topline">
-                  <strong>Ana Luiza</strong>
+                <p class="depo-name">Ana Luiza</p>
+                <p class="depo-place">
                   <span class="emoji" aria-hidden="true">🇯🇵</span>
+                  Tokyo
+                </p>
+
+                <div class="depo-quoteBox" aria-label="Depoimento">
+                  <p class="depo-quote">“Eu estava surtando com transporte e bairros pra ficar. O roteiro veio redondinho, com mapa no Google Maps, dicas do que vale a pena e um plano B real. Economizei tempo e viajei com segurança.”</p>
                 </div>
-                <div class="depo-local">Tokyo</div>
-                <p class="depo-quote">“Eu estava surtando com transporte e bairros pra ficar. O roteiro veio redondinho, com mapa no Google Maps, dicas do que vale a pena e um plano B real. Economizei tempo e viajei com segurança.”</p>
               </div>
             </div>
 
             <!-- Slide 2 -->
             <div class="depo-slide">
               <div class="depo-foto">
-                <img src="images/depoimentos/exemplo 02.JPG" alt="Ana Luiza em Curitiba, Brasil" loading="lazy" />
+                <img
+                  src="images/depoimentos/exemplo 02.JPG"
+                  alt="Ana Luiza em Curitiba, Brasil"
+                  loading="lazy"
+                />
               </div>
+
               <div class="depo-texto">
-                <div class="depo-topline">
-                  <strong>Ana Luiza</strong>
+                <p class="depo-name">Ana Luiza</p>
+                <p class="depo-place">
                   <span class="emoji" aria-hidden="true">🇧🇷</span>
+                  Curitiba
+                </p>
+
+                <div class="depo-quoteBox" aria-label="Depoimento">
+                  <p class="depo-quote">“Eu queria um roteiro funcional, sem perder tempo decidindo tudo na hora. Veio dia a dia bem organizado, com sugestões de restaurantes e deslocamentos fáceis. Foi a viagem mais prática que já fiz.”</p>
                 </div>
-                <div class="depo-local">Curitiba</div>
-                <p class="depo-quote">“Eu queria um roteiro funcional, sem perder tempo decidindo tudo na hora. Veio dia a dia bem organizado, com sugestões de restaurantes e deslocamentos fáceis. Foi a viagem mais prática que já fiz.”</p>
               </div>
             </div>
 
             <!-- Slide 3 -->
             <div class="depo-slide">
               <div class="depo-foto">
-                <img src="images/depoimentos/exemplo 03.JPG" alt="Ana Luiza em Engelberg, Suíça" loading="lazy" />
+                <img
+                  src="images/depoimentos/exemplo 03.JPG"
+                  alt="Ana Luiza em Engelberg, Suíça"
+                  loading="lazy"
+                />
               </div>
+
               <div class="depo-texto">
-                <div class="depo-topline">
-                  <strong>Ana Luiza</strong>
+                <p class="depo-name">Ana Luiza</p>
+                <p class="depo-place">
                   <span class="emoji" aria-hidden="true">🇨🇭</span>
+                  Engelberg
+                </p>
+
+                <div class="depo-quoteBox" aria-label="Depoimento">
+                  <p class="depo-quote">“Neve me dava medo por causa de imprevistos. Ter um plano B e orientações claras de transporte e logística fez toda a diferença. Foi zero perrengue e eu aproveitei muito mais.”</p>
                 </div>
-                <div class="depo-local">Engelberg</div>
-                <p class="depo-quote">“Neve me dava medo por causa de imprevistos. Ter um plano B e orientações claras de transporte e logística fez toda a diferença. Foi zero perrengue e eu aproveitei muito mais.”</p>
               </div>
             </div>
+
           </div>
         </div>
 
@@ -687,7 +741,7 @@
           </div>
         </a>
 
-        <!-- Praia Grande (novo) -->
+        <!-- Praia Grande -->
         <a class="destino-card fade-in" href="https://www.instagram.com/p/DCt0ClouK_q/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Praia Grande, Brasil">
           <img src="images/destinos/praia-grande.jpg" alt="Praia Grande, Brasil" class="destino-img" loading="lazy" />
           <div class="destino-overlay">
@@ -697,7 +751,7 @@
           </div>
         </a>
 
-        <!-- Irlanda do Norte (novo) -->
+        <!-- Irlanda do Norte -->
         <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/B0JusUOlwCA/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Irlanda do Norte">
           <img src="images/destinos/irlanda-do-norte.JPG" alt="Irlanda do Norte" class="destino-img" loading="lazy" />
           <div class="destino-overlay">
@@ -707,7 +761,7 @@
           </div>
         </a>
 
-        <!-- Moscou (novo) -->
+        <!-- Moscou -->
         <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/BvUqcxmlNOG/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Moscou, Rússia">
           <img src="images/destinos/moscou.JPG" alt="Moscou, Rússia" class="destino-img" loading="lazy" />
           <div class="destino-overlay">
@@ -717,7 +771,7 @@
           </div>
         </a>
 
-        <!-- Beto Carrero (novo) -->
+        <!-- Beto Carrero -->
         <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/C6NAcKSsyTh/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Beto Carrero, Brasil">
           <img src="images/destinos/beto-carreiro.JPG" alt="Beto Carrero World, Brasil" class="destino-img" loading="lazy" />
           <div class="destino-overlay">
@@ -727,7 +781,7 @@
           </div>
         </a>
 
-        <!-- Fortaleza (novo) -->
+        <!-- Fortaleza -->
         <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/BlOiVTght6A/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Fortaleza, Brasil">
           <img src="images/destinos/fortaleza.JPG" alt="Fortaleza, Brasil" class="destino-img" loading="lazy" />
           <div class="destino-overlay">
@@ -938,7 +992,6 @@
     function goToSlide(index) {
       currentSlide = (index + totalSlides) % totalSlides;
       depoTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
-
       dots.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
     }
 
@@ -958,7 +1011,6 @@
       timer = null;
     }
 
-    // dots
     dots.forEach(dot => {
       dot.addEventListener('click', () => {
         const idx = parseInt(dot.getAttribute('data-slide'), 10);
@@ -966,11 +1018,9 @@
       });
     });
 
-    // arrows
     if (prevBtn) prevBtn.addEventListener('click', prevSlide);
     if (nextBtn) nextBtn.addEventListener('click', nextSlide);
 
-    // pause on hover
     if (depoCarousel) {
       depoCarousel.addEventListener('mouseenter', () => { isPaused = true; });
       depoCarousel.addEventListener('mouseleave', () => { isPaused = false; });
@@ -1006,6 +1056,5 @@
   </script>
 </body>
 </html>
-
 
 
