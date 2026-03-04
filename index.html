@@ -644,28 +644,44 @@
       line-height:1.35;
     }
 
-    .close-modal{
-      position:absolute;
-      top:1rem;
-      right:1rem;
-      background:rgba(255,255,255,0.2);
-      border:none;
-      width:40px;
-      height:40px;
-      border-radius:50%;
-      color:var(--branco);
-      font-size:1.5rem;
-      cursor:pointer;
-      transition:all .3s;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-family:'Neulis Sans',sans-serif !important;
-    }
-    .close-modal:hover{
-      background:rgba(255,255,255,0.3);
-      transform:rotate(90deg);
-    }
+   .close-modal{
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 9999;
+
+  background: rgba(255,255,255,0.22);
+  border: 2px solid rgba(255,255,255,0.35);
+
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+
+  color: #fff;
+  font-size: 28px;
+  line-height: 1;
+
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+.close-modal:hover{
+  background: rgba(255,255,255,0.32);
+  transform: none;
+}
+
+@media (max-width: 768px){
+  .close-modal{
+    top: 12px;
+    right: 12px;
+    width: 46px;
+    height: 46px;
+  }
+}
 
     /* Footer icons */
     .social-icon-img{
@@ -1681,6 +1697,7 @@
   </script>
 </body>
 </html>
+
 
 
 
