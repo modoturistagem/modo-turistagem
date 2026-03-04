@@ -443,6 +443,38 @@ footer {
     .mobile-menu {
         display: block;
     }
+   /* Centralizar os blocos no mobile */
+.regras-grid,
+.roteiro-inclusos-card > div {
+    grid-template-columns: 1fr !important;
+    justify-items: center;
+}
+
+/* Cards de Regras Gerais */
+.regra-card {
+    width: 100%;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Cards brancos dentro de "O que está incluso..." */
+.roteiro-inclusos-card > div > div {
+    width: 100%;
+    max-width: 420px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box;
+}
+
+/* O bloco azul claro maior */
+.roteiro-inclusos-card {
+    width: 100%;
+    max-width: 500px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box;
+}
 
     .nav-links {
         display: none;
@@ -700,6 +732,7 @@ footer {
         line-height: 1.7;
     }
 }
+
 
 
 
