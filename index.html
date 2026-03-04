@@ -101,6 +101,33 @@
             position: relative;
             z-index: 1;
         }
+        .social-icon-img {
+    height: 24px;
+    width: auto;
+    display: block;
+}
+        /* Roteiros Prontos — botões em 1 linha */
+.roteiros-grid .btn-plano,
+.roteiros-grid .btn-secondary {
+    white-space: nowrap;          /* não quebra linha */
+    line-height: 1;               /* mais compacto */
+    font-size: 0.95rem;           /* reduz levemente */
+    padding: 0.95rem 1.25rem;     /* ajusta altura/largura */
+}
+
+/* Ícones dos botões (se você está usando <img>) */
+.roteiros-grid .btn-plano img,
+.roteiros-grid .btn-secondary img {
+    flex: 0 0 auto;
+    height: 18px;
+    width: auto;
+}
+
+/* Container dos botões: deixa alinhado e consistente */
+.roteiros-grid .roteiro-card .botoes-roteiro,
+.roteiros-grid .roteiro-card div[style*="flex-direction: column"] {
+    gap: 0.6rem !important;
+}
 
         /* Manifesto */
         .manifesto {
@@ -1359,11 +1386,8 @@
             <div class="footer-bottom">
                 <p>© 2024 Modo Turistagem. Todos os direitos reservados.</p>
                 <p style="margin-top: 0.5rem; font-size: 0.8rem;">
-                    Feito com
+                    Roteiros feitos por viajantes, para viajantes
                     <span class="emoji emoji-inline" aria-hidden="true">💙</span>
-                    e
-                    <span class="emoji emoji-inline" aria-hidden="true">🧡</span>
-                    por quem ama viajar
                 </p>
             </div>
         </div>
@@ -1874,6 +1898,7 @@ function resetQuiz() {
 </html>
 
 </html>
+
 
 
 
