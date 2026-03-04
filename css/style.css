@@ -717,6 +717,128 @@ footer{
   .quiz-option{ font-size:0.95rem; }
 }
 
+/* =========================
+   PATCH — QUIZ MOBILE + PREÇO MODO CONEXÃO
+   (cole no FINAL do style.css)
+   ========================= */
+
+/* 1) QUIZ no mobile: vira bottom-sheet, header compacto e sem briga com o X */
+@media (max-width: 768px) {
+  .modal {
+    padding: 0 !important;
+    align-items: flex-end !important;
+  }
+
+  .modal-content {
+    width: 100% !important;
+    max-width: none !important;
+    max-height: 92vh !important;
+    border-radius: 22px 22px 0 0 !important;
+    overflow: hidden !important; /* evita "vazar" arredondado */
+  }
+
+  /* Dá espaço pro X sem sobrepor o título */
+  .modal-header {
+    padding: 1.15rem 3.6rem 1rem 1.15rem !important; /* padding-right maior */
+    border-radius: 22px 22px 0 0 !important;
+  }
+
+  .modal-header h3 {
+    font-size: 1.3rem !important;
+    line-height: 1.15 !important;
+    margin-bottom: 0.45rem !important;
+  }
+
+  .modal-header p {
+    font-size: 0.95rem !important;
+    line-height: 1.35 !important;
+  }
+
+  .close-modal {
+    top: 0.75rem !important;
+    right: 0.75rem !important;
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 1.25rem !important;
+    background: rgba(255,255,255,0.18) !important;
+  }
+
+  .modal-body {
+    padding: 1rem 1.1rem 1.25rem !important;
+    max-height: calc(92vh - 96px) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .quiz-question {
+    font-size: 1.05rem !important;
+    line-height: 1.35 !important;
+    margin-bottom: 0.85rem !important;
+  }
+
+  .quiz-options {
+    gap: 0.65rem !important;
+  }
+
+  .quiz-option {
+    padding: 0.95rem 1rem !important;
+    border-radius: 16px !important;
+    font-size: 0.98rem !important;
+    line-height: 1.25 !important;
+  }
+
+  /* Resultado mais "limpo" */
+  #resultTitle {
+    font-size: 1.35rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .recomendacao {
+    padding: 1rem !important;
+    border-radius: 16px !important;
+    margin: 0.85rem 0 !important;
+    text-align: left !important;
+  }
+
+  .recomendacao ul {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .recomendacao li {
+    margin-bottom: 0.55rem !important;
+  }
+}
+
+/* 2) Preço do Modo Conexão: mantém "R$ 59,90" na MESMA linha */
+.preco-box .preco-valor {
+  white-space: nowrap;
+}
+
+/* Se ficar apertado em telas bem pequenas, reduz levemente o tamanho */
+@media (max-width: 420px) {
+  .preco-box .preco-valor {
+    font-size: 1.35rem !important;
+  }
+}
+
+/* Se você usar spans (recomendado abaixo), esses estilos deixam perfeito */
+.preco-box .preco-valor.currency-inline {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  white-space: nowrap;
+}
+
+.preco-box .preco-valor.currency-inline .currency {
+  font-size: 0.92em;
+  font-weight: 700;
+}
+
+.preco-box .preco-valor.currency-inline .amount {
+  font-size: 1em;
+  font-weight: 700;
+}
 
 
 
