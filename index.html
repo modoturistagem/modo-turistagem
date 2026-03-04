@@ -36,10 +36,11 @@
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1.15fr 0.85fr; /* dá mais espaço pro texto */
-    gap: 2.5rem; /* reduz o espaço entre texto e logo */
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 2.5rem;
     align-items: center;
     width: 100%;
+}
 }
 
 .hero-content h1 {
@@ -47,14 +48,13 @@
     color: var(--azul);
     margin-bottom: 1.5rem;
     line-height: 1.05;
-    text-wrap: balance; /* distribui melhor as quebras */
+    max-width: 700px;
 }
-        }
 
-        .hero-content h1 span {
-            color: var(--laranja);
-            display: inline;
-        }
+.hero-content h1 span {
+    color: var(--laranja);
+    display: inline;
+}
 
         .hero-content p {
             font-size: 1.25rem;
@@ -842,7 +842,10 @@
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content fade-in">
-                <h1>Viajar bem não precisa custar caro,&nbsp;<span>só precisa ser bem pensado.</span></h1>
+                <h1>
+    Viajar bem não precisa custar caro,<br>
+    <span>só precisa ser bem&nbsp;pensado.</span>
+</h1>
                 <p>Somos uma consultoria feita por viajantes, para viajantes. Traduzimos sonhos em planos concretos, sem enrolação e sem estresse.</p>
 
                 <div class="hero-buttons">
@@ -1904,6 +1907,7 @@ function resetQuiz() {
 </html>
 
 </html>
+
 
 
 
