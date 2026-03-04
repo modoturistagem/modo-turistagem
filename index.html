@@ -161,18 +161,20 @@
         }
 
         .plano-card.destaque::before {
-            content: 'MAIS POPULAR';
-            position: absolute;
-            top: 0;
-            right: 0;
-            background: var(--laranja);
-            color: var(--branco);
-            padding: 0.5rem 1rem;
-            font-size: 0.8rem;
-            font-weight: 700;
-            border-radius: 0 0 0 10px;
-            font-family: 'Neulis Sans', sans-serif !important;
-        }
+    content: '⭐ MAIS POPULAR';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--laranja);
+    color: var(--branco);
+    padding: 0.55rem 0.9rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border-radius: 12px;
+    font-family: 'Neulis Sans', sans-serif !important;
+    z-index: 2;
+    line-height: 1;
+}
 
         .plano-header {
             margin-bottom: 1.5rem;
@@ -929,12 +931,14 @@
         <a href="https://wa.me/5549999562143?text=Olá! Tenho interesse no Modo Conexão!" class="btn-plano" target="_blank" rel="noopener noreferrer">
             Quero Esse Plano →
         </a>
+
+        <p class="plano-footer">Ideal para aproveitar a conexão sem perrengue</p>
     </div>
 
     <!-- Modo Partiu -->
     <div class="plano-card fade-in">
         <div class="plano-header">
-            <span class="plano-icon emoji" aria-hidden="true">🧳</span>
+            <span class="plano-icon emoji" aria-hidden="true">🎒</span>
             <h3>Modo Partiu</h3>
             <p class="subtitle">Já tem passagem e hospedagem?</p>
         </div>
@@ -957,6 +961,8 @@
         <a href="https://wa.me/5549999562143?text=Olá! Tenho interesse no Modo Partiu!" class="btn-plano" target="_blank" rel="noopener noreferrer">
             Quero Esse Plano →
         </a>
+
+        <p class="plano-footer">Perfeito para quem já resolveu a base da viagem</p>
     </div>
 
     <!-- Modo Check-in -->
@@ -985,6 +991,8 @@
         <a href="https://wa.me/5549999562143?text=Olá! Quero o Modo Check-in!" class="btn-plano" target="_blank" rel="noopener noreferrer">
             Quero Esse Plano →
         </a>
+
+        <p class="plano-footer">Ideal para quem quer roteiro e hospedagem bem alinhados</p>
     </div>
 
     <!-- Modo Embarque -->
@@ -1053,9 +1061,10 @@
         <a href="https://wa.me/5549999562143?text=Olá! Quero o Modo VIP!" class="btn-plano" target="_blank" rel="noopener noreferrer">
             Quero Esse Plano →
         </a>
-                <p class="plano-footer">Experiência premium</p>
-            </div>
-        </div>
+
+        <p class="plano-footer">Experiência premium</p>
+    </div>
+</div>
     </section>
 
     <!-- Regras -->
@@ -1723,6 +1732,7 @@ function resetQuiz() {
 </html>
 
 </html>
+
 
 
 
