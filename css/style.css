@@ -413,6 +413,16 @@ nav {
 .inclusos-grid > div {
   flex: 0 1 260px;
 }
+.roteiro-inclusos-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* centraliza a última linha */
+    gap: 0.9rem;
+}
+
+.roteiro-inclusos-grid > div {
+    flex: 0 1 250px;
+}
 
 /* ============================================
    ANIMAÇÕES
@@ -826,6 +836,7 @@ footer {
         line-height: 1.7;
     }
 }
+
 
 
 
