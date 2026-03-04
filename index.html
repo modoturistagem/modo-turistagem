@@ -1219,127 +1219,167 @@
     </footer>
 
     <!-- Modal -->
-    <div class="modal" id="helpModal">
-        <div class="modal-content">
-            <button class="close-modal" onclick="closeModal()" aria-label="Fechar modal">×</button>
+<div class="modal" id="helpModal">
+    <div class="modal-content">
+        <button class="close-modal" onclick="closeModal()" aria-label="Fechar modal">×</button>
 
-            <div class="modal-header">
-                <h3>
-                    <span class="emoji" aria-hidden="true">🎯</span>
-                    Descubra Seu Plano Ideal
-                </h3>
-                <p>Responda algumas perguntas rápidas</p>
-            </div>
+        <div class="modal-header">
+            <h3>
+                <span class="emoji" aria-hidden="true">🎯</span>
+                Descubra Seu Plano Ideal
+            </h3>
+            <p>Responda algumas perguntas rápidas</p>
+        </div>
 
-            <div class="modal-body">
-                <div class="quiz-step active" id="step1">
-                    <p class="quiz-question">1. Qual é a sua situação atual?</p>
+        <div class="modal-body">
+            <!-- Passo 1 -->
+            <div class="quiz-step active" id="step1">
+                <p class="quiz-question">1. Você já sabe pra onde vai?</p>
 
-                    <div class="quiz-options">
-                        <button class="quiz-option" onclick="nextStep(1, 'painel')">
-                            <span class="emoji" aria-hidden="true">❓</span>
-                            Ainda não sei para onde quero ir
-                        </button>
-
-                        <button class="quiz-option" onclick="nextStep(1, 'partiu')">
-                            <span class="emoji" aria-hidden="true">✈️</span>
-                            Já tenho passagem e hospedagem marcados
-                        </button>
-
-                        <button class="quiz-option" onclick="nextStep(1, 'checkin')">
-                            <span class="emoji" aria-hidden="true">🏨</span>
-                            Tenho passagem, mas preciso de ajuda com hospedagem
-                        </button>
-
-                        <button class="quiz-option" onclick="nextStep(1, 'embarque')">
-                            <span class="emoji" aria-hidden="true">🗺️</span>
-                            Quero tudo planejado com estratégia e segurança
-                        </button>
-                    </div>
-                </div>
-
-                <div class="quiz-step" id="step2">
-                    <p class="quiz-question">2. O que é mais importante para você?</p>
-
-                    <div class="quiz-options">
-                        <button class="quiz-option" onclick="nextStep(2, 'basico')">
-                            <span class="emoji" aria-hidden="true">💰</span>
-                            Economizar e ter um roteiro funcional
-                        </button>
-
-                        <button class="quiz-option" onclick="nextStep(2, 'completo')">
-                            <span class="emoji" aria-hidden="true">📍</span>
-                            Ter tudo mapeado e organizado no celular
-                        </button>
-
-                        <button class="quiz-option" onclick="nextStep(2, 'estrategico')">
-                            <span class="emoji" aria-hidden="true">🛡️</span>
-                            Segurança, plano B e suporte se precisar
-                        </button>
-
-                        <button class="quiz-option" onclick="nextStep(2, 'vip')">
-                            <span class="emoji" aria-hidden="true">🤝</span>
-                            Acompanhamento personalizado durante a viagem
-                        </button>
-                    </div>
-                </div>
-
-                <div class="quiz-step" id="step3">
-                    <p class="quiz-question">3. Quantos dias vai viajar?</p>
-
-                    <div class="quiz-options">
-                        <button class="quiz-option" onclick="showResult('ate7')">
-                            <span class="emoji" aria-hidden="true">📅</span>
-                            Até 7 dias
-                        </button>
-
-                        <button class="quiz-option" onclick="showResult('8a14')">
-                            <span class="emoji" aria-hidden="true">📅</span>
-                            8 a 14 dias
-                        </button>
-
-                        <button class="quiz-option" onclick="showResult('15a21')">
-                            <span class="emoji" aria-hidden="true">📅</span>
-                            15 a 21 dias
-                        </button>
-
-                        <button class="quiz-option" onclick="showResult('22mais')">
-                            <span class="emoji" aria-hidden="true">📅</span>
-                            22+ dias (mochilão/trip longa)
-                        </button>
-                    </div>
-                </div>
-
-                <div class="quiz-step quiz-result" id="result">
-                    <h4>
-                        <span class="emoji" aria-hidden="true">🤩</span>
-                        Encontramos o plano perfeito para você!
-                    </h4>
-
-                    <div class="recomendacao" id="recomendacao"></div>
-
-                    <a href="#" id="resultBtn" class="btn-primary" style="margin-top: 1rem;" target="_blank" rel="noopener noreferrer">
-                        Quero Esse Plano →
-                    </a>
-
-                    <button onclick="resetQuiz()" class="btn-secondary" style="margin-top: 1rem;">
-                        Refazer Quiz
+                <div class="quiz-options">
+                    <button class="quiz-option" onclick="nextStep(1, 'q1a')">
+                        <span class="emoji" aria-hidden="true">✅</span>
+                        Sim, destino definido
                     </button>
 
-                    <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 2px solid var(--cinza);">
-                        <p style="font-size: 0.9rem; color: var(--texto); margin-bottom: 1rem; font-family: 'Neulis Sans', sans-serif !important;">
-                            Ainda não tem certeza? Responda nosso formulário detalhado!
-                        </p>
+                    <button class="quiz-option" onclick="nextStep(1, 'q1b')">
+                        <span class="emoji" aria-hidden="true">🧭</span>
+                        Ainda não sei
+                    </button>
+                </div>
+            </div>
 
-                        <a href="https://forms.gle/hwTunbHdTjNCHRXy7" target="_blank" rel="noopener noreferrer" class="btn-formulario">
-                            <span class="emoji emoji-inline" aria-hidden="true">📄</span>
-                            Preencher Formulário Completo
-                        </a>
-                    </div>
+            <!-- Passo 2 -->
+            <div class="quiz-step" id="step2">
+                <p class="quiz-question">2. Já comprou alguma coisa?</p>
+
+                <div class="quiz-options">
+                    <button class="quiz-option" onclick="nextStep(2, 'q2a')">
+                        <span class="emoji" aria-hidden="true">❌</span>
+                        Não
+                    </button>
+
+                    <button class="quiz-option" onclick="nextStep(2, 'q2b')">
+                        <span class="emoji" aria-hidden="true">✈️</span>
+                        Sim, as passagens
+                    </button>
+
+                    <button class="quiz-option" onclick="nextStep(2, 'q2c')">
+                        <span class="emoji" aria-hidden="true">🏨</span>
+                        Sim, a hospedagem
+                    </button>
+
+                    <button class="quiz-option" onclick="nextStep(2, 'q2d')">
+                        <span class="emoji" aria-hidden="true">✅</span>
+                        Sim, passagem e hospedagem
+                    </button>
+                </div>
+            </div>
+
+            <!-- Passo 3 -->
+            <div class="quiz-step" id="step3">
+                <p class="quiz-question">3. Você tem interesse em seguro de viagem?</p>
+
+                <div class="quiz-options">
+                    <button class="quiz-option" onclick="nextStep(3, 'q3a')">
+                        <span class="emoji" aria-hidden="true">🛡️</span>
+                        Sim
+                    </button>
+
+                    <button class="quiz-option" onclick="nextStep(3, 'q3b')">
+                        <span class="emoji" aria-hidden="true">🙅‍♀️</span>
+                        Não
+                    </button>
+                </div>
+            </div>
+
+            <!-- Passo 4 -->
+            <div class="quiz-step" id="step4">
+                <p class="quiz-question">4. Que tipo de ajuda você precisa?</p>
+
+                <div class="quiz-options">
+                    <button class="quiz-option" onclick="nextStep(4, 'q4a')">
+                        <span class="emoji" aria-hidden="true">💎</span>
+                        Suporte durante a viagem
+                    </button>
+
+                    <button class="quiz-option" onclick="nextStep(4, 'q4b')">
+                        <span class="emoji" aria-hidden="true">📝</span>
+                        Só um roteiro mesmo
+                    </button>
+
+                    <button class="quiz-option" onclick="nextStep(4, 'q4c')">
+                        <span class="emoji" aria-hidden="true">🗺️</span>
+                        Um mapa personalizado no Google Maps
+                    </button>
+                </div>
+            </div>
+
+            <!-- Passo 5 -->
+            <div class="quiz-step" id="step5">
+                <p class="quiz-question">5. O que é mais importante pra você?</p>
+
+                <div class="quiz-options">
+                    <button class="quiz-option" onclick="nextStep(5, 'q5a')">
+                        <span class="emoji" aria-hidden="true">💰</span>
+                        Economizar e ter um roteiro funcional
+                    </button>
+
+                    <button class="quiz-option" onclick="nextStep(5, 'q5b')">
+                        <span class="emoji" aria-hidden="true">📲</span>
+                        Ter tudo mapeado e organizado no celular
+                    </button>
+
+                    <button class="quiz-option" onclick="nextStep(5, 'q5c')">
+                        <span class="emoji" aria-hidden="true">🛡️</span>
+                        Segurança e um plano B
+                    </button>
+
+                    <button class="quiz-option" onclick="nextStep(5, 'q5d')">
+                        <span class="emoji" aria-hidden="true">🧳</span>
+                        Ajuda para comprar e fazer reservas
+                    </button>
+                </div>
+            </div>
+
+            <!-- Passo 6 -->
+            <div class="quiz-step" id="step6">
+                <p class="quiz-question">6. Como você prefere seu roteiro?</p>
+
+                <div class="quiz-options">
+                    <button class="quiz-option" onclick="nextStep(6, 'q6a')">
+                        <span class="emoji" aria-hidden="true">⚡</span>
+                        Enxuto e certeiro
+                    </button>
+
+                    <button class="quiz-option" onclick="nextStep(6, 'q6b')">
+                        <span class="emoji" aria-hidden="true">🍽️</span>
+                        Mais completo e com variedade
+                    </button>
+                </div>
+            </div>
+
+            <!-- Resultado -->
+            <div class="quiz-step quiz-result" id="result">
+                <h4 id="resultTitle">
+                    Seu plano ideal é:
+                </h4>
+
+                <div class="recomendacao" id="recomendacao"></div>
+
+                <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
+                    <a href="#" id="resultBtn" class="btn-primary" target="_blank" rel="noopener noreferrer" style="justify-content: center;">
+                        Quero esse plano
+                    </a>
+
+                    <a href="#planos" class="btn-secondary" onclick="closeModal()" style="justify-content: center; text-decoration: none;">
+                        Ver detalhes dos planos
+                    </a>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
     <script>
         // Animação de scroll
@@ -1376,96 +1416,302 @@
         }
 
         // Quiz logic
-        let respostas = {};
+let respostas = {};
 
-        function nextStep(step, answer) {
-            respostas['step' + step] = answer;
-            document.getElementById('step' + step).classList.remove('active');
-            document.getElementById('step' + (step + 1)).classList.add('active');
+const planMeta = {
+    painel: {
+        nome: 'Painel de Partidas'
+    },
+    partiu: {
+        nome: 'Modo Partiu',
+        preco: 'R$ 139,90'
+    },
+    checkin: {
+        nome: 'Modo Check-in',
+        preco: 'R$ 239,90'
+    },
+    embarque: {
+        nome: 'Modo Embarque',
+        preco: 'R$ 339,90'
+    },
+    vip: {
+        nome: 'Modo VIP',
+        preco: 'R$ 659,90'
+    }
+};
+
+function showOnlyStep(stepId) {
+    document.querySelectorAll('.quiz-step').forEach(step => {
+        step.classList.remove('active');
+    });
+    document.getElementById(stepId).classList.add('active');
+}
+
+function nextStep(step, answer) {
+    respostas['step' + step] = answer;
+
+    // Regra 1: encerra imediatamente no Painel
+    if (step === 1 && answer === 'q1b') {
+        renderResult('painel');
+        return;
+    }
+
+    if (step < 6) {
+        showOnlyStep('step' + (step + 1));
+        return;
+    }
+
+    // Ao terminar a pergunta 6
+    const vencedor = calcularPlanoVencedor();
+    renderResult(vencedor);
+}
+
+function calcularPlanoVencedor() {
+    const scores = {
+        partiu: 0,
+        checkin: 0,
+        embarque: 0,
+        vip: 0
+    };
+
+    const q2 = respostas.step2;
+    const q3 = respostas.step3;
+    const q4 = respostas.step4;
+    const q5 = respostas.step5;
+    const q6 = respostas.step6;
+
+    const partiuElegivel = q2 === 'q2d';
+    const vipForte = q4 === 'q4a' || q5 === 'q5d';
+    const embarqueTemSinal =
+        q4 === 'q4c' ||
+        q5 === 'q5b' ||
+        q5 === 'q5c' ||
+        q3 === 'q3a';
+
+    // Q2
+    if (q2 === 'q2a') {
+        scores.checkin += 2;
+        scores.embarque += 2;
+        scores.vip += 1;
+    } else if (q2 === 'q2b') {
+        scores.checkin += 2;
+        scores.embarque += 2;
+        scores.vip += 1;
+    } else if (q2 === 'q2c') {
+        scores.checkin += 2;
+        scores.embarque += 2;
+        scores.vip += 1;
+    } else if (q2 === 'q2d') {
+        scores.partiu += 2;
+        scores.checkin += 2;
+        scores.embarque += 2;
+        scores.vip += 1;
+    }
+
+    // Q3
+    if (q3 === 'q3a') {
+        scores.embarque += 3;
+        scores.vip += 1;
+    } else if (q3 === 'q3b') {
+        scores.partiu += 1;
+        scores.checkin += 2;
+    }
+
+    // Q4
+    if (q4 === 'q4a') {
+        scores.vip += 6;
+    } else if (q4 === 'q4b') {
+        scores.partiu += 2;
+        scores.checkin += 2;
+    } else if (q4 === 'q4c') {
+        scores.embarque += 5;
+        scores.vip += 1;
+    }
+
+    // Q5
+    if (q5 === 'q5a') {
+        scores.partiu += 2;
+        scores.checkin += 2;
+    } else if (q5 === 'q5b') {
+        scores.embarque += 4;
+        scores.vip += 1;
+    } else if (q5 === 'q5c') {
+        scores.embarque += 4;
+        scores.vip += 1;
+    } else if (q5 === 'q5d') {
+        scores.vip += 6;
+    }
+
+    // Q6
+    if (q6 === 'q6a') {
+        scores.partiu += 3;
+    } else if (q6 === 'q6b') {
+        scores.checkin += 3;
+        scores.embarque += 1;
+    }
+
+    // Partiu inelegível se não for Q2d
+    const candidatos = ['checkin', 'embarque', 'vip'];
+    if (partiuElegivel) {
+        candidatos.push('partiu');
+    }
+
+    // Regra especial: disputa Embarque x VIP "muito próxima"
+    // Interpretação prática: diferença de 1 ponto ou menos
+    if (!vipForte && (scores.vip > scores.embarque) && (scores.vip - scores.embarque <= 1)) {
+        scores.embarque = scores.vip;
+    }
+
+    if (vipForte && (scores.embarque > scores.vip) && (scores.embarque - scores.vip <= 1)) {
+        scores.vip = scores.embarque;
+    }
+
+    let maior = Math.max(...candidatos.map(plano => scores[plano]));
+    let empatados = candidatos.filter(plano => scores[plano] === maior);
+
+    // Regras de desempate
+    // VIP forte vence qualquer empate se estiver no empate
+    if (vipForte && empatados.includes('vip')) {
+        return 'vip';
+    }
+
+    // Embarque vence empates com VIP quando não há sinal forte de VIP
+    if (empatados.includes('embarque') && empatados.includes('vip')) {
+        empatados = empatados.filter(plano => plano !== 'vip');
+    }
+
+    // Partiu x Check-in
+    if (empatados.includes('partiu') && empatados.includes('checkin')) {
+        if (q6 === 'q6a' && partiuElegivel) {
+            return 'partiu';
         }
+        return 'checkin';
+    }
 
-        function showResult(dias) {
-            respostas.dias = dias;
-            document.getElementById('step3').classList.remove('active');
-            document.getElementById('result').classList.add('active');
-
-            let plano = '';
-            let descricao = '';
-            let preco = '';
-            let link = '';
-
-            if (respostas.step1 === 'painel') {
-                plano = 'Painel de Partidas';
-                descricao = 'Você ainda está na fase de descoberta. O Painel de Partidas vai te ajudar a definir o destino perfeito dentro do seu orçamento!';
-                preco = 'R$ 79,90 (com direito a crédito no plano seguinte)';
-                link = 'https://wa.me/5549999562143?text=Olá! Fiz o quiz e quero o Painel de Partidas!';
-            } else if (respostas.step1 === 'partiu' || (respostas.step1 === 'checkin' && respostas.step2 === 'basico')) {
-                plano = 'Modo Partiu';
-                descricao = 'Como você já tem a base da viagem resolvida, o Modo Partiu é ideal para ter um roteiro inteligente e aproveitar cada momento!';
-                preco = getPreco('partiu', dias);
-                link = 'https://wa.me/5549999562143?text=Olá! Fiz o quiz e quero o Modo Partiu!';
-            } else if (respostas.step1 === 'checkin' || respostas.step2 === 'completo') {
-                plano = 'Modo Check-in';
-                descricao = 'Você precisa de ajuda com hospedagem e quer tudo organizado no mapa. O Check-in é perfeito para você!';
-                preco = getPreco('checkin', dias);
-                link = 'https://wa.me/5549999562143?text=Olá! Fiz o quiz e quero o Modo Check-in!';
-            } else if (respostas.step2 === 'estrategico') {
-                plano = 'Modo Embarque';
-                descricao = 'Você quer segurança, estratégia e um roteiro à prova de perrengue. O Embarque é o nosso plano mais completo (e já inclui Modo Conexão!)';
-                preco = getPreco('embarque', dias);
-                link = 'https://wa.me/5549999562143?text=Olá! Fiz o quiz e quero o Modo Embarque!';
-            } else {
-                plano = 'Modo VIP';
-                descricao = 'Você quer o melhor da Modo Turistagem: acompanhamento durante a viagem, suporte em tempo real e experiência premium!';
-                preco = getPreco('vip', dias);
-                link = 'https://wa.me/5549999562143?text=Olá! Fiz o quiz e quero o Modo VIP!';
-            }
-
-            document.getElementById('recomendacao').innerHTML = `
-                <h5>${plano}</h5>
-                <p>${descricao}</p>
-                <p style="margin-top: 1rem; font-weight: 700; color: var(--azul);">${preco}</p>
-            `;
-
-            document.getElementById('resultBtn').href = link;
+    // Check-in x Embarque
+    if (empatados.includes('checkin') && empatados.includes('embarque')) {
+        if (embarqueTemSinal) {
+            return 'embarque';
         }
+        return 'checkin';
+    }
 
-        function getPreco(plano, dias) {
-            const precos = {
-                partiu: {
-                    ate7: 'R$ 139',
-                    '8a14': 'R$ 169',
-                    '15a21': 'R$ 199',
-                    '22mais': 'R$ 229 + R$ 89/semana'
-                },
-                checkin: {
-                    ate7: 'R$ 239',
-                    '8a14': 'R$ 279',
-                    '15a21': 'R$ 319',
-                    '22mais': 'R$ 369 + R$ 129/semana'
-                },
-                embarque: {
-                    ate7: 'R$ 339',
-                    '8a14': 'R$ 389',
-                    '15a21': 'R$ 439',
-                    '22mais': 'R$ 499 + R$ 159/semana'
-                },
-                vip: {
-                    ate7: 'R$ 659',
-                    '8a14': 'R$ 759',
-                    '15a21': 'R$ 839',
-                    '22mais': 'R$ 909 + R$ 259/semana'
-                }
-            };
+    // Se ainda restar empate e tiver Embarque, prioriza Embarque
+    if (empatados.includes('embarque')) {
+        return 'embarque';
+    }
 
-            return 'A partir de ' + precos[plano][dias];
+    // Se ainda restar empate e tiver Check-in, prioriza Check-in
+    if (empatados.includes('checkin')) {
+        return 'checkin';
+    }
+
+    // Se ainda restar empate e tiver Partiu
+    if (empatados.includes('partiu')) {
+        return 'partiu';
+    }
+
+    // Fallback final
+    return empatados[0] || 'checkin';
+}
+
+function buildJustificativas(plano) {
+    const q1 = respostas.step1;
+    const q2 = respostas.step2;
+    const q3 = respostas.step3;
+    const q4 = respostas.step4;
+    const q5 = respostas.step5;
+    const q6 = respostas.step6;
+
+    const bullets = [];
+
+    if (plano === 'painel') {
+        bullets.push('Você ainda não definiu o destino da viagem.');
+        bullets.push('Antes de montar um roteiro, o melhor próximo passo é descobrir qual destino faz mais sentido para você.');
+        bullets.push('O Painel de Partidas te ajuda a sair da dúvida com direção e clareza.');
+        return bullets.slice(0, 3);
+    }
+
+    if (plano === 'partiu') {
+        if (q2 === 'q2d') bullets.push('Você já tem passagem e hospedagem definidas.');
+        if (q4 === 'q4b') bullets.push('Você quer só um roteiro, sem precisar de camadas extras de suporte.');
+        if (q5 === 'q5a') bullets.push('Você prioriza economizar sem complicação.');
+        if (q6 === 'q6a') bullets.push('Você prefere um roteiro enxuto e certeiro.');
+    }
+
+    if (plano === 'checkin') {
+        if (q2 === 'q2a' || q2 === 'q2b' || q2 === 'q2c') bullets.push('Sua viagem ainda não está 100% fechada, então faz sentido ter ajuda com a base.');
+        if (q4 === 'q4b') bullets.push('Você quer um roteiro prático, sem necessidade de suporte durante a viagem.');
+        if (q5 === 'q5a') bullets.push('Você quer equilíbrio entre economia e organização.');
+        if (q6 === 'q6b') bullets.push('Você prefere um roteiro mais completo e com variedade.');
+        if (q3 === 'q3b') bullets.push('Seguro de viagem não apareceu como prioridade agora.');
+    }
+
+    if (plano === 'embarque') {
+        if (q3 === 'q3a') bullets.push('Você mostrou interesse em seguro de viagem.');
+        if (q4 === 'q4c') bullets.push('Você quer tudo mapeado no Google Maps.');
+        if (q5 === 'q5b') bullets.push('Você quer tudo organizado no celular.');
+        if (q5 === 'q5c') bullets.push('Você prioriza segurança e um plano B.');
+        if (q6 === 'q6b') bullets.push('Você gosta de um roteiro mais completo, mas sem chegar no nível de suporte do VIP.');
+    }
+
+    if (plano === 'vip') {
+        if (q4 === 'q4a') bullets.push('Você quer suporte durante a viagem.');
+        if (q5 === 'q5d') bullets.push('Você quer ajuda para comprar e fazer reservas.');
+        if (q5 === 'q5b') bullets.push('Você valoriza praticidade e organização total.');
+        if (q5 === 'q5c') bullets.push('Você quer mais segurança e respaldo ao longo da viagem.');
+    }
+
+    // Garante 2 a 3 bullets
+    const unicos = [...new Set(bullets)];
+
+    if (unicos.length < 2) {
+        if (plano === 'partiu') {
+            unicos.push('Esse plano funciona melhor para quem já está com a base da viagem resolvida.');
+        } else if (plano === 'checkin') {
+            unicos.push('Esse plano te ajuda a organizar melhor a estrutura da viagem antes de partir.');
+        } else if (plano === 'embarque') {
+            unicos.push('Esse plano é ideal para quem quer mais estratégia e menos chance de perrengue.');
+        } else if (plano === 'vip') {
+            unicos.push('Esse plano faz mais sentido para quem quer acompanhamento mais próximo e uma experiência premium.');
         }
+    }
 
-        function resetQuiz() {
-            respostas = {};
-            document.querySelectorAll('.quiz-step').forEach(step => step.classList.remove('active'));
-            document.getElementById('step1').classList.add('active');
-        }
+    return unicos.slice(0, 3);
+}
+
+function renderResult(planKey) {
+    const plano = planMeta[planKey].nome;
+    const justificativas = buildJustificativas(planKey);
+
+    const mensagem = `Oi! Fiz o quiz no site e meu resultado foi: ${plano}. Quero fechar esse plano. 😊`;
+    const whatsappUrl = `https://wa.me/554999562143?text=${encodeURIComponent(mensagem)}`;
+
+    document.getElementById('resultTitle').textContent = `Seu plano ideal é: ${plano}`;
+
+    document.getElementById('recomendacao').innerHTML = `
+        <ul style="list-style: none; padding: 0; margin: 0; text-align: left;">
+            ${justificativas.map(item => `
+                <li style="margin-bottom: 0.75rem; padding-left: 1.4rem; position: relative; font-family: 'Neulis Sans', sans-serif;">
+                    <span style="position: absolute; left: 0; top: 0; color: var(--laranja); font-weight: 700;">•</span>
+                    ${item}
+                </li>
+            `).join('')}
+        </ul>
+    `;
+
+    document.getElementById('resultBtn').href = whatsappUrl;
+
+    showOnlyStep('result');
+}
+
+function resetQuiz() {
+    respostas = {};
+    document.getElementById('resultTitle').textContent = 'Seu plano ideal é:';
+    document.getElementById('recomendacao').innerHTML = '';
+    document.getElementById('resultBtn').href = '#';
+    showOnlyStep('step1');
+}
 
         document.getElementById('helpModal').addEventListener('click', function (e) {
             if (e.target === this) {
@@ -1477,5 +1723,6 @@
 </html>
 
 </html>
+
 
 
