@@ -55,7 +55,7 @@
     /* ===== MINI TEXTO ===== */
     .destinos-note {
       background: var(--branco);
-      padding: 1.2rem 1.2rem;
+      padding: 1.2rem;
       margin: -1.6rem auto 0;
       max-width: 980px;
       border-radius: 18px;
@@ -102,7 +102,9 @@
       white-space: nowrap;
     }
 
-    .bandeira-emoji { font-size: 1.6rem; }
+    .bandeira-emoji {
+      font-size: 1.6rem;
+    }
 
     @media (prefers-reduced-motion: reduce) {
       .bandeiras-track { animation: none; }
@@ -151,186 +153,137 @@
       margin-top: 0.35rem;
     }
 
-    /* =========
-       DEPOIMENTOS (compacto + texto dentro do laranja)
-       - reduz altura pela metade (comparado ao grande)
-       - foto limitada (crop) e texto não estoura
-       ========= */
+    /* ===== DEPOIMENTOS ===== */
     .depoimentos {
       padding: 4rem 2rem 0;
       background: var(--branco);
     }
 
     .depo-wrap {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
     }
 
-    .depo-carousel {
+    .testi-grid {
       margin-top: 1.8rem;
-      background: var(--laranja);
-      border-radius: 22px;
-      overflow: hidden;
-      box-shadow: 0 18px 44px rgba(0,0,0,0.16);
-      position: relative;
-    }
-
-    /* altura total controlada (slide + dots) */
-    .depo-viewport { overflow: hidden; }
-
-    .depo-track {
-      display: flex;
-      width: 300%;
-      transform: translateX(0);
-      transition: transform 550ms ease;
-      will-change: transform;
-    }
-
-    /* Compacto: fixa altura do slide pra não crescer com texto */
-    .depo-slide {
-      width: 100%;
-      flex: 0 0 100%;
       display: grid;
-      grid-template-columns: clamp(360px, 42vw, 520px) 1fr;
-      height: 300px;              /* <<< compacto (principal ajuste) */
-      min-height: 300px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2rem;
+      align-items: stretch;
     }
 
-    .depo-foto {
+    .testi-card {
+      border-radius: 26px;
+      overflow: hidden;
+      background: var(--branco);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .testi-card:nth-child(3) {
+      grid-column: 1 / -1;
+      max-width: 560px;
+      width: 100%;
+      justify-self: center;
+    }
+
+    .testi-media {
       height: 300px;
       overflow: hidden;
-      background: transparent;
+      background: rgba(0,0,0,0.06);
     }
 
-    .depo-foto img {
+    .testi-media img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 18%; /* puxa um pouco pra cima (zona vermelha) */
+      object-position: var(--img-pos, center 35%);
       display: block;
       filter: saturate(1.05) contrast(1.02);
     }
 
-    .depo-texto {
-      height: 300px;
-      padding: 1.7rem 4.9rem 1.6rem 2rem; /* espaço à direita pra seta */
+    .testi-body {
+      padding: 1.25rem 1.35rem 1.35rem;
       color: var(--branco);
+      background: var(--card-bg, var(--laranja));
+      min-height: 210px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      gap: 0.45rem;
-      overflow: hidden; /* garante que nada vaze */
+      justify-content: flex-start;
+      gap: 0.8rem;
     }
 
-    .depo-name {
-      margin: 0;
-      font-weight: 500;      /* regular */
-      font-size: 1.22rem;    /* maiorzinho */
-      line-height: 1.1;
-    }
+    .testi--orange { --card-bg: var(--laranja); }
+    .testi--blue   { --card-bg: var(--azul); }
 
-    .depo-place {
-      margin: 0;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55rem;
-      font-weight: 900;      /* negrito */
-      font-size: 1.36rem;    /* maior que nome */
-      line-height: 1.1;
-    }
-
-    /* Depoimento direto no laranja e sempre dentro do espaço */
-    .depo-quote {
-      margin: 0.85rem 0 0;
-      font-size: 1.02rem;
-      font-weight: 500;
-      line-height: 1.55;
-      opacity: 0.96;
-
-      /* trava o tamanho pra não estourar a caixa */
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 5;   /* ajuste fino do “caber” */
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    /* Setas */
-    .depo-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.55);
-      background: rgba(0,0,0,0.12);
-      color: var(--branco);
-      display: grid;
-      place-items: center;
-      cursor: pointer;
-      z-index: 3;
-      transition: background 200ms ease, transform 200ms ease;
-      user-select: none;
-    }
-    .depo-arrow:hover { background: rgba(0,0,0,0.18); }
-    .depo-arrow:active { transform: translateY(-50%) scale(0.98); }
-    .depo-prev { left: 14px; }
-    .depo-next { right: 14px; }
-
-    /* Pontinhos discretos (sem faixa diferente) */
-    .depo-dots {
+    .testi-top {
       display: flex;
-      justify-content: center;
-      gap: 0.45rem;
-      padding: 0.7rem 1rem 0.95rem;
-      background: transparent;
+      flex-direction: column;
+      gap: 0.35rem;
     }
 
-    .dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      border: 1.5px solid rgba(255,255,255,0.65);
-      background: transparent;
-      cursor: pointer;
-      opacity: 0.75;
-      transition: transform 200ms ease, background 200ms ease, opacity 200ms ease;
+    .testi-name {
+      margin: 0;
+      font-size: 1.15rem;
+      font-weight: 600;
+      line-height: 1.1;
     }
 
-    .dot.active {
-      background: rgba(255,255,255,0.95);
-      opacity: 1;
-      transform: scale(1.05);
+    .testi-loc {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      line-height: 1.1;
+      flex-wrap: wrap;
     }
 
-    /* Mobile: foto em cima e texto embaixo (compacto e legível) */
-    @media (max-width: 860px) {
-      .depo-slide {
+    .testi-code {
+      font-size: 0.92rem;
+      font-weight: 800;
+      opacity: 0.95;
+    }
+
+    .testi-city {
+      font-size: 1.28rem;
+      font-weight: 900;
+    }
+
+    .testi-text {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.55;
+      opacity: 0.98;
+      white-space: normal;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    @media (max-width: 900px) {
+      .testi-grid {
         grid-template-columns: 1fr;
-        height: auto;
+        gap: 1.5rem;
+      }
+
+      .testi-card:nth-child(3) {
+        grid-column: auto;
+        max-width: none;
+        justify-self: stretch;
+      }
+
+      .testi-media {
+        height: 260px;
+      }
+
+      .testi-body {
         min-height: 0;
       }
-
-      .depo-foto {
-        height: 240px;
-      }
-
-      .depo-texto {
-        height: auto;
-        padding: 1.35rem 1.25rem 1.35rem;
-      }
-
-      .depo-quote {
-        -webkit-line-clamp: 6;
-      }
-
-      .depo-arrow {
-        display: none; /* swipe + dots */
-      }
     }
 
-    /* ===== CTA (sem fundo azul / com estrelas em baixa opacidade) ===== */
+    /* ===== CTA ===== */
     .cta-entre {
       padding: 2.2rem 2rem 4rem;
       background: var(--branco);
@@ -340,17 +293,16 @@
     .cta-box {
       max-width: 980px;
       margin: 0 auto;
-      background: var(--branco);              /* <<< remove o azul */
+      background: var(--branco);
       color: var(--azul);
       border-radius: 22px;
       padding: 2.6rem 2rem;
       border: 1px solid rgba(0,0,0,0.07);
-      box-shadow: 0 18px 46px rgba(0,0,0,0.12);
+      box-shadow: none;
       position: relative;
       overflow: hidden;
     }
 
-    /* mantém estrelas no fundo, bem sutis */
     .cta-box::after {
       content: "✨";
       position: absolute;
@@ -435,7 +387,9 @@
       filter: saturate(1.05) contrast(1.02);
     }
 
-    .destino-card:hover .destino-img { transform: scale(1.09); }
+    .destino-card:hover .destino-img {
+      transform: scale(1.09);
+    }
 
     .destino-overlay {
       position: absolute;
@@ -474,7 +428,9 @@
       cursor: pointer;
     }
 
-    .destino-card:hover .destino-link { gap: 0.85rem; }
+    .destino-card:hover .destino-link {
+      gap: 0.85rem;
+    }
 
     @media (max-width: 768px) {
       .destinos-hero h1 { font-size: 2.15rem; }
@@ -562,62 +518,62 @@
         <p>Gente real, no destino, vivendo o que foi planejado.</p>
       </div>
 
-      <div class="depo-carousel fade-in" id="depoCarousel" aria-label="Carrossel de depoimentos">
-        <div class="depo-arrow depo-prev" id="depoPrev" aria-label="Anterior">‹</div>
-        <div class="depo-arrow depo-next" id="depoNext" aria-label="Próximo">›</div>
-
-        <div class="depo-viewport">
-          <div class="depo-track" id="depoTrack">
-
-            <!-- Slide 1 -->
-            <div class="depo-slide">
-              <div class="depo-foto">
-                <img src="images/depoimentos/exemplo 01.JPG" alt="Ana Luiza em Tokyo, Japão" loading="lazy" />
-              </div>
-              <div class="depo-texto">
-                <p class="depo-name">Ana Luiza</p>
-                <p class="depo-place"><span class="emoji" aria-hidden="true">🇯🇵</span> Tokyo</p>
-                <p class="depo-quote">“Eu estava surtando com transporte e bairros pra ficar. O roteiro veio redondinho, com mapa no Google Maps, dicas do que vale a pena e um plano B real. Economizei tempo e viajei com segurança.”</p>
-              </div>
-            </div>
-
-            <!-- Slide 2 -->
-            <div class="depo-slide">
-              <div class="depo-foto">
-                <img src="images/depoimentos/exemplo 02.JPG" alt="Ana Luiza em Curitiba, Brasil" loading="lazy" />
-              </div>
-              <div class="depo-texto">
-                <p class="depo-name">Ana Luiza</p>
-                <p class="depo-place"><span class="emoji" aria-hidden="true">🇧🇷</span> Curitiba</p>
-                <p class="depo-quote">“Eu queria um roteiro funcional, sem perder tempo decidindo tudo na hora. Veio dia a dia bem organizado, com sugestões de restaurantes e deslocamentos fáceis. Foi a viagem mais prática que já fiz.”</p>
-              </div>
-            </div>
-
-            <!-- Slide 3 -->
-            <div class="depo-slide">
-              <div class="depo-foto">
-                <img src="images/depoimentos/exemplo 03.JPG" alt="Ana Luiza em Engelberg, Suíça" loading="lazy" />
-              </div>
-              <div class="depo-texto">
-                <p class="depo-name">Ana Luiza</p>
-                <p class="depo-place"><span class="emoji" aria-hidden="true">🇨🇭</span> Engelberg</p>
-                <p class="depo-quote">“Neve me dava medo por causa de imprevistos. Ter um plano B e orientações claras de transporte e logística fez toda a diferença. Foi zero perrengue e eu aproveitei muito mais.”</p>
-              </div>
-            </div>
-
+      <div class="testi-grid fade-in">
+        <article class="testi-card testi--orange">
+          <div class="testi-media" style="--img-pos: center 35%;">
+            <img src="images/depoimentos/exemplo 01.JPG" alt="Ana Luiza em Tokyo, Japão" loading="lazy" />
           </div>
-        </div>
+          <div class="testi-body">
+            <div class="testi-top">
+              <p class="testi-name">Ana Luiza</p>
+              <p class="testi-loc">
+                <span class="emoji" aria-hidden="true">🇯🇵</span>
+                <span class="testi-code">JP</span>
+                <span class="testi-city">Tokyo</span>
+              </p>
+            </div>
+            <p class="testi-text">“Eu estava surtando com transporte e bairros pra ficar. O roteiro veio redondinho, com mapa no Google Maps, dicas do que vale a pena e um plano B real. Economizei tempo e viajei com segurança.”</p>
+          </div>
+        </article>
 
-        <div class="depo-dots" role="tablist" aria-label="Navegação do carrossel">
-          <button class="dot active" data-slide="0" aria-label="Depoimento 1"></button>
-          <button class="dot" data-slide="1" aria-label="Depoimento 2"></button>
-          <button class="dot" data-slide="2" aria-label="Depoimento 3"></button>
-        </div>
+        <article class="testi-card testi--blue">
+          <div class="testi-media" style="--img-pos: center 30%;">
+            <img src="images/depoimentos/exemplo 02.JPG" alt="Ana Luiza em Curitiba, Brasil" loading="lazy" />
+          </div>
+          <div class="testi-body">
+            <div class="testi-top">
+              <p class="testi-name">Ana Luiza</p>
+              <p class="testi-loc">
+                <span class="emoji" aria-hidden="true">🇧🇷</span>
+                <span class="testi-code">BR</span>
+                <span class="testi-city">Curitiba</span>
+              </p>
+            </div>
+            <p class="testi-text">“Eu queria um roteiro funcional, sem perder tempo decidindo tudo na hora. Veio dia a dia bem organizado, com sugestões de restaurantes e deslocamentos fáceis. Foi a viagem mais prática que já fiz.”</p>
+          </div>
+        </article>
+
+        <article class="testi-card testi--orange">
+          <div class="testi-media" style="--img-pos: center 22%;">
+            <img src="images/depoimentos/exemplo 03.JPG" alt="Ana Luiza em Engelberg, Suíça" loading="lazy" />
+          </div>
+          <div class="testi-body">
+            <div class="testi-top">
+              <p class="testi-name">Ana Luiza</p>
+              <p class="testi-loc">
+                <span class="emoji" aria-hidden="true">🇨🇭</span>
+                <span class="testi-code">CH</span>
+                <span class="testi-city">Engelberg</span>
+              </p>
+            </div>
+            <p class="testi-text">“Neve me dava medo por causa de imprevistos. Ter um plano B e orientações claras de transporte e logística fez toda a diferença. Foi zero perrengue e eu aproveitei muito mais.”</p>
+          </div>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- CTA (sem azul + mapa no início + estrelas no fundo) -->
+  <!-- CTA -->
   <section class="cta-entre">
     <div class="cta-box fade-in">
       <h2><span class="emoji" aria-hidden="true">🗺️</span> Quero seu próximo destino aqui!</h2>
@@ -632,7 +588,6 @@
   <section class="galeria">
     <div class="container">
       <div class="section-header fade-in">
-        <!-- pill como antes: caixinha laranja clara, com texto "Destinos testados" -->
         <span class="section-tag">
           <span class="emoji" aria-hidden="true">📸</span> Destinos testados
         </span>
@@ -820,26 +775,21 @@
   </footer>
 
   <script>
-    // =========
     // Menu mobile
-    // =========
     function toggleMenu() {
       document.getElementById('navLinks').classList.toggle('active');
     }
 
-    // =========
     // Fade-in
-    // =========
     const fadeObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.12 });
+
     document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
 
-    // =========
     // Bandeiras (marquee)
-    // =========
     const paises = [
       { nome: 'Brasil', bandeira: '🇧🇷' },
       { nome: 'Argentina', bandeira: '🇦🇷' },
@@ -873,11 +823,10 @@
         <span>${p.nome}</span>
       </div>
     `).join('');
+
     track.innerHTML = conteudo + conteudo;
 
-    // =========
-    // Contadores animados + simulação do ∞
-    // =========
+    // Contadores animados + simulação do infinito
     const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const statsGrid = document.getElementById('statsGrid');
     const statEls = statsGrid ? statsGrid.querySelectorAll('.stat-numero') : [];
@@ -896,6 +845,7 @@
         if (progress < 1) requestAnimationFrame(tick);
         else el.textContent = `${target}${suffix}`;
       }
+
       requestAnimationFrame(tick);
     }
 
@@ -923,6 +873,7 @@
           }, 130);
         }
       }
+
       requestAnimationFrame(tick);
     }
 
@@ -951,90 +902,13 @@
           if (entry.isIntersecting) playStats();
         });
       }, { threshold: 0.25 });
+
       statsObserver.observe(statsGrid);
     }
-
-    // =========
-    // Carrossel Depoimentos
-    // =========
-    const depoCarousel = document.getElementById('depoCarousel');
-    const depoTrack = document.getElementById('depoTrack');
-    const dots = Array.from(document.querySelectorAll('.dot'));
-    const prevBtn = document.getElementById('depoPrev');
-    const nextBtn = document.getElementById('depoNext');
-
-    let currentSlide = 0;
-    const totalSlides = 3;
-    const intervalMs = 4500;
-    let timer = null;
-    let isPaused = false;
-
-    function goToSlide(index) {
-      currentSlide = (index + totalSlides) % totalSlides;
-      depoTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
-      dots.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
-    }
-
-    function nextSlide() { goToSlide(currentSlide + 1); }
-    function prevSlide() { goToSlide(currentSlide - 1); }
-
-    function startAuto() {
-      if (prefersReduced) return;
-      stopAuto();
-      timer = setInterval(() => {
-        if (!isPaused) nextSlide();
-      }, intervalMs);
-    }
-
-    function stopAuto() {
-      if (timer) clearInterval(timer);
-      timer = null;
-    }
-
-    dots.forEach(dot => {
-      dot.addEventListener('click', () => {
-        const idx = parseInt(dot.getAttribute('data-slide'), 10);
-        goToSlide(idx);
-      });
-    });
-
-    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
-    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
-
-    if (depoCarousel) {
-      depoCarousel.addEventListener('mouseenter', () => { isPaused = true; });
-      depoCarousel.addEventListener('mouseleave', () => { isPaused = false; });
-    }
-
-    // swipe (mobile)
-    let startX = 0;
-    let dx = 0;
-
-    if (depoCarousel) {
-      depoCarousel.addEventListener('touchstart', (e) => {
-        startX = e.touches[0].clientX;
-        dx = 0;
-        isPaused = true;
-      }, { passive: true });
-
-      depoCarousel.addEventListener('touchmove', (e) => {
-        dx = e.touches[0].clientX - startX;
-      }, { passive: true });
-
-      depoCarousel.addEventListener('touchend', () => {
-        if (Math.abs(dx) > 45) {
-          if (dx < 0) nextSlide();
-          else prevSlide();
-        }
-        isPaused = false;
-      });
-    }
-
-    goToSlide(0);
-    startAuto();
   </script>
 </body>
 </html>
+
 
 
 
