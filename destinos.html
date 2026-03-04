@@ -1,699 +1,852 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Destinos Testados | Modo Turistagem</title>
-    <meta name="description" content="Destinos testados por quem realmente viaja — prova social em fotos e recomendações que eu faço de coração." />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Destinos Testados | Modo Turistagem</title>
+  <meta name="description" content="Prova social em forma de foto — destinos que eu vivi na pele e recomendo com propriedade." />
 
-    <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css" />
 
-    <style>
-        /* =========
-           Ajustes específicos da página
-           ========= */
+  <style>
+    /* =========
+       Ajustes específicos da página
+       ========= */
 
-        :root{
-            --wa-numero: "5549991628403";
-        }
+    /* garante que emojis (se existirem) renderizem melhor */
+    .emoji, .bandeira-emoji {
+      font-family: "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif !important;
+      font-weight: 400 !important;
+      font-style: normal !important;
+      line-height: 1;
+    }
 
-        /* garante que emojis renderizem (inclui o rodapé) */
-        .emoji,
-        .bandeira-emoji {
-            font-family: "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif !important;
-            font-weight: 400 !important;
-            font-style: normal !important;
-            line-height: 1;
-        }
+    /* ===== NAV: só logo inteira ===== */
+    .logo { display: flex; align-items: center; gap: 0; }
+    .logo-text { display: none !important; }
+    .logo-img-full {
+      height: 36px;
+      width: auto;
+      display: block;
+    }
+    @media (min-width: 900px) {
+      .logo-img-full { height: 40px; }
+    }
 
-        .destinos-hero {
-            margin-top: 70px;
-            background: linear-gradient(135deg, var(--azul) 0%, #0044cc 100%);
-            color: var(--branco);
-            padding: 4.2rem 2rem 3.2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+    /* ===== HERO ===== */
+    .destinos-hero {
+      margin-top: 70px;
+      background: linear-gradient(135deg, var(--azul) 0%, #0044cc 100%);
+      color: var(--branco);
+      padding: 4.2rem 2rem 3.2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .destinos-hero::after {
+      content: "✈️";
+      position: absolute;
+      font-size: 18rem;
+      opacity: 0.07;
+      right: -40px;
+      top: -70px;
+      transform: rotate(12deg);
+      pointer-events: none;
+    }
+    .destinos-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 0.9rem;
+    }
+    .destinos-hero p {
+      font-size: 1.15rem;
+      opacity: 0.92;
+      max-width: 760px;
+      margin: 0 auto;
+    }
 
-        .destinos-hero::after {
-            content: "✈️";
-            position: absolute;
-            font-size: 18rem;
-            opacity: 0.07;
-            right: -40px;
-            top: -70px;
-            transform: rotate(12deg);
-            pointer-events: none;
-        }
+    /* ===== MINI TEXTO ===== */
+    .destinos-note {
+      background: var(--branco);
+      padding: 1.2rem 1.2rem;
+      margin: -1.6rem auto 0;
+      max-width: 980px;
+      border-radius: 18px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .destinos-note p {
+      margin: 0;
+      color: var(--azul);
+      font-weight: 800;
+      font-size: 1rem;
+      text-align: center;
+    }
 
-        .destinos-hero h1 {
-            font-size: 3rem;
-            margin-bottom: 0.9rem;
-        }
+    /* ===== MARQUEE BANDEIRAS ===== */
+    .bandeiras-marquee {
+      background: var(--laranja-claro);
+      padding: 1.2rem 0;
+      overflow: hidden;
+      position: relative;
+    }
+    .bandeiras-track {
+      display: flex;
+      gap: 2.4rem;
+      width: max-content;
+      animation: scroll 32s linear infinite;
+      will-change: transform;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .bandeira-item {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: 1.05rem;
+      font-weight: 900;
+      color: var(--azul);
+      white-space: nowrap;
+    }
+    .bandeira-emoji { font-size: 1.6rem; }
 
-        .destinos-hero p {
-            font-size: 1.15rem;
-            opacity: 0.92;
-            max-width: 720px;
-            margin: 0 auto;
-        }
+    @media (prefers-reduced-motion: reduce) {
+      .bandeiras-track { animation: none; }
+    }
 
-        /* Mini texto forte */
-        .destinos-note {
-            background: var(--branco);
-            padding: 1.2rem 1.2rem;
-            margin: -1.6rem auto 0;
-            max-width: 980px;
-            border-radius: 18px;
-            box-shadow: 0 16px 40px rgba(0,0,0,0.12);
-            border: 1px solid rgba(0,0,0,0.06);
-        }
+    /* ===== STATS ===== */
+    .stats {
+      background: var(--cinza);
+      padding: 3.2rem 2rem;
+      text-align: center;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1.5rem;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+    .stat-item {
+      padding: 1.6rem 1.3rem;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.65);
+      border: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    }
+    .stat-numero {
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--laranja);
+      letter-spacing: -0.5px;
+    }
+    .stat-label {
+      color: var(--azul);
+      font-weight: 900;
+      margin-top: 0.35rem;
+    }
+    .stat-hint {
+      font-size: 0.9rem;
+      opacity: 0.85;
+      color: var(--azul);
+      margin-top: 0.35rem;
+    }
 
-        .destinos-note p {
-            margin: 0;
-            color: var(--azul);
-            font-weight: 700;
-            font-size: 1rem;
-            text-align: center;
-        }
+    /* ===== DEPOIMENTOS ===== */
+    .depoimentos {
+      padding: 4rem 2rem;
+      background: var(--branco);
+    }
+    .depoimentos .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .depoimentos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.4rem;
+      margin-top: 1.8rem;
+    }
+    .depo-card {
+      border-radius: 18px;
+      border: 1px solid rgba(0,0,0,0.07);
+      background: rgba(255,255,255,0.9);
+      box-shadow: 0 14px 34px rgba(0,0,0,0.08);
+      padding: 1.2rem 1.2rem 1.1rem;
+    }
+    .depo-top {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      margin-bottom: 0.85rem;
+    }
+    .avatar {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex: 0 0 54px;
+      border: 2px solid rgba(255, 132, 0, 0.30);
+      background: rgba(0,0,0,0.06);
+      display: grid;
+      place-items: center;
+      position: relative;
+    }
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .avatar .fallback {
+      display: none;
+      width: 100%;
+      height: 100%;
+      place-items: center;
+      font-weight: 900;
+      color: var(--azul);
+      background: rgba(255, 132, 0, 0.16);
+      letter-spacing: 0.5px;
+    }
+    .depo-nome {
+      font-weight: 900;
+      color: var(--azul);
+      line-height: 1.1;
+    }
+    .depo-destino {
+      font-size: 0.9rem;
+      opacity: 0.85;
+      color: var(--azul);
+      font-weight: 700;
+      margin-top: 0.2rem;
+    }
+    .depo-texto {
+      margin: 0;
+      color: var(--azul);
+      opacity: 0.92;
+      font-weight: 650;
+      line-height: 1.45;
+    }
 
-        /* Barra de bandeiras */
-        .bandeiras-marquee {
-            background: var(--laranja-claro);
-            padding: 1.2rem 0;
-            overflow: hidden;
-            position: relative;
-        }
+    /* ===== GALERIA ===== */
+    .galeria {
+      padding: 4rem 2rem;
+      background: var(--branco);
+    }
+    .galeria-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-        .bandeiras-track {
-            display: flex;
-            gap: 2.4rem;
-            width: max-content;
-            animation: scroll 32s linear infinite;
-            will-change: transform;
-        }
+    /* Card inteiro clicável */
+    .destino-card {
+      display: block;
+      position: relative;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      aspect-ratio: 4/5;
+      text-decoration: none;
+      color: inherit;
+      outline: none;
+    }
+    .destino-card:hover {
+      transform: translateY(-9px);
+      box-shadow: 0 22px 62px rgba(0,0,0,0.22);
+    }
+    .destino-card:focus-visible {
+      box-shadow: 0 0 0 4px rgba(255, 132, 0, 0.35), 0 22px 62px rgba(0,0,0,0.22);
+      transform: translateY(-6px);
+    }
+    .destino-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      filter: saturate(1.05) contrast(1.02);
+    }
+    .destino-card:hover .destino-img {
+      transform: scale(1.09);
+    }
+    .destino-overlay {
+      position: absolute;
+      inset: auto 0 0 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.88), rgba(0,0,0,0.10));
+      padding: 2rem;
+      color: var(--branco);
+    }
+    .destino-local {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: 1.45rem;
+      font-weight: 900;
+      margin-bottom: 0.45rem;
+    }
+    .destino-desc {
+      font-size: 0.98rem;
+      opacity: 0.93;
+      margin-bottom: 0.9rem;
+      max-width: 92%;
+    }
 
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
+    /* “Ver no Instagram” com cara de link */
+    .destino-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 900;
+      font-size: 0.95rem;
+      color: var(--laranja);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-thickness: 2px;
+      cursor: pointer;
+    }
+    .destino-card:hover .destino-link { gap: 0.85rem; }
 
-        .bandeira-item {
-            display: flex;
-            align-items: center;
-            gap: 0.55rem;
-            font-size: 1.05rem;
-            font-weight: 800;
-            color: var(--azul);
-            white-space: nowrap;
-        }
+    /* ===== Footer icon SVG ===== */
+    .social-links a svg {
+      width: 18px;
+      height: 18px;
+      display: block;
+    }
+    .footer-hearts {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      vertical-align: middle;
+    }
+    .heart {
+      width: 14px;
+      height: 14px;
+      display: inline-block;
+    }
+    .heart.blue { color: #6aa9ff; }
+    .heart.orange { color: var(--laranja); }
 
-        .bandeira-emoji {
-            font-size: 1.6rem;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .bandeiras-track { animation: none; }
-        }
-
-        /* Stats */
-        .stats {
-            background: var(--cinza);
-            padding: 3.2rem 2rem;
-            text-align: center;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-            gap: 1.5rem;
-            max-width: 920px;
-            margin: 0 auto;
-        }
-
-        .stat-item {
-            padding: 1.6rem 1.3rem;
-            border-radius: 18px;
-            background: rgba(255,255,255,0.65);
-            border: 1px solid rgba(0,0,0,0.06);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-        }
-
-        .stat-numero {
-            font-size: 3rem;
-            font-weight: 900;
-            color: var(--laranja);
-            letter-spacing: -0.5px;
-        }
-
-        .stat-label {
-            color: var(--azul);
-            font-weight: 800;
-            margin-top: 0.35rem;
-        }
-
-        .stat-hint {
-            font-size: 0.9rem;
-            opacity: 0.85;
-            color: var(--azul);
-            margin-top: 0.35rem;
-        }
-
-        /* Galeria */
-        .galeria {
-            padding: 4rem 2rem;
-            background: var(--branco);
-        }
-
-        .galeria-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Card inteiro clicável */
-        .destino-card {
-            display: block;
-            position: relative;
-            border-radius: 22px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-            aspect-ratio: 4/5;
-            text-decoration: none;
-            color: inherit;
-            outline: none;
-        }
-
-        .destino-card:hover {
-            transform: translateY(-9px);
-            box-shadow: 0 22px 62px rgba(0,0,0,0.22);
-        }
-
-        .destino-card:focus-visible {
-            box-shadow: 0 0 0 4px rgba(255, 132, 0, 0.35), 0 22px 62px rgba(0,0,0,0.22);
-            transform: translateY(-6px);
-        }
-
-        .destino-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-            filter: saturate(1.05) contrast(1.02);
-        }
-
-        .destino-card:hover .destino-img {
-            transform: scale(1.09);
-        }
-
-        .destino-overlay {
-            position: absolute;
-            inset: auto 0 0 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.88), rgba(0,0,0,0.10));
-            padding: 2rem;
-            color: var(--branco);
-        }
-
-        .destino-local {
-            display: flex;
-            align-items: center;
-            gap: 0.55rem;
-            font-size: 1.45rem;
-            font-weight: 900;
-            margin-bottom: 0.45rem;
-        }
-
-        .destino-desc {
-            font-size: 0.98rem;
-            opacity: 0.93;
-            margin-bottom: 0.9rem;
-            max-width: 90%;
-        }
-
-        /* “Ver no Instagram” agora parece link real */
-        .destino-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: 900;
-            font-size: 0.95rem;
-            color: var(--laranja);
-            text-decoration: underline;
-            text-underline-offset: 4px;
-            text-decoration-thickness: 2px;
-            cursor: pointer;
-        }
-
-        .destino-card:hover .destino-link {
-            gap: 0.85rem;
-        }
-
-        @media (max-width: 768px) {
-            .destinos-hero h1 { font-size: 2.15rem; }
-            .destinos-hero p { font-size: 1.05rem; }
-            .galeria-grid { grid-template-columns: 1fr; }
-            .destino-overlay { padding: 1.6rem; }
-            .destino-local { font-size: 1.25rem; }
-        }
-    </style>
+    @media (max-width: 768px) {
+      .destinos-hero h1 { font-size: 2.15rem; }
+      .destinos-hero p { font-size: 1.05rem; }
+      .galeria-grid { grid-template-columns: 1fr; }
+      .destino-overlay { padding: 1.6rem; }
+      .destino-local { font-size: 1.25rem; }
+    }
+  </style>
 </head>
 
 <body>
-    <!-- Navegação -->
-    <nav>
-        <div class="nav-container">
-            <a href="index.html" class="logo">
-                <img src="images/icone.png" alt="Modo Turistagem" class="logo-img" />
-                <div class="logo-text">
-                    <span class="logo-modo">modo</span>
-                    <span class="logo-turistagem">turistagem.</span>
-                </div>
-            </a>
+  <!-- Navegação -->
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="logo" aria-label="Modo Turistagem - Home">
+        <!-- Logo inteira no cabeçalho -->
+        <img src="images/logotipo.png" alt="Modo Turistagem" class="logo-img-full" />
+      </a>
 
-            <button class="mobile-menu" onclick="toggleMenu()" aria-label="Abrir menu">☰</button>
+      <button class="mobile-menu" onclick="toggleMenu()" aria-label="Abrir menu">☰</button>
 
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="destinos.html" class="active">Destinos Testados</a></li>
-                <li><a href="como-funciona.html">Como Funciona</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-                <li><a href="quem-somos.html">Quem Somos</a></li>
-                <li>
-                    <a href="https://wa.me/5549991628403" class="btn-nav" target="_blank" rel="noopener noreferrer">
-                        Fale Conosco
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Hero -->
-    <section class="destinos-hero">
-        <div class="container fade-in">
-            <h1><span class="emoji">🌍</span> Destinos Testados</h1>
-            <p>
-                Prova social em forma de foto — lugares que eu vivi na pele e que eu recomendo com propriedade.
-            </p>
-        </div>
-    </section>
-
-    <!-- Mini texto forte -->
-    <div class="destinos-note fade-in">
-        <p>Posso planejar mesmo sem eu ter ido — mas aqui estão os destinos que eu conheço na pele.</p>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="destinos.html" class="active">Destinos Testados</a></li>
+        <li><a href="como-funciona.html">Como Funciona</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="quem-somos.html">Quem Somos</a></li>
+        <li>
+          <a href="https://wa.me/5549991628403" class="btn-nav" target="_blank" rel="noopener noreferrer">
+            Fale Conosco
+          </a>
+        </li>
+      </ul>
     </div>
+  </nav>
 
-    <!-- Barra de Bandeiras -->
-    <section class="bandeiras-marquee" aria-label="Países visitados">
-        <div class="bandeiras-track" id="bandeirasTrack"></div>
-    </section>
+  <!-- Hero -->
+  <section class="destinos-hero">
+    <div class="container fade-in">
+      <h1>Destinos Testados</h1>
+      <p>Prova social em forma de foto — lugares que eu vivi na pele e que eu recomendaria de olhos fechados.</p>
+    </div>
+  </section>
 
-    <!-- Estatísticas -->
-    <section class="stats">
-        <div class="stats-grid fade-in" id="statsGrid">
-            <div class="stat-item">
-                <div class="stat-numero" data-count="30" data-suffix="+">0</div>
-                <div class="stat-label">Países visitados</div>
-                <div class="stat-hint">carimbados no passaporte</div>
+  <!-- Mini texto forte -->
+  <div class="destinos-note fade-in">
+    <p>Posso planejar mesmo sem eu ter ido — mas aqui estão os destinos que eu conheço na pele.</p>
+  </div>
+
+  <!-- Barra de Bandeiras -->
+  <section class="bandeiras-marquee" aria-label="Países visitados">
+    <div class="bandeiras-track" id="bandeirasTrack"></div>
+  </section>
+
+  <!-- Estatísticas -->
+  <section class="stats">
+    <div class="stats-grid fade-in" id="statsGrid">
+      <div class="stat-item">
+        <div class="stat-numero" data-count="30" data-suffix="+">0</div>
+        <div class="stat-label">Países visitados</div>
+        <div class="stat-hint">carimbados e lembrados</div>
+      </div>
+
+      <div class="stat-item">
+        <div class="stat-numero" data-count="90" data-suffix="+">0</div>
+        <div class="stat-label">Cidades visitadas</div>
+        <div class="stat-hint">entre rolês e viagens grandes</div>
+      </div>
+
+      <div class="stat-item">
+        <div class="stat-numero" data-infinity="true">0</div>
+        <div class="stat-label">Histórias pra contar</div>
+        <div class="stat-hint">e dicas pra te poupar perrengue</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Depoimentos (antes das fotos) -->
+  <section class="depoimentos">
+    <div class="wrap">
+      <div class="section-header fade-in">
+        <span class="section-tag">💬 Depoimentos</span>
+        <h2>Quem já viajou com roteiro da Modo</h2>
+        <p>Prova real: gente de verdade, no destino, vivendo o que foi planejado.</p>
+      </div>
+
+      <div class="depoimentos-grid">
+        <div class="depo-card fade-in">
+          <div class="depo-top">
+            <div class="avatar">
+              <img src="images/depoimentos/cliente-1.jpg" alt="Cliente 1" loading="lazy"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+              <span class="fallback">CL</span>
             </div>
-
-            <div class="stat-item">
-                <div class="stat-numero" data-count="90" data-suffix="+">0</div>
-                <div class="stat-label">Cidades visitadas</div>
-                <div class="stat-hint">entre rolês e viagens grandes</div>
+            <div>
+              <div class="depo-nome">Cliente 1</div>
+              <div class="depo-destino">Japão</div>
             </div>
-
-            <div class="stat-item">
-                <div class="stat-numero" data-infinity="true">0</div>
-                <div class="stat-label">Histórias pra contar</div>
-                <div class="stat-hint">e dicas pra te poupar perrengue</div>
-            </div>
+          </div>
+          <p class="depo-texto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet viverra aenean, sem euismod — tudo fluiu.</p>
         </div>
-    </section>
 
-    <!-- Galeria -->
-    <section class="galeria">
-        <div class="container">
-            <div class="section-header fade-in">
-                <span class="section-tag">
-                    <span class="emoji">📸</span> Destinos reais
-                </span>
-                <h2>Experiências Testadas</h2>
-                <p>Cada foto é uma história — e cada história vira recomendação prática no seu roteiro.</p>
+        <div class="depo-card fade-in">
+          <div class="depo-top">
+            <div class="avatar">
+              <img src="images/depoimentos/cliente-2.jpg" alt="Cliente 2" loading="lazy"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+              <span class="fallback">AB</span>
             </div>
-
-            <div class="galeria-grid">
-                <!-- Chile -->
-                <a class="destino-card fade-in" href="https://www.instagram.com/p/DNWTkWhSaCW/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Santiago, Chile">
-                    <img src="images/destinos/santiago.jpg" alt="Santiago, Chile" class="destino-img" loading="lazy" />
-                    <div class="destino-overlay">
-                        <div class="destino-local"><span class="bandeira-emoji">🇨🇱</span> Santiago, Chile</div>
-                        <p class="destino-desc">Andes na janela, vinhos, e cidade que funciona.</p>
-                        <span class="destino-link"><span class="emoji">📷</span> Ver no Instagram →</span>
-                    </div>
-                </a>
-
-                <!-- Egito -->
-                <a class="destino-card fade-in" href="https://www.instagram.com/p/B1CiddWFUyN/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Cruzeiro no Nilo, Egito">
-                    <img src="images/destinos/egito.jpg" alt="Cruzeiro no Nilo, Egito" class="destino-img" loading="lazy" />
-                    <div class="destino-overlay">
-                        <div class="destino-local"><span class="bandeira-emoji">🇪🇬</span> Cruzeiro no Nilo, Egito</div>
-                        <p class="destino-desc">Templo, calor, história — e aquele tipo de viagem que muda você.</p>
-                        <span class="destino-link"><span class="emoji">📷</span> Ver no Instagram →</span>
-                    </div>
-                </a>
-
-                <!-- Paris -->
-                <a class="destino-card fade-in" href="https://www.instagram.com/p/B5qxipPlgR_/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Paris, França">
-                    <img src="images/destinos/paris.jpg" alt="Paris, França" class="destino-img" loading="lazy" />
-                    <div class="destino-overlay">
-                        <div class="destino-local"><span class="bandeira-emoji">🇫🇷</span> Paris, França</div>
-                        <p class="destino-desc">Clássica do jeito certo: caminhar, comer bem e repetir.</p>
-                        <span class="destino-link"><span class="emoji">📷</span> Ver no Instagram →</span>
-                    </div>
-                </a>
-
-                <!-- Veneza -->
-                <a class="destino-card fade-in" href="https://www.instagram.com/p/BqLD1djFKdZ/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Veneza, Itália">
-                    <img src="images/destinos/veneza.jpg" alt="Veneza, Itália" class="destino-img" loading="lazy" />
-                    <div class="destino-overlay">
-                        <div class="destino-local"><span class="bandeira-emoji">🇮🇹</span> Veneza, Itália</div>
-                        <p class="destino-desc">Romance + labirinto + “como não cair em pegadinha turística”.</p>
-                        <span class="destino-link"><span class="emoji">📷</span> Ver no Instagram →</span>
-                    </div>
-                </a>
-
-                <!-- Roma -->
-                <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/Bq0OdoFFwG6/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Roma, Itália">
-                    <img src="images/destinos/roma.jpg" alt="Roma, Itália" class="destino-img" loading="lazy" />
-                    <div class="destino-overlay">
-                        <div class="destino-local"><span class="bandeira-emoji">🇮🇹</span> Roma, Itália</div>
-                        <p class="destino-desc">A eterna: história em cada esquina e comida que consola a alma.</p>
-                        <span class="destino-link"><span class="emoji">📷</span> Ver no Instagram →</span>
-                    </div>
-                </a>
-
-                <!-- Marrocos -->
-                <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/BsycUyqlkZW/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Marrocos">
-                    <img src="images/destinos/marrocos.jpg" alt="Marrocos" class="destino-img" loading="lazy" />
-                    <div class="destino-overlay">
-                        <div class="destino-local"><span class="bandeira-emoji">🇲🇦</span> Marrocos</div>
-                        <p class="destino-desc">Cores, aromas e um choque cultural DELICIOSO (com as dicas certas).</p>
-                        <span class="destino-link"><span class="emoji">📷</span> Ver no Instagram →</span>
-                    </div>
-                </a>
-
-                <!-- Islândia -->
-                <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/BqvF0aKlGmS/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Islandia">
-                    <img src="images/destinos/islandia.jpg" alt="Islândia" class="destino-img" loading="lazy" />
-                    <div class="destino-overlay">
-                        <div class="destino-local"><span class="bandeira-emoji">🇮🇸</span> Islândia</div>
-                        <p class="destino-desc">Paisagem de outro planeta — e um roteiro que precisa de timing.</p>
-                        <span class="destino-link"><span class="emoji">📷</span> Ver no Instagram →</span>
-                    </div>
-                </a>
-
-                <!-- Japão -->
-                <a class="destino-card fade-in" href="https://www.instagram.com/p/DPU4BfCEx89/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Japão">
-                    <img src="images/destinos/japao.jpeg" alt="Miyajima, Japão" class="destino-img" loading="lazy" />
-                    <div class="destino-overlay">
-                        <div class="destino-local"><span class="bandeira-emoji">🇯🇵</span> Japão</div>
-                        <p class="destino-desc">Cultura, organização e detalhes que fazem diferença no seu dia a dia.</p>
-                        <span class="destino-link"><span class="emoji">📷</span> Ver no Instagram →</span>
-                    </div>
-                </a>
-
-                <!-- Rio -->
-                <a class="destino-card fade-in" href="https://www.instagram.com/p/DRftfnRFu4O/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Rio de Janeiro">
-                    <img src="images/destinos/rio.jpeg" alt="Rio de Janeiro, Brasil" class="destino-img" loading="lazy" />
-                    <div class="destino-overlay">
-                        <div class="destino-local"><span class="bandeira-emoji">🇧🇷</span> Rio de Janeiro, Brasil</div>
-                        <p class="destino-desc">Cidade maravilhosa (com roteiro esperto pra curtir com segurança).</p>
-                        <span class="destino-link"><span class="emoji">📷</span> Ver no Instagram →</span>
-                    </div>
-                </a>
-
-                <!-- Praia Grande (novo) -->
-                <a class="destino-card fade-in" href="https://www.instagram.com/p/DCt0ClouK_q/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Praia Grande">
-                    <img src="images/destinos/praia-grande.jpg" alt="Praia Grande, Brasil" class="destino-img" loading="lazy" />
-                    <div class="destino-overlay">
-                        <div class="destino-local"><span class="bandeira-emoji">🇧🇷</span> Praia Grande, Brasil</div>
-                        <p class="destino-desc">Praia, comida e aquele descanso rápido que salva a alma.</p>
-                        <span class="destino-link"><span class="emoji">📷</span> Ver no Instagram →</span>
-                    </div>
-                </a>
-
-                <!-- Irlanda do Norte (novo) -->
-                <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/B0JusUOlwCA/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Irlanda do Norte">
-                    <img src="images/destinos/irlanda-do-norte.jpg" alt="Irlanda do Norte" class="destino-img" loading="lazy" />
-                    <div class="destino-overlay">
-                        <div class="destino-local"><span class="bandeira-emoji">🇬🇧</span> Irlanda do Norte</div>
-                        <p class="destino-desc">Vento, história e paisagem dramática (do jeito que a gente ama).</p>
-                        <span class="destino-link"><span class="emoji">📷</span> Ver no Instagram →</span>
-                    </div>
-                </a>
-
-                <!-- Moscou (novo) -->
-                <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/BvUqcxmlNOG/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Moscou">
-                    <img src="images/destinos/moscou.jpg" alt="Moscou, Rússia" class="destino-img" loading="lazy" />
-                    <div class="destino-overlay">
-                        <div class="destino-local"><span class="bandeira-emoji">🇷🇺</span> Moscou, Rússia</div>
-                        <p class="destino-desc">Grande, intensa e inesquecível — com roteiro bem planejado.</p>
-                        <span class="destino-link"><span class="emoji">📷</span> Ver no Instagram →</span>
-                    </div>
-                </a>
-
-                <!-- Beto Carrero (novo) -->
-                <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/C6NAcKSsyTh/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Beto Carrero">
-                    <img src="images/destinos/beto-carreiro.jpg" alt="Beto Carrero World, Brasil" class="destino-img" loading="lazy" />
-                    <div class="destino-overlay">
-                        <div class="destino-local"><span class="bandeira-emoji">🇧🇷</span> Beto Carrero, Brasil</div>
-                        <p class="destino-desc">Parque raiz: dá pra fazer render MUITO com estratégia.</p>
-                        <span class="destino-link"><span class="emoji">📷</span> Ver no Instagram →</span>
-                    </div>
-                </a>
-
-                <!-- Fortaleza (novo) -->
-                <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/BlOiVTght6A/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Fortaleza">
-                    <img src="images/destinos/fortaleza.jpg" alt="Fortaleza, Brasil" class="destino-img" loading="lazy" />
-                    <div class="destino-overlay">
-                        <div class="destino-local"><span class="bandeira-emoji">🇧🇷</span> Fortaleza, Brasil</div>
-                        <p class="destino-desc">Sol, mar e rolês — com roteiro que evita perrengue e cilada.</p>
-                        <span class="destino-link"><span class="emoji">📷</span> Ver no Instagram →</span>
-                    </div>
-                </a>
+            <div>
+              <div class="depo-nome">Cliente 2</div>
+              <div class="depo-destino">Orlando</div>
             </div>
+          </div>
+          <p class="depo-texto">Lorem ipsum dolor sit amet. Roteiro certeiro, horários funcionando e zero sensação de “tô perdendo tempo”.</p>
         </div>
-    </section>
 
-    <!-- CTA -->
-    <section style="background: var(--azul); color: var(--branco); padding: 4rem 2rem; text-align: center;">
-        <div class="container fade-in">
-            <h2 style="font-size: 2rem; margin-bottom: 1rem;">
-                <span class="emoji">✨</span> Quero seu próximo destino aqui!
-            </h2>
-            <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.92; max-width: 760px; margin-left:auto; margin-right:auto;">
-                Me conta onde você quer ir — eu organizo um roteiro lindo, prático e com a sua cara.
-            </p>
-
-            <a href="https://wa.me/5549991628403" class="btn-primary" target="_blank" rel="noopener noreferrer">
-                <span class="emoji">💬</span> Vamos conversar
-            </a>
+        <div class="depo-card fade-in">
+          <div class="depo-top">
+            <div class="avatar">
+              <img src="images/depoimentos/cliente-3.jpg" alt="Cliente 3" loading="lazy"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+              <span class="fallback">PM</span>
+            </div>
+            <div>
+              <div class="depo-nome">Cliente 3</div>
+              <div class="depo-destino">Paris</div>
+            </div>
+          </div>
+          <p class="depo-texto">Lorem ipsum dolor sit amet, consectetur. Eu só seguia o plano e parecia que tudo “encaixava”.</p>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer style="margin-top: 0;">
-        <div class="footer-content">
-            <img src="images/logotipo.png" alt="Modo Turistagem" class="footer-logo" />
-            <p class="footer-text">
-                Consultoria de viagens feita por quem realmente viaja.
-                <span class="emoji">🌍</span><br />
-                Traduzindo sonhos em planos concretos desde 2024.
-            </p>
-
-            <div class="social-links">
-                <a href="https://instagram.com/modoturistagem" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                    <span class="emoji">📷</span>
-                </a>
-                <a href="https://wa.me/5549991628403" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-                    <span class="emoji">💬</span>
-                </a>
-                <a href="mailto:contato@modoturistagem.com" aria-label="E-mail">
-                    <span class="emoji">✉️</span>
-                </a>
+        <div class="depo-card fade-in">
+          <div class="depo-top">
+            <div class="avatar">
+              <img src="images/depoimentos/cliente-4.jpg" alt="Cliente 4" loading="lazy"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+              <span class="fallback">RS</span>
             </div>
-
-            <div class="footer-bottom">
-                <p>© 2024 Modo Turistagem. Todos os direitos reservados.</p>
-                <p style="margin-top: 0.5rem; font-size: 0.85rem;">
-                    Feito com <span class="emoji">💙</span> e <span class="emoji">🧡</span> por quem ama viajar
-                </p>
+            <div>
+              <div class="depo-nome">Cliente 4</div>
+              <div class="depo-destino">Chile</div>
             </div>
+          </div>
+          <p class="depo-texto">Lorem ipsum dolor sit amet. Dicas de deslocamento e de comida foram o que mais salvou a viagem!</p>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // =========
-        // Menu mobile
-        // =========
-        function toggleMenu() {
-            document.getElementById('navLinks').classList.toggle('active');
-        }
+  <!-- Galeria -->
+  <section class="galeria">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag">📸 Experiências testadas</span>
+        <h2>Prova social (na prática)</h2>
+        <p>Sem promessa vazia: aqui é lugar vivido, foto tirada e memória que virou dica.</p>
+      </div>
 
-        // =========
-        // Fade-in (usa sua classe existente do style.css)
-        // =========
-        const fadeObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
-            });
-        }, { threshold: 0.12 });
+      <div class="galeria-grid">
+        <!-- Chile -->
+        <a class="destino-card fade-in" href="https://www.instagram.com/p/DNWTkWhSaCW/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Santiago, Chile">
+          <img src="images/destinos/santiago.jpg" alt="Santiago, Chile" class="destino-img" loading="lazy" />
+          <div class="destino-overlay">
+            <div class="destino-local"><span class="bandeira-emoji">🇨🇱</span> Santiago, Chile</div>
+            <p class="destino-desc">Céu azul, vinho bom e os Andes aparecendo quando você menos espera.</p>
+            <span class="destino-link">Ver no Instagram →</span>
+          </div>
+        </a>
 
-        document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
+        <!-- Egito -->
+        <a class="destino-card fade-in" href="https://www.instagram.com/p/B1CiddWFUyN/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Cruzeiro no Nilo, Egito">
+          <img src="images/destinos/egito.jpg" alt="Cruzeiro no Nilo, Egito" class="destino-img" loading="lazy" />
+          <div class="destino-overlay">
+            <div class="destino-local"><span class="bandeira-emoji">🇪🇬</span> Cruzeiro no Nilo, Egito</div>
+            <p class="destino-desc">O Nilo no fim do dia e a sensação de estar dentro de um livro de história.</p>
+            <span class="destino-link">Ver no Instagram →</span>
+          </div>
+        </a>
 
-        // =========
-        // Bandeiras (marquee)
-        // =========
-        const paises = [
-            { nome: 'Brasil', bandeira: '🇧🇷' },
-            { nome: 'Argentina', bandeira: '🇦🇷' },
-            { nome: 'Uruguai', bandeira: '🇺🇾' },
-            { nome: 'Paraguai', bandeira: '🇵🇾' },
-            { nome: 'Chile', bandeira: '🇨🇱' },
-            { nome: 'Estados Unidos', bandeira: '🇺🇸' },
-            { nome: 'França', bandeira: '🇫🇷' },
-            { nome: 'Itália', bandeira: '🇮🇹' },
-            { nome: 'Espanha', bandeira: '🇪🇸' },
-            { nome: 'Portugal', bandeira: '🇵🇹' },
-            { nome: 'Irlanda', bandeira: '🇮🇪' },
-            { nome: 'Irlanda do Norte', bandeira: '🇬🇧' },
-            { nome: 'Escócia', bandeira: '🏴' },
-            { nome: 'Reino Unido', bandeira: '🇬🇧' },
-            { nome: 'Suíça', bandeira: '🇨🇭' },
-            { nome: 'Áustria', bandeira: '🇦🇹' },
-            { nome: 'Alemanha', bandeira: '🇩🇪' },
-            { nome: 'Polônia', bandeira: '🇵🇱' },
-            { nome: 'Dinamarca', bandeira: '🇩🇰' },
-            { nome: 'Suécia', bandeira: '🇸🇪' },
-            { nome: 'Rússia', bandeira: '🇷🇺' },
-            { nome: 'Islândia', bandeira: '🇮🇸' },
-            { nome: 'Marrocos', bandeira: '🇲🇦' },
-            { nome: 'Egito', bandeira: '🇪🇬' },
-            { nome: 'Vaticano', bandeira: '🇻🇦' },
-            { nome: 'Japão', bandeira: '🇯🇵' }
-        ];
+        <!-- Paris -->
+        <a class="destino-card fade-in" href="https://www.instagram.com/p/B5qxipPlgR_/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Paris, França">
+          <img src="images/destinos/paris.jpg" alt="Paris, França" class="destino-img" loading="lazy" />
+          <div class="destino-overlay">
+            <div class="destino-local"><span class="bandeira-emoji">🇫🇷</span> Paris, França</div>
+            <p class="destino-desc">Cafés pequenos, caminhadas sem pressa e a cidade brilhando mesmo no frio.</p>
+            <span class="destino-link">Ver no Instagram →</span>
+          </div>
+        </a>
 
-        const track = document.getElementById('bandeirasTrack');
+        <!-- Veneza -->
+        <a class="destino-card fade-in" href="https://www.instagram.com/p/BqLD1djFKdZ/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Veneza, Itália">
+          <img src="images/destinos/veneza.jpg" alt="Veneza, Itália" class="destino-img" loading="lazy" />
+          <div class="destino-overlay">
+            <div class="destino-local"><span class="bandeira-emoji">🇮🇹</span> Veneza, Itália</div>
+            <p class="destino-desc">Se perder nos becos (de propósito) é parte do charme — e do roteiro.</p>
+            <span class="destino-link">Ver no Instagram →</span>
+          </div>
+        </a>
 
-        const conteudo = paises.map(p => `
-            <div class="bandeira-item">
-                <span class="bandeira-emoji">${p.bandeira}</span>
-                <span>${p.nome}</span>
-            </div>
-        `).join('');
+        <!-- Roma -->
+        <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/Bq0OdoFFwG6/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Roma, Itália">
+          <img src="images/destinos/roma.JPG" alt="Roma, Itália" class="destino-img" loading="lazy" />
+          <div class="destino-overlay">
+            <div class="destino-local"><span class="bandeira-emoji">🇮🇹</span> Roma, Itália</div>
+            <p class="destino-desc">Barulho gostoso, ruínas gigantes e pôr do sol que parece cena de filme.</p>
+            <span class="destino-link">Ver no Instagram →</span>
+          </div>
+        </a>
 
-        // Duplicar para loop infinito suave
-        track.innerHTML = conteudo + conteudo;
+        <!-- Marrocos -->
+        <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/BsycUyqlkZW/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Marrocos">
+          <img src="images/destinos/marrocos.jpg" alt="Marrocos" class="destino-img" loading="lazy" />
+          <div class="destino-overlay">
+            <div class="destino-local"><span class="bandeira-emoji">🇲🇦</span> Marrocos</div>
+            <p class="destino-desc">Souks, azulejos e especiarias no ar — um choque cultural do melhor tipo.</p>
+            <span class="destino-link">Ver no Instagram →</span>
+          </div>
+        </a>
 
-        // =========
-        // Contadores animados (0 → número) + simulação do ∞
-        // =========
-        const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        const statsGrid = document.getElementById('statsGrid');
-        const statEls = statsGrid ? statsGrid.querySelectorAll('.stat-numero') : [];
-        let statsPlayed = false;
+        <!-- Islândia -->
+        <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/BqvF0aKlGmS/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Islândia">
+          <img src="images/destinos/islandia.jpg" alt="Islândia" class="destino-img" loading="lazy" />
+          <div class="destino-overlay">
+            <div class="destino-local"><span class="bandeira-emoji">🇮🇸</span> Islândia</div>
+            <p class="destino-desc">Cachoeiras absurdas, vento na cara e aquele silêncio que dá reset na mente.</p>
+            <span class="destino-link">Ver no Instagram →</span>
+          </div>
+        </a>
 
-        function animateCount(el, target, suffix = '', duration = 1200) {
-            const start = performance.now();
-            const from = 0;
+        <!-- Japão -->
+        <a class="destino-card fade-in" href="https://www.instagram.com/p/DPU4BfCEx89/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Japão">
+          <img src="images/destinos/japao.jpg" alt="Japão" class="destino-img" loading="lazy" />
+          <div class="destino-overlay">
+            <div class="destino-local"><span class="bandeira-emoji">🇯🇵</span> Japão</div>
+            <p class="destino-desc">Detalhe em tudo: do jeito que a cidade funciona até o jeito que a comida chega.</p>
+            <span class="destino-link">Ver no Instagram →</span>
+          </div>
+        </a>
 
-            function tick(now) {
-                const progress = Math.min((now - start) / duration, 1);
-                const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
-                const value = Math.floor(from + (target - from) * eased);
+        <!-- Rio -->
+        <a class="destino-card fade-in" href="https://www.instagram.com/p/DRftfnRFu4O/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Rio de Janeiro, Brasil">
+          <img src="images/destinos/rio.jpg" alt="Rio de Janeiro, Brasil" class="destino-img" loading="lazy" />
+          <div class="destino-overlay">
+            <div class="destino-local"><span class="bandeira-emoji">🇧🇷</span> Rio de Janeiro, Brasil</div>
+            <p class="destino-desc">Vista impossível, energia que não acaba e aquele “ok, agora eu entendi o Rio”.</p>
+            <span class="destino-link">Ver no Instagram →</span>
+          </div>
+        </a>
 
-                el.textContent = value;
+        <!-- Praia Grande (novo) -->
+        <a class="destino-card fade-in" href="https://www.instagram.com/p/DCt0ClouK_q/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Praia Grande, Brasil">
+          <img src="images/destinos/praia-grande.jpg" alt="Praia Grande, Brasil" class="destino-img" loading="lazy" />
+          <div class="destino-overlay">
+            <div class="destino-local"><span class="bandeira-emoji">🇧🇷</span> Praia Grande, Brasil</div>
+            <p class="destino-desc">Mar, pastel e aquele descanso rápido que parece mini férias de verdade.</p>
+            <span class="destino-link">Ver no Instagram →</span>
+          </div>
+        </a>
 
-                if (progress < 1) {
-                    requestAnimationFrame(tick);
-                } else {
-                    el.textContent = `${target}${suffix}`;
-                }
+        <!-- Irlanda do Norte (novo) -->
+        <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/B0JusUOlwCA/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Irlanda do Norte">
+          <img src="images/destinos/irlanda-do-norte.JPG" alt="Irlanda do Norte" class="destino-img" loading="lazy" />
+          <div class="destino-overlay">
+            <div class="destino-local"><span class="bandeira-emoji">🇬🇧</span> Irlanda do Norte</div>
+            <p class="destino-desc">Paisagem dramática, castelos e vento: cinematográfico em qualquer ângulo.</p>
+            <span class="destino-link">Ver no Instagram →</span>
+          </div>
+        </a>
+
+        <!-- Moscou (novo) -->
+        <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/BvUqcxmlNOG/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Moscou, Rússia">
+          <img src="images/destinos/moscou.JPG" alt="Moscou, Rússia" class="destino-img" loading="lazy" />
+          <div class="destino-overlay">
+            <div class="destino-local"><span class="bandeira-emoji">🇷🇺</span> Moscou, Rússia</div>
+            <p class="destino-desc">Grandiosa e intensa — arquitetura que te faz parar no meio da rua só pra olhar.</p>
+            <span class="destino-link">Ver no Instagram →</span>
+          </div>
+        </a>
+
+        <!-- Beto Carrero (novo) -->
+        <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/C6NAcKSsyTh/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Beto Carrero, Brasil">
+          <img src="images/destinos/beto-carreiro.JPG" alt="Beto Carrero World, Brasil" class="destino-img" loading="lazy" />
+          <div class="destino-overlay">
+            <div class="destino-local"><span class="bandeira-emoji">🇧🇷</span> Beto Carrero, Brasil</div>
+            <p class="destino-desc">Dia de parque do jeito certo: emoção, risada e a sensação de “valeu cada passo”.</p>
+            <span class="destino-link">Ver no Instagram →</span>
+          </div>
+        </a>
+
+        <!-- Fortaleza (novo) -->
+        <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/BlOiVTght6A/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Fortaleza, Brasil">
+          <img src="images/destinos/fortaleza.jpg" alt="Fortaleza, Brasil" class="destino-img" loading="lazy" />
+          <div class="destino-overlay">
+            <div class="destino-local"><span class="bandeira-emoji">🇧🇷</span> Fortaleza, Brasil</div>
+            <p class="destino-desc">Sol forte, mar lindo e aquele tipo de viagem que melhora o humor em 5 minutos.</p>
+            <span class="destino-link">Ver no Instagram →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background: var(--azul); color: var(--branco); padding: 4rem 2rem; text-align: center;">
+    <div class="container fade-in">
+      <h2 style="font-size: 2rem; margin-bottom: 1rem;">Quero seu próximo destino aqui!</h2>
+      <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.92; max-width: 760px; margin-left:auto; margin-right:auto;">
+        Me conta onde você quer ir — eu organizo tudo pra sua viagem fluir (e você curtir de verdade).
+      </p>
+
+      <a href="https://wa.me/5549991628403" class="btn-primary" target="_blank" rel="noopener noreferrer">
+        Vamos conversar
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="margin-top: 0;">
+    <div class="footer-content">
+      <!-- Logo branca no rodapé -->
+      <img src="images/LOGOTIPO branco.png" alt="Modo Turistagem" class="footer-logo" />
+
+      <p class="footer-text">
+        Consultoria de viagens feita por quem realmente viaja.<br />
+        Traduzindo sonhos em planos concretos desde 2024.
+      </p>
+
+      <div class="social-links">
+        <a href="https://instagram.com/modoturistagem" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <!-- Instagram SVG -->
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="2"/>
+            <path d="M17.5 6.5h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </a>
+
+        <a href="https://wa.me/5549991628403" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+          <!-- WhatsApp SVG -->
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M20 11.5a8.5 8.5 0 0 1-12.7 7.4L4 20l1.2-3.2A8.5 8.5 0 1 1 20 11.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M9.2 9.1c.3-.7.6-.7 1.1-.7h.7c.2 0 .5.1.6.4l.8 1.9c.1.2.1.5 0 .7-.1.3-.3.6-.5.8-.2.2-.4.4-.2.8.2.4.9 1.6 2 2.4 1.2.9 2.2 1.1 2.6 1.2.3.1.5 0 .7-.2l.9-1c.2-.2.4-.3.7-.2l2 .9c.3.1.4.4.4.6 0 .4-.2 1.2-.9 1.8-.8.7-1.8.7-2.1.7-.4 0-2.4-.3-4.6-2.1-2.6-2-3.4-4.3-3.6-4.8-.2-.5-.2-1.3.1-1.9Z" fill="currentColor" opacity="0.9"/>
+          </svg>
+        </a>
+
+        <a href="mailto:contato@modoturistagem.com" aria-label="E-mail">
+          <!-- Mail SVG -->
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="2" />
+            <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2024 Modo Turistagem. Todos os direitos reservados.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+          Feito com
+          <span class="footer-hearts">
+            <span class="heart blue">♥</span>
+            e
+            <span class="heart orange">♥</span>
+          </span>
+          por quem ama viajar
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // =========
+    // Menu mobile
+    // =========
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+
+    // =========
+    // Fade-in
+    // =========
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
+
+    // =========
+    // Bandeiras (marquee)
+    // =========
+    const paises = [
+      { nome: 'Brasil', bandeira: '🇧🇷' },
+      { nome: 'Argentina', bandeira: '🇦🇷' },
+      { nome: 'Uruguai', bandeira: '🇺🇾' },
+      { nome: 'Paraguai', bandeira: '🇵🇾' },
+      { nome: 'Chile', bandeira: '🇨🇱' },
+      { nome: 'Estados Unidos', bandeira: '🇺🇸' },
+      { nome: 'França', bandeira: '🇫🇷' },
+      { nome: 'Itália', bandeira: '🇮🇹' },
+      { nome: 'Espanha', bandeira: '🇪🇸' },
+      { nome: 'Portugal', bandeira: '🇵🇹' },
+      { nome: 'Irlanda', bandeira: '🇮🇪' },
+      { nome: 'Irlanda do Norte', bandeira: '🇬🇧' },
+      { nome: 'Escócia', bandeira: '🏴' },
+      { nome: 'Reino Unido', bandeira: '🇬🇧' },
+      { nome: 'Suíça', bandeira: '🇨🇭' },
+      { nome: 'Áustria', bandeira: '🇦🇹' },
+      { nome: 'Alemanha', bandeira: '🇩🇪' },
+      { nome: 'Polônia', bandeira: '🇵🇱' },
+      { nome: 'Dinamarca', bandeira: '🇩🇰' },
+      { nome: 'Suécia', bandeira: '🇸🇪' },
+      { nome: 'Rússia', bandeira: '🇷🇺' },
+      { nome: 'Islândia', bandeira: '🇮🇸' },
+      { nome: 'Marrocos', bandeira: '🇲🇦' },
+      { nome: 'Egito', bandeira: '🇪🇬' },
+      { nome: 'Vaticano', bandeira: '🇻🇦' },
+      { nome: 'Japão', bandeira: '🇯🇵' }
+    ];
+
+    const track = document.getElementById('bandeirasTrack');
+    const conteudo = paises.map(p => `
+      <div class="bandeira-item">
+        <span class="bandeira-emoji">${p.bandeira}</span>
+        <span>${p.nome}</span>
+      </div>
+    `).join('');
+
+    track.innerHTML = conteudo + conteudo;
+
+    // =========
+    // Contadores animados + simulação do ∞
+    // =========
+    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const statsGrid = document.getElementById('statsGrid');
+    const statEls = statsGrid ? statsGrid.querySelectorAll('.stat-numero') : [];
+    let statsPlayed = false;
+
+    function animateCount(el, target, suffix = '', duration = 1200) {
+      const start = performance.now();
+      const from = 0;
+
+      function tick(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const value = Math.floor(from + (target - from) * eased);
+
+        el.textContent = value;
+
+        if (progress < 1) requestAnimationFrame(tick);
+        else el.textContent = `${target}${suffix}`;
+      }
+
+      requestAnimationFrame(tick);
+    }
+
+    function simulateInfinity(el) {
+      const start = performance.now();
+      const duration = 1700;
+      const peak = 140;
+
+      function tick(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const value = Math.floor(peak * eased);
+
+        el.textContent = value;
+
+        if (progress < 1) requestAnimationFrame(tick);
+        else {
+          let flips = 0;
+          const glitch = setInterval(() => {
+            flips++;
+            el.textContent = (flips % 2 === 0) ? '∞' : String(peak + flips);
+            if (flips >= 7) {
+              clearInterval(glitch);
+              el.textContent = '∞';
             }
+          }, 130);
+        }
+      }
 
-            requestAnimationFrame(tick);
+      requestAnimationFrame(tick);
+    }
+
+    function playStats() {
+      if (statsPlayed) return;
+      statsPlayed = true;
+
+      statEls.forEach(el => {
+        const isInfinity = el.dataset.infinity === "true";
+        const count = parseInt(el.dataset.count || "0", 10);
+        const suffix = el.dataset.suffix || "";
+
+        if (prefersReduced) {
+          el.textContent = isInfinity ? "∞" : `${count}${suffix}`;
+          return;
         }
 
-        function simulateInfinity(el) {
-            // Simula um “subindo” e depois vira ∞
-            const start = performance.now();
-            const duration = 1700;
-            const peak = 140;
+        if (isInfinity) simulateInfinity(el);
+        else animateCount(el, count, suffix, 1200);
+      });
+    }
 
-            function tick(now) {
-                const progress = Math.min((now - start) / duration, 1);
-                const eased = 1 - Math.pow(1 - progress, 3);
-                const value = Math.floor(peak * eased);
+    if (statsGrid) {
+      const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) playStats();
+        });
+      }, { threshold: 0.25 });
 
-                el.textContent = value;
-
-                if (progress < 1) {
-                    requestAnimationFrame(tick);
-                } else {
-                    // pequeno “glitch” e fecha em infinito
-                    let flips = 0;
-                    const glitch = setInterval(() => {
-                        flips++;
-                        if (flips % 2 === 0) el.textContent = '∞';
-                        else el.textContent = String(peak + flips);
-
-                        if (flips >= 7) {
-                            clearInterval(glitch);
-                            el.textContent = '∞';
-                        }
-                    }, 130);
-                }
-            }
-
-            requestAnimationFrame(tick);
-        }
-
-        function playStats() {
-            if (statsPlayed) return;
-            statsPlayed = true;
-
-            statEls.forEach(el => {
-                const isInfinity = el.dataset.infinity === "true";
-                const count = parseInt(el.dataset.count || "0", 10);
-                const suffix = el.dataset.suffix || "";
-
-                if (prefersReduced) {
-                    if (isInfinity) el.textContent = "∞";
-                    else el.textContent = `${count}${suffix}`;
-                    return;
-                }
-
-                if (isInfinity) simulateInfinity(el);
-                else animateCount(el, count, suffix, 1200);
-            });
-        }
-
-        if (statsGrid) {
-            const statsObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) playStats();
-                });
-            }, { threshold: 0.25 });
-
-            statsObserver.observe(statsGrid);
-        }
-    </script>
+      statsObserver.observe(statsGrid);
+    }
+  </script>
 </body>
 </html>
-</body>
 
 </html>
+
