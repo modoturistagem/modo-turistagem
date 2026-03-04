@@ -11,466 +11,450 @@
        Ajustes específicos da página Destinos Testados
        ========= */
 
-    .emoji, .bandeira-emoji {
-      font-family: "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif !important;
-      font-weight: 400 !important;
-      font-style: normal !important;
-      line-height: 1;
+    .emoji, .bandeira-emoji{
+      font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif !important;
+      font-weight:400 !important;
+      font-style:normal !important;
+      line-height:1;
     }
 
     /* ===== HERO ===== */
-    .destinos-hero {
-      margin-top: 70px;
-      background: linear-gradient(135deg, var(--azul) 0%, #0044cc 100%);
-      color: var(--branco);
-      padding: 4.2rem 2rem 3.2rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
+    .destinos-hero{
+      margin-top:70px;
+      background:linear-gradient(135deg,var(--azul) 0%,#0044cc 100%);
+      color:var(--branco);
+      padding:4.2rem 2rem 3.2rem;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
     }
-    .destinos-hero::after {
-      content: "✈️";
-      position: absolute;
-      font-size: 18rem;
-      opacity: 0.07;
-      right: -40px;
-      top: -70px;
-      transform: rotate(12deg);
-      pointer-events: none;
+    .destinos-hero::after{
+      content:"✈️";
+      position:absolute;
+      font-size:18rem;
+      opacity:0.07;
+      right:-40px;
+      top:-70px;
+      transform:rotate(12deg);
+      pointer-events:none;
     }
-    .destinos-hero h1 {
-      font-size: 3rem;
-      margin-bottom: 0.9rem;
-    }
-    .destinos-hero p {
-      font-size: 1.15rem;
-      opacity: 0.92;
-      max-width: 760px;
-      margin: 0 auto;
+    .destinos-hero h1{ font-size:3rem; margin-bottom:.9rem; }
+    .destinos-hero p{
+      font-size:1.15rem;
+      opacity:.92;
+      max-width:760px;
+      margin:0 auto;
     }
 
     /* ===== MINI TEXTO ===== */
-    .destinos-note {
-      background: var(--branco);
-      padding: 1.2rem 1.2rem;
-      margin: -1.6rem auto 0;
-      max-width: 980px;
-      border-radius: 18px;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.12);
-      border: 1px solid rgba(0,0,0,0.06);
+    .destinos-note{
+      background:var(--branco);
+      padding:1.2rem;
+      margin:-1.6rem auto 0;
+      max-width:980px;
+      border-radius:18px;
+      box-shadow:0 16px 40px rgba(0,0,0,.12);
+      border:1px solid rgba(0,0,0,.06);
     }
-    .destinos-note p {
-      margin: 0;
-      color: var(--azul);
-      font-weight: 800;
-      font-size: 1rem;
-      text-align: center;
+    .destinos-note p{
+      margin:0;
+      color:var(--azul);
+      font-weight:800;
+      font-size:1rem;
+      text-align:center;
     }
 
     /* ===== MARQUEE BANDEIRAS ===== */
-    .bandeiras-marquee {
-      background: var(--laranja-claro);
-      padding: 1.2rem 0;
-      overflow: hidden;
-      position: relative;
+    .bandeiras-marquee{
+      background:var(--laranja-claro);
+      padding:1.2rem 0;
+      overflow:hidden;
+      position:relative;
     }
-    .bandeiras-track {
-      display: flex;
-      gap: 2.4rem;
-      width: max-content;
-      animation: scroll 32s linear infinite;
-      will-change: transform;
+    .bandeiras-track{
+      display:flex;
+      gap:2.4rem;
+      width:max-content;
+      animation:scroll 32s linear infinite;
+      will-change:transform;
     }
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+    @keyframes scroll{
+      0%{ transform:translateX(0); }
+      100%{ transform:translateX(-50%); }
     }
-    .bandeira-item {
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-      font-size: 1.05rem;
-      font-weight: 900;
-      color: var(--azul);
-      white-space: nowrap;
+    .bandeira-item{
+      display:flex;
+      align-items:center;
+      gap:.55rem;
+      font-size:1.05rem;
+      font-weight:900;
+      color:var(--azul);
+      white-space:nowrap;
     }
-    .bandeira-emoji { font-size: 1.6rem; }
-    @media (prefers-reduced-motion: reduce) {
-      .bandeiras-track { animation: none; }
+    .bandeira-emoji{ font-size:1.6rem; }
+    @media (prefers-reduced-motion: reduce){
+      .bandeiras-track{ animation:none; }
     }
 
     /* ===== STATS ===== */
-    .stats {
-      background: var(--cinza);
-      padding: 3.2rem 2rem;
-      text-align: center;
+    .stats{
+      background:var(--cinza);
+      padding:3.2rem 2rem;
+      text-align:center;
     }
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 1.5rem;
-      max-width: 920px;
-      margin: 0 auto;
+    .stats-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+      gap:1.5rem;
+      max-width:920px;
+      margin:0 auto;
     }
-    .stat-item {
-      padding: 1.6rem 1.3rem;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.65);
-      border: 1px solid rgba(0,0,0,0.06);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    .stat-item{
+      padding:1.6rem 1.3rem;
+      border-radius:18px;
+      background:rgba(255,255,255,.65);
+      border:1px solid rgba(0,0,0,.06);
+      box-shadow:0 12px 30px rgba(0,0,0,.08);
     }
-    .stat-numero {
-      font-size: 3rem;
-      font-weight: 900;
-      color: var(--laranja);
-      letter-spacing: -0.5px;
+    .stat-numero{
+      font-size:3rem;
+      font-weight:900;
+      color:var(--laranja);
+      letter-spacing:-.5px;
     }
-    .stat-label {
-      color: var(--azul);
-      font-weight: 900;
-      margin-top: 0.35rem;
-    }
-    .stat-hint {
-      font-size: 0.9rem;
-      opacity: 0.85;
-      color: var(--azul);
-      margin-top: 0.35rem;
-    }
+    .stat-label{ color:var(--azul); font-weight:900; margin-top:.35rem; }
+    .stat-hint{ font-size:.9rem; opacity:.85; color:var(--azul); margin-top:.35rem; }
 
     /* =========================================================
-       DEPOIMENTOS — NOVO LAYOUT (2 cards)
-       - Desktop: dois cards lado a lado (foto | texto)
-       - Mobile: empilha (foto em cima, texto em baixo)
-       - SEM overflow: texto sempre dentro do card
+       DEPOIMENTOS (igual aos cards do "Já fui, já testei")
+       - 2 cards por slide no desktop
+       - 1 card por slide no mobile
+       - faixa laranja maior embaixo com texto SEM vazar
        ========================================================= */
-    .depoimentos {
-      padding: 4rem 2rem 0;
-      background: var(--branco);
+    .depoimentos{
+      padding:4rem 2rem 0;
+      background:var(--branco);
     }
-    .depo-wrap {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .depo-carousel {
-      margin-top: 1.8rem;
-      background: var(--laranja);
-      border-radius: 22px;
-      overflow: hidden;
-      box-shadow: 0 18px 44px rgba(0,0,0,0.16);
-      position: relative;
-
-      /* espaço lateral pros botões não ficarem em cima do conteúdo */
-      padding: 1.4rem 3.6rem 1rem;
+    .depo-wrap{
+      max-width:1100px;
+      margin:0 auto;
     }
 
-    .depo-viewport { overflow: hidden; }
-
-    .depo-track {
-      display: flex;
-      width: 300%;
-      transform: translateX(0);
-      transition: transform 550ms ease;
-      will-change: transform;
+    .depo-carousel{
+      margin-top:1.8rem;
+      background:var(--laranja);
+      border-radius:22px;
+      overflow:hidden;
+      box-shadow:0 18px 44px rgba(0,0,0,.16);
+      position:relative;
+      padding:1.6rem 3.6rem 1.1rem; /* espaço pros botões */
     }
 
-    .depo-slide {
-      width: 100%;
-      flex: 0 0 100%;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 1.2rem;
-      align-items: stretch;
+    .depo-viewport{ overflow:hidden; }
+
+    .depo-track{
+      display:flex;
+      width:300%;
+      transform:translateX(0);
+      transition:transform 550ms ease;
+      will-change:transform;
     }
 
-    .depo-card {
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.22);
-      background: rgba(255,255,255,0.10);
-      min-width: 0; /* permite quebrar texto sem estourar */
+    /* 2 cards lado a lado */
+    .depo-slide{
+      width:100%;
+      flex:0 0 100%;
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:1.3rem;
+      align-items:stretch;
     }
 
-    /* Card da foto */
-    .depo-card--photo {
-      height: 320px;
-      background: rgba(255,255,255,0.06);
-    }
-    .depo-card--photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: var(--img-pos, center 35%); /* você ajusta por slide */
-      display: block;
-      filter: saturate(1.05) contrast(1.02);
+    /* Card (mesma vibe do destino-card) */
+    .depo-card{
+      border-radius:22px;
+      overflow:hidden;
+      background:var(--branco);
+      box-shadow:0 10px 40px rgba(0,0,0,.15);
+      min-width:0;
+      display:flex;
+      flex-direction:column;
     }
 
-    /* Card do texto */
-    .depo-card--text {
-      height: 320px;
-      padding: 1.35rem 1.35rem;
-      color: var(--branco);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 0.45rem;
-      min-width: 0;
+    /* imagem */
+    .depo-media{
+      position:relative;
+      height:220px; /* << evita “foto gigante” */
+      overflow:hidden;
+    }
+    .depo-media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position: var(--img-pos, center 40%);
+      display:block;
+      filter:saturate(1.05) contrast(1.02);
     }
 
-    .depo-name {
-      margin: 0;
-      font-weight: 500;     /* regular */
-      font-size: 1.22rem;   /* maiorzinho */
-      line-height: 1.1;
+    /* overlay igual aos cards */
+    .depo-overlay{
+      position:absolute;
+      inset:auto 0 0 0;
+      padding:1.15rem 1.15rem;
+      color:var(--branco);
+      background:linear-gradient(to top, rgba(0,0,0,.78), rgba(0,0,0,.10));
+    }
+    .depo-name{
+      margin:0;
+      font-weight:500;
+      font-size:1.05rem;
+      line-height:1.1;
+    }
+    .depo-place{
+      margin:.35rem 0 0;
+      display:flex;
+      align-items:center;
+      gap:.55rem;
+      font-weight:900;
+      font-size:1.18rem;
+      line-height:1.1;
     }
 
-    .depo-place {
-      margin: 0;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55rem;
-      font-weight: 900;
-      font-size: 1.35rem;   /* maior que o nome */
-      line-height: 1.1;
+    /* faixa laranja maior pro depoimento */
+    .depo-body{
+      background:var(--laranja);
+      padding:1.1rem 1.15rem 1.25rem;
+      min-height:150px; /* << “espaço a mais embaixo” */
+      display:flex;
+      align-items:flex-start;
     }
 
-    .depo-quote {
-      margin: 0.85rem 0 0;
-      font-size: 1.02rem;
-      font-weight: 500;
-      line-height: 1.55;
-      opacity: 0.96;
+    .depo-quote{
+      margin:0;
+      color:var(--branco);
+      font-weight:600;
+      font-size:1rem;
+      line-height:1.55;
+      opacity:.96;
 
-      /* garante que NUNCA vaze */
-      white-space: normal;
-      overflow-wrap: anywhere;
-      word-break: break-word;
+      /* nunca vaza */
+      white-space:normal;
+      overflow-wrap:anywhere;
+      word-break:break-word;
 
-      /* limita linhas p/ manter o card consistente */
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 7;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      /* mantém o card consistente */
+      display:-webkit-box;
+      -webkit-box-orient:vertical;
+      -webkit-line-clamp:6;
+      overflow:hidden;
+      text-overflow:ellipsis;
     }
 
-    /* Setas */
-    .depo-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.55);
-      background: rgba(0,0,0,0.12);
-      color: var(--branco);
-      display: grid;
-      place-items: center;
-      cursor: pointer;
-      z-index: 3;
-      transition: background 200ms ease, transform 200ms ease;
-      user-select: none;
+    /* setas */
+    .depo-arrow{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      border:1px solid rgba(255,255,255,.55);
+      background:rgba(0,0,0,.12);
+      color:var(--branco);
+      display:grid;
+      place-items:center;
+      cursor:pointer;
+      z-index:3;
+      transition:background 200ms ease, transform 200ms ease;
+      user-select:none;
     }
-    .depo-arrow:hover { background: rgba(0,0,0,0.18); }
-    .depo-arrow:active { transform: translateY(-50%) scale(0.98); }
-    .depo-prev { left: 14px; }
-    .depo-next { right: 14px; }
+    .depo-arrow:hover{ background:rgba(0,0,0,.18); }
+    .depo-arrow:active{ transform:translateY(-50%) scale(.98); }
+    .depo-prev{ left:14px; }
+    .depo-next{ right:14px; }
 
-    /* Pontinhos discretos */
-    .depo-dots {
-      display: flex;
-      justify-content: center;
-      gap: 0.45rem;
-      padding: 0.7rem 0 0.4rem;
-      background: transparent;
-      margin-top: 0.9rem;
+    /* pontinhos */
+    .depo-dots{
+      display:flex;
+      justify-content:center;
+      gap:.45rem;
+      padding:.75rem 0 .2rem;
+      margin-top:.95rem;
+      background:transparent;
     }
-    .dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      border: 1.5px solid rgba(255,255,255,0.65);
-      background: transparent;
-      cursor: pointer;
-      opacity: 0.75;
-      transition: transform 200ms ease, background 200ms ease, opacity 200ms ease;
+    .dot{
+      width:7px;
+      height:7px;
+      border-radius:999px;
+      border:1.5px solid rgba(255,255,255,.65);
+      background:transparent;
+      cursor:pointer;
+      opacity:.75;
+      transition:transform 200ms ease, background 200ms ease, opacity 200ms ease;
     }
-    .dot.active {
-      background: rgba(255,255,255,0.95);
-      opacity: 1;
-      transform: scale(1.05);
+    .dot.active{
+      background:rgba(255,255,255,.95);
+      opacity:1;
+      transform:scale(1.05);
     }
 
-    /* Mobile: empilha e ajusta alturas */
-    @media (max-width: 860px) {
-      .depo-carousel {
-        padding: 1.2rem 1.2rem 0.9rem;
+    /* Mobile: 1 card por slide (some o segundo) */
+    @media (max-width: 860px){
+      .depo-carousel{
+        padding:1.2rem 1.2rem 0.9rem;
       }
-
-      .depo-slide {
-        grid-template-columns: 1fr;
+      .depo-slide{
+        grid-template-columns:1fr;
       }
-
-      .depo-card--photo {
-        height: 240px;
+      .depo-slide .depo-card:nth-child(2){
+        display:none;
       }
-
-      .depo-card--text {
-        height: auto;
-        padding: 1.2rem 1.2rem;
+      .depo-media{ height:240px; }
+      .depo-body{ min-height:0; }
+      .depo-quote{
+        -webkit-line-clamp:10;
+        font-size:.98rem;
       }
-
-      .depo-quote {
-        -webkit-line-clamp: 10;
-        font-size: 0.98rem;
-      }
-
-      .depo-arrow {
-        display: none; /* swipe + dots */
-      }
+      .depo-arrow{ display:none; }
     }
 
     /* ===== CTA (sem azul / SEM sombra / estrelas no fundo) ===== */
-    .cta-entre {
-      padding: 2.2rem 2rem 4rem;
-      background: var(--branco);
-      text-align: center;
+    .cta-entre{
+      padding:2.2rem 2rem 4rem;
+      background:var(--branco);
+      text-align:center;
     }
-    .cta-box {
-      max-width: 980px;
-      margin: 0 auto;
-      background: var(--branco);
-      color: var(--azul);
-      border-radius: 22px;
-      padding: 2.6rem 2rem;
-      border: 1px solid rgba(0,0,0,0.07);
-      box-shadow: none; /* <<< sem sombra */
-      position: relative;
-      overflow: hidden;
+    .cta-box{
+      max-width:980px;
+      margin:0 auto;
+      background:var(--branco);
+      color:var(--azul);
+      border-radius:22px;
+      padding:2.6rem 2rem;
+      border:1px solid rgba(0,0,0,.07);
+      box-shadow:none; /* <<< sem sombra */
+      position:relative;
+      overflow:hidden;
     }
-    .cta-box::after {
-      content: "✨";
-      position: absolute;
-      font-size: 14rem;
-      opacity: 0.08;
-      right: -25px;
-      bottom: -70px;
-      pointer-events: none;
-      color: var(--azul);
+    .cta-box::after{
+      content:"✨";
+      position:absolute;
+      font-size:14rem;
+      opacity:.08;
+      right:-25px;
+      bottom:-70px;
+      pointer-events:none;
+      color:var(--azul);
     }
-    .cta-box::before {
-      content: "✨";
-      position: absolute;
-      font-size: 9rem;
-      opacity: 0.06;
-      left: -20px;
-      top: -40px;
-      pointer-events: none;
-      color: var(--azul);
-      transform: rotate(-12deg);
+    .cta-box::before{
+      content:"✨";
+      position:absolute;
+      font-size:9rem;
+      opacity:.06;
+      left:-20px;
+      top:-40px;
+      pointer-events:none;
+      color:var(--azul);
+      transform:rotate(-12deg);
     }
-    .cta-box h2 {
-      font-size: 2rem;
-      margin-bottom: 0.9rem;
-      color: var(--azul);
+    .cta-box h2{
+      font-size:2rem;
+      margin-bottom:.9rem;
+      color:var(--azul);
     }
-    .cta-box p {
-      font-size: 1.1rem;
-      margin-bottom: 1.8rem;
-      opacity: 0.92;
-      max-width: 760px;
-      margin-left: auto;
-      margin-right: auto;
-      color: var(--azul);
+    .cta-box p{
+      font-size:1.1rem;
+      margin-bottom:1.8rem;
+      opacity:.92;
+      max-width:760px;
+      margin-left:auto;
+      margin-right:auto;
+      color:var(--azul);
     }
 
     /* ===== GALERIA ===== */
-    .galeria {
-      padding: 4rem 2rem;
-      background: var(--branco);
+    .galeria{
+      padding:4rem 2rem;
+      background:var(--branco);
     }
-    .galeria-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
+    .galeria-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:2rem;
+      max-width:1200px;
+      margin:0 auto;
     }
-    .destino-card {
-      display: block;
-      position: relative;
-      border-radius: 22px;
-      overflow: hidden;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-      aspect-ratio: 4/5;
-      text-decoration: none;
-      color: inherit;
-      outline: none;
+    .destino-card{
+      display:block;
+      position:relative;
+      border-radius:22px;
+      overflow:hidden;
+      box-shadow:0 10px 40px rgba(0,0,0,.15);
+      transition:transform .25s ease, box-shadow .25s ease;
+      aspect-ratio:4/5;
+      text-decoration:none;
+      color:inherit;
+      outline:none;
     }
-    .destino-card:hover {
-      transform: translateY(-9px);
-      box-shadow: 0 22px 62px rgba(0,0,0,0.22);
+    .destino-card:hover{
+      transform:translateY(-9px);
+      box-shadow:0 22px 62px rgba(0,0,0,.22);
     }
-    .destino-card:focus-visible {
-      box-shadow: 0 0 0 4px rgba(255, 132, 0, 0.35), 0 22px 62px rgba(0,0,0,0.22);
-      transform: translateY(-6px);
+    .destino-img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform .5s ease;
+      filter:saturate(1.05) contrast(1.02);
     }
-    .destino-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-      filter: saturate(1.05) contrast(1.02);
+    .destino-card:hover .destino-img{ transform:scale(1.09); }
+    .destino-overlay{
+      position:absolute;
+      inset:auto 0 0 0;
+      background:linear-gradient(to top, rgba(0,0,0,.88), rgba(0,0,0,.10));
+      padding:2rem;
+      color:var(--branco);
     }
-    .destino-card:hover .destino-img { transform: scale(1.09); }
-    .destino-overlay {
-      position: absolute;
-      inset: auto 0 0 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.88), rgba(0,0,0,0.10));
-      padding: 2rem;
-      color: var(--branco);
+    .destino-local{
+      display:flex;
+      align-items:center;
+      gap:.55rem;
+      font-size:1.45rem;
+      font-weight:900;
+      margin-bottom:.45rem;
     }
-    .destino-local {
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-      font-size: 1.45rem;
-      font-weight: 900;
-      margin-bottom: 0.45rem;
+    .destino-desc{
+      font-size:.98rem;
+      opacity:.93;
+      margin-bottom:.9rem;
+      max-width:92%;
     }
-    .destino-desc {
-      font-size: 0.98rem;
-      opacity: 0.93;
-      margin-bottom: 0.9rem;
-      max-width: 92%;
+    .destino-link{
+      display:inline-flex;
+      align-items:center;
+      gap:.5rem;
+      font-weight:900;
+      font-size:.95rem;
+      color:var(--laranja);
+      text-decoration:underline;
+      text-underline-offset:4px;
+      text-decoration-thickness:2px;
+      cursor:pointer;
     }
-    .destino-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-weight: 900;
-      font-size: 0.95rem;
-      color: var(--laranja);
-      text-decoration: underline;
-      text-underline-offset: 4px;
-      text-decoration-thickness: 2px;
-      cursor: pointer;
-    }
-    .destino-card:hover .destino-link { gap: 0.85rem; }
+    .destino-card:hover .destino-link{ gap:.85rem; }
 
-    @media (max-width: 768px) {
-      .destinos-hero h1 { font-size: 2.15rem; }
-      .destinos-hero p { font-size: 1.05rem; }
-      .galeria-grid { grid-template-columns: 1fr; }
-      .destino-overlay { padding: 1.6rem; }
-      .destino-local { font-size: 1.25rem; }
+    @media (max-width: 768px){
+      .destinos-hero h1{ font-size:2.15rem; }
+      .destinos-hero p{ font-size:1.05rem; }
+      .galeria-grid{ grid-template-columns:1fr; }
+      .destino-overlay{ padding:1.6rem; }
+      .destino-local{ font-size:1.25rem; }
     }
   </style>
 </head>
 
 <body>
+
   <!-- Navegação -->
   <nav>
     <div class="nav-container">
@@ -552,42 +536,90 @@
         <div class="depo-viewport">
           <div class="depo-track" id="depoTrack">
 
-            <!-- Slide 1 -->
+            <!-- Slide 1 (card 1 + card 2) -->
             <div class="depo-slide">
-              <div class="depo-card depo-card--photo" style="--img-pos: center 35%;">
-                <img src="images/depoimentos/exemplo 01.jpg" alt="Ana Luiza em Tokyo, Japão" loading="lazy" />
+              <div class="depo-card">
+                <div class="depo-media" style="--img-pos: center 35%;">
+                  <img src="images/depoimentos/exemplo 01.jpg" alt="Ana Luiza em Tokyo, Japão" loading="lazy" />
+                  <div class="depo-overlay">
+                    <p class="depo-name">Ana Luiza</p>
+                    <p class="depo-place"><span class="emoji" aria-hidden="true">🇯🇵</span> Tokyo</p>
+                  </div>
+                </div>
+                <div class="depo-body">
+                  <p class="depo-quote">“Eu estava surtando com transporte e bairros pra ficar. O roteiro veio redondinho, com mapa no Google Maps, dicas do que vale a pena e um plano B real. Economizei tempo e viajei com segurança.”</p>
+                </div>
               </div>
 
-              <div class="depo-card depo-card--text">
-                <p class="depo-name">Ana Luiza</p>
-                <p class="depo-place"><span class="emoji" aria-hidden="true">🇯🇵</span> Tokyo</p>
-                <p class="depo-quote">“Eu estava surtando com transporte e bairros pra ficar. O roteiro veio redondinho, com mapa no Google Maps, dicas do que vale a pena e um plano B real. Economizei tempo e viajei com segurança.”</p>
+              <div class="depo-card">
+                <div class="depo-media" style="--img-pos: center 28%;">
+                  <img src="images/depoimentos/exemplo 02.JPG" alt="Ana Luiza em Curitiba, Brasil" loading="lazy" />
+                  <div class="depo-overlay">
+                    <p class="depo-name">Ana Luiza</p>
+                    <p class="depo-place"><span class="emoji" aria-hidden="true">🇧🇷</span> Curitiba</p>
+                  </div>
+                </div>
+                <div class="depo-body">
+                  <p class="depo-quote">“Eu queria um roteiro funcional, sem perder tempo decidindo tudo na hora. Veio dia a dia bem organizado, com sugestões de restaurantes e deslocamentos fáceis. Foi a viagem mais prática que já fiz.”</p>
+                </div>
               </div>
             </div>
 
-            <!-- Slide 2 -->
+            <!-- Slide 2 (card 3 + card 1) -->
             <div class="depo-slide">
-              <div class="depo-card depo-card--photo" style="--img-pos: center 28%;">
-                <img src="images/depoimentos/exemplo 02.JPG" alt="Ana Luiza em Curitiba, Brasil" loading="lazy" />
+              <div class="depo-card">
+                <div class="depo-media" style="--img-pos: center 22%;">
+                  <img src="images/depoimentos/exemplo 03.JPG" alt="Ana Luiza em Engelberg, Suíça" loading="lazy" />
+                  <div class="depo-overlay">
+                    <p class="depo-name">Ana Luiza</p>
+                    <p class="depo-place"><span class="emoji" aria-hidden="true">🇨🇭</span> Engelberg</p>
+                  </div>
+                </div>
+                <div class="depo-body">
+                  <p class="depo-quote">“Neve me dava medo por causa de imprevistos. Ter um plano B e orientações claras de transporte e logística fez toda a diferença. Foi zero perrengue e eu aproveitei muito mais.”</p>
+                </div>
               </div>
 
-              <div class="depo-card depo-card--text">
-                <p class="depo-name">Ana Luiza</p>
-                <p class="depo-place"><span class="emoji" aria-hidden="true">🇧🇷</span> Curitiba</p>
-                <p class="depo-quote">“Eu queria um roteiro funcional, sem perder tempo decidindo tudo na hora. Veio dia a dia bem organizado, com sugestões de restaurantes e deslocamentos fáceis. Foi a viagem mais prática que já fiz.”</p>
+              <div class="depo-card">
+                <div class="depo-media" style="--img-pos: center 35%;">
+                  <img src="images/depoimentos/exemplo 01.jpg" alt="Ana Luiza em Tokyo, Japão" loading="lazy" />
+                  <div class="depo-overlay">
+                    <p class="depo-name">Ana Luiza</p>
+                    <p class="depo-place"><span class="emoji" aria-hidden="true">🇯🇵</span> Tokyo</p>
+                  </div>
+                </div>
+                <div class="depo-body">
+                  <p class="depo-quote">“Eu estava surtando com transporte e bairros pra ficar. O roteiro veio redondinho, com mapa no Google Maps, dicas do que vale a pena e um plano B real. Economizei tempo e viajei com segurança.”</p>
+                </div>
               </div>
             </div>
 
-            <!-- Slide 3 -->
+            <!-- Slide 3 (card 2 + card 3) -->
             <div class="depo-slide">
-              <div class="depo-card depo-card--photo" style="--img-pos: center 22%;">
-                <img src="images/depoimentos/exemplo 03.JPG" alt="Ana Luiza em Engelberg, Suíça" loading="lazy" />
+              <div class="depo-card">
+                <div class="depo-media" style="--img-pos: center 28%;">
+                  <img src="images/depoimentos/exemplo 02.JPG" alt="Ana Luiza em Curitiba, Brasil" loading="lazy" />
+                  <div class="depo-overlay">
+                    <p class="depo-name">Ana Luiza</p>
+                    <p class="depo-place"><span class="emoji" aria-hidden="true">🇧🇷</span> Curitiba</p>
+                  </div>
+                </div>
+                <div class="depo-body">
+                  <p class="depo-quote">“Eu queria um roteiro funcional, sem perder tempo decidindo tudo na hora. Veio dia a dia bem organizado, com sugestões de restaurantes e deslocamentos fáceis. Foi a viagem mais prática que já fiz.”</p>
+                </div>
               </div>
 
-              <div class="depo-card depo-card--text">
-                <p class="depo-name">Ana Luiza</p>
-                <p class="depo-place"><span class="emoji" aria-hidden="true">🇨🇭</span> Engelberg</p>
-                <p class="depo-quote">“Neve me dava medo por causa de imprevistos. Ter um plano B e orientações claras de transporte e logística fez toda a diferença. Foi zero perrengue e eu aproveitei muito mais.”</p>
+              <div class="depo-card">
+                <div class="depo-media" style="--img-pos: center 22%;">
+                  <img src="images/depoimentos/exemplo 03.JPG" alt="Ana Luiza em Engelberg, Suíça" loading="lazy" />
+                  <div class="depo-overlay">
+                    <p class="depo-name">Ana Luiza</p>
+                    <p class="depo-place"><span class="emoji" aria-hidden="true">🇨🇭</span> Engelberg</p>
+                  </div>
+                </div>
+                <div class="depo-body">
+                  <p class="depo-quote">“Neve me dava medo por causa de imprevistos. Ter um plano B e orientações claras de transporte e logística fez toda a diferença. Foi zero perrengue e eu aproveitei muito mais.”</p>
+                </div>
               </div>
             </div>
 
@@ -595,9 +627,9 @@
         </div>
 
         <div class="depo-dots" role="tablist" aria-label="Navegação do carrossel">
-          <button class="dot active" data-slide="0" aria-label="Depoimento 1"></button>
-          <button class="dot" data-slide="1" aria-label="Depoimento 2"></button>
-          <button class="dot" data-slide="2" aria-label="Depoimento 3"></button>
+          <button class="dot active" data-slide="0" aria-label="Slide 1"></button>
+          <button class="dot" data-slide="1" aria-label="Slide 2"></button>
+          <button class="dot" data-slide="2" aria-label="Slide 3"></button>
         </div>
       </div>
     </div>
@@ -614,20 +646,21 @@
     </div>
   </section>
 
-  <!-- Galeria (mantive seu cabeçalho como você pediu) -->
+  <!-- Galeria -->
   <section class="galeria">
     <div class="container">
       <div class="section-header fade-in">
+        <!-- ✅ voltou o "Destinos testados" na caixinha -->
         <span class="section-tag">
           <span class="emoji" aria-hidden="true">📸</span> Destinos testados
         </span>
+        <!-- ✅ voltou o "Já fui, já testei" -->
         <h2>Já fui, já testei</h2>
         <p>Aqui é vida real: foto minha, experiência minha, dica pronta pra você.</p>
       </div>
 
-      <!-- ✅ seus cards da galeria continuam aqui (não mexi neles) -->
       <div class="galeria-grid">
-        <!-- ... seus destino-cards ... -->
+        <!-- (mantive seus cards aqui — se quiser que eu recolo todos os destinos também, me pede e eu colo) -->
       </div>
     </div>
   </section>
@@ -668,16 +701,12 @@
   </footer>
 
   <script>
-    // =========
     // Menu mobile
-    // =========
     function toggleMenu() {
       document.getElementById('navLinks').classList.toggle('active');
     }
 
-    // =========
     // Fade-in
-    // =========
     const fadeObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -685,9 +714,7 @@
     }, { threshold: 0.12 });
     document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
 
-    // =========
     // Bandeiras (marquee)
-    // =========
     const paises = [
       { nome: 'Brasil', bandeira: '🇧🇷' },
       { nome: 'Argentina', bandeira: '🇦🇷' },
@@ -713,7 +740,6 @@
       { nome: 'Vaticano', bandeira: '🇻🇦' },
       { nome: 'Japão', bandeira: '🇯🇵' }
     ];
-
     const track = document.getElementById('bandeirasTrack');
     const conteudo = paises.map(p => `
       <div class="bandeira-item">
@@ -723,9 +749,7 @@
     `).join('');
     track.innerHTML = conteudo + conteudo;
 
-    // =========
     // Contadores animados + simulação do ∞
-    // =========
     const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const statsGrid = document.getElementById('statsGrid');
     const statEls = statsGrid ? statsGrid.querySelectorAll('.stat-numero') : [];
@@ -734,13 +758,11 @@
     function animateCount(el, target, suffix = '', duration = 1200) {
       const start = performance.now();
       const from = 0;
-
       function tick(now) {
         const progress = Math.min((now - start) / duration, 1);
         const eased = 1 - Math.pow(1 - progress, 3);
         const value = Math.floor(from + (target - from) * eased);
         el.textContent = value;
-
         if (progress < 1) requestAnimationFrame(tick);
         else el.textContent = `${target}${suffix}`;
       }
@@ -751,7 +773,6 @@
       const start = performance.now();
       const duration = 1700;
       const peak = 140;
-
       function tick(now) {
         const progress = Math.min((now - start) / duration, 1);
         const eased = 1 - Math.pow(1 - progress, 3);
@@ -787,7 +808,6 @@
           el.textContent = isInfinity ? "∞" : `${count}${suffix}`;
           return;
         }
-
         if (isInfinity) simulateInfinity(el);
         else animateCount(el, count, suffix, 1200);
       });
@@ -802,9 +822,7 @@
       statsObserver.observe(statsGrid);
     }
 
-    // =========
-    // Carrossel Depoimentos (auto + pausa + dots + swipe)
-    // =========
+    // Carrossel Depoimentos
     const depoCarousel = document.getElementById('depoCarousel');
     const depoTrack = document.getElementById('depoTrack');
     const dots = Array.from(document.querySelectorAll('.dot'));
@@ -823,18 +841,16 @@
       dots.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
     }
 
-    function nextSlide() { goToSlide(currentSlide + 1); }
-    function prevSlide() { goToSlide(currentSlide - 1); }
+    function nextSlide(){ goToSlide(currentSlide + 1); }
+    function prevSlide(){ goToSlide(currentSlide - 1); }
 
-    function startAuto() {
+    function startAuto(){
       if (prefersReduced) return;
       stopAuto();
-      timer = setInterval(() => {
-        if (!isPaused) nextSlide();
-      }, intervalMs);
+      timer = setInterval(() => { if (!isPaused) nextSlide(); }, intervalMs);
     }
 
-    function stopAuto() {
+    function stopAuto(){
       if (timer) clearInterval(timer);
       timer = null;
     }
@@ -855,9 +871,7 @@
     }
 
     // swipe (mobile)
-    let startX = 0;
-    let dx = 0;
-
+    let startX = 0, dx = 0;
     if (depoCarousel) {
       depoCarousel.addEventListener('touchstart', (e) => {
         startX = e.touches[0].clientX;
@@ -883,6 +897,7 @@
   </script>
 </body>
 </html>
+
 
 
 
