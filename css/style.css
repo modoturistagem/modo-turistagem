@@ -420,36 +420,286 @@ footer {
    ============================================ */
 
 @media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: var(--branco);
-        flex-direction: column;
-        padding: 1rem;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    html, body {
+        overflow-x: hidden;
     }
 
-    .nav-links.active {
-        display: flex;
+    /* Espaçamento geral */
+    .hero,
+    .manifesto,
+    .planos,
+    .regras,
+    .conexao,
+    .roteiros {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    /* NAV mobile */
+    .nav-container {
+        position: relative;
     }
 
     .mobile-menu {
         display: block;
     }
 
-    .section-header h2 {
-        font-size: 2rem;
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: calc(100% + 0.75rem);
+        left: 1rem;
+        right: 1rem;
+        flex-direction: column;
+        gap: 0.25rem;
+        background: var(--branco);
+        padding: 1rem;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        z-index: 999;
     }
 
-    .btn-primary,
-    .btn-secondary,
-    .btn-ajuda {
-        padding: 0.8rem 1.5rem;
-        font-size: 0.9rem;
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a {
+        display: block;
+        width: 100%;
+    }
+
+    /* HERO */
+    .hero {
+        margin-top: 70px;
+        min-height: auto;
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
+    }
+
+    .hero::before {
+        font-size: 8rem;
+        top: -15px;
+        right: -20px;
+        opacity: 0.04;
+    }
+
+    .hero-container,
+    .conexao-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .hero-content {
+        order: 2;
+    }
+
+    .hero-visual {
+        order: 1;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+        max-width: 100%;
+        line-height: 1.7;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .hero-buttons .btn-primary,
+    .hero-buttons .btn-secondary,
+    .roteiro-card .btn-plano,
+    .roteiro-card .btn-secondary,
+    #result .btn-primary,
+    #result .btn-secondary {
+        width: 100%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero-logo-box {
+        padding: 1.25rem;
+        border-radius: 22px;
+    }
+
+    .hero-logo-img {
+        width: 100%;
+        max-width: 180px;
+        height: auto;
+    }
+
+    /* TÍTULOS */
+    .section-header h2,
+    .regras h2,
+    .conexao-content h2 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+    }
+
+    .manifesto-text {
+        font-size: 1.05rem;
+        line-height: 1.7;
+    }
+
+    /* GRIDS */
+    .planos-grid,
+    .regras-grid,
+    .roteiros-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .plano-card,
+    .regra-card,
+    .roteiro-card,
+    .conexao-card {
+        padding: 1.25rem;
+    }
+
+    .plano-card:hover {
+        transform: none;
+    }
+
+    .plano-card.destaque {
+        transform: none;
+    }
+
+    .plano-card.destaque::before {
+        top: 12px;
+        right: 12px;
+        font-size: 0.7rem;
+        padding: 0.45rem 0.7rem;
+        border-radius: 10px;
+    }
+
+    .plano-card h3 {
+        font-size: 1.4rem;
+    }
+
+    .plano-preco {
+        padding: 1rem;
+    }
+
+    .preco-valor {
+        font-size: 1.9rem;
+    }
+
+    .plano-precos-duplos {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .preco-box .preco-valor {
+        font-size: 1.35rem;
+    }
+
+    /* CONEXÃO */
+    .conexao-precos {
+        flex-direction: column;
+    }
+
+    .conexao-card {
+        min-width: unset;
+        width: 100%;
+    }
+
+    .conexao-visual {
+        gap: 0.5rem;
+    }
+
+    .conexao-visual .emoji {
+        font-size: 52px;
+    }
+
+    .btn-whatsapp,
+    .btn-formulario {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* ROTEIROS PRONTOS */
+    .roteiro-inclusos-card {
+        padding: 1.25rem !important;
+    }
+
+    .roteiro-inclusos-card > div {
+        grid-template-columns: 1fr !important;
+    }
+
+    .roteiro-card h4 {
+        font-size: 1.05rem;
+        line-height: 1.35;
+    }
+
+    .roteiro-card .preco {
+        font-size: 1.7rem;
+    }
+
+    /* MODAL / QUIZ */
+    .modal {
+        padding: 1rem;
+        align-items: flex-end;
+    }
+
+    .modal-content {
+        max-height: 88vh;
+        border-radius: 20px 20px 0 0;
+    }
+
+    .modal-header {
+        padding: 1.25rem;
+    }
+
+    .modal-body {
+        padding: 1.25rem;
+    }
+
+    .modal-header h3 {
+        font-size: 1.4rem;
+    }
+
+    .quiz-question {
+        font-size: 1.05rem;
+        line-height: 1.4;
+    }
+
+    .quiz-option {
+        padding: 0.9rem 1rem;
+        font-size: 0.95rem;
+        align-items: flex-start;
+    }
+
+    .close-modal {
+        top: 0.75rem;
+        right: 0.75rem;
+        width: 36px;
+        height: 36px;
+        font-size: 1.2rem;
+    }
+
+    /* FOOTER */
+    .social-links {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .footer-text {
+        line-height: 1.7;
     }
 }
+
 
 
