@@ -1,300 +1,438 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Como Funciona | Modo Turistagem</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <style>
-        .como-funciona-hero {
-            margin-top: 70px;
-            background: linear-gradient(135deg, var(--laranja) 0%, #ff8533 100%);
-            color: var(--branco);
-            padding: 4rem 2rem;
-            text-align: center;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Como Funciona | Modo Turistagem</title>
 
-        .como-funciona-hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
 
-        .passos {
-            padding: 4rem 2rem;
-            background: var(--branco);
-        }
+  <style>
+    /* AJUSTE DOS ÍCONES DO RODAPÉ */
+    .social-icon-img {
+      height: 24px;
+      width: auto;
+      display: block;
+    }
 
-        .passos-timeline {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
+    .emoji {
+      font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif !important;
+      font-weight: 400 !important;
+      font-style: normal !important;
+      line-height: 1;
+    }
 
-        .passos-timeline::before {
-            content: '';
-            position: absolute;
-            left: 30px;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: linear-gradient(to bottom, var(--laranja), var(--azul));
-            border-radius: 2px;
-        }
+    body {
+      overflow-x: hidden;
+    }
 
-        .passo-item {
-            display: flex;
-            gap: 2rem;
-            margin-bottom: 3rem;
-            position: relative;
-        }
+    /* HERO */
+    .como-funciona-hero {
+      margin-top: 70px;
+      background: linear-gradient(135deg, var(--laranja) 0%, #ff8533 100%);
+      color: var(--branco);
+      padding: clamp(3rem, 6vw, 4.5rem) 1.25rem;
+      text-align: center;
+    }
 
-        .passo-numero {
-            width: 60px;
-            height: 60px;
-            background: var(--branco);
-            border: 4px solid var(--laranja);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--laranja);
-            flex-shrink: 0;
-            position: relative;
-            z-index: 1;
-            font-family: 'Fredoka', sans-serif;
-        }
+    .como-funciona-hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+    }
 
-        .passo-conteudo {
-            background: var(--cinza);
-            padding: 2rem;
-            border-radius: 20px;
-            flex-grow: 1;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-        }
+    .como-funciona-hero p {
+      max-width: 720px;
+      margin: 0 auto;
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      line-height: 1.6;
+    }
 
-        .passo-conteudo h3 {
-            color: var(--azul);
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
+    /* SEÇÃO PASSOS */
+    .passos {
+      padding: clamp(3rem, 6vw, 4.5rem) 1.25rem;
+      background: var(--branco);
+    }
 
-        .passo-conteudo p {
-            color: var(--texto);
-            line-height: 1.7;
-        }
+    .section-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
 
-        .destaque-box {
-            background: var(--azul-claro);
-            border-left: 5px solid var(--laranja);
-            padding: 1.5rem;
-            margin: 2rem 0;
-            border-radius: 0 15px 15px 0;
-        }
+    .section-header h2 {
+      margin-top: 0.75rem;
+      line-height: 1.2;
+    }
 
-        .destaque-box h4 {
-            color: var(--azul);
-            margin-bottom: 0.5rem;
-        }
+    .passos-timeline {
+      max-width: 860px;
+      margin: 0 auto;
+      position: relative;
+    }
 
-        @media (max-width: 768px) {
-            .como-funciona-hero h1 {
-                font-size: 2rem;
-            }
-            
-            .passos-timeline::before {
-                left: 20px;
-            }
-            
-            .passo-numero {
-                width: 45px;
-                height: 45px;
-                font-size: 1.2rem;
-            }
-        }
-    </style>
+    .passos-timeline::before {
+      content: "";
+      position: absolute;
+      left: 28px;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(to bottom, var(--laranja), var(--azul));
+      border-radius: 999px;
+    }
+
+    .passo-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .passo-numero {
+      width: 56px;
+      height: 56px;
+      background: var(--branco);
+      border: 4px solid var(--laranja);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--laranja);
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+      font-family: "Fredoka", sans-serif;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    }
+
+    .passo-conteudo {
+      min-width: 0;
+      flex: 1;
+      background: var(--cinza);
+      padding: 1.5rem;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .passo-conteudo h3 {
+      color: var(--azul);
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      line-height: 1.35;
+    }
+
+    .passo-conteudo p {
+      margin: 0;
+      color: var(--texto);
+      line-height: 1.7;
+    }
+
+    .destaque-box {
+      max-width: 860px;
+      margin: 2.5rem auto 0;
+      background: var(--azul-claro);
+      border-left: 5px solid var(--laranja);
+      padding: 1.5rem;
+      border-radius: 0 15px 15px 0;
+    }
+
+    .destaque-box h4 {
+      color: var(--azul);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .destaque-box p {
+      margin: 0;
+      line-height: 1.7;
+      color: var(--texto);
+    }
+
+    .cta-final {
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .como-funciona-hero {
+        padding: 3rem 1rem;
+      }
+
+      .passos {
+        padding: 3rem 1rem;
+      }
+
+      .section-header {
+        margin-bottom: 2rem;
+      }
+
+      .section-header h2 {
+        font-size: 1.75rem;
+      }
+
+      .passos-timeline::before {
+        left: 22px;
+      }
+
+      .passo-item {
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .passo-numero {
+        width: 44px;
+        height: 44px;
+        font-size: 1.05rem;
+        border-width: 3px;
+      }
+
+      .passo-conteudo {
+        padding: 1.2rem;
+        border-radius: 16px;
+      }
+
+      .passo-conteudo h3 {
+        font-size: 1.05rem;
+      }
+
+      .passo-conteudo p,
+      .destaque-box p {
+        font-size: 0.95rem;
+      }
+
+      .destaque-box {
+        margin-top: 2rem;
+        padding: 1.2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .como-funciona-hero h1 {
+        font-size: 1.85rem;
+      }
+
+      .como-funciona-hero p {
+        font-size: 0.95rem;
+      }
+
+      .section-header h2 {
+        font-size: 1.5rem;
+      }
+
+      .passos-timeline::before {
+        left: 19px;
+      }
+
+      .passo-item {
+        gap: 0.85rem;
+      }
+
+      .passo-numero {
+        width: 38px;
+        height: 38px;
+        font-size: 0.95rem;
+      }
+
+      .passo-conteudo {
+        padding: 1rem;
+      }
+
+      .passo-conteudo h3 {
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Navegação -->
-    <nav>
-        <div class="nav-container">
-            <a href="index.html" class="logo">
-                <img src="images/icone.png" alt="Modo Turistagem" class="logo-img">
-                <div class="logo-text">
-                    <span class="logo-modo">modo</span>
-                    <span class="logo-turistagem">turistagem.</span>
-                </div>
-            </a>
-            <button class="mobile-menu" onclick="toggleMenu()">☰</button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="destinos.html">Destinos Testados</a></li>
-                <li><a href="como-funciona.html">Como Funciona</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-                <li><a href="quem-somos.html">Quem Somos</a></li>
-                <li><a href="https://wa.me/SEUNUMERO" class="btn-nav" target="_blank">Fale Conosco</a></li>
-            </ul>
-        </div>
-    </nav>
+  <!-- CABEÇALHO / NAVEGAÇÃO -->
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="images/logotipo.png" alt="Modo Turistagem" class="logo-img" />
+      </a>
 
-    <!-- Hero -->
-    <section class="como-funciona-hero">
-        <div class="container fade-in">
-            <h1>
-                <span class="emoji">⚙️</span> Como Funciona
-            </h1>
-            <p>Simples, transparente e do seu jeito. Assim é a Modo Turistagem!</p>
-        </div>
-    </section>
+      <button class="mobile-menu" onclick="toggleMenu()" aria-label="Abrir menu">☰</button>
 
-    <!-- Passos -->
-    <section class="passos">
-        <div class="container">
-            <div class="section-header fade-in">
-                <span class="section-tag">
-                    <span class="emoji">🚀</span> Processo
-                </span>
-                <h2>5 Passos para sua Viagem dos Sonhos</h2>
-            </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="destinos.html">Destinos Testados</a></li>
+        <li><a href="como-funciona.html">Como Funciona</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="quem-somos.html">Quem Somos</a></li>
+        <li>
+          <a href="https://wa.me/5549991628403" class="btn-nav" target="_blank" rel="noopener noreferrer">
+            Fale Conosco
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-            <div class="passos-timeline">
-                <!-- Passo 1 -->
-                <div class="passo-item fade-in">
-                    <div class="passo-numero">1</div>
-                    <div class="passo-conteudo">
-                        <h3>
-                            <span class="emoji">🎯</span> Eu te ajudo a escolher o plano ideal
-                        </h3>
-                        <p>
-                            Antes de comprar, você pode responder um rapidinho (ou me chamar) que eu te direciono pro plano certo 
-                            (Partiu / Check-in / Embarque / VIP) e pros extras que fazem sentido.
-                        </p>
-                    </div>
-                </div>
+  <!-- HERO -->
+  <section class="como-funciona-hero">
+    <div class="container fade-in">
+      <h1><span class="emoji">⚙️</span> Como Funciona</h1>
+      <p>Simples, transparente e do seu jeito. Assim é a Modo Turistagem!</p>
+    </div>
+  </section>
 
-                <!-- Passo 2 -->
-                <div class="passo-item fade-in">
-                    <div class="passo-numero">2</div>
-                    <div class="passo-conteudo">
-                        <h3>
-                            <span class="emoji">📝</span> Compra confirmada = formulário liberado
-                        </h3>
-                        <p>
-                            Depois da compra, você recebe o link do formulário pra me contar datas, estilo, orçamento, 
-                            prioridades e, se tiver, conexão/layover.
-                        </p>
-                    </div>
-                </div>
+  <!-- PASSOS -->
+  <section class="passos">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag">
+          <span class="emoji">🚀</span> Processo
+        </span>
+        <h2>5 passos para sua viagem sair do papel</h2>
+      </div>
 
-                <!-- Passo 3 -->
-                <div class="passo-item fade-in">
-                    <div class="passo-numero">3</div>
-                    <div class="passo-conteudo">
-                        <h3>
-                            <span class="emoji">✍️</span> Eu monto seu roteiro
-                        </h3>
-                        <p>
-                            Com o formulário completo e pagamento/entrada confirmados, eu começo a criação. 
-                            É aqui que a mágica acontece! <span class="emoji">✨</span>
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Passo 4 -->
-                <div class="passo-item fade-in">
-                    <div class="passo-numero">4</div>
-                    <div class="passo-conteudo">
-                        <h3>
-                            <span class="emoji">📄</span>
-                            <span class="emoji">🔗</span> Entrega em PDF clicável
-                        </h3>
-                        <p>
-                            Você recebe um PDF organizado e com links, com roteiro dia a dia + logística + 
-                            sugestões alinhadas ao seu estilo. Tudo pronto pra usar no celular!
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Passo 5 -->
-                <div class="passo-item fade-in">
-                    <div class="passo-numero">5</div>
-                    <div class="passo-conteudo">
-                        <h3>
-                            <span class="emoji">🔁</span> Ajustes
-                        </h3>
-                        <p>
-                            Você pode pedir ajustes dentro do mesmo destino/estrutura (trocar passeios, 
-                            reorganizar dias, etc.). A quantidade de alterações depende do plano contratado.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="destaque-box fade-in">
-                <h4>
-                    <span class="emoji">💡</span> Dica importante
-                </h4>
-                <p>
-                    O prazo de entrega começa a contar quando você envia: 
-                    <strong>✅ formulário completo + ✅ confirmação do pagamento da entrada (20%)</strong>. 
-                    Se faltar informação, o processo pode pausar e o prazo pode ser impactado.
-                </p>
-            </div>
-
-            <div style="text-align: center; margin-top: 3rem;" class="fade-in">
-                <a href="index.html#planos" class="btn-primary">
-                    <span class="emoji">🎒</span> Ver Planos e Preços
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <img src="images/logotipo.png" alt="Modo Turistagem" class="footer-logo">
-            <p class="footer-text">
-                Consultoria de viagens feita por quem realmente viaja. 
-                <span class="emoji">🌍</span>
+      <div class="passos-timeline">
+        <!-- PASSO 1 -->
+        <div class="passo-item fade-in">
+          <div class="passo-numero">1</div>
+          <div class="passo-conteudo">
+            <h3><span class="emoji">🎯</span> Eu te ajudo a escolher o plano ideal</h3>
+            <p>
+              Antes de comprar, você pode responder um <strong>quiz rapidinho</strong> (ou me chamar no WhatsApp)
+              que eu te direciono pro plano certo (Partiu / Check-in / Embarque / VIP) e pros extras que fazem sentido.
             </p>
-            <div class="social-links">
-                <a href="https://instagram.com/modoturistagem" target="_blank">
-                    <span class="emoji">📷</span>
-                </a>
-                <a href="https://wa.me/SEUNUMERO" target="_blank">
-                    <span class="emoji">💬</span>
-                </a>
-                <a href="mailto:contato@modoturistagem.com">
-                    <span class="emoji">✉️</span>
-                </a>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2024 Modo Turistagem. Todos os direitos reservados.</p>
-            </div>
+          </div>
         </div>
-    </footer>
 
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
-            });
-        }, { threshold: 0.1 });
+        <!-- PASSO 2 -->
+        <div class="passo-item fade-in">
+          <div class="passo-numero">2</div>
+          <div class="passo-conteudo">
+            <h3><span class="emoji">📝</span> Compra confirmada = formulário liberado</h3>
+            <p>
+              Depois da compra, você recebe o link do formulário pra me contar datas, estilo, orçamento,
+              prioridades e, se tiver, conexão/layover.
+            </p>
+          </div>
+        </div>
 
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        <!-- PASSO 3 -->
+        <div class="passo-item fade-in">
+          <div class="passo-numero">3</div>
+          <div class="passo-conteudo">
+            <h3><span class="emoji">✍️</span> Eu monto seu roteiro</h3>
+            <p>
+              Com o formulário completo e pagamento/entrada confirmados, eu começo a criação.
+              É aqui que a mágica acontece! <span class="emoji">✨</span>
+            </p>
+          </div>
+        </div>
 
-        function toggleMenu() {
-            document.getElementById('navLinks').classList.toggle('active');
+        <!-- PASSO 4 -->
+        <div class="passo-item fade-in">
+          <div class="passo-numero">4</div>
+          <div class="passo-conteudo">
+            <h3><span class="emoji">📄</span> <span class="emoji">🔗</span> Entrega em PDF clicável</h3>
+            <p>
+              Você recebe um PDF organizado e com links, com roteiro dia a dia + logística +
+              sugestões alinhadas ao seu estilo. Tudo pronto pra usar no celular!
+            </p>
+          </div>
+        </div>
+
+        <!-- PASSO 5 -->
+        <div class="passo-item fade-in">
+          <div class="passo-numero">5</div>
+          <div class="passo-conteudo">
+            <h3><span class="emoji">🔁</span> Ajustes</h3>
+            <p>
+              Você pode pedir ajustes dentro do mesmo destino/estrutura
+              (trocar passeios, reorganizar dias, etc.). A quantidade de alterações
+              depende do plano contratado.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="destaque-box fade-in">
+        <h4><span class="emoji">💡</span> Dica importante</h4>
+        <p>
+          O prazo de entrega começa a contar quando você envia:
+          <strong>✅ formulário completo + ✅ confirmação do pagamento da entrada (20%)</strong>.
+          Se faltar informação, o processo pode pausar e o prazo pode ser impactado.
+        </p>
+      </div>
+
+      <div class="cta-final fade-in">
+        <a href="index.html#planos" class="btn-primary">
+          <span class="emoji">🎒</span> Ver planos e preços
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <div class="footer-content">
+      <img src="images/LOGOTIPO%20branco.png" alt="Modo Turistagem" class="footer-logo" />
+
+      <p class="footer-text">
+        Consultoria de viagens feita por quem realmente viaja.
+        <span class="emoji emoji-inline" aria-hidden="true">🌎</span><br />
+        Traduzindo sonhos em planos concretos desde 2024.
+      </p>
+
+      <div class="social-links">
+        <a href="https://instagram.com/modoturistagem" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <img src="images/icons/instagram.png" alt="Instagram" class="social-icon-img" />
+        </a>
+
+        <a href="https://wa.me/5549991628403" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+          <img src="images/icons/whatsapp.png" alt="WhatsApp" class="social-icon-img" />
+        </a>
+
+        <a href="mailto:modoturistagem@gmail.com" aria-label="E-mail">
+          <img src="images/icons/email.png" alt="E-mail" class="social-icon-img" />
+        </a>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2024 Modo Turistagem. Todos os direitos reservados.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem; font-family: 'Neulis Sans', sans-serif !important;">
+          Roteiros feitos por viajantes, para viajantes
+          <span class="emoji emoji-inline" aria-hidden="true">💙</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
         }
+      });
+    }, { threshold: 0.1 });
 
-        document.querySelectorAll('a[href*="SEUNUMERO"]').forEach(link => {
-            link.href = link.href.replace('SEUNUMERO', '5511999999999');
-        });
-    </script>
+    document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
+
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
+
+    document.querySelectorAll("#navLinks a").forEach((link) => {
+      link.addEventListener("click", () => {
+        document.getElementById("navLinks").classList.remove("active");
+      });
+    });
+  </script>
 </body>
 </html>
