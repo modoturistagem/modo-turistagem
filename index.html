@@ -33,28 +33,26 @@
         }
 
         .hero-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 2.5rem;
-    align-items: center;
-    width: 100%;
-}
-}
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            width: 100%;
+        }
 
-.hero-content h1 {
-    font-size: clamp(2.8rem, 5vw, 3.5rem);
-    color: var(--azul);
-    margin-bottom: 1.5rem;
-    line-height: 1.05;
-    max-width: 700px;
-}
+        .hero-content h1 {
+            font-size: 3.5rem;
+            color: var(--azul);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
 
-.hero-content h1 span {
-    color: var(--laranja);
-    display: inline;
-}
+        .hero-content h1 span {
+            color: var(--laranja);
+            display: inline;
+        }
 
         .hero-content p {
             font-size: 1.25rem;
@@ -129,9 +127,7 @@
 .roteiros-grid .roteiro-card .botoes-roteiro,
 .roteiros-grid .roteiro-card div[style*="flex-direction: column"] {
     gap: 0.6rem !important;
-    
 }
-        
 
         /* Manifesto */
         .manifesto {
@@ -842,10 +838,7 @@
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content fade-in">
-                <h1>
-    Viajar bem não precisa custar caro,<br>
-    <span>só precisa ser bem&nbsp;pensado.</span>
-</h1>
+                <h1>Viajar bem não precisa custar caro, <span>só precisa ser bem pensado.</span></h1>
                 <p>Somos uma consultoria feita por viajantes, para viajantes. Traduzimos sonhos em planos concretos, sem enrolação e sem estresse.</p>
 
                 <div class="hero-buttons">
@@ -1204,7 +1197,7 @@
                 O que está incluso em cada Roteiro Pronto
             </h3>
 
-            <div class="roteiro-inclusos-grid">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.9rem;">
                 <div style="background: var(--branco); border-radius: 16px; padding: 1rem; box-shadow: 0 6px 18px rgba(0,0,0,0.06);">
                     <strong style="font-family: 'Neulis Sans', sans-serif !important;">🗓️ Roteiro dia a dia</strong>
                     <p style="margin-top: 0.4rem; font-family: 'Neulis Sans', sans-serif !important; opacity: 0.9;">
@@ -1269,7 +1262,7 @@
 
         <div class="botoes-roteiro">
             <a href="https://mpago.la/2eRhVqN" target="_blank" rel="noopener" class="btn-roteiro btn-mp">
-                <img src="images/icons/mercadopago.png" alt="Mercado Pago" class="btn-ico">
+                <img src="/images/icons/mercadopago.png" alt="Mercado Pago" class="btn-ico">
                 Comprar
             </a>
             <div class="pagamento-sub mp">Pix • Cartão à vista • Parcelado (com taxas)</div>
@@ -1277,7 +1270,7 @@
             <a href="https://wa.me/554999562143?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%205%20dias%20%E2%80%94%20Santiago%20(Inverno)%20via%20Pix.%20%F0%9F%98%8A%20Pode%20me%20enviar%20a%20chave%20e%20o%20valor%3F"
                target="_blank" rel="noopener noreferrer"
                class="btn-roteiro btn-pix">
-                <img src="images/icons/whatsapp-logo.png" alt="WhatsApp" class="btn-ico">
+                <img src="/images/icons/whatsapp.png" alt="WhatsApp" class="btn-ico">
                 Comprar via Pix
             </a>
             <div class="pagamento-sub pix">Pix via WhatsApp</div>
@@ -1295,7 +1288,7 @@
 
         <div class="botoes-roteiro">
             <a href="https://mpago.la/1monhF9" target="_blank" rel="noopener" class="btn-roteiro btn-mp">
-                <img src="images/icons/mercadopago.png" alt="Mercado Pago" class="btn-ico">
+                <img src="/images/icons/mercadopago.png" alt="Mercado Pago" class="btn-ico">
                 Comprar
             </a>
             <div class="pagamento-sub mp">Pix • Cartão à vista • Parcelado (com taxas)</div>
@@ -1303,7 +1296,7 @@
             <a href="https://wa.me/554999562143?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%20Rota%20do%20Prata%20%E2%80%94%207%20dias%20(Cruzeiro%20Argentina%20%2B%20Uruguai)%20via%20Pix.%20%F0%9F%98%8A%20Pode%20me%20enviar%20a%20chave%20e%20o%20valor%3F"
                target="_blank" rel="noopener noreferrer"
                class="btn-roteiro btn-pix">
-                <img src="images/icons/whatsapp-logo.png" alt="WhatsApp" class="btn-ico">
+                <img src="/images/icons/whatsapp.png" alt="WhatsApp" class="btn-ico">
                 Comprar via Pix
             </a>
             <div class="pagamento-sub pix">Pix via WhatsApp</div>
@@ -1321,7 +1314,7 @@
 
         <div class="botoes-roteiro">
             <a href="https://mpago.la/2TjCW5o" target="_blank" rel="noopener" class="btn-roteiro btn-mp">
-                <img src="images/icons/mercadopago.png" alt="Mercado Pago" class="btn-ico">
+                <img src="/images/icons/mercadopago.png" alt="Mercado Pago" class="btn-ico">
                 Comprar
             </a>
             <div class="pagamento-sub mp">Pix • Cartão à vista • Parcelado (com taxas)</div>
@@ -1329,7 +1322,7 @@
             <a href="https://wa.me/554999562143?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%20Orlando%20M%C3%A1gico%20%E2%80%94%2015%20dias%20de%20Parques%20%26%20Compras%20via%20Pix.%20%F0%9F%98%8A%20Pode%20me%20enviar%20a%20chave%20e%20o%20valor%3F"
                target="_blank" rel="noopener noreferrer"
                class="btn-roteiro btn-pix">
-                <img src="images/icons/whatsapp-logo.png" alt="WhatsApp" class="btn-ico">
+                <img src="/images/icons/whatsapp.png" alt="WhatsApp" class="btn-ico">
                 Comprar via Pix
             </a>
             <div class="pagamento-sub pix">Pix via WhatsApp</div>
@@ -1347,7 +1340,7 @@
 
         <div class="botoes-roteiro">
             <a href="https://mpago.la/1BroPmr" target="_blank" rel="noopener" class="btn-roteiro btn-mp">
-                <img src="images/icons/mercadopago.png" alt="Mercado Pago" class="btn-ico">
+                <img src="/images/icons/mercadopago.png" alt="Mercado Pago" class="btn-ico">
                 Comprar
             </a>
             <div class="pagamento-sub mp">Pix • Cartão à vista • Parcelado (com taxas)</div>
@@ -1355,7 +1348,7 @@
             <a href="https://wa.me/554999562143?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%20Do%20Templo%20ao%20Izakaya%20%E2%80%94%20Jap%C3%A3o%20em%2020%20dias%20via%20Pix.%20%F0%9F%98%8A%20Pode%20me%20enviar%20a%20chave%20e%20o%20valor%3F"
                target="_blank" rel="noopener noreferrer"
                class="btn-roteiro btn-pix">
-                <img src="images/icons/whatsapp-logo.png" alt="WhatsApp" class="btn-ico">
+                <img src="/images/icons/whatsapp.png" alt="WhatsApp" class="btn-ico">
                 Comprar via Pix
             </a>
             <div class="pagamento-sub pix">Pix via WhatsApp</div>
@@ -1551,7 +1544,7 @@
 
                 <div class="recomendacao" id="recomendacao"></div>
 
-               <div class="inclusos-grid">
+                <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
                     <a href="#" id="resultBtn" class="btn-primary" target="_blank" rel="noopener noreferrer" style="justify-content: center;">
                         Quero esse plano
                     </a>
@@ -1907,6 +1900,18 @@ function resetQuiz() {
 </html>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
