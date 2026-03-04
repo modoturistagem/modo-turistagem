@@ -319,42 +319,6 @@ nav {
     font-family: var(--font-texto);
 }
 
-.plano-precos-duplos {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.8rem;
-    margin-bottom: 1.5rem;
-}
-
-.preco-box {
-    background: var(--azul-claro);
-    padding: 1rem;
-    border-radius: 15px;
-    text-align: center;
-}
-
-.preco-box .preco-label {
-    font-size: 0.8rem;
-    color: var(--azul);
-    font-weight: 700;
-    margin-bottom: 0.35rem;
-    font-family: 'Neulis Sans', sans-serif !important;
-}
-
-.preco-box .preco-valor {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--azul);
-    font-family: 'Neulis Cursive', cursive !important;
-    line-height: 1.1;
-}
-
-.preco-box .preco-descricao {
-    font-size: 0.8rem;
-    color: var(--texto);
-    margin-top: 0.35rem;
-    font-family: 'Neulis Sans', sans-serif !important;
-}
 
 /* ============================================
    ANIMAÇÕES
@@ -487,4 +451,5 @@ footer {
         font-size: 0.9rem;
     }
 }
+
 
