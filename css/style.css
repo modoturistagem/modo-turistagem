@@ -276,7 +276,7 @@ nav {
     box-shadow: 0 10px 30px rgba(0,51,153,0.4);
 }
 
-/* Roteiros Prontos — botões novos (1 laranja + 1 azul, com subtítulo) */
+/* Roteiros Prontos — botões com texto pequeno fora do botão */
 .botoes-roteiro {
     display: flex;
     flex-direction: column;
@@ -294,40 +294,21 @@ nav {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.65rem;
+    gap: 0.6rem;
     transition: all 0.3s;
     border: 3px solid transparent;
     cursor: pointer;
-    line-height: 1.1;
+    white-space: nowrap;
 }
 
 .btn-roteiro:hover {
     transform: translateY(-2px);
 }
 
-/* Ícone */
 .btn-ico {
     height: 20px;
     width: auto;
     flex: 0 0 auto;
-}
-
-/* Texto do botão */
-.btn-texto {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.25rem;
-}
-
-.btn-titulo {
-    font-size: 1rem;
-}
-
-.btn-sub {
-    font-size: 0.78rem;
-    font-weight: 600;
-    opacity: 0.9;
 }
 
 /* Mercado Pago (laranja) */
@@ -342,7 +323,7 @@ nav {
     box-shadow: 0 8px 25px rgba(255,102,0,0.35);
 }
 
-/* Pix WhatsApp (azul) */
+/* WhatsApp Pix (azul) */
 .btn-pix {
     background: transparent;
     color: var(--azul);
@@ -354,15 +335,29 @@ nav {
     color: var(--branco);
 }
 
-/* Quando o botão azul fica azul no hover, mantém subtítulo legível */
-.btn-pix:hover .btn-sub {
+/* Textinhos abaixo dos botões (sem negrito) */
+.pagamento-sub {
+    margin-top: -0.4rem; /* aproxima do botão */
+    font-size: 0.82rem;
+    font-weight: 400;
+    font-family: 'Neulis Sans', sans-serif !important;
+    text-align: center;
     opacity: 0.95;
+    line-height: 1.3;
 }
 
-/* Mobile: garante que fica bonito e sem quebrar */
+.pagamento-sub.mp {
+    color: var(--laranja);
+}
+
+.pagamento-sub.pix {
+    color: var(--azul);
+}
+
+/* Mobile */
 @media (max-width: 480px) {
-    .btn-sub {
-        font-size: 0.75rem;
+    .pagamento-sub {
+        font-size: 0.78rem;
     }
 }
 
@@ -822,6 +817,7 @@ footer {
         line-height: 1.7;
     }
 }
+
 
 
 
