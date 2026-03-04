@@ -33,20 +33,22 @@
         }
 
         .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            width: 100%;
-        }
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr; /* dá mais espaço pro texto */
+    gap: 2.5rem; /* reduz o espaço entre texto e logo */
+    align-items: center;
+    width: 100%;
+}
 
-        .hero-content h1 {
-            font-size: 3.5rem;
-            color: var(--azul);
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
+.hero-content h1 {
+    font-size: clamp(2.8rem, 5vw, 3.5rem);
+    color: var(--azul);
+    margin-bottom: 1.5rem;
+    line-height: 1.05;
+    text-wrap: balance; /* distribui melhor as quebras */
+}
         }
 
         .hero-content h1 span {
@@ -1199,7 +1201,7 @@
                 O que está incluso em cada Roteiro Pronto
             </h3>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.9rem;">
+            <div class="roteiro-inclusos-grid">
                 <div style="background: var(--branco); border-radius: 16px; padding: 1rem; box-shadow: 0 6px 18px rgba(0,0,0,0.06);">
                     <strong style="font-family: 'Neulis Sans', sans-serif !important;">🗓️ Roteiro dia a dia</strong>
                     <p style="margin-top: 0.4rem; font-family: 'Neulis Sans', sans-serif !important; opacity: 0.9;">
@@ -1902,6 +1904,7 @@ function resetQuiz() {
 </html>
 
 </html>
+
 
 
 
