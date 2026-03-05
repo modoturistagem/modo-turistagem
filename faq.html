@@ -63,7 +63,7 @@
     }
 
     .faq-hero p {
-      max-width: 760px;
+      max-width: 780px;
       margin: 0 auto;
       font-size: 1.08rem;
       line-height: 1.75;
@@ -251,24 +251,7 @@
       line-height: 1.75;
     }
 
-    .simulacao-box {
-      margin-top: 1rem;
-      border-radius: 14px;
-      background: rgba(255, 153, 102, 0.08);
-      border: 1px solid rgba(255, 153, 102, 0.28);
-      padding: 0.95rem 1rem;
-      line-height: 1.75;
-    }
-
-    .simulacao-box code {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size: 0.95em;
-      background: rgba(0,0,0,0.04);
-      padding: 0.12rem 0.35rem;
-      border-radius: 8px;
-    }
-
-    /* PREÇOS */
+    /* PREÇOS (tabela) */
     .precos-box {
       background: var(--branco);
       border-radius: 20px;
@@ -379,6 +362,24 @@
 
     .preco-info strong {
       color: var(--azul);
+    }
+
+    /* ACRESCIMOS (simulações) */
+    .simulacao-box {
+      margin-top: 1rem;
+      border-radius: 14px;
+      background: rgba(255, 153, 102, 0.08);
+      border: 1px solid rgba(255, 153, 102, 0.28);
+      padding: 0.95rem 1rem;
+      line-height: 1.75;
+    }
+
+    .simulacao-box code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.95em;
+      background: rgba(0,0,0,0.04);
+      padding: 0.12rem 0.35rem;
+      border-radius: 8px;
     }
 
     /* CTA */
@@ -522,7 +523,7 @@
 
 <body>
 
-  <!-- CABEÇALHO / NAVEGAÇÃO -->
+  <!-- CABEÇALHO / NAVEGAÇÃO (PADRÃO) -->
   <nav>
     <div class="nav-container">
       <a href="index.html" class="logo">
@@ -551,7 +552,7 @@
     <div class="container fade-in">
       <h1><span class="emoji" aria-hidden="true">❓</span> FAQ</h1>
       <p>
-        Tire suas dúvidas sobre como funciona a consultoria, preços, pagamento, acréscimos, ajustes,
+        Tire suas dúvidas sobre como funciona a consultoria, preços, acréscimos, pagamento, ajustes,
         condições especiais e tudo o que você precisa saber antes de contratar.
       </p>
     </div>
@@ -669,163 +670,122 @@
       </div>
     </div>
 
-    <!-- PREÇOS -->
+    <!-- PREÇOS (agora com os 2 blocos dentro) -->
     <h3 class="faq-categoria fade-in">
       <span class="emoji" aria-hidden="true">🏷️</span> Preços
     </h3>
 
-    <div class="precos-box fade-in">
-      <p class="precos-intro">
-        Aqui estão os valores-base dos produtos e planos da Modo Turistagem.
-        Acréscimos por pessoas, cidades, urgência e ajustes extras podem ser aplicados conforme o caso.
-      </p>
-
-      <div class="precos-mini-grid">
-        <div class="preco-mini">
-          <strong><span class="emoji" aria-hidden="true">🛬</span> Modo Conexão | Aeroporto</strong>
-          <span>R$ 59,90</span>
-        </div>
-
-        <div class="preco-mini">
-          <strong><span class="emoji" aria-hidden="true">🏙️</span> Modo Conexão | Turismo na cidade</strong>
-          <span>R$ 89,90</span>
-        </div>
-
-        <div class="preco-mini">
-          <strong><span class="emoji" aria-hidden="true">🧭</span> Painel de Partidas</strong>
-          <span>R$ 79,90</span>
-        </div>
-      </div>
-
-      <div class="precos-grid">
-        <div class="preco-card">
-          <h4><span class="emoji" aria-hidden="true">🎒</span> Modo Partiu</h4>
-          <ul class="preco-lista">
-            <li><span>Até 7 dias</span><span>R$ 139</span></li>
-            <li><span>8 a 14 dias</span><span>R$ 169</span></li>
-            <li><span>15 a 21 dias</span><span>R$ 199</span></li>
-            <li><span>22 a 30 dias</span><span>R$ 229</span></li>
-            <li><span>Acima de 30 dias</span><span>+ R$ 89 por semana extra</span></li>
-          </ul>
-        </div>
-
-        <div class="preco-card">
-          <h4><span class="emoji" aria-hidden="true">🧳</span> Modo Check-in</h4>
-          <ul class="preco-lista">
-            <li><span>Até 7 dias</span><span>R$ 239</span></li>
-            <li><span>8 a 14 dias</span><span>R$ 279</span></li>
-            <li><span>15 a 21 dias</span><span>R$ 319</span></li>
-            <li><span>22 a 30 dias</span><span>R$ 369</span></li>
-            <li><span>Acima de 30 dias</span><span>+ R$ 129 por semana</span></li>
-          </ul>
-        </div>
-
-        <div class="preco-card">
-          <h4><span class="emoji" aria-hidden="true">✈️</span> Modo Embarque</h4>
-          <ul class="preco-lista">
-            <li><span>Até 7 dias</span><span>R$ 339</span></li>
-            <li><span>8 a 14 dias</span><span>R$ 389</span></li>
-            <li><span>15 a 21 dias</span><span>R$ 439</span></li>
-            <li><span>22 a 30 dias</span><span>R$ 499</span></li>
-            <li><span>Acima de 30 dias</span><span>+ R$ 159 por semana</span></li>
-          </ul>
-        </div>
-
-        <div class="preco-card">
-          <h4><span class="emoji" aria-hidden="true">💎</span> Modo VIP</h4>
-          <ul class="preco-lista">
-            <li><span>Até 7 dias</span><span>R$ 659</span></li>
-            <li><span>8 a 14 dias</span><span>R$ 759</span></li>
-            <li><span>15 a 21 dias</span><span>R$ 839</span></li>
-            <li><span>22 a 30 dias</span><span>R$ 909</span></li>
-            <li><span>Acima de 30 dias</span><span>+ R$ 259 por semana</span></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="precos-observacoes">
-        <div class="preco-info">
-          <strong>Grupo padrão:</strong> até 4 adultos OU 2 adultos + 3 crianças.
-          <br />
-          <strong>Acréscimo por pessoas (acima do grupo padrão):</strong>
-          5–6 pessoas: +20% | 7–8: +30% | 9–10: +50% | 11+: orçamento.
-        </div>
-
-        <div class="preco-info">
-          <strong>Cidades inclusas no valor:</strong> os valores cobrem até <strong>2 cidades-base</strong>
-          (cidades com pernoite / troca de hospedagem).
-          <br />
-          <strong>Acréscimo por cidades (acima de 2 cidades-base):</strong>
-          3–4 cidades: +15% | 5–6: +25% | 7–8: +40% | 9+: orçamento.
-        </div>
-
-        <div class="preco-info">
-          <strong>Semana extra:</strong> 7 dias (ou fração), conforme a regra do plano.
-          <br />
-          <strong>Ajuste simples extra:</strong> 5% do valor do plano, com mínimo de R$ 29.
-          <br />
-          <strong>Taxa de urgência:</strong> 30% do valor do plano para entrega em 5 dias corridos
-          em vez de 10 dias úteis.
-        </div>
-      </div>
-    </div>
-
-    <!-- PAGAMENTO -->
-    <h3 class="faq-categoria fade-in">
-      <span class="emoji" aria-hidden="true">💰</span> Pagamento
-    </h3>
-
+    <!-- TABELA DE PREÇOS RETRÁTIL -->
     <div class="faq-item fade-in">
       <button class="faq-pergunta" type="button" aria-expanded="false">
-        <span class="faq-pergunta-texto">Formas de pagamento</span>
+        <span class="faq-pergunta-texto">Tabela de preços (planos e produtos)</span>
         <span class="faq-icon" aria-hidden="true">+</span>
       </button>
 
       <div class="faq-resposta">
         <div class="faq-resposta-inner">
           <div class="faq-resposta-conteudo">
-            <p>
-              Você pode escolher a forma que fizer mais sentido pra você. Se quiser parcelar,
-              eu também posso calcular antes pra você já saber certinho como fica.
-            </p>
+            <div class="precos-box">
+              <p class="precos-intro">
+                Aqui estão os valores-base dos produtos e planos da Modo Turistagem. Acréscimos por pessoas, cidades,
+                urgência e ajustes extras podem ser aplicados conforme o caso.
+              </p>
 
-            <div class="pagamento-grid">
-              <div class="pagamento-card">
-                <div class="pagamento-topo">
-                  <img src="images/icons/whatsapp-logo.png" alt="WhatsApp" />
-                  <strong>Pagamento via WhatsApp</strong>
+              <div class="precos-mini-grid">
+                <div class="preco-mini">
+                  <strong><span class="emoji" aria-hidden="true">🛬</span> Modo Conexão | Aeroporto</strong>
+                  <span>R$ 59,90</span>
                 </div>
-                <ul>
-                  <li><strong>Pix</strong></li>
-                  <li><strong>Somente à vista</strong></li>
-                  <li>Combinação e envio direto pelo WhatsApp</li>
-                </ul>
+
+                <div class="preco-mini">
+                  <strong><span class="emoji" aria-hidden="true">🏙️</span> Modo Conexão | Turismo na cidade</strong>
+                  <span>R$ 89,90</span>
+                </div>
+
+                <div class="preco-mini">
+                  <strong><span class="emoji" aria-hidden="true">🧭</span> Painel de Partidas</strong>
+                  <span>R$ 79,90</span>
+                </div>
               </div>
 
-              <div class="pagamento-card">
-                <div class="pagamento-topo">
-                  <img src="images/icons/mercadopago.png" alt="Mercado Pago" />
-                  <strong>Pagamento via Mercado Pago</strong>
+              <div class="precos-grid">
+                <div class="preco-card">
+                  <h4><span class="emoji" aria-hidden="true">🎒</span> Modo Partiu</h4>
+                  <ul class="preco-lista">
+                    <li><span>Até 7 dias</span><span>R$ 139</span></li>
+                    <li><span>8 a 14 dias</span><span>R$ 169</span></li>
+                    <li><span>15 a 21 dias</span><span>R$ 199</span></li>
+                    <li><span>22 a 30 dias</span><span>R$ 229</span></li>
+                    <li><span>Acima de 30 dias</span><span>+ R$ 89 por semana extra</span></li>
+                  </ul>
                 </div>
-                <ul>
-                  <li>Pix</li>
-                  <li>Boleto</li>
-                  <li>Débito</li>
-                  <li>Crédito à vista</li>
-                  <li>Crédito parcelado</li>
-                </ul>
-              </div>
-            </div>
 
-            <div class="pagamento-aviso">
-              No caso do <strong>crédito parcelado</strong>, podem existir taxas do próprio Mercado Pago.
-              Se você quiser, eu calculo o valor final antes pra você saber exatamente quanto vai pagar.
+                <div class="preco-card">
+                  <h4><span class="emoji" aria-hidden="true">🧳</span> Modo Check-in</h4>
+                  <ul class="preco-lista">
+                    <li><span>Até 7 dias</span><span>R$ 239</span></li>
+                    <li><span>8 a 14 dias</span><span>R$ 279</span></li>
+                    <li><span>15 a 21 dias</span><span>R$ 319</span></li>
+                    <li><span>22 a 30 dias</span><span>R$ 369</span></li>
+                    <li><span>Acima de 30 dias</span><span>+ R$ 129 por semana</span></li>
+                  </ul>
+                </div>
+
+                <div class="preco-card">
+                  <h4><span class="emoji" aria-hidden="true">✈️</span> Modo Embarque</h4>
+                  <ul class="preco-lista">
+                    <li><span>Até 7 dias</span><span>R$ 339</span></li>
+                    <li><span>8 a 14 dias</span><span>R$ 389</span></li>
+                    <li><span>15 a 21 dias</span><span>R$ 439</span></li>
+                    <li><span>22 a 30 dias</span><span>R$ 499</span></li>
+                    <li><span>Acima de 30 dias</span><span>+ R$ 159 por semana</span></li>
+                  </ul>
+                </div>
+
+                <div class="preco-card">
+                  <h4><span class="emoji" aria-hidden="true">💎</span> Modo VIP</h4>
+                  <ul class="preco-lista">
+                    <li><span>Até 7 dias</span><span>R$ 659</span></li>
+                    <li><span>8 a 14 dias</span><span>R$ 759</span></li>
+                    <li><span>15 a 21 dias</span><span>R$ 839</span></li>
+                    <li><span>22 a 30 dias</span><span>R$ 909</span></li>
+                    <li><span>Acima de 30 dias</span><span>+ R$ 259 por semana</span></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="precos-observacoes">
+                <div class="preco-info">
+                  <strong>Grupo padrão:</strong> até 4 adultos OU 2 adultos + 3 crianças.
+                  <br />
+                  <strong>Acréscimo por pessoas (acima do grupo padrão):</strong>
+                  5–6 pessoas: +20% | 7–8: +30% | 9–10: +50% | 11+: orçamento.
+                </div>
+
+                <div class="preco-info">
+                  <strong>Cidades inclusas no valor:</strong> os valores cobrem até <strong>2 cidades-base</strong>
+                  (cidades com pernoite / troca de hospedagem).
+                  <br />
+                  <strong>Acréscimo por cidades (acima de 2 cidades-base):</strong>
+                  3–4 cidades: +15% | 5–6: +25% | 7–8: +40% | 9+: orçamento.
+                </div>
+
+                <div class="preco-info">
+                  <strong>Semana extra:</strong> 7 dias (ou fração), conforme a regra do plano.
+                  <br />
+                  <strong>Ajuste simples extra:</strong> 5% do valor do plano, com mínimo de R$ 29.
+                  <br />
+                  <strong>Taxa de urgência:</strong> 30% do valor do plano para entrega em 5 dias corridos
+                  em vez de 10 dias úteis.
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- ACRESCIMOS (agora dentro de Preços) -->
     <div class="faq-item fade-in">
       <button class="faq-pergunta" type="button" aria-expanded="false">
         <span class="faq-pergunta-texto">Como funcionam os acréscimos?</span>
@@ -867,18 +827,19 @@
                 Total: <strong>R$ 498,15</strong>
               </p>
               <p style="margin-top: 0.6rem;">
-                (Aqui usei a conta simples somando os percentuais: <strong>20% + 15% = 35%</strong>.)
+                (Aqui a gente usou a conta simples somando os percentuais: <strong>20% + 15% = 35%</strong>.)
               </p>
             </div>
 
             <p>
-              Se você quiser, eu confirmo os acréscimos do seu caso antes de fechar — sem surpresa e sem “pegadinha”.
+              Se você quiser, a gente confirma os acréscimos do seu caso antes de fechar — sem surpresa e sem “pegadinha”.
             </p>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- ORÇAMENTOS ESPECIAIS (agora dentro de Preços) -->
     <div class="faq-item fade-in">
       <button class="faq-pergunta" type="button" aria-expanded="false">
         <span class="faq-pergunta-texto">Orçamentos especiais (11+ pessoas ou 9+ cidades-base)</span>
@@ -895,9 +856,65 @@
 
             <p><strong>Como funciona:</strong></p>
             <ul>
-              <li>Você me manda destino(s), datas, número de pessoas, número de cidades e o plano desejado (Partiu/Check-in/Embarque/VIP).</li>
-              <li>Eu retorno com <strong>valor fechado</strong> + <strong>prazo de entrega</strong>.</li>
+              <li>Você manda destino(s), datas, número de pessoas, número de cidades e o plano desejado (Partiu/Check-in/Embarque/VIP).</li>
+              <li>A gente retorna com <strong>valor fechado</strong> + <strong>prazo de entrega</strong>.</li>
             </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGAMENTO -->
+    <h3 class="faq-categoria fade-in">
+      <span class="emoji" aria-hidden="true">💰</span> Pagamento
+    </h3>
+
+    <div class="faq-item fade-in">
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">Formas de pagamento</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+
+      <div class="faq-resposta">
+        <div class="faq-resposta-inner">
+          <div class="faq-resposta-conteudo">
+            <p>
+              Você pode escolher a forma que fizer mais sentido pra você. Se quiser parcelar,
+              a gente também pode calcular antes pra você já saber certinho como fica.
+            </p>
+
+            <div class="pagamento-grid">
+              <div class="pagamento-card">
+                <div class="pagamento-topo">
+                  <img src="images/icons/whatsapp-logo.png" alt="WhatsApp" />
+                  <strong>Pagamento via WhatsApp</strong>
+                </div>
+                <ul>
+                  <li><strong>Pix</strong></li>
+                  <li><strong>Somente à vista</strong></li>
+                  <li>Combinação e envio direto pelo WhatsApp</li>
+                </ul>
+              </div>
+
+              <div class="pagamento-card">
+                <div class="pagamento-topo">
+                  <img src="images/icons/mercadopago.png" alt="Mercado Pago" />
+                  <strong>Pagamento via Mercado Pago</strong>
+                </div>
+                <ul>
+                  <li>Pix</li>
+                  <li>Boleto</li>
+                  <li>Débito</li>
+                  <li>Crédito à vista</li>
+                  <li>Crédito parcelado</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="pagamento-aviso">
+              No caso do <strong>crédito parcelado</strong>, podem existir taxas do próprio Mercado Pago.
+              Se você quiser, a gente calcula o valor final antes pra você saber exatamente quanto vai pagar.
+            </div>
           </div>
         </div>
       </div>
@@ -937,7 +954,7 @@
             </p>
             <p>
               Se o planejamento ainda não tiver sido iniciado, entre em contato o quanto antes pelo WhatsApp
-              para análise do caso.
+              pra análise do caso.
             </p>
             <p>
               Se a execução já tiver começado, pode haver retenção proporcional ao trabalho já realizado.
@@ -1048,8 +1065,8 @@
         <div class="faq-resposta-inner">
           <div class="faq-resposta-conteudo">
             <p>
-              Porque o formulário é a base do seu planejamento. É ali que você me conta
-              suas datas, orçamento, estilo de viagem, prioridades, limitações e preferências.
+              Porque o formulário é a base do seu planejamento. É ali que você conta
+              datas, orçamento, estilo de viagem, prioridades, limitações e preferências.
             </p>
             <p>
               Quanto mais completo ele estiver, mais estratégico, útil e realmente personalizado
@@ -1098,7 +1115,7 @@
             </p>
             <p>
               Se você perceber isso rápido, pode entrar em contato pelo WhatsApp.
-              <strong>Se o roteiro ainda não tiver sido iniciado</strong>, você pode corrigir e preencher novamente.
+              <strong>Se o roteiro ainda não tiver sido iniciado</strong>, dá pra corrigir e preencher novamente.
             </p>
             <p>
               <strong>Se o planejamento já tiver começado</strong>, aí entram os ajustes previstos dentro do plano.
@@ -1124,8 +1141,8 @@
         <div class="faq-resposta-inner">
           <div class="faq-resposta-conteudo">
             <p>
-              Sim. A Modo Turistagem pode planejar levando em conta necessidades de
-              <strong>acessibilidade</strong> e outras condições que impactam a experiência da viagem.
+              Sim. A Modo Turistagem pode planejar levando em conta necessidades de <strong>acessibilidade</strong>
+              e outras condições que impactam a experiência da viagem.
             </p>
             <p>
               Isso inclui, por exemplo: <strong>mobilidade</strong>, <strong>neurodivergência</strong>,
@@ -1158,7 +1175,7 @@
               é importante você <strong>detalhar no formulário</strong> o tipo de animal, porte e necessidades.
             </p>
             <p>
-              Assim eu consigo sugerir opções realistas e seguras — sem te colocar em perrengue por regra que muda de um lugar pro outro.
+              Assim a gente consegue sugerir opções realistas e seguras — sem te colocar em perrengue por regra que muda de um lugar pro outro.
             </p>
           </div>
         </div>
@@ -1295,9 +1312,9 @@
         <div class="faq-resposta-inner">
           <div class="faq-resposta-conteudo">
             <p>
-              Não. As informações são usadas apenas para executar a consultoria e organizar sua viagem,
+              Não. As informações são usadas apenas pra executar a consultoria e organizar a viagem,
               e não são compartilhadas com terceiros, exceto quando isso for necessário
-              para cumprir alguma solicitação sua.
+              pra cumprir alguma solicitação sua.
             </p>
           </div>
         </div>
@@ -1306,7 +1323,7 @@
 
     <!-- CTA -->
     <div class="faq-cta fade-in">
-      <p>Ainda ficou com alguma dúvida? Me chama no WhatsApp e eu te explico tudo direitinho antes da contratação.</p>
+      <p>Ainda ficou com alguma dúvida? Chama a gente no WhatsApp e a gente explica tudo direitinho antes da contratação.</p>
       <a href="https://wa.me/5549991628403" class="btn-primary" target="_blank" rel="noopener noreferrer">
         <span class="emoji" aria-hidden="true">💬</span> Falar no WhatsApp
       </a>
@@ -1314,7 +1331,7 @@
 
   </section>
 
-  <!-- RODAPÉ -->
+  <!-- RODAPÉ (PADRÃO) -->
   <footer>
     <div class="footer-content">
       <img src="images/LOGOTIPO%20branco.png" alt="Modo Turistagem" class="footer-logo" />
@@ -1391,5 +1408,3 @@
 
 </body>
 </html>
-
-
