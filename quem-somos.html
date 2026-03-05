@@ -1,279 +1,496 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quem Somos | Modo Turistagem</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <style>
-        .quem-somos-hero {
-            margin-top: 70px;
-            background: linear-gradient(135deg, var(--azul-claro) 0%, var(--branco) 100%);
-            padding: 4rem 2rem;
-            text-align: center;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quem Somos | Modo Turistagem</title>
 
-        .quem-somos-hero h1 {
-            font-size: 3rem;
-            color: var(--azul);
-            margin-bottom: 1rem;
-        }
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
 
-        .quem-somos-hero p {
-            font-size: 1.2rem;
-            color: var(--texto);
-            max-width: 600px;
-            margin: 0 auto;
-        }
+  <!-- AJUSTE DOS ÍCONES DO RODAPÉ -->
+  <style>
+    .social-icon-img {
+      height: 24px;
+      width: auto;
+      display: block;
+    }
+  </style>
 
-        .manifesto-box {
-            background: var(--laranja);
-            color: var(--branco);
-            padding: 4rem 2rem;
-            text-align: center;
-        }
+  <style>
+    /* =========
+       QUEM SOMOS (ajustes específicos)
+       ========= */
 
-        .manifesto-box h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-        }
+    .emoji, .emoji-inline {
+      font-family: "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif !important;
+      font-weight: 400 !important;
+      font-style: normal !important;
+    }
 
-        .manifesto-texto {
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 1.3rem;
-            line-height: 1.9;
-        }
+    /* HERO */
+    .quem-somos-hero {
+      margin-top: 70px;
+      background: linear-gradient(135deg, var(--azul-claro) 0%, var(--branco) 55%, var(--laranja-claro) 100%);
+      padding: 4rem 2rem;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+    }
 
-        .diferenciais {
-            padding: 4rem 2rem;
-            background: var(--branco);
-        }
+    .quem-somos-hero h1 {
+      font-size: 3rem;
+      color: var(--azul);
+      margin-bottom: 0.8rem;
+    }
 
-        .diferenciais-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
+    .quem-somos-hero p {
+      font-size: 1.15rem;
+      color: var(--texto);
+      max-width: 720px;
+      margin: 0 auto;
+      opacity: 0.95;
+      line-height: 1.6;
+    }
 
-        .diferencial-card {
-            text-align: center;
-            padding: 2rem;
-            background: var(--cinza);
-            border-radius: 20px;
-            transition: all 0.3s;
-        }
+    /* SOBRE A ANA */
+    .sobre-ana {
+      background: var(--branco);
+      padding: 4rem 2rem;
+    }
 
-        .diferencial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
+    .sobre-ana-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
 
-        .diferencial-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-family: "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
-        }
+    .polaroid {
+      background: #fff;
+      border-radius: 22px;
+      padding: 1rem 1rem 2.2rem;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.12);
+      transform: rotate(-2deg);
+      transition: transform .25s ease, box-shadow .25s ease;
+      position: relative;
+    }
 
-        .diferencial-card h3 {
-            color: var(--azul);
-            margin-bottom: 0.5rem;
-        }
+    .polaroid:hover {
+      transform: rotate(0deg) translateY(-2px);
+      box-shadow: 0 22px 60px rgba(0,0,0,0.16);
+    }
 
-        .cta-final {
-            background: var(--azul);
-            color: var(--branco);
-            padding: 4rem 2rem;
-            text-align: center;
-        }
+    .polaroid img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      display: block;
+      object-fit: cover;
+    }
 
-        .cta-final h2 {
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-        }
+    .polaroid .caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0.7rem;
+      text-align: center;
+      font-family: "Nunito", sans-serif;
+      font-weight: 800;
+      color: #2b2b2b;
+      opacity: 0.9;
+      letter-spacing: 0.2px;
+    }
 
-        @media (max-width: 768px) {
-            .quem-somos-hero h1 {
-                font-size: 2rem;
-            }
-            
-            .manifesto-box h2 {
-                font-size: 1.8rem;
-            }
-        }
-    </style>
+    .ana-texto h2 {
+      font-size: 2.2rem;
+      color: var(--azul);
+      margin: 0 0 1rem;
+    }
+
+    .ana-nome {
+      margin: 0 0 1.4rem;
+      font-size: 1.1rem;
+      color: var(--texto);
+      line-height: 1.5;
+    }
+
+    .ana-nome strong {
+      font-size: 1.25rem;
+      color: var(--azul);
+      display: inline-block;
+      margin-bottom: 0.2rem;
+    }
+
+    .ana-nome em {
+      color: var(--texto);
+      opacity: 0.95;
+    }
+
+    .ana-texto p {
+      font-size: 1.12rem;
+      color: var(--texto);
+      line-height: 1.85;
+      margin: 0 0 1rem;
+    }
+
+    .ana-cta {
+      margin-top: 1.8rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 0.95rem 1.2rem;
+      border-radius: 999px;
+      background: var(--laranja);
+      color: var(--branco);
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.14);
+    }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+      opacity: 0.98;
+      box-shadow: 0 16px 36px rgba(0,0,0,0.18);
+    }
+
+    .ana-cta small {
+      color: var(--texto);
+      opacity: 0.85;
+      line-height: 1.5;
+    }
+
+    /* DIFERENCIAIS */
+    .diferenciais {
+      padding: 4rem 2rem;
+      background: var(--branco);
+    }
+
+    .diferenciais .section-header {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto 2.2rem;
+    }
+
+    .diferenciais .section-header h2 {
+      color: var(--azul);
+      font-size: 2.4rem;
+      margin: 0.6rem 0 0;
+    }
+
+    /* Troca grid por flex: última linha (2 cards) fica centralizada automaticamente */
+    .diferenciais-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .diferencial-card {
+      width: min(320px, 100%);
+      text-align: center;
+      padding: 2rem;
+      background: var(--cinza);
+      border-radius: 20px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .diferencial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .diferencial-icon {
+      font-size: 2.6rem;
+      margin-bottom: 1rem;
+      font-family: "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+    }
+
+    .diferencial-card h3 {
+      color: var(--azul);
+      margin-bottom: 0.6rem;
+      font-size: 1.25rem;
+    }
+
+    .diferencial-card p {
+      margin: 0;
+      color: var(--texto);
+      line-height: 1.6;
+      font-size: 1.02rem;
+    }
+
+    /* CTA FINAL */
+    .cta-final {
+      background: var(--azul);
+      color: var(--branco);
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .cta-final h2 {
+      font-size: 2.2rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .cta-final p {
+      font-size: 1.12rem;
+      opacity: 0.95;
+      max-width: 900px;
+      margin: 0 auto 1.8rem;
+      line-height: 1.7;
+    }
+
+    .cta-final .cta-actions {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* RESPONSIVO */
+    @media (max-width: 900px) {
+      .quem-somos-hero { padding: 3.2rem 1.4rem; }
+      .quem-somos-hero h1 { font-size: 2.2rem; }
+
+      .sobre-ana { padding: 3.2rem 1.4rem; }
+      .sobre-ana-grid {
+        grid-template-columns: 1fr;
+        gap: 1.8rem;
+      }
+
+      .polaroid {
+        max-width: 420px;
+        margin: 0 auto;
+        transform: rotate(-1deg);
+      }
+
+      .ana-texto h2 { font-size: 1.9rem; }
+    }
+
+    @media (max-width: 480px) {
+      .quem-somos-hero h1 { font-size: 1.9rem; }
+      .ana-texto p { font-size: 1.06rem; }
+      .diferenciais .section-header h2 { font-size: 2rem; }
+      .cta-final h2 { font-size: 1.9rem; }
+    }
+  </style>
 </head>
+
 <body>
-    <!-- Navegação -->
-    <nav>
-        <div class="nav-container">
-            <a href="index.html" class="logo">
-                <img src="images/icone.png" alt="Modo Turistagem" class="logo-img">
-                <div class="logo-text">
-                    <span class="logo-modo">modo</span>
-                    <span class="logo-turistagem">turistagem.</span>
-                </div>
-            </a>
-            <button class="mobile-menu" onclick="toggleMenu()">☰</button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="destinos.html">Destinos Testados</a></li>
-                <li><a href="como-funciona.html">Como Funciona</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-                <li><a href="quem-somos.html">Quem Somos</a></li>
-                <li><a href="https://wa.me/SEUNUMERO" class="btn-nav" target="_blank">Fale Conosco</a></li>
-            </ul>
+  <!-- CABEÇALHO / NAVEGAÇÃO -->
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="images/logotipo.png" alt="Modo Turistagem" class="logo-img" />
+      </a>
+
+      <button class="mobile-menu" onclick="toggleMenu()" aria-label="Abrir menu">☰</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="destinos.html">Destinos Testados</a></li>
+        <li><a href="como-funciona.html">Como Funciona</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="quem-somos.html">Quem Somos</a></li>
+        <li>
+          <a href="https://wa.me/5549991628403" class="btn-nav" target="_blank" rel="noopener noreferrer">
+            Fale Conosco
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="quem-somos-hero">
+    <div class="container fade-in">
+      <h1><span class="emoji" aria-hidden="true">👋</span> Quem Somos</h1>
+      <p>
+        Uma consultoria de viagem feita por quem realmente viaja — com planejamento esperto, curadoria confiável
+        e zero enrolação.
+      </p>
+    </div>
+  </section>
+
+  <!-- SOBRE A ANA (com polaroid) -->
+  <section class="sobre-ana">
+    <div class="sobre-ana-grid">
+      <div class="polaroid fade-in">
+        <!-- fallback automático caso sua foto seja ana.png em vez de ana.jpg -->
+        <img src="images/ana.jpg" alt="Ana Luiza Dalla Costa" onerror="this.onerror=null;this.src='images/ana.png';" />
+        <div class="caption">Ana</div>
+      </div>
+
+      <div class="ana-texto fade-in">
+        <h2>Oi, eu sou a Ana</h2>
+
+        <p class="ana-nome">
+          <strong>Ana Luiza Dalla Costa</strong><br />
+          <em>Fundadora da Modo Turistagem</em>
+        </p>
+
+        <p>
+          Eu planejo viagens do jeito que eu gostaria de receber: sem enrolação, sem perrengue desnecessário e com dica
+          que faz sentido na vida real.
+        </p>
+
+        <p>
+          Na verdade, isso começou cedo: desde os 14 anos eu sou a pessoa que monta as viagens da família — e eu descobri
+          que gosto (muito) de transformar “vamos viajar” em um plano que cabe no bolso e funciona de verdade.
+        </p>
+
+        <p>
+          Morei três anos em Portugal, viajei bastante por lá e aprendi na prática a fazer tudo dentro de um orçamento.
+          E em 2025 eu fiz um mês de intercâmbio no Japão, então eu sei bem como é lidar com logística, transporte,
+          detalhes e aquela sensação de “será que eu tô fazendo certo?”.
+        </p>
+
+        <p>
+          A gente faz o trabalho pesado por você: planejamento, organização e curadoria. Você conta sua vibe, seu ritmo e
+          seu bolso e eu te ajudo a escolher melhor, organizar os dias, entender o que vale a pena e montar um roteiro
+          claro — e você compra tudo direto nos sites oficiais, com mais autonomia e segurança.
+        </p>
+
+        <p>
+          Aqui a ideia não é te vender uma viagem “perfeita”.<br />
+          É te ajudar a viajar de um jeito mais leve, mais esperto e mais alinhado com a sua vida.
+        </p>
+
+        <div class="ana-cta">
+          <a class="btn-whatsapp" href="https://wa.me/5549991628403" target="_blank" rel="noopener noreferrer">
+            <span class="emoji" aria-hidden="true">💬</span> Falar no WhatsApp
+          </a>
+          <small>
+            Me chama e me conta: destino, datas, orçamento e vibe da viagem.
+          </small>
         </div>
-    </nav>
+      </div>
+    </div>
+  </section>
 
-    <!-- Hero -->
-    <section class="quem-somos-hero">
-        <div class="container fade-in">
-            <h1>
-                <span class="emoji">👋</span> Quem Somos
-            </h1>
-            <p>Uma consultoria de viagem feita por quem realmente ama viajar!</p>
+  <!-- DIFERENCIAIS -->
+  <section class="diferenciais">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag">
+          <span class="emoji" aria-hidden="true">⭐</span> Por que a gente?
+        </span>
+        <h2>O que nos diferencia</h2>
+      </div>
+
+      <div class="diferenciais-grid">
+        <div class="diferencial-card fade-in">
+          <div class="diferencial-icon"><span class="emoji" aria-hidden="true">🎯</span></div>
+          <h3>Personalização real</h3>
+          <p>Cada roteiro é feito pro seu estilo, prioridades e orçamento — sem copiar e colar.</p>
         </div>
-    </section>
 
-    <!-- Manifesto -->
-    <section class="manifesto-box">
-        <div class="container fade-in">
-            <h2>Nossa História</h2>
-            <div class="manifesto-texto">
-                <p>
-                    A <strong>Modo Turistagem</strong> é uma consultoria de viagem pra quem ama viajar — 
-                    mas não quer perder tempo, cair em cilada ou gastar à toa.
-                </p>
-                <br>
-                <p>
-                    A gente faz o trabalho pesado por você: <strong>planejamento, organização e curadoria</strong>. 
-                    Você conta sua vibe, seu ritmo e seu bolso — e a gente transforma isso em um roteiro redondinho, 
-                    com recomendações práticas, logística clara e links que facilitam a vida.
-                </p>
-                <br>
-                <p>
-                    Aqui não tem "pacote fechado" nem empurrão de comissão. A Modo Turistagem <strong>não é agência de turismo</strong>: 
-                    a ideia é te dar o caminho das pedras pra você comprar direto, com autonomia e segurança, 
-                    sabendo exatamente o que vale a pena pra sua viagem.
-                </p>
-                <br>
-                <p style="font-size: 1.5rem;">
-                    Se você é do tipo que quer viajar bem — do seu jeito — pode deixar com a gente. 
-                    <span class="emoji">✈️✨</span>
-                </p>
-            </div>
+        <div class="diferencial-card fade-in">
+          <div class="diferencial-icon"><span class="emoji" aria-hidden="true">🔗</span></div>
+          <h3>Roteiros confiáveis</h3>
+          <p>Curadoria com links oficiais e referências sólidas — menos cilada, mais clareza.</p>
         </div>
-    </section>
 
-    <!-- Diferenciais -->
-    <section class="diferenciais">
-        <div class="container">
-            <div class="section-header fade-in">
-                <span class="section-tag">
-                    <span class="emoji">⭐</span> Por que a gente?
-                </span>
-                <h2>O que nos diferencia</h2>
-            </div>
-
-            <div class="diferenciais-grid">
-                <div class="diferencial-card fade-in">
-                    <div class="diferencial-icon">
-                        <span class="emoji">🎯</span>
-                    </div>
-                    <h3>Personalização Real</h3>
-                    <p>Cada roteiro é único, feito sob medida pro seu estilo e orçamento.</p>
-                </div>
-
-                <div class="diferencial-card fade-in">
-                    <div class="diferencial-icon">
-                        <span class="emoji">💰</span>
-                    </div>
-                    <h3>Sem Intermediação</h3>
-                    <p>Você compra direto, sem taxas ocultas ou pacotes engessados.</p>
-                </div>
-
-                <div class="diferencial-card fade-in">
-                    <div class="diferencial-icon">
-                        <span class="emoji">🌍</span>
-                    </div>
-                    <h3>Experiência Real</h3>
-                    <p>Recomendamos lugares que conhecemos de verdade, não do Google.</p>
-                </div>
-
-                <div class="diferencial-card fade-in">
-                    <div class="diferencial-icon">
-                        <span class="emoji">💬</span>
-                    </div>
-                    <h3>Próximo de Você</h3>
-                    <p>Atendimento humano, direto e sem frescura. Como uma amiga que entende de viagem!</p>
-                </div>
-            </div>
+        <div class="diferencial-card fade-in">
+          <div class="diferencial-icon"><span class="emoji" aria-hidden="true">🧾</span></div>
+          <h3>Compra direta (sem comissão)</h3>
+          <p>Você compra tudo direto nos sites oficiais, com autonomia, segurança e transparência.</p>
         </div>
-    </section>
 
-    <!-- CTA -->
-    <section class="cta-final">
-        <div class="container fade-in">
-            <h2>
-                <span class="emoji">🚀</span> Pronto pra viajar do seu jeito?
-            </h2>
-            <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.9;">
-                Vamos criar juntos o roteiro perfeito pra sua próxima aventura!
-            </p>
-            <a href="index.html#planos" class="btn-primary" style="background: var(--laranja);">
-                <span class="emoji">🎒</span> Ver Planos
-            </a>
+        <div class="diferencial-card fade-in">
+          <div class="diferencial-icon"><span class="emoji" aria-hidden="true">🌍</span></div>
+          <h3>Experiência de verdade</h3>
+          <p>Recomendações com pé na realidade — do tipo que funciona na rua, não só no Google.</p>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer style="margin-top: 0;">
-        <div class="footer-content">
-            <img src="images/logotipo.png" alt="Modo Turistagem" class="footer-logo">
-            <p class="footer-text">
-                Consultoria de viagens feita por quem realmente viaja. 
-                <span class="emoji">🌍</span>
-            </p>
-            <div class="social-links">
-                <a href="https://instagram.com/modoturistagem" target="_blank">
-                    <span class="emoji">📷</span>
-                </a>
-                <a href="https://wa.me/SEUNUMERO" target="_blank">
-                    <span class="emoji">💬</span>
-                </a>
-                <a href="mailto:contato@modoturistagem.com">
-                    <span class="emoji">✉️</span>
-                </a>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2024 Modo Turistagem. Todos os direitos reservados.</p>
-                <p style="margin-top: 0.5rem; font-size: 0.8rem;">
-                    Feito com <span class="emoji">💙</span> e <span class="emoji">🧡</span> por quem ama viajar
-                </p>
-            </div>
+        <div class="diferencial-card fade-in">
+          <div class="diferencial-icon"><span class="emoji" aria-hidden="true">💬</span></div>
+          <h3>Atendimento humano e direto</h3>
+          <p>Sem promessa vazia e sem “textão enrolado”: conversa franca, decisão mais fácil.</p>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
-            });
-        }, { threshold: 0.1 });
+  <!-- CTA FINAL -->
+  <section class="cta-final">
+    <div class="container fade-in">
+      <h2>Se você é do tipo que quer viajar bem, do seu jeito, fale com a gente. <span class="emoji" aria-hidden="true">✈️✨</span></h2>
+      <p>
+        Me chama no WhatsApp e eu te ajudo a transformar “vamos viajar” em um plano que cabe no bolso e funciona de verdade.
+      </p>
 
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+      <div class="cta-actions">
+        <a class="btn-whatsapp" href="https://wa.me/5549991628403" target="_blank" rel="noopener noreferrer">
+          <span class="emoji" aria-hidden="true">📲</span> Chamar no WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
 
-        function toggleMenu() {
-            document.getElementById('navLinks').classList.toggle('active');
-        }
+  <!-- RODAPÉ -->
+  <footer>
+    <div class="footer-content">
+      <img src="images/LOGOTIPO%20branco.png" alt="Modo Turistagem" class="footer-logo" />
 
-        document.querySelectorAll('a[href*="SEUNUMERO"]').forEach(link => {
-            link.href = link.href.replace('SEUNUMERO', '5511999999999');
-        });
-    </script>
+      <p class="footer-text">
+        Consultoria de viagens feita por quem realmente viaja.
+        <span class="emoji emoji-inline" aria-hidden="true">🌎</span><br />
+        Traduzindo sonhos em planos concretos desde 2024.
+      </p>
+
+      <div class="social-links">
+        <a href="https://instagram.com/modoturistagem" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <img src="images/icons/instagram.png" alt="Instagram" class="social-icon-img" />
+        </a>
+
+        <a href="https://wa.me/5549991628403" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+          <img src="images/icons/whatsapp.png" alt="WhatsApp" class="social-icon-img" />
+        </a>
+
+        <a href="mailto:modoturistagem@gmail.com" aria-label="E-mail">
+          <img src="images/icons/email.png" alt="E-mail" class="social-icon-img" />
+        </a>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2024 Modo Turistagem. Todos os direitos reservados.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem; font-family: 'Neulis Sans', sans-serif !important;">
+          Roteiros feitos por viajantes, para viajantes
+          <span class="emoji emoji-inline" aria-hidden="true">💙</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+  </script>
 </body>
+</html>
+</body>
+
 </html>
