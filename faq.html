@@ -251,7 +251,7 @@
       line-height: 1.75;
     }
 
-    /* PREÇOS (tabela) */
+    /* PREÇOS */
     .precos-box {
       background: var(--branco);
       border-radius: 20px;
@@ -380,6 +380,20 @@
       background: rgba(0,0,0,0.04);
       padding: 0.12rem 0.35rem;
       border-radius: 8px;
+    }
+
+    /* CANCELAMENTO BOX */
+    .cancelamento-box {
+      margin-top: 1rem;
+      border-radius: 14px;
+      background: rgba(0, 68, 204, 0.05);
+      border: 1px solid rgba(0, 68, 204, 0.12);
+      padding: 0.95rem 1rem;
+      line-height: 1.75;
+    }
+
+    .cancelamento-box strong {
+      color: var(--azul);
     }
 
     /* CTA */
@@ -514,6 +528,7 @@
       .preco-info,
       .preco-mini,
       .simulacao-box,
+      .cancelamento-box,
       .faq-cta p {
         font-size: 0.93rem;
       }
@@ -670,7 +685,7 @@
       </div>
     </div>
 
-    <!-- PREÇOS (agora com os 2 blocos dentro) -->
+    <!-- PREÇOS -->
     <h3 class="faq-categoria fade-in">
       <span class="emoji" aria-hidden="true">🏷️</span> Preços
     </h3>
@@ -785,7 +800,7 @@
       </div>
     </div>
 
-    <!-- ACRESCIMOS (agora dentro de Preços) -->
+    <!-- ACRESCIMOS -->
     <div class="faq-item fade-in">
       <button class="faq-pergunta" type="button" aria-expanded="false">
         <span class="faq-pergunta-texto">Como funcionam os acréscimos?</span>
@@ -839,7 +854,7 @@
       </div>
     </div>
 
-    <!-- ORÇAMENTOS ESPECIAIS (agora dentro de Preços) -->
+    <!-- ORÇAMENTOS ESPECIAIS -->
     <div class="faq-item fade-in">
       <button class="faq-pergunta" type="button" aria-expanded="false">
         <span class="faq-pergunta-texto">Orçamentos especiais (11+ pessoas ou 9+ cidades-base)</span>
@@ -939,6 +954,7 @@
       </div>
     </div>
 
+    <!-- ✅ REEMBOLSO/CANCELAMENTO (AGORA 100% CONSISTENTE COM 3 DIAS/ENTRADA) -->
     <div class="faq-item fade-in">
       <button class="faq-pergunta" type="button" aria-expanded="false">
         <span class="faq-pergunta-texto">Como funciona reembolso e cancelamento?</span>
@@ -948,17 +964,29 @@
       <div class="faq-resposta">
         <div class="faq-resposta-inner">
           <div class="faq-resposta-conteudo">
-            <p>
-              Como a contratação é feita online, pedidos de cancelamento e eventual reembolso são analisados
-              conforme a etapa em que a consultoria estiver e o que já tiver sido executado.
+            <p><strong>O que vale (regra única):</strong></p>
+
+            <div class="cancelamento-box">
+              <p>
+                <strong>✅ Até 3 dias corridos</strong> após a confirmação do pagamento da <strong>entrada (20%)</strong>:
+                a entrada pode ser <strong>reembolsada integralmente</strong>, mediante solicitação do cliente.
+              </p>
+              <p style="margin-top: 0.6rem;">
+                <strong>🚫 Após 3 dias corridos:</strong> a entrada <strong>não é reembolsável</strong>.
+              </p>
+              <p style="margin-top: 0.6rem;">
+                <strong>📩 Após a entrega do material final:</strong> não há reembolso <strong>total ou parcial</strong>
+                do serviço prestado.
+              </p>
+            </div>
+
+            <p style="margin-top: 0.85rem;">
+              Se você precisar cancelar, chama a gente no WhatsApp o quanto antes pra registrar o pedido dentro do prazo.
             </p>
-            <p>
-              Se o planejamento ainda não tiver sido iniciado, entre em contato o quanto antes pelo WhatsApp
-              pra análise do caso.
-            </p>
-            <p>
-              Se a execução já tiver começado, pode haver retenção proporcional ao trabalho já realizado.
-              Depois da entrega do material final, não há reembolso do serviço prestado.
+
+            <p style="margin-top: 0.85rem;">
+              <strong>Observação:</strong> em pagamentos via plataformas (ex.: Mercado Pago), eventuais taxas do próprio meio de pagamento
+              podem existir e seguem as regras da plataforma.
             </p>
           </div>
         </div>
