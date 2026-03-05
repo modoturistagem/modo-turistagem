@@ -10,470 +10,400 @@
     /* =========
        Ajustes específicos da página Destinos Testados
        ========= */
-
-    .emoji, .bandeira-emoji {
-      font-family: "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif !important;
-      font-weight: 400 !important;
-      font-style: normal !important;
-      line-height: 1;
+    .emoji, .bandeira-emoji{
+      font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif !important;
+      font-weight:400 !important;
+      font-style:normal !important;
+      line-height:1;
     }
 
     /* ===== HERO ===== */
-    .destinos-hero {
-      margin-top: 70px;
-      background: linear-gradient(135deg, var(--azul) 0%, #0044cc 100%);
-      color: var(--branco);
-      padding: 4.2rem 2rem 3.2rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
+    .destinos-hero{
+      margin-top:70px;
+      background:linear-gradient(135deg,var(--azul) 0%, #0044cc 100%);
+      color:var(--branco);
+      padding:4.2rem 2rem 3.2rem;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
     }
-
-    .destinos-hero::after {
-      content: "✈️";
-      position: absolute;
-      font-size: 18rem;
-      opacity: 0.07;
-      right: -40px;
-      top: -70px;
-      transform: rotate(12deg);
-      pointer-events: none;
+    .destinos-hero::after{
+      content:"✈️";
+      position:absolute;
+      font-size:18rem;
+      opacity:0.07;
+      right:-40px;
+      top:-70px;
+      transform:rotate(12deg);
+      pointer-events:none;
     }
-
-    .destinos-hero h1 {
-      font-size: 3rem;
-      margin-bottom: 0.9rem;
-    }
-
-    .destinos-hero p {
-      font-size: 1.15rem;
-      opacity: 0.92;
-      max-width: 760px;
-      margin: 0 auto;
+    .destinos-hero h1{ font-size:3rem; margin-bottom:0.9rem; }
+    .destinos-hero p{
+      font-size:1.15rem;
+      opacity:0.92;
+      max-width:760px;
+      margin:0 auto;
     }
 
     /* ===== MINI TEXTO ===== */
-    .destinos-note {
-      background: var(--branco);
-      padding: 1.2rem;
-      margin: -1.6rem auto 0;
-      max-width: 980px;
-      border-radius: 18px;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.12);
-      border: 1px solid rgba(0,0,0,0.06);
+    .destinos-note{
+      background:var(--branco);
+      padding:1.2rem;
+      margin:-1.6rem auto 0;
+      max-width:980px;
+      border-radius:18px;
+      box-shadow:0 16px 40px rgba(0,0,0,0.12);
+      border:1px solid rgba(0,0,0,0.06);
     }
-
-    .destinos-note p {
-      margin: 0;
-      color: var(--azul);
-      font-weight: 800;
-      font-size: 1rem;
-      text-align: center;
+    .destinos-note p{
+      margin:0;
+      color:var(--azul);
+      font-weight:800;
+      font-size:1rem;
+      text-align:center;
     }
 
     /* ===== MARQUEE BANDEIRAS ===== */
-    .bandeiras-marquee {
-      background: var(--laranja-claro);
-      padding: 1.2rem 0;
-      overflow: hidden;
-      position: relative;
+    .bandeiras-marquee{
+      background:var(--laranja-claro);
+      padding:1.2rem 0;
+      overflow:hidden;
+      position:relative;
     }
-
-    .bandeiras-track {
-      display: flex;
-      gap: 2.4rem;
-      width: max-content;
-      animation: scroll 32s linear infinite;
-      will-change: transform;
+    .bandeiras-track{
+      display:flex;
+      gap:2.4rem;
+      width:max-content;
+      animation:scroll 32s linear infinite;
+      will-change:transform;
     }
-
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+    @keyframes scroll{
+      0%{ transform:translateX(0); }
+      100%{ transform:translateX(-50%); }
     }
-
-    .bandeira-item {
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-      font-size: 1.05rem;
-      font-weight: 900;
-      color: var(--azul);
-      white-space: nowrap;
+    .bandeira-item{
+      display:flex;
+      align-items:center;
+      gap:0.55rem;
+      font-size:1.05rem;
+      font-weight:900;
+      color:var(--azul);
+      white-space:nowrap;
     }
-
-    .bandeira-emoji {
-      font-size: 1.6rem;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .bandeiras-track { animation: none; }
+    .bandeira-emoji{ font-size:1.6rem; }
+    @media (prefers-reduced-motion: reduce){
+      .bandeiras-track{ animation:none; }
     }
 
     /* ===== STATS ===== */
-    .stats {
-      background: var(--cinza);
-      padding: 3.2rem 2rem;
-      text-align: center;
+    .stats{
+      background:var(--cinza);
+      padding:3.2rem 2rem;
+      text-align:center;
+    }
+    .stats-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(210px, 1fr));
+      gap:1.5rem;
+      max-width:920px;
+      margin:0 auto;
+    }
+    .stat-item{
+      padding:1.6rem 1.3rem;
+      border-radius:18px;
+      background:rgba(255,255,255,0.65);
+      border:1px solid rgba(0,0,0,0.06);
+      box-shadow:0 12px 30px rgba(0,0,0,0.08);
+    }
+    .stat-numero{
+      font-size:3rem;
+      font-weight:900;
+      color:var(--laranja);
+      letter-spacing:-0.5px;
+    }
+    .stat-label{
+      color:var(--azul);
+      font-weight:900;
+      margin-top:0.35rem;
+    }
+    .stat-hint{
+      font-size:0.9rem;
+      opacity:0.85;
+      color:var(--azul);
+      margin-top:0.35rem;
     }
 
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 1.5rem;
-      max-width: 920px;
-      margin: 0 auto;
+    /* =========================================================
+       DEPOIMENTOS — CARROSSEL ANIMADO SEM “EMENDA”
+       - animação via JS (Web Animations API) medindo a largura real
+       - pausa no hover (desktop) + pausa ao encostar (mobile)
+       - arrasta com o dedo (mobile) movendo o carrossel
+       - solta = continua a animação de onde parou
+       ========================================================= */
+    .depoimentos{
+      padding:4rem 2rem 0;
+      background:var(--branco);
+    }
+    .depo-wrap{
+      max-width:1200px;
+      margin:0 auto;
     }
 
-    .stat-item {
-      padding: 1.6rem 1.3rem;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.65);
-      border: 1px solid rgba(0,0,0,0.06);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    .testi-carousel{
+      margin-top:1.8rem;
+      overflow:hidden;
+      position:relative;
+      touch-action: pan-y;
+      user-select:none;
     }
 
-    .stat-numero {
-      font-size: 3rem;
-      font-weight: 900;
-      color: var(--laranja);
-      letter-spacing: -0.5px;
+    .testi-viewport{
+      overflow:hidden;
+      padding:0.2rem 0;
     }
 
-    .stat-label {
-      color: var(--azul);
-      font-weight: 900;
-      margin-top: 0.35rem;
+    .testi-track{
+      display:flex;
+      width:max-content;
+      will-change:transform;
+      transform:translate3d(0,0,0);
+      backface-visibility:hidden;
     }
 
-    .stat-hint {
-      font-size: 0.9rem;
-      opacity: 0.85;
-      color: var(--azul);
-      margin-top: 0.35rem;
+    .testi-group{
+      display:flex;
+      gap:2rem;
+      flex-shrink:0;
+      padding-right:2rem; /* garante respiro visual e evita “grudar” */
     }
 
-    /* ===== DEPOIMENTOS (carrossel horizontal animado corrigido) ===== */
-.depoimentos{
-  padding: 4rem 2rem 0;
-  background: var(--branco);
-}
+    .testi-card{
+      width:clamp(320px, 32vw, 380px);
+      border-radius:26px;
+      overflow:hidden;
+      background:var(--branco);
+      box-shadow:0 10px 40px rgba(0,0,0,0.15);
+      flex:0 0 auto;
+      display:flex;
+      flex-direction:column;
+    }
 
-.depo-wrap{
-  max-width: 1200px;
-  margin: 0 auto;
-}
+    .testi-media{
+      height:300px;
+      overflow:hidden;
+      background:rgba(0,0,0,0.06);
+    }
+    .testi-media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:var(--img-pos, center 35%);
+      display:block;
+      filter:saturate(1.05) contrast(1.02);
+    }
 
-.testi-carousel{
-  margin-top: 1.8rem;
-  overflow: hidden;
-  position: relative;
-  touch-action: pan-y;
-}
+    .testi-body{
+      padding:1.25rem 1.35rem 1.35rem;
+      color:var(--branco);
+      background:var(--card-bg, var(--laranja));
+      min-height:210px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-start;
+      gap:0.8rem;
+    }
+    .testi--orange{ --card-bg: var(--laranja); }
+    .testi--blue{ --card-bg: var(--azul); }
 
-.testi-viewport{
-  overflow: hidden;
-  padding: 0.2rem 0;
-}
+    .testi-top{
+      display:flex;
+      flex-direction:column;
+      gap:0.35rem;
+    }
+    .testi-name{
+      margin:0;
+      font-size:1.15rem;
+      font-weight:600;
+      line-height:1.1;
+    }
+    .testi-loc{
+      margin:0;
+      display:flex;
+      align-items:center;
+      gap:0.5rem;
+      line-height:1.1;
+      flex-wrap:wrap;
+    }
+    .testi-code{
+      font-size:0.92rem;
+      font-weight:800;
+      opacity:0.95;
+    }
+    .testi-city{
+      font-size:1.28rem;
+      font-weight:900;
+    }
+    .testi-text{
+      margin:0;
+      font-size:1rem;
+      font-weight:600;
+      line-height:1.55;
+      opacity:0.98;
+      white-space:normal;
+      overflow-wrap:anywhere;
+      word-break:break-word;
+    }
 
-.testi-track{
-  display: flex;
-  width: max-content;
-  animation: testiScroll 30s linear infinite;
-  will-change: transform;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-}
+    @media (prefers-reduced-motion: reduce){
+      .testi-track{ transform:translate3d(0,0,0) !important; }
+    }
 
-.testi-carousel:hover .testi-track,
-.testi-carousel.is-paused .testi-track{
-  animation-play-state: paused;
-}
-
-.testi-group{
-  display: flex;
-  gap: 2rem;
-  flex-shrink: 0;
-}
-
-@keyframes testiScroll{
-  0%{
-    transform: translateX(0);
-  }
-  100%{
-    transform: translateX(-50%);
-  }
-}
-
-.testi-card{
-  width: clamp(320px, 32vw, 380px);
-  border-radius: 26px;
-  overflow: hidden;
-  background: var(--branco);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-  flex: 0 0 auto;
-  display: flex;
-  flex-direction: column;
-}
-
-.testi-media{
-  height: 300px;
-  overflow: hidden;
-  background: rgba(0,0,0,0.06);
-}
-
-.testi-media img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: var(--img-pos, center 35%);
-  display: block;
-  filter: saturate(1.05) contrast(1.02);
-}
-
-.testi-body{
-  padding: 1.25rem 1.35rem 1.35rem;
-  color: var(--branco);
-  background: var(--card-bg, var(--laranja));
-  min-height: 210px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: 0.8rem;
-}
-
-.testi--orange{ --card-bg: var(--laranja); }
-.testi--blue{ --card-bg: var(--azul); }
-
-.testi-top{
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
-.testi-name{
-  margin: 0;
-  font-size: 1.15rem;
-  font-weight: 600;
-  line-height: 1.1;
-}
-
-.testi-loc{
-  margin: 0;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  line-height: 1.1;
-  flex-wrap: wrap;
-}
-
-.testi-code{
-  font-size: 0.92rem;
-  font-weight: 800;
-  opacity: 0.95;
-}
-
-.testi-city{
-  font-size: 1.28rem;
-  font-weight: 900;
-}
-
-.testi-text{
-  margin: 0;
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 1.55;
-  opacity: 0.98;
-  white-space: normal;
-  overflow-wrap: anywhere;
-  word-break: break-word;
-}
-
-@media (prefers-reduced-motion: reduce){
-  .testi-track{
-    animation: none;
-  }
-}
-
-@media (max-width: 900px){
-  .testi-card{
-    width: 84vw;
-  }
-
-  .testi-media{
-    height: 250px;
-  }
-
-  .testi-body{
-    min-height: 0;
-  }
-
-  .testi-track{
-    animation-duration: 24s;
-  }
-}
+    @media (max-width: 900px){
+      .testi-card{ width:84vw; }
+      .testi-media{ height:250px; }
+      .testi-body{ min-height:0; }
+    }
 
     /* ===== CTA ===== */
-    .cta-entre {
-      padding: 2.2rem 2rem 4rem;
-      background: var(--branco);
-      text-align: center;
+    .cta-entre{
+      padding:2.2rem 2rem 4rem;
+      background:var(--branco);
+      text-align:center;
     }
-
-    .cta-box {
-      max-width: 980px;
-      margin: 0 auto;
-      background: var(--branco);
-      color: var(--azul);
-      border-radius: 22px;
-      padding: 2.6rem 2rem;
-      border: 1px solid rgba(0,0,0,0.07);
-      box-shadow: none;
-      position: relative;
-      overflow: hidden;
+    .cta-box{
+      max-width:980px;
+      margin:0 auto;
+      background:var(--branco);
+      color:var(--azul);
+      border-radius:22px;
+      padding:2.6rem 2rem;
+      border:1px solid rgba(0,0,0,0.07);
+      box-shadow:none;
+      position:relative;
+      overflow:hidden;
     }
-
-    .cta-box::after {
-      content: "✨";
-      position: absolute;
-      font-size: 14rem;
-      opacity: 0.08;
-      right: -25px;
-      bottom: -70px;
-      pointer-events: none;
-      color: var(--azul);
+    .cta-box::after{
+      content:"✨";
+      position:absolute;
+      font-size:14rem;
+      opacity:0.08;
+      right:-25px;
+      bottom:-70px;
+      pointer-events:none;
+      color:var(--azul);
     }
-
-    .cta-box::before {
-      content: "✨";
-      position: absolute;
-      font-size: 9rem;
-      opacity: 0.06;
-      left: -20px;
-      top: -40px;
-      pointer-events: none;
-      color: var(--azul);
-      transform: rotate(-12deg);
+    .cta-box::before{
+      content:"✨";
+      position:absolute;
+      font-size:9rem;
+      opacity:0.06;
+      left:-20px;
+      top:-40px;
+      pointer-events:none;
+      color:var(--azul);
+      transform:rotate(-12deg);
     }
-
-    .cta-box h2 {
-      font-size: 2rem;
-      margin-bottom: 0.9rem;
-      color: var(--azul);
+    .cta-box h2{
+      font-size:2rem;
+      margin-bottom:0.9rem;
+      color:var(--azul);
     }
-
-    .cta-box p {
-      font-size: 1.1rem;
-      margin-bottom: 1.8rem;
-      opacity: 0.92;
-      max-width: 760px;
-      margin-left: auto;
-      margin-right: auto;
-      color: var(--azul);
+    .cta-box p{
+      font-size:1.1rem;
+      margin-bottom:1.8rem;
+      opacity:0.92;
+      max-width:760px;
+      margin-left:auto;
+      margin-right:auto;
+      color:var(--azul);
     }
 
     /* ===== GALERIA ===== */
-    .galeria {
-      padding: 4rem 2rem;
-      background: var(--branco);
+    .galeria{
+      padding:4rem 2rem;
+      background:var(--branco);
     }
-
-    .galeria-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
+    .galeria-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));
+      gap:2rem;
+      max-width:1200px;
+      margin:0 auto;
     }
-
-    .destino-card {
-      display: block;
-      position: relative;
-      border-radius: 22px;
-      overflow: hidden;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-      aspect-ratio: 4/5;
-      text-decoration: none;
-      color: inherit;
-      outline: none;
+    .destino-card{
+      display:block;
+      position:relative;
+      border-radius:22px;
+      overflow:hidden;
+      box-shadow:0 10px 40px rgba(0,0,0,0.15);
+      transition:transform 0.25s ease, box-shadow 0.25s ease;
+      aspect-ratio:4/5;
+      text-decoration:none;
+      color:inherit;
+      outline:none;
     }
-
-    .destino-card:hover {
-      transform: translateY(-9px);
-      box-shadow: 0 22px 62px rgba(0,0,0,0.22);
+    .destino-card:hover{
+      transform:translateY(-9px);
+      box-shadow:0 22px 62px rgba(0,0,0,0.22);
     }
-
-    .destino-card:focus-visible {
-      box-shadow: 0 0 0 4px rgba(255, 132, 0, 0.35), 0 22px 62px rgba(0,0,0,0.22);
-      transform: translateY(-6px);
+    .destino-card:focus-visible{
+      box-shadow:0 0 0 4px rgba(255, 132, 0, 0.35), 0 22px 62px rgba(0,0,0,0.22);
+      transform:translateY(-6px);
     }
-
-    .destino-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-      filter: saturate(1.05) contrast(1.02);
+    .destino-img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform 0.5s ease;
+      filter:saturate(1.05) contrast(1.02);
     }
-
-    .destino-card:hover .destino-img {
-      transform: scale(1.09);
+    .destino-card:hover .destino-img{ transform:scale(1.09); }
+    .destino-overlay{
+      position:absolute;
+      inset:auto 0 0 0;
+      background:linear-gradient(to top, rgba(0,0,0,0.88), rgba(0,0,0,0.10));
+      padding:2rem;
+      color:var(--branco);
     }
-
-    .destino-overlay {
-      position: absolute;
-      inset: auto 0 0 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.88), rgba(0,0,0,0.10));
-      padding: 2rem;
-      color: var(--branco);
+    .destino-local{
+      display:flex;
+      align-items:center;
+      gap:0.55rem;
+      font-size:1.45rem;
+      font-weight:900;
+      margin-bottom:0.45rem;
     }
-
-    .destino-local {
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-      font-size: 1.45rem;
-      font-weight: 900;
-      margin-bottom: 0.45rem;
+    .destino-desc{
+      font-size:0.98rem;
+      opacity:0.93;
+      margin-bottom:0.9rem;
+      max-width:92%;
     }
-
-    .destino-desc {
-      font-size: 0.98rem;
-      opacity: 0.93;
-      margin-bottom: 0.9rem;
-      max-width: 92%;
+    .destino-link{
+      display:inline-flex;
+      align-items:center;
+      gap:0.5rem;
+      font-weight:900;
+      font-size:0.95rem;
+      color:var(--laranja);
+      text-decoration:underline;
+      text-underline-offset:4px;
+      text-decoration-thickness:2px;
+      cursor:pointer;
     }
+    .destino-card:hover .destino-link{ gap:0.85rem; }
 
-    .destino-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-weight: 900;
-      font-size: 0.95rem;
-      color: var(--laranja);
-      text-decoration: underline;
-      text-underline-offset: 4px;
-      text-decoration-thickness: 2px;
-      cursor: pointer;
-    }
-
-    .destino-card:hover .destino-link {
-      gap: 0.85rem;
-    }
-
-    @media (max-width: 768px) {
-      .destinos-hero h1 { font-size: 2.15rem; }
-      .destinos-hero p { font-size: 1.05rem; }
-      .galeria-grid { grid-template-columns: 1fr; }
-      .destino-overlay { padding: 1.6rem; }
-      .destino-local { font-size: 1.25rem; }
+    @media (max-width: 768px){
+      .destinos-hero h1{ font-size:2.15rem; }
+      .destinos-hero p{ font-size:1.05rem; }
+      .galeria-grid{ grid-template-columns:1fr; }
+      .destino-overlay{ padding:1.6rem; }
+      .destino-local{ font-size:1.25rem; }
     }
   </style>
 </head>
 
 <body>
-
   <!-- Navegação -->
   <nav>
     <div class="nav-container">
@@ -540,131 +470,78 @@
   </section>
 
   <!-- Depoimentos -->
-<section class="depoimentos">
-  <div class="depo-wrap">
-    <div class="section-header fade-in">
-      <span class="section-tag">💬 Depoimentos</span>
-      <h2>Quem já viajou com roteiro da Modo</h2>
-      <p>Gente real, no destino, vivendo o que foi planejado.</p>
-    </div>
+  <section class="depoimentos">
+    <div class="depo-wrap">
+      <div class="section-header fade-in">
+        <span class="section-tag">💬 Depoimentos</span>
+        <h2>Quem já viajou com roteiro da Modo</h2>
+        <p>Gente real, no destino, vivendo o que foi planejado.</p>
+      </div>
 
-    <div class="testi-carousel fade-in" aria-label="Carrossel de depoimentos">
-      <div class="testi-viewport">
-        <div class="testi-track">
-
-          <!-- Grupo 1 -->
-          <div class="testi-group">
-            <article class="testi-card testi--orange">
-              <div class="testi-media" style="--img-pos: center 35%;">
-                <img src="images/depoimentos/exemplo 01.JPG" alt="Ana Luiza em Tokyo, Japão" loading="eager" decoding="async" />
-              </div>
-              <div class="testi-body">
-                <div class="testi-top">
-                  <p class="testi-name">Ana Luiza</p>
-                  <p class="testi-loc">
-                    <span class="emoji" aria-hidden="true">🇯🇵</span>
-                    <span class="testi-code">JP</span>
-                    <span class="testi-city">Tokyo</span>
-                  </p>
+      <div class="testi-carousel fade-in" id="testiCarousel" aria-label="Carrossel de depoimentos">
+        <div class="testi-viewport">
+          <div class="testi-track" id="testiTrack">
+            <!-- Grupo A (base) -->
+            <div class="testi-group" id="testiGroupA">
+              <article class="testi-card testi--orange">
+                <div class="testi-media" style="--img-pos: center 35%;">
+                  <img src="images/depoimentos/exemplo 01.JPG" alt="Ana Luiza em Tokyo, Japão" loading="eager" decoding="async" />
                 </div>
-                <p class="testi-text">“Eu estava surtando com transporte e bairros pra ficar. O roteiro veio redondinho, com mapa no Google Maps, dicas do que vale a pena e um plano B real. Economizei tempo e viajei com segurança.”</p>
-              </div>
-            </article>
-
-            <article class="testi-card testi--blue">
-              <div class="testi-media" style="--img-pos: center 30%;">
-                <img src="images/depoimentos/exemplo 02.JPG" alt="Ana Luiza em Curitiba, Brasil" loading="eager" decoding="async" />
-              </div>
-              <div class="testi-body">
-                <div class="testi-top">
-                  <p class="testi-name">Ana Luiza</p>
-                  <p class="testi-loc">
-                    <span class="emoji" aria-hidden="true">🇧🇷</span>
-                    <span class="testi-code">BR</span>
-                    <span class="testi-city">Curitiba</span>
-                  </p>
+                <div class="testi-body">
+                  <div class="testi-top">
+                    <p class="testi-name">Ana Luiza</p>
+                    <p class="testi-loc">
+                      <span class="emoji" aria-hidden="true">🇯🇵</span>
+                      <span class="testi-code">JP</span>
+                      <span class="testi-city">Tokyo</span>
+                    </p>
+                  </div>
+                  <p class="testi-text">“Eu estava surtando com transporte e bairros pra ficar. O roteiro veio redondinho, com mapa no Google Maps, dicas do que vale a pena e um plano B real. Economizei tempo e viajei com segurança.”</p>
                 </div>
-                <p class="testi-text">“Eu queria um roteiro funcional, sem perder tempo decidindo tudo na hora. Veio dia a dia bem organizado, com sugestões de restaurantes e deslocamentos fáceis. Foi a viagem mais prática que já fiz.”</p>
-              </div>
-            </article>
+              </article>
 
-            <article class="testi-card testi--orange">
-              <div class="testi-media" style="--img-pos: center 22%;">
-                <img src="images/depoimentos/exemplo 03.JPG" alt="Ana Luiza em Engelberg, Suíça" loading="eager" decoding="async" />
-              </div>
-              <div class="testi-body">
-                <div class="testi-top">
-                  <p class="testi-name">Ana Luiza</p>
-                  <p class="testi-loc">
-                    <span class="emoji" aria-hidden="true">🇨🇭</span>
-                    <span class="testi-code">CH</span>
-                    <span class="testi-city">Engelberg</span>
-                  </p>
+              <article class="testi-card testi--blue">
+                <div class="testi-media" style="--img-pos: center 30%;">
+                  <img src="images/depoimentos/exemplo 02.JPG" alt="Ana Luiza em Curitiba, Brasil" loading="eager" decoding="async" />
                 </div>
-                <p class="testi-text">“Neve me dava medo por causa de imprevistos. Ter um plano B e orientações claras de transporte e logística fez toda a diferença. Foi zero perrengue e eu aproveitei muito mais.”</p>
-              </div>
-            </article>
+                <div class="testi-body">
+                  <div class="testi-top">
+                    <p class="testi-name">Ana Luiza</p>
+                    <p class="testi-loc">
+                      <span class="emoji" aria-hidden="true">🇧🇷</span>
+                      <span class="testi-code">BR</span>
+                      <span class="testi-city">Curitiba</span>
+                    </p>
+                  </div>
+                  <p class="testi-text">“Eu queria um roteiro funcional, sem perder tempo decidindo tudo na hora. Veio dia a dia bem organizado, com sugestões de restaurantes e deslocamentos fáceis. Foi a viagem mais prática que já fiz.”</p>
+                </div>
+              </article>
+
+              <article class="testi-card testi--orange">
+                <div class="testi-media" style="--img-pos: center 22%;">
+                  <img src="images/depoimentos/exemplo 03.JPG" alt="Ana Luiza em Engelberg, Suíça" loading="eager" decoding="async" />
+                </div>
+                <div class="testi-body">
+                  <div class="testi-top">
+                    <p class="testi-name">Ana Luiza</p>
+                    <p class="testi-loc">
+                      <span class="emoji" aria-hidden="true">🇨🇭</span>
+                      <span class="testi-code">CH</span>
+                      <span class="testi-city">Engelberg</span>
+                    </p>
+                  </div>
+                  <p class="testi-text">“Neve me dava medo por causa de imprevistos. Ter um plano B e orientações claras de transporte e logística fez toda a diferença. Foi zero perrengue e eu aproveitei muito mais.”</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- Grupo B (clone para loop perfeito) -->
+            <div class="testi-group" id="testiGroupB" aria-hidden="true"></div>
           </div>
-
-          <!-- Grupo 2 (duplicado para loop sem buraco) -->
-          <div class="testi-group" aria-hidden="true">
-            <article class="testi-card testi--orange">
-              <div class="testi-media" style="--img-pos: center 35%;">
-                <img src="images/depoimentos/exemplo 01.JPG" alt="" loading="eager" decoding="async" />
-              </div>
-              <div class="testi-body">
-                <div class="testi-top">
-                  <p class="testi-name">Ana Luiza</p>
-                  <p class="testi-loc">
-                    <span class="emoji" aria-hidden="true">🇯🇵</span>
-                    <span class="testi-code">JP</span>
-                    <span class="testi-city">Tokyo</span>
-                  </p>
-                </div>
-                <p class="testi-text">“Eu estava surtando com transporte e bairros pra ficar. O roteiro veio redondinho, com mapa no Google Maps, dicas do que vale a pena e um plano B real. Economizei tempo e viajei com segurança.”</p>
-              </div>
-            </article>
-
-            <article class="testi-card testi--blue">
-              <div class="testi-media" style="--img-pos: center 30%;">
-                <img src="images/depoimentos/exemplo 02.JPG" alt="" loading="eager" decoding="async" />
-              </div>
-              <div class="testi-body">
-                <div class="testi-top">
-                  <p class="testi-name">Ana Luiza</p>
-                  <p class="testi-loc">
-                    <span class="emoji" aria-hidden="true">🇧🇷</span>
-                    <span class="testi-code">BR</span>
-                    <span class="testi-city">Curitiba</span>
-                  </p>
-                </div>
-                <p class="testi-text">“Eu queria um roteiro funcional, sem perder tempo decidindo tudo na hora. Veio dia a dia bem organizado, com sugestões de restaurantes e deslocamentos fáceis. Foi a viagem mais prática que já fiz.”</p>
-              </div>
-            </article>
-
-            <article class="testi-card testi--orange">
-              <div class="testi-media" style="--img-pos: center 22%;">
-                <img src="images/depoimentos/exemplo 03.JPG" alt="" loading="eager" decoding="async" />
-              </div>
-              <div class="testi-body">
-                <div class="testi-top">
-                  <p class="testi-name">Ana Luiza</p>
-                  <p class="testi-loc">
-                    <span class="emoji" aria-hidden="true">🇨🇭</span>
-                    <span class="testi-code">CH</span>
-                    <span class="testi-city">Engelberg</span>
-                  </p>
-                </div>
-                <p class="testi-text">“Neve me dava medo por causa de imprevistos. Ter um plano B e orientações claras de transporte e logística fez toda a diferença. Foi zero perrengue e eu aproveitei muito mais.”</p>
-              </div>
-            </article>
-          </div>
-
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <!-- CTA -->
   <section class="cta-entre">
@@ -690,7 +567,7 @@
 
       <div class="galeria-grid">
         <!-- Chile -->
-        <a class="destino-card fade-in" href="https://www.instagram.com/p/DNWTkWhSaCW/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer">
+        <a class="destino-card fade-in" href="https://www.instagram.com/p/DNWTkWhSaCW/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Santiago, Chile">
           <img src="images/destinos/santiago.jpg" alt="Santiago, Chile" class="destino-img" loading="lazy" />
           <div class="destino-overlay">
             <div class="destino-local"><span class="bandeira-emoji">🇨🇱</span> Santiago, Chile</div>
@@ -700,7 +577,7 @@
         </a>
 
         <!-- Egito -->
-        <a class="destino-card fade-in" href="https://www.instagram.com/p/B1CiddWFUyN/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer">
+        <a class="destino-card fade-in" href="https://www.instagram.com/p/B1CiddWFUyN/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Cruzeiro no Nilo, Egito">
           <img src="images/destinos/egito.jpg" alt="Cruzeiro no Nilo, Egito" class="destino-img" loading="lazy" />
           <div class="destino-overlay">
             <div class="destino-local"><span class="bandeira-emoji">🇪🇬</span> Cruzeiro no Nilo, Egito</div>
@@ -710,7 +587,7 @@
         </a>
 
         <!-- Paris -->
-        <a class="destino-card fade-in" href="https://www.instagram.com/p/B5qxipPlgR_/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer">
+        <a class="destino-card fade-in" href="https://www.instagram.com/p/B5qxipPlgR_/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Paris, França">
           <img src="images/destinos/paris.jpg" alt="Paris, França" class="destino-img" loading="lazy" />
           <div class="destino-overlay">
             <div class="destino-local"><span class="bandeira-emoji">🇫🇷</span> Paris, França</div>
@@ -720,7 +597,7 @@
         </a>
 
         <!-- Veneza -->
-        <a class="destino-card fade-in" href="https://www.instagram.com/p/BqLD1djFKdZ/" target="_blank" rel="noopener noreferrer">
+        <a class="destino-card fade-in" href="https://www.instagram.com/p/BqLD1djFKdZ/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Veneza, Itália">
           <img src="images/destinos/veneza.jpg" alt="Veneza, Itália" class="destino-img" loading="lazy" />
           <div class="destino-overlay">
             <div class="destino-local"><span class="bandeira-emoji">🇮🇹</span> Veneza, Itália</div>
@@ -730,7 +607,7 @@
         </a>
 
         <!-- Roma -->
-        <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/Bq0OdoFFwG6/" target="_blank" rel="noopener noreferrer">
+        <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/Bq0OdoFFwG6/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Roma, Itália">
           <img src="images/destinos/roma.JPG" alt="Roma, Itália" class="destino-img" loading="lazy" />
           <div class="destino-overlay">
             <div class="destino-local"><span class="bandeira-emoji">🇮🇹</span> Roma, Itália</div>
@@ -740,7 +617,7 @@
         </a>
 
         <!-- Marrocos -->
-        <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/BsycUyqlkZW/" target="_blank" rel="noopener noreferrer">
+        <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/BsycUyqlkZW/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Marrocos">
           <img src="images/destinos/marrocos.jpg" alt="Marrocos" class="destino-img" loading="lazy" />
           <div class="destino-overlay">
             <div class="destino-local"><span class="bandeira-emoji">🇲🇦</span> Marrocos</div>
@@ -750,7 +627,7 @@
         </a>
 
         <!-- Islândia -->
-        <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/BqvF0aKlGmS/" target="_blank" rel="noopener noreferrer">
+        <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/BqvF0aKlGmS/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Islândia">
           <img src="images/destinos/islandia.jpg" alt="Islândia" class="destino-img" loading="lazy" />
           <div class="destino-overlay">
             <div class="destino-local"><span class="bandeira-emoji">🇮🇸</span> Islândia</div>
@@ -760,7 +637,7 @@
         </a>
 
         <!-- Japão -->
-        <a class="destino-card fade-in" href="https://www.instagram.com/p/DPU4BfCEx89/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer">
+        <a class="destino-card fade-in" href="https://www.instagram.com/p/DPU4BfCEx89/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Japão">
           <img src="images/destinos/japao.jpeg" alt="Japão" class="destino-img" loading="lazy" />
           <div class="destino-overlay">
             <div class="destino-local"><span class="bandeira-emoji">🇯🇵</span> Japão</div>
@@ -770,7 +647,7 @@
         </a>
 
         <!-- Rio -->
-        <a class="destino-card fade-in" href="https://www.instagram.com/p/DRftfnRFu4O/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer">
+        <a class="destino-card fade-in" href="https://www.instagram.com/p/DRftfnRFu4O/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Rio de Janeiro, Brasil">
           <img src="images/destinos/rio.jpeg" alt="Rio de Janeiro, Brasil" class="destino-img" loading="lazy" />
           <div class="destino-overlay">
             <div class="destino-local"><span class="bandeira-emoji">🇧🇷</span> Rio de Janeiro, Brasil</div>
@@ -780,7 +657,7 @@
         </a>
 
         <!-- Praia Grande -->
-        <a class="destino-card fade-in" href="https://www.instagram.com/p/DCt0ClouK_q/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer">
+        <a class="destino-card fade-in" href="https://www.instagram.com/p/DCt0ClouK_q/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Praia Grande, Brasil">
           <img src="images/destinos/praia-grande.jpg" alt="Praia Grande, Brasil" class="destino-img" loading="lazy" />
           <div class="destino-overlay">
             <div class="destino-local"><span class="bandeira-emoji">🇧🇷</span> Praia Grande, Brasil</div>
@@ -790,7 +667,7 @@
         </a>
 
         <!-- Irlanda do Norte -->
-        <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/B0JusUOlwCA/" target="_blank" rel="noopener noreferrer">
+        <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/B0JusUOlwCA/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Irlanda do Norte">
           <img src="images/destinos/irlanda-do-norte.JPG" alt="Irlanda do Norte" class="destino-img" loading="lazy" />
           <div class="destino-overlay">
             <div class="destino-local"><span class="bandeira-emoji">🇬🇧</span> Irlanda do Norte</div>
@@ -800,7 +677,7 @@
         </a>
 
         <!-- Moscou -->
-        <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/BvUqcxmlNOG/" target="_blank" rel="noopener noreferrer">
+        <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/BvUqcxmlNOG/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Moscou, Rússia">
           <img src="images/destinos/moscou.JPG" alt="Moscou, Rússia" class="destino-img" loading="lazy" />
           <div class="destino-overlay">
             <div class="destino-local"><span class="bandeira-emoji">🇷🇺</span> Moscou, Rússia</div>
@@ -810,7 +687,7 @@
         </a>
 
         <!-- Beto Carrero -->
-        <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/C6NAcKSsyTh/" target="_blank" rel="noopener noreferrer">
+        <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/C6NAcKSsyTh/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Beto Carrero, Brasil">
           <img src="images/destinos/beto-carreiro.JPG" alt="Beto Carrero World, Brasil" class="destino-img" loading="lazy" />
           <div class="destino-overlay">
             <div class="destino-local"><span class="bandeira-emoji">🇧🇷</span> Beto Carrero, Brasil</div>
@@ -820,7 +697,7 @@
         </a>
 
         <!-- Fortaleza -->
-        <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/BlOiVTght6A/" target="_blank" rel="noopener noreferrer">
+        <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/BlOiVTght6A/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Fortaleza, Brasil">
           <img src="images/destinos/fortaleza.JPG" alt="Fortaleza, Brasil" class="destino-img" loading="lazy" />
           <div class="destino-overlay">
             <div class="destino-local"><span class="bandeira-emoji">🇧🇷</span> Fortaleza, Brasil</div>
@@ -868,21 +745,26 @@
   </footer>
 
   <script>
+    // =========
     // Menu mobile
+    // =========
     function toggleMenu() {
       document.getElementById('navLinks').classList.toggle('active');
     }
 
+    // =========
     // Fade-in
+    // =========
     const fadeObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.12 });
-
     document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
 
+    // =========
     // Bandeiras (marquee)
+    // =========
     const paises = [
       { nome: 'Brasil', bandeira: '🇧🇷' },
       { nome: 'Argentina', bandeira: '🇦🇷' },
@@ -908,7 +790,6 @@
       { nome: 'Vaticano', bandeira: '🇻🇦' },
       { nome: 'Japão', bandeira: '🇯🇵' }
     ];
-
     const track = document.getElementById('bandeirasTrack');
     const conteudo = paises.map(p => `
       <div class="bandeira-item">
@@ -916,10 +797,11 @@
         <span>${p.nome}</span>
       </div>
     `).join('');
-
     track.innerHTML = conteudo + conteudo;
 
-    // Contadores animados + simulação do infinito
+    // =========
+    // Contadores animados + simulação do ∞
+    // =========
     const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const statsGrid = document.getElementById('statsGrid');
     const statEls = statsGrid ? statsGrid.querySelectorAll('.stat-numero') : [];
@@ -938,7 +820,6 @@
         if (progress < 1) requestAnimationFrame(tick);
         else el.textContent = `${target}${suffix}`;
       }
-
       requestAnimationFrame(tick);
     }
 
@@ -966,7 +847,6 @@
           }, 130);
         }
       }
-
       requestAnimationFrame(tick);
     }
 
@@ -983,7 +863,6 @@
           el.textContent = isInfinity ? "∞" : `${count}${suffix}`;
           return;
         }
-
         if (isInfinity) simulateInfinity(el);
         else animateCount(el, count, suffix, 1200);
       });
@@ -995,40 +874,119 @@
           if (entry.isIntersecting) playStats();
         });
       }, { threshold: 0.25 });
-
       statsObserver.observe(statsGrid);
     }
-    // Pausar carrossel de depoimentos no toque (mobile)
-const testiCarousel = document.querySelector('.testi-carousel');
 
-if (testiCarousel) {
-  let resumeTimeout;
+    // =========================================================
+    // Depoimentos: loop perfeito + pausa + drag (mobile)
+    // =========================================================
+    (function initTestiCarousel(){
+      const carousel = document.getElementById('testiCarousel');
+      const track = document.getElementById('testiTrack');
+      const groupA = document.getElementById('testiGroupA');
+      const groupB = document.getElementById('testiGroupB');
+      if (!carousel || !track || !groupA || !groupB) return;
 
-  const pauseTesti = () => {
-    clearTimeout(resumeTimeout);
-    testiCarousel.classList.add('is-paused');
-  };
+      // Clone exato do grupo A para evitar “grudar”/buraco
+      groupB.innerHTML = groupA.innerHTML;
 
-  const resumeTesti = () => {
-    clearTimeout(resumeTimeout);
-    resumeTimeout = setTimeout(() => {
-      testiCarousel.classList.remove('is-paused');
-    }, 500);
-  };
+      // Espera imagens carregarem (evita medidas erradas e emenda feia)
+      const imgs = track.querySelectorAll('img');
+      let loaded = 0;
+      const done = () => {
+        loaded++;
+        if (loaded >= imgs.length) startAnim();
+      };
+      imgs.forEach(img => {
+        if (img.complete) done();
+        else {
+          img.addEventListener('load', done, { once:true });
+          img.addEventListener('error', done, { once:true });
+        }
+      });
 
-  testiCarousel.addEventListener('touchstart', pauseTesti, { passive: true });
-  testiCarousel.addEventListener('touchend', resumeTesti);
-  testiCarousel.addEventListener('touchcancel', resumeTesti);
-}
+      let anim = null;
+      let loopWidth = 0;
+
+      // drag
+      let isDragging = false;
+      let startX = 0;
+      let startTime = 0;
+
+      function startAnim(){
+        // largura real do loop = largura do grupo A
+        loopWidth = groupA.getBoundingClientRect().width;
+
+        // se não conseguiu medir, não anima
+        if (!loopWidth || prefersReduced) return;
+
+        // reinicia
+        if (anim) anim.cancel();
+
+        // animação infinita, sem depender de -50% (resolve emenda)
+        anim = track.animate(
+          [
+            { transform: 'translate3d(0,0,0)' },
+            { transform: `translate3d(${-loopWidth}px,0,0)` }
+          ],
+          { duration: 30000, iterations: Infinity, easing: 'linear' }
+        );
+
+        // pausa no hover (desktop)
+        carousel.addEventListener('mouseenter', () => anim.pause());
+        carousel.addEventListener('mouseleave', () => { if (!isDragging) anim.play(); });
+
+        // pausa ao encostar (mobile) + permite arrastar
+        carousel.addEventListener('touchstart', onTouchStart, { passive: true });
+        carousel.addEventListener('touchmove', onTouchMove, { passive: true });
+        carousel.addEventListener('touchend', onTouchEnd);
+        carousel.addEventListener('touchcancel', onTouchEnd);
+      }
+
+      function clampTime(t){
+        // mantém o currentTime sempre dentro de [0, duration)
+        const d = anim.effect.getTiming().duration;
+        t = t % d;
+        if (t < 0) t += d;
+        return t;
+      }
+
+      function onTouchStart(e){
+        if (!anim) return;
+        isDragging = true;
+        anim.pause();
+
+        startX = e.touches[0].clientX;
+        startTime = anim.currentTime || 0;
+      }
+
+      function onTouchMove(e){
+        if (!anim || !isDragging) return;
+
+        const x = e.touches[0].clientX;
+        const dx = x - startX;
+
+        // converte pixels em tempo (proporção: loopWidth -> duration)
+        const duration = anim.effect.getTiming().duration;
+        const dt = (-dx / loopWidth) * duration;
+
+        anim.currentTime = clampTime(startTime + dt);
+      }
+
+      function onTouchEnd(){
+        if (!anim) return;
+        isDragging = false;
+        anim.play();
+      }
+
+      // recalcula em resize (evita emenda em mudança de orientação)
+      window.addEventListener('resize', () => {
+        if (!anim) return;
+        startAnim();
+      });
+    })();
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
 
 
