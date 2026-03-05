@@ -153,7 +153,7 @@
       margin-top: 0.35rem;
     }
 
-    /* ===== DEPOIMENTOS (carrossel horizontal animado) ===== */
+    /* ===== DEPOIMENTOS (carrossel horizontal animado corrigido) ===== */
 .depoimentos{
   padding: 4rem 2rem 0;
   background: var(--branco);
@@ -168,6 +168,7 @@
   margin-top: 1.8rem;
   overflow: hidden;
   position: relative;
+  touch-action: pan-y;
 }
 
 .testi-viewport{
@@ -178,11 +179,14 @@
 .testi-track{
   display: flex;
   width: max-content;
-  animation: testiScroll 26s linear infinite;
+  animation: testiScroll 30s linear infinite;
   will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
-.testi-carousel:hover .testi-track{
+.testi-carousel:hover .testi-track,
+.testi-carousel.is-paused .testi-track{
   animation-play-state: paused;
 }
 
@@ -213,7 +217,7 @@
 }
 
 .testi-media{
-  height: 300px; /* controla a foto pra não ficar gigante */
+  height: 300px;
   overflow: hidden;
   background: rgba(0,0,0,0.06);
 }
@@ -305,7 +309,7 @@
   }
 
   .testi-track{
-    animation-duration: 22s;
+    animation-duration: 24s;
   }
 }
 
@@ -552,7 +556,7 @@
           <div class="testi-group">
             <article class="testi-card testi--orange">
               <div class="testi-media" style="--img-pos: center 35%;">
-                <img src="images/depoimentos/exemplo 01.JPG" alt="Ana Luiza em Tokyo, Japão" loading="lazy" />
+                <img src="images/depoimentos/exemplo 01.JPG" alt="Ana Luiza em Tokyo, Japão" loading="eager" decoding="async" />
               </div>
               <div class="testi-body">
                 <div class="testi-top">
@@ -569,7 +573,7 @@
 
             <article class="testi-card testi--blue">
               <div class="testi-media" style="--img-pos: center 30%;">
-                <img src="images/depoimentos/exemplo 02.JPG" alt="Ana Luiza em Curitiba, Brasil" loading="lazy" />
+                <img src="images/depoimentos/exemplo 02.JPG" alt="Ana Luiza em Curitiba, Brasil" loading="eager" decoding="async" />
               </div>
               <div class="testi-body">
                 <div class="testi-top">
@@ -586,7 +590,7 @@
 
             <article class="testi-card testi--orange">
               <div class="testi-media" style="--img-pos: center 22%;">
-                <img src="images/depoimentos/exemplo 03.JPG" alt="Ana Luiza em Engelberg, Suíça" loading="lazy" />
+                <img src="images/depoimentos/exemplo 03.JPG" alt="Ana Luiza em Engelberg, Suíça" loading="eager" decoding="async" />
               </div>
               <div class="testi-body">
                 <div class="testi-top">
@@ -602,11 +606,11 @@
             </article>
           </div>
 
-          <!-- Grupo 2 (duplicado para loop infinito) -->
+          <!-- Grupo 2 (duplicado para loop sem buraco) -->
           <div class="testi-group" aria-hidden="true">
             <article class="testi-card testi--orange">
               <div class="testi-media" style="--img-pos: center 35%;">
-                <img src="images/depoimentos/exemplo 01.JPG" alt="" loading="lazy" />
+                <img src="images/depoimentos/exemplo 01.JPG" alt="" loading="eager" decoding="async" />
               </div>
               <div class="testi-body">
                 <div class="testi-top">
@@ -623,7 +627,7 @@
 
             <article class="testi-card testi--blue">
               <div class="testi-media" style="--img-pos: center 30%;">
-                <img src="images/depoimentos/exemplo 02.JPG" alt="" loading="lazy" />
+                <img src="images/depoimentos/exemplo 02.JPG" alt="" loading="eager" decoding="async" />
               </div>
               <div class="testi-body">
                 <div class="testi-top">
@@ -640,7 +644,7 @@
 
             <article class="testi-card testi--orange">
               <div class="testi-media" style="--img-pos: center 22%;">
-                <img src="images/depoimentos/exemplo 03.JPG" alt="" loading="lazy" />
+                <img src="images/depoimentos/exemplo 03.JPG" alt="" loading="eager" decoding="async" />
               </div>
               <div class="testi-body">
                 <div class="testi-top">
@@ -994,9 +998,32 @@
 
       statsObserver.observe(statsGrid);
     }
+    // Pausar carrossel de depoimentos no toque (mobile)
+const testiCarousel = document.querySelector('.testi-carousel');
+
+if (testiCarousel) {
+  let resumeTimeout;
+
+  const pauseTesti = () => {
+    clearTimeout(resumeTimeout);
+    testiCarousel.classList.add('is-paused');
+  };
+
+  const resumeTesti = () => {
+    clearTimeout(resumeTimeout);
+    resumeTimeout = setTimeout(() => {
+      testiCarousel.classList.remove('is-paused');
+    }, 500);
+  };
+
+  testiCarousel.addEventListener('touchstart', pauseTesti, { passive: true });
+  testiCarousel.addEventListener('touchend', resumeTesti);
+  testiCarousel.addEventListener('touchcancel', resumeTesti);
+}
   </script>
 </body>
 </html>
+
 
 
 
