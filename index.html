@@ -40,13 +40,16 @@
       max-width:1200px;
       margin:0 auto;
       width:100%;
-      display:block;
+      display:grid;
+      grid-template-columns:minmax(0,1fr) minmax(300px,420px);
+      gap:4rem;
+      align-items:center;
       position:relative;
       z-index:1;
     }
 
     .hero-content{
-      max-width:780px;
+      max-width:100%;
       display:flex;
       flex-direction:column;
       align-items:flex-start;
@@ -80,18 +83,18 @@
 
     .hero-visual{
       display:flex;
-      justify-content:flex-start;
+      justify-content:center;
       align-items:center;
       width:100%;
-      margin-top:2rem;
     }
 
     /* HERO visual - Polaroid */
     .hero-polaroid-box{
       display:flex;
-      justify-content:flex-start;
+      justify-content:center;
       align-items:center;
       position:relative;
+      width:100%;
     }
 
     .polaroid-frame{
@@ -389,7 +392,6 @@
     }
 
     .plano-card.destaque .btn-plano{ background:var(--azul); }
-
     .plano-card.destaque .btn-plano:hover{ background:#002266; }
 
     .plano-footer{
@@ -508,38 +510,17 @@
       box-shadow:0 10px 30px rgba(0,51,153,0.06);
       position:relative;
       overflow:hidden;
-      isolation:isolate;
-      background:linear-gradient(135deg,var(--azul-claro),var(--branco));
-    }
-
-    .roteiro-card::before{
-      content:'';
-      position:absolute;
-      inset:0;
-      background-image:var(--roteiro-bg);
-      background-size:cover;
-      background-position:center;
-      background-repeat:no-repeat;
-      opacity:0.10;
-      z-index:-2;
-      transform:scale(1.05);
-    }
-
-    .roteiro-card::after{
-      content:'';
-      position:absolute;
-      inset:0;
-      background:linear-gradient(
-        135deg,
-        rgba(234,242,255,0.94),
-        rgba(255,255,255,0.97)
-      );
-      z-index:-1;
-    }
-
-    .roteiro-card > *{
-      position:relative;
-      z-index:1;
+      background-color:var(--branco);
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(234,242,255,0.88),
+          rgba(255,255,255,0.92)
+        ),
+        var(--roteiro-bg);
+      background-size:cover, cover;
+      background-position:center, center;
+      background-repeat:no-repeat, no-repeat;
     }
 
     .roteiro-card:hover{
@@ -761,7 +742,6 @@
       font-family:'Neulis Cursive',cursive !important;
     }
 
-    /* Caixa laranja claro */
     .recomendacao{
       background:var(--laranja-claro);
       padding:1.2rem 1.4rem;
@@ -860,11 +840,11 @@
     /* RESPONSIVO */
     @media (max-width:768px){
       .hero-container{
-        display:block;
+        grid-template-columns:1fr;
+        gap:2rem;
       }
 
       .hero-content{
-        max-width:100%;
         align-items:center;
         text-align:center;
       }
@@ -881,7 +861,11 @@
         justify-content:center;
       }
 
-      .hero-visual,
+      .hero-visual{
+        justify-content:center;
+        margin-top:0;
+      }
+
       .hero-polaroid-box{
         justify-content:center;
       }
@@ -984,22 +968,22 @@
             Me Ajude a Escolher
           </button>
         </div>
+      </div>
 
-        <div class="hero-visual">
-          <div class="hero-polaroid-box">
-            <div class="polaroid-frame">
-              <div class="polaroid-photo-wrap">
-                <img
-                  id="heroPolaroidImg"
-                  src="images/destinos/beto-carreiro.JPG"
-                  alt="Foto de Beto Carrero 🎢"
-                  class="polaroid-photo"
-                />
-              </div>
+      <div class="hero-visual fade-in">
+        <div class="hero-polaroid-box">
+          <div class="polaroid-frame">
+            <div class="polaroid-photo-wrap">
+              <img
+                id="heroPolaroidImg"
+                src="images/destinos/beto-carreiro.JPG"
+                alt="Foto de Beto Carrero 🎢"
+                class="polaroid-photo"
+              />
+            </div>
 
-              <div class="polaroid-caption" id="heroPolaroidCaption">
-                Beto Carrero 🎢
-              </div>
+            <div class="polaroid-caption" id="heroPolaroidCaption">
+              Beto Carrero 🎢
             </div>
           </div>
         </div>
@@ -1743,7 +1727,6 @@
     function nextStep(step, answer) {
       respostas['step' + step] = answer;
 
-      // Regra 1: encerra no Painel
       if (step === 1 && answer === 'q1b') {
         renderResult('painel');
         return;
@@ -1771,7 +1754,6 @@
       const vipForte = q4 === 'q4a' || q5 === 'q5d';
       const embarqueTemSinal = (q4 === 'q4c' || q5 === 'q5b' || q5 === 'q5c' || q3 === 'q3a');
 
-      // Q2
       if (q2 === 'q2a' || q2 === 'q2b' || q2 === 'q2c') {
         scores.checkin += 2;
         scores.embarque += 2;
@@ -1783,35 +1765,28 @@
         scores.vip += 1;
       }
 
-      // Q3
       if (q3 === 'q3a') { scores.embarque += 3; scores.vip += 1; }
-      if (q3 === 'q3b') { scores.partiu += 1; scores.checkin += 2; }
+      if (q3 === 'q3b') { scores.partiu += 1;  scores.checkin += 2; }
 
-      // Q4
       if (q4 === 'q4a') { scores.vip += 6; }
       if (q4 === 'q4b') { scores.partiu += 2; scores.checkin += 2; }
       if (q4 === 'q4c') { scores.embarque += 5; scores.vip += 1; }
 
-      // Q5
       if (q5 === 'q5a') { scores.partiu += 2; scores.checkin += 2; }
       if (q5 === 'q5b') { scores.embarque += 4; scores.vip += 1; }
       if (q5 === 'q5c') { scores.embarque += 4; scores.vip += 1; }
       if (q5 === 'q5d') { scores.vip += 6; }
 
-      // Q6
       if (q6 === 'q6a') { scores.partiu += 3; }
       if (q6 === 'q6b') { scores.checkin += 3; scores.embarque += 1; }
 
-      // Candidatos
       const candidatos = ['checkin', 'embarque', 'vip'];
       if (partiuElegivel) candidatos.push('partiu');
 
-      // Embarque x VIP “muito próximo”: sem sinal forte → Embarque
       if (!vipForte && scores.vip > scores.embarque && (scores.vip - scores.embarque <= 1)) {
         scores.embarque = scores.vip;
       }
 
-      // Com sinal forte de VIP: VIP vence proximidade
       if (vipForte && scores.embarque > scores.vip && (scores.embarque - scores.vip <= 1)) {
         scores.vip = scores.embarque;
       }
@@ -1819,9 +1794,10 @@
       let maior = Math.max(...candidatos.map(p => scores[p]));
       let empatados = candidatos.filter(p => scores[p] === maior);
 
-      // Desempates
       if (vipForte && empatados.includes('vip')) return 'vip';
-      if (empatados.includes('embarque') && empatados.includes('vip')) empatados = empatados.filter(p => p !== 'vip');
+      if (empatados.includes('embarque') && empatados.includes('vip')) {
+        empatados = empatados.filter(p => p !== 'vip');
+      }
 
       if (empatados.includes('partiu') && empatados.includes('checkin')) {
         if (q6 === 'q6a' && partiuElegivel) return 'partiu';
@@ -1840,7 +1816,6 @@
       return empatados[0] || 'checkin';
     }
 
-    // Justificativas curtas + emoji
     function buildJustificativasShort(planKey) {
       const q3 = respostas.step3;
       const q4 = respostas.step4;
@@ -1878,11 +1853,9 @@
 
         if (q4 === 'q4c' || q5 === 'q5b') arr.push('📲 Você quer tudo mapeado no celular.');
         arr.push('✈️ Estratégia + menos perrengue.');
-
         return arr.slice(0, 3);
       }
 
-      // vip
       return [
         '💎 Você quer suporte durante a viagem.',
         '🧳 Você quer ajuda pra comprar/reservar.',
@@ -1937,7 +1910,6 @@
       showOnlyStep('step1');
     }
 
-    // Close modal on overlay click
     const modalEl = document.getElementById('helpModal');
     if (modalEl) {
       modalEl.addEventListener('click', function (e) {
@@ -1945,7 +1917,6 @@
       });
     }
 
-    // Close modal on ESC
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && modalEl && modalEl.style.display === 'flex') {
         closeModal();
@@ -1999,3 +1970,5 @@
   </script>
 </body>
 </html>
+</html>
+
