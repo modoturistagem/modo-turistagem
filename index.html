@@ -70,31 +70,88 @@
       justify-content:center;
       align-items:center;
     }
-    .hero-logo-box{
-      background:var(--branco);
-      border-radius:30px;
-      padding:3rem;
-      box-shadow:0 20px 60px rgba(0,51,153,0.15);
-      text-align:center;
-      position:relative;
-      overflow:hidden;
-    }
-    .hero-logo-box::before{
-      content:'';
-      position:absolute;
-      top:-50%;
-      left:-50%;
-      width:200%;
-      height:200%;
-      background:linear-gradient(45deg,transparent,rgba(255,102,0,0.1),transparent);
-      animation:shine 3s infinite;
-    }
-    .hero-logo-img{
-      width:300px;
-      height:auto;
-      position:relative;
-      z-index:1;
-    }
+    /* HERO visual - Polaroid */
+.hero-polaroid-box{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:relative;
+}
+
+.polaroid-frame{
+  background:#fff;
+  border-radius:28px;
+  padding:1.2rem 1.2rem 1.8rem;
+  box-shadow:0 20px 60px rgba(0,51,153,0.15);
+  width:min(380px, 100%);
+  position:relative;
+  transform:rotate(-2deg);
+  transition:transform .35s ease;
+}
+
+.polaroid-frame:hover{
+  transform:rotate(0deg) translateY(-4px);
+}
+
+.polaroid-photo-wrap{
+  width:100%;
+  aspect-ratio: 4 / 5;
+  border-radius:18px;
+  overflow:hidden;
+  background:linear-gradient(135deg,var(--azul-claro),var(--cinza));
+  position:relative;
+}
+
+.polaroid-photo{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:opacity .45s ease, transform .45s ease;
+  opacity:1;
+}
+
+.polaroid-photo.is-fading{
+  opacity:0;
+  transform:scale(1.03);
+}
+
+.polaroid-caption{
+  margin-top:1rem;
+  text-align:center;
+  color:var(--azul);
+  font-size:1rem;
+  font-weight:700;
+  font-family:'Neulis Cursive', cursive !important;
+  min-height:1.4em;
+}
+
+/* detalhe decorativo opcional */
+.polaroid-frame::before{
+  content:'';
+  position:absolute;
+  top:-10px;
+  right:22px;
+  width:58px;
+  height:18px;
+  background:rgba(255,255,255,0.55);
+  border-radius:6px;
+  transform:rotate(8deg);
+  box-shadow:0 2px 6px rgba(0,0,0,0.06);
+}
+
+/* Mobile */
+@media (max-width:768px){
+  .polaroid-frame{
+    width:min(300px, 100%);
+    padding:1rem 1rem 1.5rem;
+    transform:none;
+  }
+
+  .polaroid-caption{
+    font-size:0.95rem;
+  }
+}
 
     /* Manifesto */
     .manifesto{
@@ -756,10 +813,23 @@
       </div>
 
       <div class="hero-visual fade-in">
-        <div class="hero-logo-box">
-          <img src="images/logotipo.png" alt="Modo Turistagem" class="hero-logo-img" />
-        </div>
+  <div class="hero-polaroid-box">
+    <div class="polaroid-frame">
+      <div class="polaroid-photo-wrap">
+        <img
+          id="heroPolaroidImg"
+          src="images/destinos/japao.jpg"
+          alt="Destino vivido pela Modo Turistagem"
+          class="polaroid-photo"
+        />
       </div>
+
+      <div class="polaroid-caption" id="heroPolaroidCaption">
+        Japão 🇯🇵
+      </div>
+    </div>
+  </div>
+</div>
     </div>
   </section>
 
@@ -1694,9 +1764,60 @@
         if (e.target === this) closeModal();
       });
     }
+    // Hero Polaroid - slideshow de destinos
+(function () {
+  const imgEl = document.getElementById('heroPolaroidImg');
+  const captionEl = document.getElementById('heroPolaroidCaption');
+
+  if (!imgEl || !captionEl) return;
+
+  // IMPORTANTE:
+  // No GitHub Pages o caminho é sensível a maiúsculas/minúsculas.
+  // Se seus arquivos estiverem como .JPG / .JPEG, ajuste exatamente aqui
+  // OU renomeie tudo para .jpg (recomendado).
+  const destinos = [
+    { src: 'images/destinos/beto-carreiro.JPG', nome: 'Beto Carrero 🎢' },
+    { src: 'images/destinos/egito.jpg', nome: 'Egito 🇪🇬' },
+    { src: 'images/destinos/fortaleza.JPG', nome: 'Fortaleza ☀️' },
+    { src: 'images/destinos/irlanda-do-norte.JPG', nome: 'Irlanda do Norte 🍀' },
+    { src: 'images/destinos/islandia.jpg', nome: 'Islândia ❄️' },
+    { src: 'images/destinos/japao.jpeg', nome: 'Japão 🇯🇵' },
+    { src: 'images/destinos/marrocos.jpg', nome: 'Marrocos 🕌' },
+    { src: 'images/destinos/moscou.JPG', nome: 'Moscou 🏛️' },
+    { src: 'images/destinos/paris.jpg', nome: 'Paris 🥐' },
+    { src: 'images/destinos/praia-grande.jpg', nome: 'Praia Grande 🌊' },
+    { src: 'images/destinos/rio.jpeg', nome: 'Rio de Janeiro 🏖️' },
+    { src: 'images/destinos/roma.jpg', nome: 'Roma 🍝' },
+    { src: 'images/destinos/santiago.jpg', nome: 'Santiago ⛰️' },
+    { src: 'images/destinos/veneza.jpg', nome: 'Veneza 🚤' }
+  ];
+
+  let index = 0;
+
+  function trocarDestino() {
+    imgEl.classList.add('is-fading');
+
+    setTimeout(() => {
+      index = (index + 1) % destinos.length;
+      imgEl.src = destinos[index].src;
+      imgEl.alt = `Foto de ${destinos[index].nome}`;
+      captionEl.textContent = destinos[index].nome;
+
+      imgEl.classList.remove('is-fading');
+    }, 220);
+  }
+
+  // inicia com o primeiro item da lista
+  imgEl.src = destinos[0].src;
+  imgEl.alt = `Foto de ${destinos[0].nome}`;
+  captionEl.textContent = destinos[0].nome;
+
+  setInterval(trocarDestino, 2800);
+})();
   </script>
 </body>
 </html>
+
 
 
 
