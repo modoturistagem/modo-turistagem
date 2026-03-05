@@ -16,11 +16,10 @@
       display: block;
     }
 
-    /* EMOJIS */
     .emoji {
       font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif !important;
-      font-style: normal !important;
       font-weight: 400 !important;
+      font-style: normal !important;
       line-height: 1;
     }
 
@@ -43,9 +42,9 @@
     .faq-hero::before {
       content: "❓";
       position: absolute;
-      right: 4%;
       top: 10%;
-      font-size: 9rem;
+      right: 5%;
+      font-size: 8rem;
       opacity: 0.08;
       line-height: 1;
       pointer-events: none;
@@ -57,185 +56,84 @@
     }
 
     .faq-hero h1 {
-      font-size: 3rem;
-      margin-bottom: 0.8rem;
-      line-height: 1.1;
       color: var(--branco);
+      font-size: 3rem;
+      line-height: 1.1;
+      margin-bottom: 0.8rem;
     }
 
     .faq-hero p {
-      font-size: 1.1rem;
-      max-width: 680px;
+      max-width: 700px;
       margin: 0 auto;
-      color: rgba(255, 255, 255, 0.92);
-      line-height: 1.7;
-    }
-
-    /* CONTEÚDO */
-    .faq-section {
-      padding: 4rem 2rem 5rem;
-      max-width: 980px;
-      margin: 0 auto;
-    }
-
-    .faq-intro-box,
-    .nao-incluso-box,
-    .pagamento-box {
-      background: var(--branco);
-      border-radius: 18px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-      border: 2px solid rgba(0, 68, 204, 0.08);
-    }
-
-    .faq-intro-box h2,
-    .nao-incluso-box h2,
-    .pagamento-box h2 {
-      margin: 0 0 0.8rem;
-      color: var(--azul);
-      font-size: 1.35rem;
-      line-height: 1.3;
-    }
-
-    .faq-intro-box p,
-    .nao-incluso-box p,
-    .pagamento-box p {
-      margin: 0;
-      color: var(--texto);
+      font-size: 1.08rem;
       line-height: 1.75;
+      color: rgba(255, 255, 255, 0.94);
     }
 
-    .nao-incluso-lista {
-      margin: 1rem 0 0;
-      padding-left: 0;
-      list-style: none;
-      display: grid;
-      gap: 0.8rem;
-    }
-
-    .nao-incluso-lista li {
-      background: rgba(255, 153, 102, 0.08);
-      border: 1px solid rgba(255, 153, 102, 0.22);
-      border-radius: 12px;
-      padding: 0.85rem 1rem;
-      line-height: 1.6;
-      color: var(--texto);
-    }
-
-    /* PAGAMENTO */
-    .pagamento-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin-top: 1.2rem;
-    }
-
-    .pagamento-card {
-      border: 1px solid rgba(0, 68, 204, 0.1);
-      border-radius: 16px;
-      padding: 1.1rem;
-      background: #fff;
-    }
-
-    .pagamento-topo {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      margin-bottom: 0.9rem;
-    }
-
-    .pagamento-topo img {
-      width: 34px;
-      height: 34px;
-      object-fit: contain;
-      flex-shrink: 0;
-    }
-
-    .pagamento-topo h3 {
-      margin: 0;
-      font-size: 1rem;
-      color: var(--azul);
-      line-height: 1.3;
-    }
-
-    .pagamento-card ul {
-      margin: 0;
-      padding-left: 1.1rem;
-      color: var(--texto);
-      line-height: 1.7;
-    }
-
-    .pagamento-card li + li {
-      margin-top: 0.35rem;
-    }
-
-    .pagamento-aviso {
-      margin-top: 1rem;
-      background: rgba(0, 68, 204, 0.05);
-      border-left: 4px solid var(--azul);
-      border-radius: 12px;
-      padding: 0.95rem 1rem;
-      color: var(--texto);
-      line-height: 1.7;
+    /* WRAPPER */
+    .faq-section {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 4rem 2rem 5rem;
     }
 
     /* CATEGORIAS */
     .faq-categoria {
-      margin-top: 2.7rem;
-      margin-bottom: 1rem;
+      margin: 2.8rem 0 1rem;
       color: var(--laranja);
-      font-size: 1.25rem;
+      font-size: 1.3rem;
       font-weight: 800;
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.55rem;
       line-height: 1.3;
     }
 
-    /* ITENS */
+    /* ITENS FAQ */
     .faq-item {
       background: var(--branco);
-      border-radius: 16px;
+      border-radius: 18px;
       margin-bottom: 1rem;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+      border: 1.5px solid rgba(0, 68, 204, 0.08);
       overflow: hidden;
-      border: 2px solid transparent;
       transition: border-color 0.25s ease, transform 0.25s ease;
     }
 
     .faq-item:hover {
-      border-color: rgba(255, 153, 102, 0.7);
+      border-color: rgba(255, 102, 51, 0.35);
       transform: translateY(-2px);
     }
 
     .faq-pergunta {
       width: 100%;
-      padding: 1.25rem 1.25rem 1.25rem 1.3rem;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      font-weight: 800;
-      color: var(--azul);
-      font-size: 1.05rem;
-      line-height: 1.5;
-      background: transparent;
       border: 0;
+      background: transparent;
+      padding: 1.25rem 1.35rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
       text-align: left;
+      cursor: pointer;
       font-family: inherit;
+      color: var(--azul);
+      font-weight: 800;
+      font-size: 1.08rem;
+      line-height: 1.5;
     }
 
-    .faq-pergunta span {
+    .faq-pergunta-texto {
       flex: 1;
+      min-width: 0;
     }
 
     .faq-icon {
-      font-size: 1.5rem;
-      color: var(--laranja);
-      line-height: 1;
       flex-shrink: 0;
+      color: var(--laranja);
+      font-size: 1.55rem;
+      line-height: 1;
+      margin-left: auto;
       transition: transform 0.25s ease;
     }
 
@@ -258,36 +156,225 @@
     }
 
     .faq-resposta-conteudo {
-      padding: 0 1.3rem 0;
+      padding: 0 1.35rem 0;
       color: var(--texto);
       line-height: 1.8;
     }
 
     .faq-item.active .faq-resposta-conteudo {
-      padding-bottom: 1.3rem;
+      padding-bottom: 1.35rem;
     }
 
-    .faq-resposta p {
+    .faq-resposta-conteudo p {
       margin: 0;
     }
 
-    .faq-resposta p + p {
-      margin-top: 0.8rem;
+    .faq-resposta-conteudo p + p {
+      margin-top: 0.85rem;
     }
 
-    /* CTA FINAL */
+    .faq-resposta-conteudo ul {
+      margin: 0.9rem 0 0;
+      padding-left: 1.2rem;
+    }
+
+    .faq-resposta-conteudo li + li {
+      margin-top: 0.35rem;
+    }
+
+    /* LISTA INTERNA */
+    .highlight-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .highlight-list li {
+      padding: 0.9rem 1rem;
+      border-radius: 14px;
+      background: rgba(255, 153, 102, 0.08);
+      border: 1px solid rgba(255, 153, 102, 0.28);
+      line-height: 1.65;
+    }
+
+    /* PAGAMENTO */
+    .pagamento-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .pagamento-card {
+      border-radius: 16px;
+      padding: 1rem;
+      background: #fff;
+      border: 1px solid rgba(0, 68, 204, 0.12);
+    }
+
+    .pagamento-topo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .pagamento-topo img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .pagamento-topo strong {
+      color: var(--azul);
+      font-size: 1rem;
+      line-height: 1.35;
+    }
+
+    .pagamento-card ul {
+      margin: 0;
+      padding-left: 1.1rem;
+      line-height: 1.7;
+    }
+
+    .pagamento-aviso {
+      margin-top: 1rem;
+      border-left: 4px solid var(--azul);
+      background: rgba(0, 68, 204, 0.05);
+      border-radius: 12px;
+      padding: 0.9rem 1rem;
+      line-height: 1.75;
+    }
+
+    /* PREÇOS */
+    .precos-box {
+      background: var(--branco);
+      border-radius: 20px;
+      padding: 1.4rem;
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+      border: 1.5px solid rgba(0, 68, 204, 0.08);
+    }
+
+    .precos-intro {
+      margin-bottom: 1rem;
+      line-height: 1.75;
+      color: var(--texto);
+    }
+
+    .precos-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .preco-card {
+      background: #fff;
+      border-radius: 18px;
+      border: 1px solid rgba(0, 68, 204, 0.1);
+      padding: 1rem;
+    }
+
+    .preco-card h4 {
+      margin: 0 0 0.7rem;
+      color: var(--azul);
+      font-size: 1.05rem;
+      line-height: 1.35;
+    }
+
+    .preco-card h4 .emoji {
+      margin-right: 0.25rem;
+    }
+
+    .preco-lista {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .preco-lista li {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      line-height: 1.55;
+      padding: 0.45rem 0;
+      border-bottom: 1px dashed rgba(0, 68, 204, 0.08);
+    }
+
+    .preco-lista li:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .preco-lista span:last-child {
+      font-weight: 800;
+      color: var(--azul);
+      white-space: nowrap;
+    }
+
+    .precos-mini-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .preco-mini {
+      background: rgba(0, 68, 204, 0.04);
+      border: 1px solid rgba(0, 68, 204, 0.08);
+      border-radius: 16px;
+      padding: 1rem;
+    }
+
+    .preco-mini strong {
+      display: block;
+      color: var(--azul);
+      margin-bottom: 0.45rem;
+      line-height: 1.45;
+    }
+
+    .preco-mini span {
+      font-weight: 800;
+      color: var(--laranja);
+      font-size: 1.05rem;
+    }
+
+    .precos-observacoes {
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .preco-info {
+      background: rgba(255, 153, 102, 0.08);
+      border: 1px solid rgba(255, 153, 102, 0.25);
+      border-radius: 14px;
+      padding: 0.95rem 1rem;
+      line-height: 1.7;
+    }
+
+    .preco-info strong {
+      color: var(--azul);
+    }
+
+    /* CTA */
     .faq-cta {
       margin-top: 3rem;
-      text-align: center;
       background: linear-gradient(135deg, rgba(0, 68, 204, 0.06) 0%, rgba(255, 153, 102, 0.1) 100%);
       border-radius: 20px;
-      padding: 2rem 1.4rem;
+      padding: 2rem 1.25rem;
+      text-align: center;
     }
 
     .faq-cta p {
       margin: 0 0 1rem;
-      color: var(--texto);
       line-height: 1.7;
+      color: var(--texto);
     }
 
     .faq-cta .btn-primary {
@@ -298,11 +385,11 @@
       text-decoration: none;
     }
 
-    /* ANIMAÇÃO */
+    /* FADE */
     .fade-in {
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
+      transform: translateY(18px);
+      transition: opacity 0.45s ease, transform 0.45s ease;
     }
 
     .fade-in.visible {
@@ -310,9 +397,11 @@
       transform: translateY(0);
     }
 
-    /* MOBILE */
+    /* RESPONSIVO */
     @media (max-width: 900px) {
-      .pagamento-grid {
+      .pagamento-grid,
+      .precos-grid,
+      .precos-mini-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -323,83 +412,76 @@
       }
 
       .faq-hero::before {
-        font-size: 6rem;
-        right: -8px;
+        font-size: 5.5rem;
         top: 14px;
+        right: -8px;
       }
 
       .faq-hero h1 {
-        font-size: 2.15rem;
+        font-size: 2.1rem;
       }
 
       .faq-hero p {
-        font-size: 1rem;
+        font-size: 0.98rem;
       }
 
       .faq-section {
-        padding: 2.5rem 1rem 4rem;
-      }
-
-      .faq-intro-box,
-      .nao-incluso-box,
-      .pagamento-box {
-        padding: 1.1rem;
-        border-radius: 16px;
-      }
-
-      .faq-intro-box h2,
-      .nao-incluso-box h2,
-      .pagamento-box h2 {
-        font-size: 1.15rem;
+        padding: 2.4rem 1rem 4rem;
       }
 
       .faq-categoria {
-        margin-top: 2.2rem;
         font-size: 1.08rem;
+        margin-top: 2.3rem;
         align-items: flex-start;
       }
 
       .faq-pergunta {
         padding: 1rem 1rem 1rem 1.05rem;
         font-size: 0.98rem;
-        line-height: 1.45;
         align-items: flex-start;
       }
 
       .faq-icon {
-        font-size: 1.25rem;
+        font-size: 1.3rem;
         margin-top: 0.05rem;
+      }
+
+      .faq-resposta-conteudo,
+      .precos-box {
+        font-size: 0.96rem;
       }
 
       .faq-resposta-conteudo {
         padding-left: 1.05rem;
         padding-right: 1.05rem;
-        font-size: 0.96rem;
-        line-height: 1.75;
       }
 
       .faq-item.active .faq-resposta-conteudo {
         padding-bottom: 1.05rem;
       }
 
-      .pagamento-topo img {
-        width: 30px;
-        height: 30px;
+      .precos-box {
+        padding: 1rem;
+        border-radius: 18px;
+      }
+
+      .preco-lista li {
+        flex-direction: column;
+        gap: 0.15rem;
+      }
+
+      .preco-lista span:last-child {
+        white-space: normal;
       }
 
       .faq-cta {
         padding: 1.5rem 1rem;
-        border-radius: 18px;
       }
     }
 
     @media (max-width: 480px) {
       .faq-hero h1 {
-        font-size: 1.9rem;
-      }
-
-      .faq-hero p {
-        font-size: 0.95rem;
+        font-size: 1.85rem;
       }
 
       .faq-pergunta {
@@ -407,10 +489,10 @@
       }
 
       .faq-resposta-conteudo,
-      .faq-intro-box p,
-      .nao-incluso-box p,
-      .pagamento-box p,
-      .pagamento-card ul,
+      .precos-intro,
+      .preco-card,
+      .preco-info,
+      .preco-mini,
       .faq-cta p {
         font-size: 0.93rem;
       }
@@ -447,45 +529,67 @@
   <section class="faq-hero">
     <div class="container fade-in">
       <h1><span class="emoji" aria-hidden="true">❓</span> FAQ</h1>
-      <p>Tire suas dúvidas sobre como funciona a consultoria, o que está incluso e como é feito o atendimento da Modo Turistagem.</p>
+      <p>
+        Tire suas dúvidas sobre como funciona a consultoria, preços, pagamento, ajustes, atendimento
+        e tudo o que você precisa saber antes de contratar.
+      </p>
     </div>
   </section>
 
   <!-- FAQ -->
   <section class="faq-section">
 
-    <div class="faq-intro-box fade-in">
-      <h2><span class="emoji" aria-hidden="true">💙</span> Antes de tudo: como a Modo Turistagem funciona</h2>
-      <p>
-        A Modo Turistagem é uma <strong>consultoria de viagens</strong>. Isso significa que a gente te ajuda a planejar,
-        organizar e decidir melhor — com orientação real, curadoria e estratégia — mas sem atuar como agência e sem
-        fazer intermediação obrigatória de compra com fornecedores.
-      </p>
+    <!-- INFORMAÇÕES IMPORTANTES -->
+    <div class="faq-item fade-in">
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto"><span class="emoji" aria-hidden="true">💙</span> Antes de tudo: como a Modo Turistagem funciona</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-resposta">
+        <div class="faq-resposta-inner">
+          <div class="faq-resposta-conteudo">
+            <p>
+              A Modo Turistagem é uma <strong>consultoria de viagens</strong>. Isso significa que a gente te ajuda
+              a planejar, organizar e decidir melhor — com orientação real, curadoria e estratégia —
+              mas sem atuar como agência e sem fazer intermediação obrigatória de compra com fornecedores.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="nao-incluso-box fade-in">
-      <h2><span class="emoji" aria-hidden="true">🚫</span> O que não está incluso</h2>
-      <p>
-        Pra deixar tudo bem claro desde o começo, estes itens <strong>não fazem parte da consultoria</strong>, salvo se
-        houver algo diferente expressamente informado no plano contratado:
-      </p>
+    <div class="faq-item fade-in">
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto"><span class="emoji" aria-hidden="true">🚫</span> O que não está incluso</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-resposta">
+        <div class="faq-resposta-inner">
+          <div class="faq-resposta-conteudo">
+            <p>
+              Pra deixar tudo bem claro desde o começo, estes itens <strong>não fazem parte da consultoria</strong>,
+              salvo se houver algo diferente expressamente informado no plano contratado:
+            </p>
 
-      <ul class="nao-incluso-lista">
-        <li><strong>Emissão de passagens, reservas e compras em nome do cliente</strong> (você faz tudo direto nos sites e fornecedores).</li>
-        <li><strong>Garantia de preço, disponibilidade ou promoção</strong>, já que valores mudam em tempo real.</li>
-        <li><strong>Suporte 24h durante a viagem</strong>, exceto quando isso estiver previsto no plano (como no VIP).</li>
-        <li><strong>Serviço de guia presencial</strong> ou acompanhamento físico no destino.</li>
-      </ul>
+            <ul class="highlight-list">
+              <li><strong>Emissão de passagens, reservas e compras em nome do cliente</strong> (você faz tudo direto nos sites e fornecedores).</li>
+              <li><strong>Garantia de preço, disponibilidade ou promoção</strong>, já que valores mudam em tempo real.</li>
+              <li><strong>Suporte 24h durante a viagem</strong>, exceto quando isso estiver previsto no plano (como no VIP).</li>
+              <li><strong>Serviço de guia presencial</strong> ou acompanhamento físico no destino.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Sobre a Empresa -->
+    <!-- SOBRE -->
     <h3 class="faq-categoria fade-in">
       <span class="emoji" aria-hidden="true">🏢</span> Sobre a Modo Turistagem
     </h3>
 
     <div class="faq-item fade-in">
-      <button class="faq-pergunta" type="button">
-        <span>Vocês são uma agência de turismo?</span>
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">Vocês são uma agência de turismo?</span>
         <span class="faq-icon" aria-hidden="true">+</span>
       </button>
       <div class="faq-resposta">
@@ -493,8 +597,8 @@
           <div class="faq-resposta-conteudo">
             <p>
               Não <span class="emoji" aria-hidden="true">🙂</span> A Modo Turistagem é uma
-              <strong>consultoria de viagem</strong>: a gente planeja, organiza e recomenda, mas
-              <strong>não vende pacote</strong> e <strong>não faz intermediação obrigatória</strong> com fornecedores.
+              <strong>consultoria de viagem</strong>: a gente planeja, organiza e recomenda,
+              mas <strong>não vende pacote</strong> e <strong>não faz intermediação obrigatória</strong> com fornecedores.
             </p>
           </div>
         </div>
@@ -502,17 +606,16 @@
     </div>
 
     <div class="faq-item fade-in">
-      <button class="faq-pergunta" type="button">
-        <span>Vocês fazem compras e reservas por mim?</span>
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">Vocês fazem compras e reservas por mim?</span>
         <span class="faq-icon" aria-hidden="true">+</span>
       </button>
       <div class="faq-resposta">
         <div class="faq-resposta-inner">
           <div class="faq-resposta-conteudo">
             <p>
-              As compras e reservas são responsabilidade do cliente. A gente orienta, indica links,
-              caminhos e opções, mas <strong>não faz emissão</strong> e <strong>não garante disponibilidade,
-              preço, reserva ou condições comerciais</strong>.
+              As compras e reservas são responsabilidade do cliente. A gente orienta, indica links, caminhos e opções,
+              mas <strong>não faz emissão</strong> e <strong>não garante disponibilidade, preço, reserva ou condições comerciais</strong>.
             </p>
           </div>
         </div>
@@ -520,19 +623,19 @@
     </div>
 
     <div class="faq-item fade-in">
-      <button class="faq-pergunta" type="button">
-        <span>O que exatamente vocês entregam?</span>
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">O que exatamente vocês entregam?</span>
         <span class="faq-icon" aria-hidden="true">+</span>
       </button>
       <div class="faq-resposta">
         <div class="faq-resposta-inner">
           <div class="faq-resposta-conteudo">
             <p>
-              Você recebe o material final conforme o plano contratado (por exemplo: PDF, roteiro, painel,
-              curadoria, mapa, links e orientações), pelos canais combinados, como e-mail e/ou WhatsApp.
+              Você recebe o material final conforme o plano contratado (por exemplo: PDF, painel, roteiro,
+              curadoria, mapa, links e orientações) pelos canais combinados, como e-mail e/ou WhatsApp.
             </p>
             <p>
-              Um ponto importante: o material é considerado entregue no momento em que ele é enviado,
+              Um ponto importante: o material conta como entregue no momento em que ele é enviado,
               mesmo que você ainda não tenha aberto, baixado ou visualizado.
             </p>
           </div>
@@ -540,14 +643,165 @@
       </div>
     </div>
 
-    <!-- Preços e Pagamento -->
+    <!-- PREÇOS -->
     <h3 class="faq-categoria fade-in">
-      <span class="emoji" aria-hidden="true">💰</span> Preços e Pagamento
+      <span class="emoji" aria-hidden="true">🏷️</span> Preços
+    </h3>
+
+    <div class="precos-box fade-in">
+      <p class="precos-intro">
+        Aqui estão os valores-base dos produtos e planos da Modo Turistagem.
+        Acréscimos por pessoas, cidades, urgência e ajustes extras podem ser aplicados conforme o caso.
+      </p>
+
+      <div class="precos-mini-grid">
+        <div class="preco-mini">
+          <strong><span class="emoji" aria-hidden="true">🛬</span> Modo Conexão | Aeroporto</strong>
+          <span>R$ 59,90</span>
+        </div>
+
+        <div class="preco-mini">
+          <strong><span class="emoji" aria-hidden="true">🏙️</span> Modo Conexão | Turismo na cidade</strong>
+          <span>R$ 89,90</span>
+        </div>
+
+        <div class="preco-mini">
+          <strong><span class="emoji" aria-hidden="true">🧭</span> Painel de Partidas</strong>
+          <span>R$ 79,90</span>
+        </div>
+      </div>
+
+      <div class="precos-grid">
+        <div class="preco-card">
+          <h4><span class="emoji" aria-hidden="true">🎒</span> Modo Partiu</h4>
+          <ul class="preco-lista">
+            <li><span>Até 7 dias</span><span>R$ 139</span></li>
+            <li><span>8 a 14 dias</span><span>R$ 169</span></li>
+            <li><span>15 a 21 dias</span><span>R$ 199</span></li>
+            <li><span>22 a 30 dias</span><span>R$ 229</span></li>
+            <li><span>Acima de 30 dias</span><span>+ R$ 89 por semana extra</span></li>
+          </ul>
+        </div>
+
+        <div class="preco-card">
+          <h4><span class="emoji" aria-hidden="true">🧳</span> Modo Check-in</h4>
+          <ul class="preco-lista">
+            <li><span>Até 7 dias</span><span>R$ 239</span></li>
+            <li><span>8 a 14 dias</span><span>R$ 279</span></li>
+            <li><span>15 a 21 dias</span><span>R$ 319</span></li>
+            <li><span>22 a 30 dias</span><span>R$ 369</span></li>
+            <li><span>Acima de 30 dias</span><span>+ R$ 129 por semana</span></li>
+          </ul>
+        </div>
+
+        <div class="preco-card">
+          <h4><span class="emoji" aria-hidden="true">✈️</span> Modo Embarque</h4>
+          <ul class="preco-lista">
+            <li><span>Até 7 dias</span><span>R$ 339</span></li>
+            <li><span>8 a 14 dias</span><span>R$ 389</span></li>
+            <li><span>15 a 21 dias</span><span>R$ 439</span></li>
+            <li><span>22 a 30 dias</span><span>R$ 499</span></li>
+            <li><span>Acima de 30 dias</span><span>+ R$ 159 por semana</span></li>
+          </ul>
+        </div>
+
+        <div class="preco-card">
+          <h4><span class="emoji" aria-hidden="true">💎</span> Modo VIP</h4>
+          <ul class="preco-lista">
+            <li><span>Até 7 dias</span><span>R$ 659</span></li>
+            <li><span>8 a 14 dias</span><span>R$ 759</span></li>
+            <li><span>15 a 21 dias</span><span>R$ 839</span></li>
+            <li><span>22 a 30 dias</span><span>R$ 909</span></li>
+            <li><span>Acima de 30 dias</span><span>+ R$ 259 por semana</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="precos-observacoes">
+        <div class="preco-info">
+          <strong>Grupo padrão:</strong> até 4 adultos OU 2 adultos + 3 crianças.
+          <br />
+          <strong>Acréscimo por pessoas (acima do grupo padrão):</strong>
+          5–6 pessoas: +20% | 7–8: +30% | 9–10: +50% | 11+: orçamento.
+        </div>
+
+        <div class="preco-info">
+          <strong>Cidades inclusas no valor:</strong> os valores cobrem até <strong>2 cidades-base</strong>
+          (cidades com pernoite / troca de hospedagem).
+          <br />
+          <strong>Acréscimo por cidades (acima de 2 cidades-base):</strong>
+          3–4 cidades: +15% | 5–6: +25% | 7–8: +40% | 9+: orçamento.
+        </div>
+
+        <div class="preco-info">
+          <strong>Semana extra:</strong> 7 dias (ou fração), conforme a regra do plano.
+          <br />
+          <strong>Ajuste simples extra:</strong> 5% do valor do plano, com mínimo de R$ 29.
+          <br />
+          <strong>Taxa de urgência:</strong> 30% do valor do plano para entrega em 5 dias corridos
+          em vez de 10 dias úteis.
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGAMENTO -->
+    <h3 class="faq-categoria fade-in">
+      <span class="emoji" aria-hidden="true">💰</span> Pagamento
     </h3>
 
     <div class="faq-item fade-in">
-      <button class="faq-pergunta" type="button">
-        <span>Os valores do roteiro são finais?</span>
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">Formas de pagamento</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-resposta">
+        <div class="faq-resposta-inner">
+          <div class="faq-resposta-conteudo">
+            <p>
+              Você pode escolher a forma que fizer mais sentido pra você. Se quiser parcelar,
+              eu também posso calcular antes pra você já saber certinho como fica.
+            </p>
+
+            <div class="pagamento-grid">
+              <div class="pagamento-card">
+                <div class="pagamento-topo">
+                  <img src="images/icons/whatsapp-logo.png" alt="WhatsApp" />
+                  <strong>Pagamento via WhatsApp</strong>
+                </div>
+                <ul>
+                  <li><strong>Pix</strong></li>
+                  <li><strong>Somente à vista</strong></li>
+                  <li>Combinação e envio direto pelo WhatsApp</li>
+                </ul>
+              </div>
+
+              <div class="pagamento-card">
+                <div class="pagamento-topo">
+                  <img src="images/icons/mercadopago.png" alt="Mercado Pago" />
+                  <strong>Pagamento via Mercado Pago</strong>
+                </div>
+                <ul>
+                  <li>Pix</li>
+                  <li>Boleto</li>
+                  <li>Débito</li>
+                  <li>Crédito à vista</li>
+                  <li>Crédito parcelado</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="pagamento-aviso">
+              No caso do <strong>crédito parcelado</strong>, podem existir taxas do próprio Mercado Pago.
+              Se você quiser, eu calculo o valor final antes pra você saber exatamente quanto vai pagar.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item fade-in">
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">Os valores no roteiro são finais?</span>
         <span class="faq-icon" aria-hidden="true">+</span>
       </button>
       <div class="faq-resposta">
@@ -555,8 +809,8 @@
           <div class="faq-resposta-conteudo">
             <p>
               Não. Os valores apresentados são <strong>estimativas</strong>, muitas vezes na moeda local,
-              e podem variar por câmbio, IOF, taxas, datas, sazonalidade, disponibilidade, políticas do
-              fornecedor e mudanças tarifárias em tempo real.
+              e podem variar por câmbio, IOF, taxas, datas, sazonalidade, disponibilidade, políticas do fornecedor
+              e mudanças tarifárias em tempo real.
             </p>
           </div>
         </div>
@@ -564,108 +818,47 @@
     </div>
 
     <div class="faq-item fade-in">
-      <button class="faq-pergunta" type="button">
-        <span>Vocês garantem preço, promoções e disponibilidade?</span>
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">Como funciona reembolso e cancelamento?</span>
         <span class="faq-icon" aria-hidden="true">+</span>
       </button>
       <div class="faq-resposta">
         <div class="faq-resposta-inner">
           <div class="faq-resposta-conteudo">
             <p>
-              Não — e aqui é a vida real da viagem <span class="emoji" aria-hidden="true">😅</span>.
-              Hotel, voo, ingresso e experiências podem mudar de valor ou esgotar a qualquer momento.
+              Como a contratação é feita online, pedidos de cancelamento e eventual reembolso são analisados
+              conforme a etapa em que a consultoria estiver e o que já tiver sido executado.
             </p>
             <p>
-              Por isso, a Modo Turistagem não se responsabiliza por indisponibilidade, alteração de preço
-              ou fim de promoção após o envio do roteiro, da pesquisa ou da recomendação.
+              Se o planejamento ainda não tiver sido iniciado, entre em contato o quanto antes pelo WhatsApp
+              para análise do caso.
+            </p>
+            <p>
+              Se a execução já tiver começado, pode haver retenção proporcional ao trabalho já realizado.
+              Depois da entrega do material final, não há reembolso do serviço prestado.
             </p>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="faq-item fade-in">
-      <button class="faq-pergunta" type="button">
-        <span>Como funciona reembolso e cancelamento?</span>
-        <span class="faq-icon" aria-hidden="true">+</span>
-      </button>
-      <div class="faq-resposta">
-        <div class="faq-resposta-inner">
-          <div class="faq-resposta-conteudo">
-            <p>
-              Como a contratação é feita à distância, pedidos de cancelamento devem ser analisados conforme
-              a etapa em que a consultoria estiver e as regras aplicáveis ao tipo de contratação.
-            </p>
-            <p>
-              Se a execução do serviço já tiver começado com sua autorização (por exemplo: leitura do briefing,
-              pesquisa, curadoria e montagem do material), poderá haver retenção proporcional ao trabalho já realizado.
-            </p>
-            <p>
-              Depois da entrega do material final, não há reembolso do serviço já prestado.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="pagamento-box fade-in">
-      <h2><span class="emoji" aria-hidden="true">💳</span> Formas de pagamento</h2>
-      <p>
-        Você pode escolher a forma que fizer mais sentido pra você. Se quiser parcelar, eu também posso calcular
-        antes pra você já saber certinho como fica.
-      </p>
-
-      <div class="pagamento-grid">
-        <div class="pagamento-card">
-          <div class="pagamento-topo">
-            <img src="images/icons/whatsapp-logo.png" alt="WhatsApp" />
-            <h3>Pagamento via WhatsApp</h3>
-          </div>
-          <ul>
-            <li><strong>Pix</strong></li>
-            <li><strong>Somente à vista</strong></li>
-            <li>Combinação e envio direto pelo WhatsApp</li>
-          </ul>
-        </div>
-
-        <div class="pagamento-card">
-          <div class="pagamento-topo">
-            <img src="images/icons/mercadopago.png" alt="Mercado Pago" />
-            <h3>Pagamento via Mercado Pago</h3>
-          </div>
-          <ul>
-            <li>Pix</li>
-            <li>Boleto</li>
-            <li>Débito</li>
-            <li>Crédito à vista</li>
-            <li>Crédito parcelado</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="pagamento-aviso">
-        No caso do <strong>crédito parcelado</strong>, podem existir taxas do próprio Mercado Pago.
-        Se você quiser, eu calculo o valor final antes para você saber exatamente quanto vai pagar.
-      </div>
-    </div>
-
-    <!-- Responsabilidades -->
+    <!-- RESPONSABILIDADES -->
     <h3 class="faq-categoria fade-in">
       <span class="emoji" aria-hidden="true">⚖️</span> Responsabilidades
     </h3>
 
     <div class="faq-item fade-in">
-      <button class="faq-pergunta" type="button">
-        <span>Quem toma a decisão final do que comprar e fazer?</span>
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">Quem toma a decisão final do que comprar e fazer?</span>
         <span class="faq-icon" aria-hidden="true">+</span>
       </button>
       <div class="faq-resposta">
         <div class="faq-resposta-inner">
           <div class="faq-resposta-conteudo">
             <p>
-              Você. A gente entrega a curadoria e o direcionamento com base no seu briefing, mas a
-              <strong>decisão final e a execução</strong> são do cliente — inclusive a conferência e a
-              aceitação das políticas de cancelamento, remarcação e uso de cada fornecedor.
+              Você. A gente entrega a curadoria e o direcionamento com base no seu briefing,
+              mas a <strong>decisão final e a execução</strong> são do cliente — inclusive conferir e aceitar
+              as políticas de cancelamento, remarcação e uso de cada fornecedor.
             </p>
           </div>
         </div>
@@ -673,21 +866,19 @@
     </div>
 
     <div class="faq-item fade-in">
-      <button class="faq-pergunta" type="button">
-        <span>Vocês se responsabilizam por imprevistos durante a viagem?</span>
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">Vocês se responsabilizam por imprevistos durante a viagem?</span>
         <span class="faq-icon" aria-hidden="true">+</span>
       </button>
       <div class="faq-resposta">
         <div class="faq-resposta-inner">
           <div class="faq-resposta-conteudo">
             <p>
-              Não. A consultoria não se responsabiliza por atrasos, cancelamentos, overbooking, greves,
-              clima, mudanças de rota ou horário, fechamento de atrações ou qualquer evento fora do controle
-              do planejamento.
+              Não. A consultoria não se responsabiliza por atrasos, cancelamentos, overbooking, greves, clima,
+              mudanças de rota ou horário, fechamento de atrações ou qualquer situação fora do controle do planejamento.
             </p>
             <p>
-              <span class="emoji" aria-hidden="true">➡️</span> Por isso, a gente recomenda fortemente a contratação de
-              <strong>seguro viagem</strong>.
+              <span class="emoji" aria-hidden="true">➡️</span> Por isso, a gente recomenda fortemente seguro viagem.
             </p>
           </div>
         </div>
@@ -695,31 +886,31 @@
     </div>
 
     <div class="faq-item fade-in">
-      <button class="faq-pergunta" type="button">
-        <span>Requisitos de entrada (passaporte, visto, vacinas): vocês cuidam disso?</span>
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">Requisitos de entrada (passaporte, visto, vacinas): vocês cuidam disso?</span>
         <span class="faq-icon" aria-hidden="true">+</span>
       </button>
       <div class="faq-resposta">
         <div class="faq-resposta-inner">
           <div class="faq-resposta-conteudo">
             <p>
-              Essa verificação é responsabilidade do cliente. A gente pode orientar e apontar caminhos,
-              mas isso <strong>não substitui a consulta a fontes oficiais</strong> e não inclui garantia
-              sobre regras de imigração, vistos, vacinas, autorizações e exigências das companhias ou do destino.
+              Essa verificação é responsabilidade do cliente. A gente pode orientar, mas isso
+              <strong>não substitui a consulta a fontes oficiais</strong> e não inclui garantia sobre regras
+              de imigração, vistos, vacinas, autorizações ou exigências das companhias e do destino.
             </p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Processo -->
+    <!-- PROCESSO -->
     <h3 class="faq-categoria fade-in">
       <span class="emoji" aria-hidden="true">📝</span> Processo e Entrega
     </h3>
 
     <div class="faq-item fade-in">
-      <button class="faq-pergunta" type="button">
-        <span>Quando começa a contar o prazo de entrega?</span>
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">Quando começa a contar o prazo de entrega?</span>
         <span class="faq-icon" aria-hidden="true">+</span>
       </button>
       <div class="faq-resposta">
@@ -738,16 +929,24 @@
     </div>
 
     <div class="faq-item fade-in">
-      <button class="faq-pergunta" type="button">
-        <span>Posso mudar destino, datas ou estilo depois de enviar o briefing?</span>
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">Por que eu preciso preencher o formulário?</span>
         <span class="faq-icon" aria-hidden="true">+</span>
       </button>
       <div class="faq-resposta">
         <div class="faq-resposta-inner">
           <div class="faq-resposta-conteudo">
             <p>
-              Mudanças significativas — como destino, datas, quantidade de pessoas, orçamento ou estilo de viagem —
-              podem exigir <strong>readequação de prazo</strong> e/ou <strong>novo orçamento</strong>, sempre alinhado com você.
+              Porque o formulário é a base do seu planejamento. É ali que você me conta
+              suas datas, orçamento, estilo de viagem, prioridades, limitações e preferências.
+            </p>
+            <p>
+              Quanto mais completo ele estiver, mais estratégico, útil e realmente personalizado
+              o roteiro vai ficar.
+            </p>
+            <p>
+              Em resumo: o formulário evita achismo, reduz retrabalho e faz com que a consultoria
+              seja pensada de verdade pra sua realidade.
             </p>
           </div>
         </div>
@@ -755,8 +954,26 @@
     </div>
 
     <div class="faq-item fade-in">
-      <button class="faq-pergunta" type="button">
-        <span>E se eu preencher o formulário errado ou esquecer informações?</span>
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">Posso mudar destino, datas ou estilo depois de enviar o briefing?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-resposta">
+        <div class="faq-resposta-inner">
+          <div class="faq-resposta-conteudo">
+            <p>
+              Mudanças significativas — como destino, datas, quantidade de pessoas, orçamento ou estilo de viagem —
+              podem exigir <strong>readequação de prazo</strong>, <strong>upgrade</strong> e/ou <strong>novo orçamento</strong>,
+              sempre alinhado com você.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item fade-in">
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">E se eu preencher o formulário errado ou esquecer informações?</span>
         <span class="faq-icon" aria-hidden="true">+</span>
       </button>
       <div class="faq-resposta">
@@ -766,19 +983,109 @@
               As recomendações são feitas com base nas informações enviadas por você. Se algo importante for omitido
               ou preenchido incorretamente, isso pode impactar a adequação do roteiro, das sugestões e da estratégia montada.
             </p>
+            <p>
+              Se você perceber isso rápido, pode entrar em contato pelo WhatsApp.
+              <strong>Se o roteiro ainda não tiver sido iniciado</strong>, você pode corrigir e preencher novamente.
+            </p>
+            <p>
+              <strong>Se o planejamento já tiver começado</strong>, aí entram os ajustes previstos dentro do plano.
+              Caso a mudança ultrapasse esse escopo, pode haver cobrança de ajuste extra, upgrade ou replanejamento.
+            </p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Suporte -->
+    <!-- PCDS E PETS -->
+    <h3 class="faq-categoria fade-in">
+      <span class="emoji" aria-hidden="true">🐾</span> PCDs e Pets
+    </h3>
+
+    <div class="faq-item fade-in">
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">Vocês fazem planejamento para PCDs e viagens com pets?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-resposta">
+        <div class="faq-resposta-inner">
+          <div class="faq-resposta-conteudo">
+            <p>
+              Sim. A Modo Turistagem pode montar planos considerando tanto necessidades de
+              <strong>acessibilidade (PCD)</strong> quanto viagens com <strong>pets</strong>.
+            </p>
+            <p>
+              Mas isso precisa ser <strong>informado e detalhado no formulário</strong>, porque esse tipo de planejamento
+              muda escolhas de hospedagem, deslocamento, passeios, ritmo e organização da viagem.
+            </p>
+            <p>
+              Quanto mais detalhes você enviar, melhor o roteiro fica adaptado à sua realidade.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AJUSTES -->
+    <h3 class="faq-categoria fade-in">
+      <span class="emoji" aria-hidden="true">🔁</span> Ajustes e Alterações
+    </h3>
+
+    <div class="faq-item fade-in">
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">Quais alterações estão inclusas no plano?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-resposta">
+        <div class="faq-resposta-inner">
+          <div class="faq-resposta-conteudo">
+            <p>
+              <strong>Alterações dentro do escopo</strong> são ajustes pequenos feitos em cima do roteiro
+              que já foi planejado, sem mudar a base da viagem.
+            </p>
+
+            <p><strong>Na prática, isso inclui coisas como:</strong></p>
+            <ul>
+              <li>trocar um restaurante por outro parecido;</li>
+              <li>substituir um passeio por outra opção no mesmo estilo;</li>
+              <li>reorganizar a ordem de atividades;</li>
+              <li>ajustar detalhes de preferência dentro do que já foi combinado;</li>
+              <li>refinar sugestões de hospedagem, transporte ou experiências sem mudar a proposta da viagem.</li>
+            </ul>
+
+            <p>
+              Resumindo: é aquele ajuste que deixa o roteiro mais a sua cara, mas <strong>sem refazer tudo do zero</strong>.
+            </p>
+
+            <p><strong>O que não entra nisso:</strong></p>
+            <ul>
+              <li>trocar destino, cidade ou região;</li>
+              <li>mudar bastante a quantidade de dias;</li>
+              <li>mudar o estilo da viagem (ex.: de urbana pra natureza, de econômica pra premium);</li>
+              <li>incluir novos destinos, bate-voltas ou etapas que não estavam previstas.</li>
+            </ul>
+
+            <p>
+              Nesses casos, o pedido pode virar <strong>reorçamento</strong>, <strong>upgrade de plano</strong>
+              ou um <strong>novo planejamento</strong>.
+            </p>
+
+            <p>
+              Se você quiser <strong>ajustes simples extras além dos já contemplados no plano</strong>,
+              pode ser cobrada uma taxa de <strong>5% do valor do plano</strong>, com mínimo de <strong>R$ 29</strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUPORTE -->
     <h3 class="faq-categoria fade-in">
       <span class="emoji" aria-hidden="true">💬</span> Suporte e Comunicação
     </h3>
 
     <div class="faq-item fade-in">
-      <button class="faq-pergunta" type="button">
-        <span>Vocês fazem guia presencial? Tem suporte 24h?</span>
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">Vocês fazem guia presencial? Tem suporte 24h?</span>
         <span class="faq-icon" aria-hidden="true">+</span>
       </button>
       <div class="faq-resposta">
@@ -795,15 +1102,15 @@
     </div>
 
     <div class="faq-item fade-in">
-      <button class="faq-pergunta" type="button">
-        <span>Como funciona a comunicação e o prazo de resposta?</span>
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">Como funciona a comunicação e o prazo de resposta?</span>
         <span class="faq-icon" aria-hidden="true">+</span>
       </button>
       <div class="faq-resposta">
         <div class="faq-resposta-inner">
           <div class="faq-resposta-conteudo">
             <p>
-              Os canais, horários de atendimento e prazos de resposta seguem o que foi combinado no plano contratado.
+              Os canais, horários de atendimento e prazos de resposta seguem o combinado no plano contratado.
               Quando houver suporte contínuo, ele respeita as condições descritas no serviço escolhido.
             </p>
           </div>
@@ -811,22 +1118,23 @@
       </div>
     </div>
 
-    <!-- Uso do Material -->
+    <!-- USO DO MATERIAL -->
     <h3 class="faq-categoria fade-in">
       <span class="emoji" aria-hidden="true">📄</span> Uso do Material
     </h3>
 
     <div class="faq-item fade-in">
-      <button class="faq-pergunta" type="button">
-        <span>Posso compartilhar ou revender o PDF/roteiro?</span>
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">Posso compartilhar ou revender o PDF/roteiro?</span>
         <span class="faq-icon" aria-hidden="true">+</span>
       </button>
       <div class="faq-resposta">
         <div class="faq-resposta-inner">
           <div class="faq-resposta-conteudo">
             <p>
-              O material é de uso pessoal do cliente e do grupo da viagem. Ele não pode ser revendido,
-              distribuído publicamente, reproduzido como produto ou reutilizado comercialmente.
+              O material é de uso pessoal do cliente e do grupo da viagem.
+              Ele não pode ser revendido, distribuído publicamente, reproduzido como produto
+              ou reutilizado comercialmente.
             </p>
           </div>
         </div>
@@ -834,8 +1142,8 @@
     </div>
 
     <div class="faq-item fade-in">
-      <button class="faq-pergunta" type="button">
-        <span>Vocês compartilham meus dados?</span>
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">Vocês compartilham meus dados?</span>
         <span class="faq-icon" aria-hidden="true">+</span>
       </button>
       <div class="faq-resposta">
@@ -843,16 +1151,17 @@
           <div class="faq-resposta-conteudo">
             <p>
               Não. As informações são usadas apenas para executar a consultoria e organizar sua viagem,
-              e não são compartilhadas com terceiros, exceto quando isso for necessário para cumprir
-              alguma solicitação sua.
+              e não são compartilhadas com terceiros, exceto quando isso for necessário
+              para cumprir alguma solicitação sua.
             </p>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- CTA -->
     <div class="faq-cta fade-in">
-      <p>Ainda ficou com alguma dúvida? Me chama e eu te explico direitinho antes da contratação.</p>
+      <p>Ainda ficou com alguma dúvida? Me chama no WhatsApp e eu te explico tudo direitinho antes da contratação.</p>
       <a href="https://wa.me/5549991628403" class="btn-primary" target="_blank" rel="noopener noreferrer">
         <span class="emoji" aria-hidden="true">💬</span> Falar no WhatsApp
       </a>
@@ -895,18 +1204,23 @@
   </footer>
 
   <script>
-    // FAQ Accordion
-    document.querySelectorAll(".faq-pergunta").forEach((pergunta) => {
-      pergunta.addEventListener("click", () => {
-        const item = pergunta.parentElement;
+    // Accordion
+    const faqButtons = document.querySelectorAll(".faq-pergunta");
+
+    faqButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const item = button.closest(".faq-item");
         const isActive = item.classList.contains("active");
 
         document.querySelectorAll(".faq-item").forEach((faq) => {
           faq.classList.remove("active");
+          const faqBtn = faq.querySelector(".faq-pergunta");
+          if (faqBtn) faqBtn.setAttribute("aria-expanded", "false");
         });
 
         if (!isActive) {
           item.classList.add("active");
+          button.setAttribute("aria-expanded", "true");
         }
       });
     });
