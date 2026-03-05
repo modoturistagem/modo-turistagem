@@ -24,6 +24,11 @@
       align-items:center;
     }
 
+    @keyframes float{
+      0%,100%{ transform:translateY(0); }
+      50%{ transform:translateY(14px); }
+    }
+
     .hero::before{
       content:'✈️';
       position:absolute;
@@ -34,8 +39,10 @@
       animation:float 6s ease-in-out infinite;
       font-family:var(--font-emoji,"Apple Color Emoji","Segoe UI Emoji",sans-serif);
       line-height:1;
+      pointer-events:none;
     }
 
+    /* PC: polaroid na lateral */
     .hero-container{
       max-width:1200px;
       margin:0 auto;
@@ -156,6 +163,7 @@
       border-radius:6px;
       transform:rotate(8deg);
       box-shadow:0 2px 6px rgba(0,0,0,0.06);
+      pointer-events:none;
     }
 
     /* Manifesto */
@@ -500,6 +508,7 @@
       margin:0 auto;
     }
 
+    /* Card com foto no fundo (baixa opacidade) */
     .roteiro-card{
       flex:0 1 320px;
       padding:2.25rem;
@@ -510,17 +519,71 @@
       box-shadow:0 10px 30px rgba(0,51,153,0.06);
       position:relative;
       overflow:hidden;
-      background-color:var(--branco);
+      background:linear-gradient(135deg,var(--azul-claro),var(--branco));
+    }
+
+    .roteiro-card::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      opacity:.12;                 /* <<< opacidade baixa da foto */
+      transform:scale(1.05);
+      z-index:0;
+      pointer-events:none;
+    }
+
+    .roteiro-card::after{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:linear-gradient(
+        135deg,
+        rgba(234,242,255,0.90),
+        rgba(255,255,255,0.94)
+      );
+      z-index:1;
+      pointer-events:none;
+    }
+
+    .roteiro-card > *{
+      position:relative;
+      z-index:2;
+    }
+
+    /* Imagens por card (com fallback de extensões) */
+    .roteiro-card.roteiro-santiago::before{
       background-image:
-        linear-gradient(
-          135deg,
-          rgba(234,242,255,0.88),
-          rgba(255,255,255,0.92)
-        ),
-        var(--roteiro-bg);
-      background-size:cover, cover;
-      background-position:center, center;
-      background-repeat:no-repeat, no-repeat;
+        url('images/roteiros-prontos/santiago.jpg'),
+        url('images/roteiros-prontos/santiago.JPG'),
+        url('images/roteiros-prontos/santiago.jpeg'),
+        url('images/roteiros-prontos/santiago.png');
+    }
+
+    .roteiro-card.roteiro-cruzeiro::before{
+      background-image:
+        url('images/roteiros-prontos/cruzeiro.jpg'),
+        url('images/roteiros-prontos/cruzeiro.JPG'),
+        url('images/roteiros-prontos/cruzeiro.jpeg'),
+        url('images/roteiros-prontos/cruzeiro.png');
+    }
+
+    .roteiro-card.roteiro-disney::before{
+      background-image:
+        url('images/roteiros-prontos/disney.jpg'),
+        url('images/roteiros-prontos/disney.JPG'),
+        url('images/roteiros-prontos/disney.jpeg'),
+        url('images/roteiros-prontos/disney.png');
+    }
+
+    .roteiro-card.roteiro-japao::before{
+      background-image:
+        url('images/roteiros-prontos/japao.jpg'),
+        url('images/roteiros-prontos/japao.JPG'),
+        url('images/roteiros-prontos/japao.jpeg'),
+        url('images/roteiros-prontos/japao.png');
     }
 
     .roteiro-card:hover{
@@ -670,6 +733,7 @@
       border-radius:20px 20px 0 0;
       text-align:center;
       flex-shrink:0;
+      position:relative;
     }
 
     .modal-header h3{
@@ -803,7 +867,7 @@
       position:absolute;
       top:14px;
       right:14px;
-      z-index:20;
+      z-index:30;
       background:rgba(255,255,255,0.18);
       border:2px solid rgba(255,255,255,0.35);
       width:44px;
@@ -839,6 +903,7 @@
 
     /* RESPONSIVO */
     @media (max-width:768px){
+      /* MOBILE: polaroid embaixo (vira 1 coluna) */
       .hero-container{
         grid-template-columns:1fr;
         gap:2rem;
@@ -863,11 +928,6 @@
 
       .hero-visual{
         justify-content:center;
-        margin-top:0;
-      }
-
-      .hero-polaroid-box{
-        justify-content:center;
       }
 
       .polaroid-frame{
@@ -886,6 +946,7 @@
       .roteiro-card{ flex:0 1 320px; }
       .quiz-preco-value{ font-size:1.65rem; }
 
+      /* Modal no mobile + close sempre visível */
       .modal{
         align-items:flex-start;
         padding:.75rem;
@@ -1376,7 +1437,7 @@
 
       <!-- Cards dos roteiros -->
       <div class="roteiros-grid">
-        <div class="roteiro-card" style="--roteiro-bg: url('images/roteiros-prontos/santiago.jpg');">
+        <div class="roteiro-card roteiro-santiago">
           <h4>🏔️ Andes na Janela: 5 Dias em Santiago (Inverno)</h4>
           <div class="preco">R$ 49,90</div>
 
@@ -1400,7 +1461,7 @@
           </p>
         </div>
 
-        <div class="roteiro-card" style="--roteiro-bg: url('images/roteiros-prontos/cruzeiro.jpg');">
+        <div class="roteiro-card roteiro-cruzeiro">
           <h4>🚢 Rota do Prata: 7 dias em Cruzeiro Argentina + Uruguai</h4>
           <div class="preco">R$ 49,90</div>
 
@@ -1424,7 +1485,7 @@
           </p>
         </div>
 
-        <div class="roteiro-card" style="--roteiro-bg: url('images/roteiros-prontos/disney.jpg');">
+        <div class="roteiro-card roteiro-disney">
           <h4>✨ Orlando Mágico: 15 Dias de Parques & Compras</h4>
           <div class="preco">R$ 79,90</div>
 
@@ -1448,7 +1509,7 @@
           </p>
         </div>
 
-        <div class="roteiro-card" style="--roteiro-bg: url('images/roteiros-prontos/japao.jpg');">
+        <div class="roteiro-card roteiro-japao">
           <h4>⛩️ Do Templo ao Izakaya: Japão em 20 Dias</h4>
           <div class="preco">R$ 99,90</div>
 
@@ -1970,5 +2031,6 @@
   </script>
 </body>
 </html>
+
 
 
