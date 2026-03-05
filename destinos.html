@@ -10,6 +10,7 @@
     /* =========
        Ajustes específicos da página Destinos Testados
        ========= */
+
     .emoji, .bandeira-emoji{
       font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif !important;
       font-weight:400 !important;
@@ -134,11 +135,7 @@
     }
 
     /* =========================================================
-       DEPOIMENTOS — CARROSSEL ANIMADO SEM “EMENDA”
-       - animação via JS (Web Animations API) medindo a largura real
-       - pausa no hover (desktop) + pausa ao encostar (mobile)
-       - arrasta com o dedo (mobile) movendo o carrossel
-       - solta = continua a animação de onde parou
+       DEPOIMENTOS — CARROSSEL SEM EMENDA + DRAG MOBILE
        ========================================================= */
     .depoimentos{
       padding:4rem 2rem 0;
@@ -170,22 +167,25 @@
       backface-visibility:hidden;
     }
 
+    /* gap entre cards */
     .testi-group{
       display:flex;
       gap:2rem;
       flex-shrink:0;
-      padding-right:2rem; /* garante respiro visual e evita “grudar” */
+      padding-right:2rem; /* gap entre fim e começo do loop */
     }
 
     .testi-card{
       width:clamp(320px, 32vw, 380px);
       border-radius:26px;
       overflow:hidden;
-      background:var(--branco);
       box-shadow:0 10px 40px rgba(0,0,0,0.15);
       flex:0 0 auto;
       display:flex;
       flex-direction:column;
+
+      /* IMPORTANT: elimina qualquer “branco” se sobrar espaço */
+      background:var(--card-bg, var(--laranja));
     }
 
     .testi-media{
@@ -206,12 +206,15 @@
       padding:1.25rem 1.35rem 1.35rem;
       color:var(--branco);
       background:var(--card-bg, var(--laranja));
-      min-height:210px;
       display:flex;
       flex-direction:column;
       justify-content:flex-start;
       gap:0.8rem;
+
+      /* IMPORTANT: preenche o restante do card */
+      flex:1;
     }
+
     .testi--orange{ --card-bg: var(--laranja); }
     .testi--blue{ --card-bg: var(--azul); }
 
@@ -261,7 +264,6 @@
     @media (max-width: 900px){
       .testi-card{ width:84vw; }
       .testi-media{ height:250px; }
-      .testi-body{ min-height:0; }
     }
 
     /* ===== CTA ===== */
@@ -481,7 +483,8 @@
       <div class="testi-carousel fade-in" id="testiCarousel" aria-label="Carrossel de depoimentos">
         <div class="testi-viewport">
           <div class="testi-track" id="testiTrack">
-            <!-- Grupo A (base) -->
+
+            <!-- Grupo A -->
             <div class="testi-group" id="testiGroupA">
               <article class="testi-card testi--orange">
                 <div class="testi-media" style="--img-pos: center 35%;">
@@ -500,7 +503,8 @@
                 </div>
               </article>
 
-              <article class="testi-card testi--blue">
+              <!-- EXEMPLO 02 — AGORA LARANJA (como você pediu) -->
+              <article class="testi-card testi--orange">
                 <div class="testi-media" style="--img-pos: center 30%;">
                   <img src="images/depoimentos/exemplo 02.JPG" alt="Ana Luiza em Curitiba, Brasil" loading="eager" decoding="async" />
                 </div>
@@ -535,7 +539,7 @@
               </article>
             </div>
 
-            <!-- Grupo B (clone para loop perfeito) -->
+            <!-- Grupo B (clone automático via JS) -->
             <div class="testi-group" id="testiGroupB" aria-hidden="true"></div>
           </div>
         </div>
@@ -790,14 +794,15 @@
       { nome: 'Vaticano', bandeira: '🇻🇦' },
       { nome: 'Japão', bandeira: '🇯🇵' }
     ];
-    const track = document.getElementById('bandeirasTrack');
+
+    const bandeirasTrack = document.getElementById('bandeirasTrack');
     const conteudo = paises.map(p => `
       <div class="bandeira-item">
         <span class="bandeira-emoji">${p.bandeira}</span>
         <span>${p.nome}</span>
       </div>
     `).join('');
-    track.innerHTML = conteudo + conteudo;
+    bandeirasTrack.innerHTML = conteudo + conteudo;
 
     // =========
     // Contadores animados + simulação do ∞
@@ -863,6 +868,7 @@
           el.textContent = isInfinity ? "∞" : `${count}${suffix}`;
           return;
         }
+
         if (isInfinity) simulateInfinity(el);
         else animateCount(el, count, suffix, 1200);
       });
@@ -887,16 +893,12 @@
       const groupB = document.getElementById('testiGroupB');
       if (!carousel || !track || !groupA || !groupB) return;
 
-      // Clone exato do grupo A para evitar “grudar”/buraco
+      // clone exato
       groupB.innerHTML = groupA.innerHTML;
 
-      // Espera imagens carregarem (evita medidas erradas e emenda feia)
       const imgs = track.querySelectorAll('img');
       let loaded = 0;
-      const done = () => {
-        loaded++;
-        if (loaded >= imgs.length) startAnim();
-      };
+      const done = () => { loaded++; if (loaded >= imgs.length) start(); };
       imgs.forEach(img => {
         if (img.complete) done();
         else {
@@ -905,88 +907,109 @@
         }
       });
 
-      let anim = null;
+      let x = 0;
       let loopWidth = 0;
+      let lastT = 0;
+      let speed = 0; // px/s
+      let paused = false;
 
-      // drag
-      let isDragging = false;
+      let touching = false;
+      let dragActive = false;
       let startX = 0;
-      let startTime = 0;
+      let startY = 0;
+      let startPos = 0;
 
-      function startAnim(){
-        // largura real do loop = largura do grupo A
+      function normalizePos(){
+        if (!loopWidth) return;
+        // mantem x entre [-loopWidth, 0)
+        x = x % loopWidth;
+        if (x > 0) x -= loopWidth;
+      }
+
+      function apply(){
+        track.style.transform = `translate3d(${x}px,0,0)`;
+      }
+
+      function raf(t){
+        if (!lastT) lastT = t;
+        const dt = (t - lastT) / 1000;
+        lastT = t;
+
+        if (!paused && !touching && loopWidth && !prefersReduced){
+          x -= speed * dt;
+          if (x <= -loopWidth) x += loopWidth;
+          apply();
+        }
+        requestAnimationFrame(raf);
+      }
+
+      function measure(){
         loopWidth = groupA.getBoundingClientRect().width;
-
-        // se não conseguiu medir, não anima
-        if (!loopWidth || prefersReduced) return;
-
-        // reinicia
-        if (anim) anim.cancel();
-
-        // animação infinita, sem depender de -50% (resolve emenda)
-        anim = track.animate(
-          [
-            { transform: 'translate3d(0,0,0)' },
-            { transform: `translate3d(${-loopWidth}px,0,0)` }
-          ],
-          { duration: 30000, iterations: Infinity, easing: 'linear' }
-        );
-
-        // pausa no hover (desktop)
-        carousel.addEventListener('mouseenter', () => anim.pause());
-        carousel.addEventListener('mouseleave', () => { if (!isDragging) anim.play(); });
-
-        // pausa ao encostar (mobile) + permite arrastar
-        carousel.addEventListener('touchstart', onTouchStart, { passive: true });
-        carousel.addEventListener('touchmove', onTouchMove, { passive: true });
-        carousel.addEventListener('touchend', onTouchEnd);
-        carousel.addEventListener('touchcancel', onTouchEnd);
+        // velocidade baseada na largura (30s por loop)
+        speed = loopWidth ? (loopWidth / 30) : 40;
+        normalizePos();
+        apply();
       }
 
-      function clampTime(t){
-        // mantém o currentTime sempre dentro de [0, duration)
-        const d = anim.effect.getTiming().duration;
-        t = t % d;
-        if (t < 0) t += d;
-        return t;
+      function start(){
+        measure();
+        requestAnimationFrame(raf);
       }
 
-      function onTouchStart(e){
-        if (!anim) return;
-        isDragging = true;
-        anim.pause();
+      // pause on hover (desktop)
+      carousel.addEventListener('mouseenter', () => { paused = true; });
+      carousel.addEventListener('mouseleave', () => { paused = false; });
 
+      // touch: pause on touchstart, resume on touchend
+      carousel.addEventListener('touchstart', (e) => {
+        touching = true;
+        dragActive = false;
         startX = e.touches[0].clientX;
-        startTime = anim.currentTime || 0;
-      }
+        startY = e.touches[0].clientY;
+        startPos = x;
+      }, { passive: true });
 
-      function onTouchMove(e){
-        if (!anim || !isDragging) return;
+      // IMPORTANT: passive false para permitir preventDefault durante drag
+      carousel.addEventListener('touchmove', (e) => {
+        if (!touching || prefersReduced) return;
 
-        const x = e.touches[0].clientX;
-        const dx = x - startX;
+        const cx = e.touches[0].clientX;
+        const cy = e.touches[0].clientY;
+        const dx = cx - startX;
+        const dy = cy - startY;
 
-        // converte pixels em tempo (proporção: loopWidth -> duration)
-        const duration = anim.effect.getTiming().duration;
-        const dt = (-dx / loopWidth) * duration;
+        // só ativa drag se for horizontal mesmo
+        if (!dragActive){
+          if (Math.abs(dx) > Math.abs(dy) + 6){
+            dragActive = true;
+          } else {
+            return;
+          }
+        }
 
-        anim.currentTime = clampTime(startTime + dt);
-      }
+        // evita scroll lateral / “puxar página”
+        e.preventDefault();
 
-      function onTouchEnd(){
-        if (!anim) return;
-        isDragging = false;
-        anim.play();
-      }
+        x = startPos + dx;
+        normalizePos();
+        apply();
+      }, { passive: false });
 
-      // recalcula em resize (evita emenda em mudança de orientação)
+      carousel.addEventListener('touchend', () => {
+        touching = false;
+        dragActive = false;
+      });
+
+      carousel.addEventListener('touchcancel', () => {
+        touching = false;
+        dragActive = false;
+      });
+
       window.addEventListener('resize', () => {
-        if (!anim) return;
-        startAnim();
+        if (prefersReduced) return;
+        measure();
       });
     })();
   </script>
 </body>
 </html>
-
-
