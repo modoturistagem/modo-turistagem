@@ -508,7 +508,6 @@
       margin:0 auto;
     }
 
-    /* Card com foto no fundo (baixa opacidade) */
     .roteiro-card{
       flex:0 1 320px;
       padding:2.25rem;
@@ -520,8 +519,10 @@
       position:relative;
       overflow:hidden;
       background:linear-gradient(135deg,var(--azul-claro),var(--branco));
+      isolation:isolate;
     }
 
+    /* foto no fundo */
     .roteiro-card::before{
       content:'';
       position:absolute;
@@ -529,12 +530,13 @@
       background-size:cover;
       background-position:center;
       background-repeat:no-repeat;
-      opacity:.12;                 /* <<< opacidade baixa da foto */
-      transform:scale(1.05);
+      opacity:.12;              /* opacidade baixa */
+      transform:scale(1.06);
       z-index:0;
       pointer-events:none;
     }
 
+    /* camada clara por cima da foto */
     .roteiro-card::after{
       content:'';
       position:absolute;
@@ -553,7 +555,7 @@
       z-index:2;
     }
 
-    /* Imagens por card (com fallback de extensões) */
+    /* imagens por card (fallback de extensões) */
     .roteiro-card.roteiro-santiago::before{
       background-image:
         url('images/roteiros-prontos/santiago.jpg'),
@@ -561,7 +563,6 @@
         url('images/roteiros-prontos/santiago.jpeg'),
         url('images/roteiros-prontos/santiago.png');
     }
-
     .roteiro-card.roteiro-cruzeiro::before{
       background-image:
         url('images/roteiros-prontos/cruzeiro.jpg'),
@@ -569,7 +570,6 @@
         url('images/roteiros-prontos/cruzeiro.jpeg'),
         url('images/roteiros-prontos/cruzeiro.png');
     }
-
     .roteiro-card.roteiro-disney::before{
       background-image:
         url('images/roteiros-prontos/disney.jpg'),
@@ -577,7 +577,6 @@
         url('images/roteiros-prontos/disney.jpeg'),
         url('images/roteiros-prontos/disney.png');
     }
-
     .roteiro-card.roteiro-japao::before{
       background-image:
         url('images/roteiros-prontos/japao.jpg'),
@@ -623,7 +622,6 @@
       justify-content:center;
       gap:.9rem;
     }
-
     .inclusos-grid > div{ flex:0 1 280px; }
 
     /* Botões dos roteiros */
@@ -650,7 +648,6 @@
       cursor:pointer;
       white-space:nowrap;
     }
-
     .btn-roteiro:hover{ transform:translateY(-2px); }
 
     .btn-ico{
@@ -665,7 +662,6 @@
       color:var(--branco);
       box-shadow:0 4px 15px rgba(255,102,0,0.25);
     }
-
     .btn-mp:hover{
       background:#e55a00;
       box-shadow:0 8px 25px rgba(255,102,0,0.35);
@@ -676,7 +672,6 @@
       color:var(--azul);
       border-color:var(--azul);
     }
-
     .btn-pix:hover{
       background:var(--azul);
       color:var(--branco);
@@ -691,7 +686,6 @@
       opacity:.95;
       line-height:1.3;
     }
-
     .pagamento-sub.mp{ color:var(--laranja); }
     .pagamento-sub.pix{ color:var(--azul); }
 
@@ -713,12 +707,12 @@
       max-width:600px;
       width:100%;
       max-height:calc(100dvh - 2rem);
-      position:relative;
-      animation:modalSlide .3s;
       display:flex;
       flex-direction:column;
       overflow:hidden;
       box-shadow:0 20px 60px rgba(0,0,0,0.22);
+      position:relative;
+      animation:modalSlide .3s;
     }
 
     @keyframes modalSlide{
@@ -726,6 +720,7 @@
       to{ transform:translateY(0); opacity:1; }
     }
 
+    /* Header sticky + X dentro do header (sempre aparece) */
     .modal-header{
       background:linear-gradient(135deg,var(--azul),#0044cc);
       color:var(--branco);
@@ -733,7 +728,9 @@
       border-radius:20px 20px 0 0;
       text-align:center;
       flex-shrink:0;
-      position:relative;
+      position:sticky;
+      top:0;
+      z-index:10;
     }
 
     .modal-header h3{
@@ -745,9 +742,41 @@
       justify-content:center;
       gap:.5rem;
     }
+    .modal-header p{ font-family:'Neulis Sans',sans-serif !important; }
 
-    .modal-header p{
-      font-family:'Neulis Sans',sans-serif !important;
+    .close-modal{
+      position:absolute;
+      top:calc(12px + env(safe-area-inset-top));
+      right:12px;
+      z-index:20;
+
+      width:44px;
+      height:44px;
+      border-radius:999px;
+
+      display:flex !important;
+      align-items:center;
+      justify-content:center;
+
+      background:rgba(255,255,255,0.18);
+      border:2px solid rgba(255,255,255,0.35);
+      color:#fff !important;
+      font-size:28px;
+      line-height:1;
+
+      cursor:pointer;
+      -webkit-tap-highlight-color:transparent;
+      touch-action:manipulation;
+    }
+
+    .close-modal:hover{
+      background:rgba(255,255,255,0.28);
+      transform:none;
+    }
+
+    .close-modal:focus-visible{
+      outline:2px solid #fff;
+      outline-offset:2px;
     }
 
     .modal-body{
@@ -863,37 +892,6 @@
       line-height:1.35;
     }
 
-    .close-modal{
-      position:absolute;
-      top:14px;
-      right:14px;
-      z-index:30;
-      background:rgba(255,255,255,0.18);
-      border:2px solid rgba(255,255,255,0.35);
-      width:44px;
-      height:44px;
-      border-radius:999px;
-      color:#fff;
-      font-size:28px;
-      line-height:1;
-      cursor:pointer;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      -webkit-tap-highlight-color:transparent;
-      touch-action:manipulation;
-    }
-
-    .close-modal:hover{
-      background:rgba(255,255,255,0.28);
-      transform:none;
-    }
-
-    .close-modal:focus-visible{
-      outline:2px solid #fff;
-      outline-offset:2px;
-    }
-
     /* Footer icons */
     .social-icon-img{
       height:24px;
@@ -903,7 +901,7 @@
 
     /* RESPONSIVO */
     @media (max-width:768px){
-      /* MOBILE: polaroid embaixo (vira 1 coluna) */
+      /* MOBILE: polaroid embaixo */
       .hero-container{
         grid-template-columns:1fr;
         gap:2rem;
@@ -946,7 +944,7 @@
       .roteiro-card{ flex:0 1 320px; }
       .quiz-preco-value{ font-size:1.65rem; }
 
-      /* Modal no mobile + close sempre visível */
+      /* Modal no mobile */
       .modal{
         align-items:flex-start;
         padding:.75rem;
@@ -971,7 +969,7 @@
       }
 
       .close-modal{
-        top:10px;
+        top:calc(10px + env(safe-area-inset-top));
         right:10px;
         width:44px;
         height:44px;
@@ -1304,15 +1302,10 @@
 
       <div class="regras-grid">
         <div class="regra-card">
-          <h4>
-            <span class="emoji" aria-hidden="true">👥</span>
-            Grupo Padrão
-          </h4>
-
+          <h4><span class="emoji" aria-hidden="true">👥</span> Grupo Padrão</h4>
           <p>Até <strong>4 adultos</strong> OU <strong>2 adultos + 3 crianças</strong></p>
           <br />
           <p>Acréscimo por pessoas extras:</p>
-
           <ul>
             <li>5–6 pessoas: <span class="tag">+20%</span></li>
             <li>7–8 pessoas: <span class="tag">+30%</span></li>
@@ -1322,22 +1315,16 @@
         </div>
 
         <div class="regra-card">
-          <h4>
-            <span class="emoji" aria-hidden="true">🏙️</span>
-            Cidades Inclusas
-          </h4>
-
+          <h4><span class="emoji" aria-hidden="true">🏙️</span> Cidades Inclusas</h4>
           <p>Valores cobrem até <strong>2 cidades-base</strong> (com pernoite)</p>
           <br />
           <p>Acréscimo por cidades extras:</p>
-
           <ul>
             <li>3–4 cidades: <span class="tag">+15%</span></li>
             <li>5–6 cidades: <span class="tag">+25%</span></li>
             <li>7–8 cidades: <span class="tag">+40%</span></li>
             <li>9+: consulte orçamento</li>
           </ul>
-
           <p style="margin-top: 1rem; font-size: 0.95rem; font-family: 'Neulis Sans', sans-serif !important;">
             <span class="emoji emoji-inline" aria-hidden="true">✅</span>
             Bate-volta não conta como cidade-base
@@ -1345,18 +1332,12 @@
         </div>
 
         <div class="regra-card">
-          <h4>
-            <span class="emoji" aria-hidden="true">🛬</span>
-            Modo Conexão
-          </h4>
-
+          <h4><span class="emoji" aria-hidden="true">🛬</span> Modo Conexão</h4>
           <p>Para layovers e conexões inteligentes:</p>
-
           <ul style="margin-top: 1rem;">
             <li><strong>Aeroporto:</strong> R$ 59,90</li>
             <li><strong>Turismo na cidade:</strong> R$ 89,90</li>
           </ul>
-
           <p style="margin-top: 1rem; font-size: 0.95rem; font-family: 'Neulis Sans', sans-serif !important;">
             <span class="emoji emoji-inline" aria-hidden="true">✈️</span>
             <strong>Incluso nos planos Embarque e VIP!</strong><br />
@@ -1450,7 +1431,7 @@
 
             <a href="https://wa.me/5549991628403?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%205%20dias%20%E2%80%94%20Santiago%20(Inverno)%20via%20Pix.%20%F0%9F%98%8A%20Pode%20me%20enviar%20a%20chave%20e%20o%20valor%3F"
                target="_blank" rel="noopener noreferrer" class="btn-roteiro btn-pix">
-              <img src="images/icons/whatsapp-logo.png" alt="WhatsApp" class="btn-ico" />
+              <img src="images/icons/whatsapp.png" alt="WhatsApp" class="btn-ico" />
               Comprar via Pix
             </a>
             <div class="pagamento-sub pix">Pix via WhatsApp</div>
@@ -1474,7 +1455,7 @@
 
             <a href="https://wa.me/5549991628403?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%20Rota%20do%20Prata%20%E2%80%94%207%20dias%20(Cruzeiro%20Argentina%20%2B%20Uruguai)%20via%20Pix.%20%F0%9F%98%8A%20Pode%20me%20enviar%20a%20chave%20e%20o%20valor%3F"
                target="_blank" rel="noopener noreferrer" class="btn-roteiro btn-pix">
-              <img src="images/icons/whatsapp-logo.png" alt="WhatsApp" class="btn-ico" />
+              <img src="images/icons/whatsapp.png" alt="WhatsApp" class="btn-ico" />
               Comprar via Pix
             </a>
             <div class="pagamento-sub pix">Pix via WhatsApp</div>
@@ -1498,7 +1479,7 @@
 
             <a href="https://wa.me/5549991628403?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%20Orlando%20M%C3%A1gico%20%E2%80%94%2015%20dias%20de%20Parques%20%26%20Compras%20via%20Pix.%20%F0%9F%98%8A%20Pode%20me%20enviar%20a%20chave%20e%20o%20valor%3F"
                target="_blank" rel="noopener noreferrer" class="btn-roteiro btn-pix">
-              <img src="images/icons/whatsapp-logo.png" alt="WhatsApp" class="btn-ico" />
+              <img src="images/icons/whatsapp.png" alt="WhatsApp" class="btn-ico" />
               Comprar via Pix
             </a>
             <div class="pagamento-sub pix">Pix via WhatsApp</div>
@@ -1522,7 +1503,7 @@
 
             <a href="https://wa.me/5549991628403?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%20Do%20Templo%20ao%20Izakaya%20%E2%80%94%20Jap%C3%A3o%20em%2020%20dias%20via%20Pix.%20%F0%9F%98%8A%20Pode%20me%20enviar%20a%20chave%20e%20o%20valor%3F"
                target="_blank" rel="noopener noreferrer" class="btn-roteiro btn-pix">
-              <img src="images/icons/whatsapp-logo.png" alt="WhatsApp" class="btn-ico" />
+              <img src="images/icons/whatsapp.png" alt="WhatsApp" class="btn-ico" />
               Comprar via Pix
             </a>
             <div class="pagamento-sub pix">Pix via WhatsApp</div>
@@ -1573,9 +1554,9 @@
   <!-- Modal (Quiz) -->
   <div class="modal" id="helpModal" role="dialog" aria-modal="true" aria-labelledby="quizTitle">
     <div class="modal-content">
-      <button class="close-modal" onclick="closeModal()" aria-label="Fechar modal">×</button>
-
       <div class="modal-header">
+        <button class="close-modal" onclick="closeModal()" aria-label="Fechar modal">×</button>
+
         <h3 id="quizTitle">
           <span class="emoji" aria-hidden="true">🎯</span>
           Descubra Seu Plano Ideal
@@ -1815,6 +1796,7 @@
       const vipForte = q4 === 'q4a' || q5 === 'q5d';
       const embarqueTemSinal = (q4 === 'q4c' || q5 === 'q5b' || q5 === 'q5c' || q3 === 'q3a');
 
+      // Q2
       if (q2 === 'q2a' || q2 === 'q2b' || q2 === 'q2c') {
         scores.checkin += 2;
         scores.embarque += 2;
@@ -1826,28 +1808,33 @@
         scores.vip += 1;
       }
 
+      // Q3
       if (q3 === 'q3a') { scores.embarque += 3; scores.vip += 1; }
       if (q3 === 'q3b') { scores.partiu += 1;  scores.checkin += 2; }
 
+      // Q4
       if (q4 === 'q4a') { scores.vip += 6; }
       if (q4 === 'q4b') { scores.partiu += 2; scores.checkin += 2; }
       if (q4 === 'q4c') { scores.embarque += 5; scores.vip += 1; }
 
+      // Q5
       if (q5 === 'q5a') { scores.partiu += 2; scores.checkin += 2; }
       if (q5 === 'q5b') { scores.embarque += 4; scores.vip += 1; }
       if (q5 === 'q5c') { scores.embarque += 4; scores.vip += 1; }
       if (q5 === 'q5d') { scores.vip += 6; }
 
+      // Q6
       if (q6 === 'q6a') { scores.partiu += 3; }
       if (q6 === 'q6b') { scores.checkin += 3; scores.embarque += 1; }
 
+      // Candidatos
       const candidatos = ['checkin', 'embarque', 'vip'];
       if (partiuElegivel) candidatos.push('partiu');
 
+      // Embarque x VIP
       if (!vipForte && scores.vip > scores.embarque && (scores.vip - scores.embarque <= 1)) {
         scores.embarque = scores.vip;
       }
-
       if (vipForte && scores.embarque > scores.vip && (scores.embarque - scores.vip <= 1)) {
         scores.vip = scores.embarque;
       }
@@ -1856,9 +1843,7 @@
       let empatados = candidatos.filter(p => scores[p] === maior);
 
       if (vipForte && empatados.includes('vip')) return 'vip';
-      if (empatados.includes('embarque') && empatados.includes('vip')) {
-        empatados = empatados.filter(p => p !== 'vip');
-      }
+      if (empatados.includes('embarque') && empatados.includes('vip')) empatados = empatados.filter(p => p !== 'vip');
 
       if (empatados.includes('partiu') && empatados.includes('checkin')) {
         if (q6 === 'q6a' && partiuElegivel) return 'partiu';
@@ -1988,7 +1973,6 @@
     (function () {
       const imgEl = document.getElementById('heroPolaroidImg');
       const captionEl = document.getElementById('heroPolaroidCaption');
-
       if (!imgEl || !captionEl) return;
 
       const destinos = [
@@ -2012,7 +1996,6 @@
 
       function trocarDestino() {
         imgEl.classList.add('is-fading');
-
         setTimeout(() => {
           index = (index + 1) % destinos.length;
           imgEl.src = destinos[index].src;
@@ -2031,7 +2014,5 @@
   </script>
 </body>
 </html>
-
-
 
 
