@@ -11,11 +11,27 @@
        Ajustes específicos da página Destinos Testados
        ========= */
 
-    .emoji, .bandeira-emoji{
+    .emoji,
+    .bandeira-emoji{
       font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif !important;
       font-weight:400 !important;
       font-style:normal !important;
       line-height:1;
+    }
+
+    /* ===== TIPOGRAFIA / JUSTIFICADO ===== */
+    .destinos-hero p,
+    .destinos-note p,
+    .section-header p,
+    .stat-hint,
+    .testi-text,
+    .cta-box p,
+    .cta-extra p,
+    .destino-desc,
+    .footer-text,
+    .footer-bottom p{
+      text-align:justify;
+      text-justify:inter-word;
     }
 
     /* ===== HERO ===== */
@@ -38,7 +54,10 @@
       transform:rotate(12deg);
       pointer-events:none;
     }
-    .destinos-hero h1{ font-size:3rem; margin-bottom:0.9rem; }
+    .destinos-hero h1{
+      font-size:3rem;
+      margin-bottom:0.9rem;
+    }
     .destinos-hero p{
       font-size:1.15rem;
       opacity:0.92;
@@ -61,7 +80,6 @@
       color:var(--azul);
       font-weight:800;
       font-size:1rem;
-      text-align:center;
     }
 
     /* ===== MARQUEE BANDEIRAS ===== */
@@ -91,7 +109,9 @@
       color:var(--azul);
       white-space:nowrap;
     }
-    .bandeira-emoji{ font-size:1.6rem; }
+    .bandeira-emoji{
+      font-size:1.6rem;
+    }
     @media (prefers-reduced-motion: reduce){
       .bandeiras-track{ animation:none; }
     }
@@ -150,7 +170,7 @@
       margin-top:1.8rem;
       overflow:hidden;
       position:relative;
-      touch-action: pan-y;
+      touch-action:pan-y;
       user-select:none;
     }
 
@@ -242,7 +262,6 @@
       font-weight:900;
     }
 
-    /* depoimento SEM negrito + cabendo na caixa */
     .testi-text{
       margin:0;
       font-size:0.96rem;
@@ -306,12 +325,54 @@
     }
     .cta-box p{
       font-size:1.1rem;
-      margin-bottom:1.8rem;
+      margin-bottom:1.2rem;
       opacity:0.92;
       max-width:760px;
       margin-left:auto;
       margin-right:auto;
       color:var(--azul);
+    }
+    .cta-buttons{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:1rem;
+      flex-wrap:wrap;
+      margin-top:1.6rem;
+    }
+    .cta-extra{
+      max-width:760px;
+      margin:1.5rem auto 0;
+      padding-top:1.3rem;
+      border-top:1px solid rgba(0,0,0,0.08);
+      position:relative;
+      z-index:1;
+    }
+    .cta-extra p{
+      margin-bottom:1rem;
+      font-size:1rem;
+      color:var(--azul);
+      opacity:0.9;
+    }
+    .btn-secondary-cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:0.95rem 1.5rem;
+      border-radius:999px;
+      border:2px solid var(--azul);
+      color:var(--azul);
+      background:transparent;
+      font-weight:800;
+      text-decoration:none;
+      transition:all 0.25s ease;
+      position:relative;
+      z-index:1;
+    }
+    .btn-secondary-cta:hover{
+      background:var(--azul);
+      color:var(--branco);
+      transform:translateY(-2px);
     }
 
     /* ===== GALERIA ===== */
@@ -349,7 +410,9 @@
       transition:transform 0.5s ease;
       filter:saturate(1.05) contrast(1.02);
     }
-    .destino-card:hover .destino-img{ transform:scale(1.09); }
+    .destino-card:hover .destino-img{
+      transform:scale(1.09);
+    }
     .destino-overlay{
       position:absolute;
       inset:auto 0 0 0;
@@ -383,7 +446,9 @@
       text-decoration-thickness:2px;
       cursor:pointer;
     }
-    .destino-card:hover .destino-link{ gap:0.85rem; }
+    .destino-card:hover .destino-link{
+      gap:0.85rem;
+    }
 
     @media (max-width: 768px){
       .destinos-hero h1{ font-size:2.15rem; }
@@ -391,6 +456,12 @@
       .galeria-grid{ grid-template-columns:1fr; }
       .destino-overlay{ padding:1.6rem; }
       .destino-local{ font-size:1.25rem; }
+      .cta-box{ padding:2.2rem 1.3rem; }
+      .cta-box h2{ font-size:1.75rem; }
+      .cta-buttons{
+        flex-direction:column;
+        gap:0.85rem;
+      }
     }
   </style>
 </head>
@@ -476,7 +547,7 @@
 
             <!-- Grupo A -->
             <div class="testi-group" id="testiGroupA">
-              <!-- NOVO EXEMPLO 01 -->
+              <!-- EXEMPLO 01 -->
               <article class="testi-card testi--orange">
                 <div class="testi-media" style="--img-pos: center 32%;">
                   <img src="images/depoimentos/Nathi.jpeg" alt="Nathalia em Santiago, Chile" loading="eager" decoding="async" />
@@ -513,19 +584,18 @@
 
               <!-- EXEMPLO 03 -->
               <article class="testi-card testi--orange">
-                <div class="testi-media" style="--img-pos: center 22%;">
-                  <img src="images/depoimentos/exemplo 03.JPG" alt="Ana Luiza em Engelberg, Suíça" loading="eager" decoding="async" />
+                <div class="testi-media" style="--img-pos: center 28%;">
+                  <img src="images/depoimentos/Samara.jpeg" alt="Samara em Santiago, Chile" loading="eager" decoding="async" />
                 </div>
                 <div class="testi-body">
                   <div class="testi-top">
-                    <p class="testi-name">Ana Luiza</p>
+                    <p class="testi-name">Samara</p>
                     <p class="testi-loc">
-                      <span class="emoji" aria-hidden="true">🇨🇭</span>
-                      <span class="testi-code">CH</span>
-                      <span class="testi-city">Engelberg</span>
+                      <span class="emoji" aria-hidden="true">🇨🇱</span>
+                      <span class="testi-city">Santiago</span>
                     </p>
                   </div>
-                  <p class="testi-text">Neve me dava medo por causa de imprevistos. Ter um plano B e orientações claras de transporte e logística fez toda a diferença. Foi zero perrengue e eu aproveitei muito mais.</p>
+                  <p class="testi-text">Eu sempre tive o sonho de ver, conhecer e até comer neve. Para mim, foi uma grande realização pessoal. Nunca me imaginei estar nesse lugar. A Ana cuidou de todos os detalhes da viagem. Eu adoro não me preocupar com nada e, nesse dia, apenas vivi a experiência: desde o deslocamento, de primeira viagem, carimbar meu passaporte, comer a neve, andar de metrô, contemplar muitos momentos que jamais me imaginei vivendo. É sempre uma experiência única sentir o cuidado dela com as viagens; ela pensa nos detalhes! É sempre muito bom viajar com os cuidados dela. Me sinto segura e confortável, sabendo que tudo estará em ordem.</p>
                 </div>
               </article>
             </div>
@@ -543,9 +613,19 @@
     <div class="cta-box fade-in">
       <h2><span class="emoji" aria-hidden="true">🗺️</span> Quero seu próximo destino aqui!</h2>
       <p>Me conta onde você quer ir — eu organizo tudo pra sua viagem fluir (e você curtir de verdade).</p>
-      <a href="https://wa.me/5549991628403" class="btn-primary" target="_blank" rel="noopener noreferrer">
-        Vamos conversar
-      </a>
+
+      <div class="cta-buttons">
+        <a href="https://wa.me/5549991628403" class="btn-primary" target="_blank" rel="noopener noreferrer">
+          Vamos conversar
+        </a>
+      </div>
+
+      <div class="cta-extra">
+        <p>Já viajou com a Modo Turistagem e quer ter seu depoimento aqui? Manda pra gente.</p>
+        <a href="https://forms.gle/csQdspm91pvgnpVB8" class="btn-secondary-cta" target="_blank" rel="noopener noreferrer">
+          Enviar meu depoimento
+        </a>
+      </div>
     </div>
   </section>
 
@@ -881,6 +961,7 @@
       const imgs = track.querySelectorAll('img');
       let loaded = 0;
       const done = () => { loaded++; if (loaded >= imgs.length) start(); };
+
       imgs.forEach(img => {
         if (img.complete) done();
         else {
@@ -988,6 +1069,5 @@
   </script>
 </body>
 </html>
-
 
 
