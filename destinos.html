@@ -167,12 +167,11 @@
       backface-visibility:hidden;
     }
 
-    /* gap entre cards */
     .testi-group{
       display:flex;
       gap:2rem;
       flex-shrink:0;
-      padding-right:2rem; /* gap entre fim e começo do loop */
+      padding-right:2rem;
     }
 
     .testi-card{
@@ -183,8 +182,6 @@
       flex:0 0 auto;
       display:flex;
       flex-direction:column;
-
-      /* IMPORTANT: elimina qualquer “branco” se sobrar espaço */
       background:var(--card-bg, var(--laranja));
     }
 
@@ -210,8 +207,6 @@
       flex-direction:column;
       justify-content:flex-start;
       gap:0.8rem;
-
-      /* IMPORTANT: preenche o restante do card */
       flex:1;
     }
 
@@ -246,10 +241,12 @@
       font-size:1.28rem;
       font-weight:900;
     }
+
+    /* depoimento SEM negrito + cabendo na caixa */
     .testi-text{
       margin:0;
-      font-size:1rem;
-      font-weight:600;
+      font-size:0.96rem;
+      font-weight:400;
       line-height:1.55;
       opacity:0.98;
       white-space:normal;
@@ -257,13 +254,10 @@
       word-break:break-word;
     }
 
-    @media (prefers-reduced-motion: reduce){
-      .testi-track{ transform:translate3d(0,0,0) !important; }
-    }
-
     @media (max-width: 900px){
       .testi-card{ width:84vw; }
       .testi-media{ height:250px; }
+      .testi-text{ font-size:0.95rem; }
     }
 
     /* ===== CTA ===== */
@@ -347,10 +341,6 @@
     .destino-card:hover{
       transform:translateY(-9px);
       box-shadow:0 22px 62px rgba(0,0,0,0.22);
-    }
-    .destino-card:focus-visible{
-      box-shadow:0 0 0 4px rgba(255, 132, 0, 0.35), 0 22px 62px rgba(0,0,0,0.22);
-      transform:translateY(-6px);
     }
     .destino-img{
       width:100%;
@@ -486,24 +476,25 @@
 
             <!-- Grupo A -->
             <div class="testi-group" id="testiGroupA">
+              <!-- NOVO EXEMPLO 01 -->
               <article class="testi-card testi--orange">
-                <div class="testi-media" style="--img-pos: center 35%;">
-                  <img src="images/depoimentos/exemplo 01.jpg" alt="Ana Luiza em Tokyo, Japão" loading="eager" decoding="async" />
+                <div class="testi-media" style="--img-pos: center 32%;">
+                  <img src="images/depoimentos/nathi.jpg" alt="Nathalia em Santiago, Chile" loading="eager" decoding="async" />
                 </div>
                 <div class="testi-body">
                   <div class="testi-top">
-                    <p class="testi-name">Ana Luiza</p>
+                    <p class="testi-name">Nathalia</p>
                     <p class="testi-loc">
-                      <span class="emoji" aria-hidden="true">🇯🇵</span>
-                      <span class="testi-code">JP</span>
-                      <span class="testi-city">Tokyo</span>
+                      <span class="emoji" aria-hidden="true">🇨🇱</span>
+                      <span class="testi-code">CL</span>
+                      <span class="testi-city">Santiago</span>
                     </p>
                   </div>
-                  <p class="testi-text">“Eu estava surtando com transporte e bairros pra ficar. O roteiro veio redondinho, com mapa no Google Maps, dicas do que vale a pena e um plano B real. Economizei tempo e viajei com segurança.”</p>
+                  <p class="testi-text">Viajei para o Chile com a Ana e foi ela que programou tudo e posso dizer que a organização da viagem foi simplesmente impecável! Ela pesquisou tudo com muito cuidado, buscando as melhores opções para que a gente economizasse, mas sem deixar de aproveitar nada. Foi uma viagem super bem planejada, leve e sem preocupações. Tenho certeza de que ter uma consultora de viagem faz toda diferença. A Ana faz tudo com muita dedicação e pensando sempre na melhor experiência para quem vai viajar.</p>
                 </div>
               </article>
 
-              <!-- EXEMPLO 02 — AGORA LARANJA (como você pediu) -->
+              <!-- EXEMPLO 02 -->
               <article class="testi-card testi--orange">
                 <div class="testi-media" style="--img-pos: center 30%;">
                   <img src="images/depoimentos/exemplo 02.JPG" alt="Ana Luiza em Curitiba, Brasil" loading="eager" decoding="async" />
@@ -517,10 +508,11 @@
                       <span class="testi-city">Curitiba</span>
                     </p>
                   </div>
-                  <p class="testi-text">“Eu queria um roteiro funcional, sem perder tempo decidindo tudo na hora. Veio dia a dia bem organizado, com sugestões de restaurantes e deslocamentos fáceis. Foi a viagem mais prática que já fiz.”</p>
+                  <p class="testi-text">Eu queria um roteiro funcional, sem perder tempo decidindo tudo na hora. Veio dia a dia bem organizado, com sugestões de restaurantes e deslocamentos fáceis. Foi a viagem mais prática que já fiz.</p>
                 </div>
               </article>
 
+              <!-- EXEMPLO 03 -->
               <article class="testi-card testi--orange">
                 <div class="testi-media" style="--img-pos: center 22%;">
                   <img src="images/depoimentos/exemplo 03.JPG" alt="Ana Luiza em Engelberg, Suíça" loading="eager" decoding="async" />
@@ -534,7 +526,7 @@
                       <span class="testi-city">Engelberg</span>
                     </p>
                   </div>
-                  <p class="testi-text">“Neve me dava medo por causa de imprevistos. Ter um plano B e orientações claras de transporte e logística fez toda a diferença. Foi zero perrengue e eu aproveitei muito mais.”</p>
+                  <p class="testi-text">Neve me dava medo por causa de imprevistos. Ter um plano B e orientações claras de transporte e logística fez toda a diferença. Foi zero perrengue e eu aproveitei muito mais.</p>
                 </div>
               </article>
             </div>
@@ -749,16 +741,12 @@
   </footer>
 
   <script>
-    // =========
     // Menu mobile
-    // =========
     function toggleMenu() {
       document.getElementById('navLinks').classList.toggle('active');
     }
 
-    // =========
     // Fade-in
-    // =========
     const fadeObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -766,9 +754,7 @@
     }, { threshold: 0.12 });
     document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
 
-    // =========
     // Bandeiras (marquee)
-    // =========
     const paises = [
       { nome: 'Brasil', bandeira: '🇧🇷' },
       { nome: 'Argentina', bandeira: '🇦🇷' },
@@ -804,9 +790,7 @@
     `).join('');
     bandeirasTrack.innerHTML = conteudo + conteudo;
 
-    // =========
-    // Contadores animados + simulação do ∞
-    // =========
+    // Contadores animados + simulação do infinito
     const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const statsGrid = document.getElementById('statsGrid');
     const statEls = statsGrid ? statsGrid.querySelectorAll('.stat-numero') : [];
@@ -893,7 +877,6 @@
       const groupB = document.getElementById('testiGroupB');
       if (!carousel || !track || !groupA || !groupB) return;
 
-      // clone exato
       groupB.innerHTML = groupA.innerHTML;
 
       const imgs = track.querySelectorAll('img');
@@ -910,7 +893,7 @@
       let x = 0;
       let loopWidth = 0;
       let lastT = 0;
-      let speed = 0; // px/s
+      let speed = 0;
       let paused = false;
 
       let touching = false;
@@ -921,7 +904,6 @@
 
       function normalizePos(){
         if (!loopWidth) return;
-        // mantem x entre [-loopWidth, 0)
         x = x % loopWidth;
         if (x > 0) x -= loopWidth;
       }
@@ -945,7 +927,6 @@
 
       function measure(){
         loopWidth = groupA.getBoundingClientRect().width;
-        // velocidade baseada na largura (30s por loop)
         speed = loopWidth ? (loopWidth / 30) : 40;
         normalizePos();
         apply();
@@ -956,11 +937,9 @@
         requestAnimationFrame(raf);
       }
 
-      // pause on hover (desktop)
       carousel.addEventListener('mouseenter', () => { paused = true; });
       carousel.addEventListener('mouseleave', () => { paused = false; });
 
-      // touch: pause on touchstart, resume on touchend
       carousel.addEventListener('touchstart', (e) => {
         touching = true;
         dragActive = false;
@@ -969,7 +948,6 @@
         startPos = x;
       }, { passive: true });
 
-      // IMPORTANT: passive false para permitir preventDefault durante drag
       carousel.addEventListener('touchmove', (e) => {
         if (!touching || prefersReduced) return;
 
@@ -978,7 +956,6 @@
         const dx = cx - startX;
         const dy = cy - startY;
 
-        // só ativa drag se for horizontal mesmo
         if (!dragActive){
           if (Math.abs(dx) > Math.abs(dy) + 6){
             dragActive = true;
@@ -987,7 +964,6 @@
           }
         }
 
-        // evita scroll lateral / “puxar página”
         e.preventDefault();
 
         x = startPos + dx;
@@ -1013,4 +989,5 @@
   </script>
 </body>
 </html>
+
 
