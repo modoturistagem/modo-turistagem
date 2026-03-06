@@ -494,10 +494,7 @@
     }
 
     /* Roteiros Prontos */
-    .roteiros{
-      background:var(--branco);
-      padding:4rem 2rem;
-    }
+    .roteiros{ background:var(--branco); padding:4rem 2rem; }
 
     .roteiros-grid{
       display:flex;
@@ -530,7 +527,7 @@
       background-size:cover;
       background-position:center;
       background-repeat:no-repeat;
-      opacity:.12;              /* opacidade baixa */
+      opacity:.12; /* opacidade baixa */
       transform:scale(1.06);
       z-index:0;
       pointer-events:none;
@@ -550,10 +547,7 @@
       pointer-events:none;
     }
 
-    .roteiro-card > *{
-      position:relative;
-      z-index:2;
-    }
+    .roteiro-card > *{ position:relative; z-index:2; }
 
     /* imagens por card (fallback de extensões) */
     .roteiro-card.roteiro-santiago::before{
@@ -689,7 +683,9 @@
     .pagamento-sub.mp{ color:var(--laranja); }
     .pagamento-sub.pix{ color:var(--azul); }
 
-    /* MODAL / QUIZ */
+    /* =========================
+       MODAL / QUIZ (FIX iOS)
+       ========================= */
     .modal{
       display:none;
       position:fixed;
@@ -706,10 +702,11 @@
       border-radius:20px;
       max-width:600px;
       width:100%;
+      max-height:calc(100vh - 2rem);
       max-height:calc(100dvh - 2rem);
       display:flex;
       flex-direction:column;
-      overflow:hidden;
+      overflow:hidden !important;
       box-shadow:0 20px 60px rgba(0,0,0,0.22);
       position:relative;
       animation:modalSlide .3s;
@@ -720,17 +717,39 @@
       to{ transform:translateY(0); opacity:1; }
     }
 
-    /* Header sticky + X dentro do header (sempre aparece) */
+    /* X SEMPRE VISÍVEL */
+    .close-modal{
+      position:absolute;
+      top:calc(12px + env(safe-area-inset-top));
+      right:12px;
+      z-index:99999;
+      width:46px;
+      height:46px;
+      border-radius:999px;
+      display:flex !important;
+      align-items:center;
+      justify-content:center;
+      background:rgba(0,0,0,0.30);
+      border:2px solid rgba(255,255,255,0.55);
+      color:#fff !important;
+      font-size:30px;
+      line-height:1;
+      cursor:pointer;
+      -webkit-tap-highlight-color:transparent;
+      touch-action:manipulation;
+    }
+
+    .close-modal:hover{
+      background:rgba(0,0,0,0.40);
+      transform:none;
+    }
+
     .modal-header{
       background:linear-gradient(135deg,var(--azul),#0044cc);
       color:var(--branco);
       padding:2rem 4.5rem 2rem 2rem;
-      border-radius:20px 20px 0 0;
       text-align:center;
-      flex-shrink:0;
-      position:sticky;
-      top:0;
-      z-index:10;
+      flex:0 0 auto;
     }
 
     .modal-header h3{
@@ -744,46 +763,12 @@
     }
     .modal-header p{ font-family:'Neulis Sans',sans-serif !important; }
 
-    .close-modal{
-      position:absolute;
-      top:calc(12px + env(safe-area-inset-top));
-      right:12px;
-      z-index:20;
-
-      width:44px;
-      height:44px;
-      border-radius:999px;
-
-      display:flex !important;
-      align-items:center;
-      justify-content:center;
-
-      background:rgba(255,255,255,0.18);
-      border:2px solid rgba(255,255,255,0.35);
-      color:#fff !important;
-      font-size:28px;
-      line-height:1;
-
-      cursor:pointer;
-      -webkit-tap-highlight-color:transparent;
-      touch-action:manipulation;
-    }
-
-    .close-modal:hover{
-      background:rgba(255,255,255,0.28);
-      transform:none;
-    }
-
-    .close-modal:focus-visible{
-      outline:2px solid #fff;
-      outline-offset:2px;
-    }
-
     .modal-body{
       padding:2rem;
-      overflow-y:auto;
+      overflow-y:auto !important;
       -webkit-overflow-scrolling:touch;
       overscroll-behavior:contain;
+      flex:1 1 auto;
     }
 
     .quiz-step{ display:none; }
@@ -825,7 +810,7 @@
 
     .quiz-result{
       text-align:center;
-      padding:2rem;
+      padding:1.25rem 0;
     }
 
     .quiz-result h4{
@@ -948,16 +933,15 @@
       .modal{
         align-items:flex-start;
         padding:.75rem;
-        overflow-y:auto;
       }
 
       .modal-content{
+        max-height:calc(100vh - 1.5rem);
         max-height:calc(100dvh - 1.5rem);
-        margin:0 auto;
       }
 
       .modal-header{
-        padding:1.35rem 4rem 1.35rem 1rem;
+        padding:1.35rem 4.25rem 1.35rem 1rem;
       }
 
       .modal-header h3{
@@ -971,8 +955,8 @@
       .close-modal{
         top:calc(10px + env(safe-area-inset-top));
         right:10px;
-        width:44px;
-        height:44px;
+        width:46px;
+        height:46px;
       }
     }
 
@@ -1302,10 +1286,15 @@
 
       <div class="regras-grid">
         <div class="regra-card">
-          <h4><span class="emoji" aria-hidden="true">👥</span> Grupo Padrão</h4>
+          <h4>
+            <span class="emoji" aria-hidden="true">👥</span>
+            Grupo Padrão
+          </h4>
+
           <p>Até <strong>4 adultos</strong> OU <strong>2 adultos + 3 crianças</strong></p>
           <br />
           <p>Acréscimo por pessoas extras:</p>
+
           <ul>
             <li>5–6 pessoas: <span class="tag">+20%</span></li>
             <li>7–8 pessoas: <span class="tag">+30%</span></li>
@@ -1315,16 +1304,22 @@
         </div>
 
         <div class="regra-card">
-          <h4><span class="emoji" aria-hidden="true">🏙️</span> Cidades Inclusas</h4>
+          <h4>
+            <span class="emoji" aria-hidden="true">🏙️</span>
+            Cidades Inclusas
+          </h4>
+
           <p>Valores cobrem até <strong>2 cidades-base</strong> (com pernoite)</p>
           <br />
           <p>Acréscimo por cidades extras:</p>
+
           <ul>
             <li>3–4 cidades: <span class="tag">+15%</span></li>
             <li>5–6 cidades: <span class="tag">+25%</span></li>
             <li>7–8 cidades: <span class="tag">+40%</span></li>
             <li>9+: consulte orçamento</li>
           </ul>
+
           <p style="margin-top: 1rem; font-size: 0.95rem; font-family: 'Neulis Sans', sans-serif !important;">
             <span class="emoji emoji-inline" aria-hidden="true">✅</span>
             Bate-volta não conta como cidade-base
@@ -1332,12 +1327,18 @@
         </div>
 
         <div class="regra-card">
-          <h4><span class="emoji" aria-hidden="true">🛬</span> Modo Conexão</h4>
+          <h4>
+            <span class="emoji" aria-hidden="true">🛬</span>
+            Modo Conexão
+          </h4>
+
           <p>Para layovers e conexões inteligentes:</p>
+
           <ul style="margin-top: 1rem;">
             <li><strong>Aeroporto:</strong> R$ 59,90</li>
             <li><strong>Turismo na cidade:</strong> R$ 89,90</li>
           </ul>
+
           <p style="margin-top: 1rem; font-size: 0.95rem; font-family: 'Neulis Sans', sans-serif !important;">
             <span class="emoji emoji-inline" aria-hidden="true">✈️</span>
             <strong>Incluso nos planos Embarque e VIP!</strong><br />
@@ -1554,9 +1555,9 @@
   <!-- Modal (Quiz) -->
   <div class="modal" id="helpModal" role="dialog" aria-modal="true" aria-labelledby="quizTitle">
     <div class="modal-content">
-      <div class="modal-header">
-        <button class="close-modal" onclick="closeModal()" aria-label="Fechar modal">×</button>
+      <button class="close-modal" onclick="closeModal()" aria-label="Fechar modal">×</button>
 
+      <div class="modal-header">
         <h3 id="quizTitle">
           <span class="emoji" aria-hidden="true">🎯</span>
           Descubra Seu Plano Ideal
@@ -1724,7 +1725,6 @@
         if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, observerOptions);
-
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
     // Mobile menu
@@ -1733,21 +1733,51 @@
       if (nav) nav.classList.toggle('active');
     }
 
-    // Modal open/close
+    // Modal open/close (com lock de scroll confiável em iOS)
+    let __scrollY = 0;
+
     function openModal() {
       const modal = document.getElementById('helpModal');
       if (!modal) return;
+
+      __scrollY = window.scrollY || 0;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${__scrollY}px`;
+      document.body.style.left = '0';
+      document.body.style.right = '0';
+      document.body.style.width = '100%';
+
       modal.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
     }
 
     function closeModal() {
       const modal = document.getElementById('helpModal');
       if (!modal) return;
+
       modal.style.display = 'none';
-      document.body.style.overflow = 'auto';
+
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+      document.body.style.width = '';
+
+      window.scrollTo(0, __scrollY);
       resetQuiz();
     }
+
+    // Close modal on overlay click
+    const modalEl = document.getElementById('helpModal');
+    if (modalEl) {
+      modalEl.addEventListener('click', function (e) {
+        if (e.target === this) closeModal();
+      });
+    }
+
+    // ESC to close
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modalEl && modalEl.style.display === 'flex') closeModal();
+    });
 
     // Quiz logic
     let respostas = {};
@@ -1769,6 +1799,7 @@
     function nextStep(step, answer) {
       respostas['step' + step] = answer;
 
+      // Regra: se ainda não sabe destino -> Painel
       if (step === 1 && answer === 'q1b') {
         renderResult('painel');
         return;
@@ -1831,7 +1862,7 @@
       const candidatos = ['checkin', 'embarque', 'vip'];
       if (partiuElegivel) candidatos.push('partiu');
 
-      // Embarque x VIP
+      // Embarque x VIP “muito próximo”
       if (!vipForte && scores.vip > scores.embarque && (scores.vip - scores.embarque <= 1)) {
         scores.embarque = scores.vip;
       }
@@ -1842,6 +1873,7 @@
       let maior = Math.max(...candidatos.map(p => scores[p]));
       let empatados = candidatos.filter(p => scores[p] === maior);
 
+      // Desempates
       if (vipForte && empatados.includes('vip')) return 'vip';
       if (empatados.includes('embarque') && empatados.includes('vip')) empatados = empatados.filter(p => p !== 'vip');
 
@@ -1862,6 +1894,7 @@
       return empatados[0] || 'checkin';
     }
 
+    // Justificativas curtas + emoji
     function buildJustificativasShort(planKey) {
       const q3 = respostas.step3;
       const q4 = respostas.step4;
@@ -1896,12 +1929,12 @@
         const arr = [];
         if (q5 === 'q5c' || q3 === 'q3a') arr.push('🛡️ Você quer segurança e plano B.');
         else arr.push('🗺️ Você quer tudo bem organizado.');
-
         if (q4 === 'q4c' || q5 === 'q5b') arr.push('📲 Você quer tudo mapeado no celular.');
         arr.push('✈️ Estratégia + menos perrengue.');
         return arr.slice(0, 3);
       }
 
+      // vip
       return [
         '💎 Você quer suporte durante a viagem.',
         '🧳 Você quer ajuda pra comprar/reservar.',
@@ -1944,7 +1977,6 @@
 
     function resetQuiz() {
       respostas = {};
-
       const titleEl = document.getElementById('resultTitle');
       const recEl = document.getElementById('recomendacao');
       const btnEl = document.getElementById('resultBtn');
@@ -1955,19 +1987,6 @@
 
       showOnlyStep('step1');
     }
-
-    const modalEl = document.getElementById('helpModal');
-    if (modalEl) {
-      modalEl.addEventListener('click', function (e) {
-        if (e.target === this) closeModal();
-      });
-    }
-
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && modalEl && modalEl.style.display === 'flex') {
-        closeModal();
-      }
-    });
 
     // Hero Polaroid - slideshow de destinos
     (function () {
@@ -1996,6 +2015,7 @@
 
       function trocarDestino() {
         imgEl.classList.add('is-fading');
+
         setTimeout(() => {
           index = (index + 1) % destinos.length;
           imgEl.src = destinos[index].src;
@@ -2014,5 +2034,4 @@
   </script>
 </body>
 </html>
-
 
