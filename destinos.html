@@ -19,21 +19,6 @@
       line-height:1;
     }
 
-    /* ===== TIPOGRAFIA / JUSTIFICADO ===== */
-    .destinos-hero p,
-    .destinos-note p,
-    .section-header p,
-    .stat-hint,
-    .testi-text,
-    .cta-box p,
-    .cta-extra p,
-    .destino-desc,
-    .footer-text,
-    .footer-bottom p{
-      text-align:justify;
-      text-justify:inter-word;
-    }
-
     /* ===== HERO ===== */
     .destinos-hero{
       margin-top:70px;
@@ -63,6 +48,7 @@
       opacity:0.92;
       max-width:760px;
       margin:0 auto;
+      text-align:center;
     }
 
     /* ===== MINI TEXTO ===== */
@@ -80,6 +66,7 @@
       color:var(--azul);
       font-weight:800;
       font-size:1rem;
+      text-align:center;
     }
 
     /* ===== MARQUEE BANDEIRAS ===== */
@@ -141,17 +128,23 @@
       font-weight:900;
       color:var(--laranja);
       letter-spacing:-0.5px;
+      line-height:1;
+      margin-bottom:0.2rem;
     }
     .stat-label{
       color:var(--azul);
       font-weight:900;
-      margin-top:0.35rem;
+      margin-top:0.15rem;
+      margin-bottom:0.15rem;
+      line-height:1.2;
     }
     .stat-hint{
       font-size:0.9rem;
       opacity:0.85;
       color:var(--azul);
-      margin-top:0.35rem;
+      margin-top:0.1rem;
+      line-height:1.25;
+      text-align:center;
     }
 
     /* =========================================================
@@ -164,6 +157,13 @@
     .depo-wrap{
       max-width:1200px;
       margin:0 auto;
+    }
+
+    .section-header{
+      text-align:center;
+    }
+    .section-header p{
+      text-align:center;
     }
 
     .testi-carousel{
@@ -262,6 +262,7 @@
       font-weight:900;
     }
 
+    /* JUSTIFICADO APENAS NOS DEPOIMENTOS */
     .testi-text{
       margin:0;
       font-size:0.96rem;
@@ -271,6 +272,8 @@
       white-space:normal;
       overflow-wrap:anywhere;
       word-break:break-word;
+      text-align:justify;
+      text-justify:inter-word;
     }
 
     @media (max-width: 900px){
@@ -285,74 +288,74 @@
       background:var(--branco);
       text-align:center;
     }
-    .cta-box{
+    .cta-wrap{
       max-width:980px;
       margin:0 auto;
+      display:grid;
+      grid-template-columns:1fr;
+      gap:1.35rem;
+    }
+    .cta-box{
       background:var(--branco);
       color:var(--azul);
       border-radius:22px;
-      padding:2.6rem 2rem;
+      padding:2.4rem 2rem;
       border:1px solid rgba(0,0,0,0.07);
-      box-shadow:none;
       position:relative;
       overflow:hidden;
     }
     .cta-box::after{
       content:"✨";
       position:absolute;
-      font-size:14rem;
-      opacity:0.08;
+      font-size:12rem;
+      opacity:0.06;
       right:-25px;
-      bottom:-70px;
+      bottom:-55px;
       pointer-events:none;
       color:var(--azul);
     }
     .cta-box::before{
       content:"✨";
       position:absolute;
-      font-size:9rem;
-      opacity:0.06;
-      left:-20px;
-      top:-40px;
+      font-size:8rem;
+      opacity:0.05;
+      left:-18px;
+      top:-36px;
       pointer-events:none;
       color:var(--azul);
       transform:rotate(-12deg);
     }
-    .cta-box h2{
-      font-size:2rem;
-      margin-bottom:0.9rem;
+    .cta-box h2,
+    .cta-box h3{
       color:var(--azul);
-    }
-    .cta-box p{
-      font-size:1.1rem;
-      margin-bottom:1.2rem;
-      opacity:0.92;
-      max-width:760px;
-      margin-left:auto;
-      margin-right:auto;
-      color:var(--azul);
-    }
-    .cta-buttons{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap:1rem;
-      flex-wrap:wrap;
-      margin-top:1.6rem;
-    }
-    .cta-extra{
-      max-width:760px;
-      margin:1.5rem auto 0;
-      padding-top:1.3rem;
-      border-top:1px solid rgba(0,0,0,0.08);
+      text-align:center;
       position:relative;
       z-index:1;
     }
-    .cta-extra p{
-      margin-bottom:1rem;
-      font-size:1rem;
+    .cta-box h2{
+      font-size:2rem;
+      margin-bottom:0.9rem;
+    }
+    .cta-box h3{
+      font-size:1.45rem;
+      margin-bottom:0.85rem;
+    }
+    .cta-box p{
+      font-size:1.08rem;
+      margin:0 auto 1.4rem;
+      opacity:0.92;
+      max-width:760px;
       color:var(--azul);
-      opacity:0.9;
+      text-align:center;
+      position:relative;
+      z-index:1;
+    }
+    .cta-button-wrap{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      position:relative;
+      z-index:1;
     }
     .btn-secondary-cta{
       display:inline-flex;
@@ -366,8 +369,6 @@
       font-weight:800;
       text-decoration:none;
       transition:all 0.25s ease;
-      position:relative;
-      z-index:1;
     }
     .btn-secondary-cta:hover{
       background:var(--azul);
@@ -419,6 +420,7 @@
       background:linear-gradient(to top, rgba(0,0,0,0.88), rgba(0,0,0,0.10));
       padding:2rem;
       color:var(--branco);
+      text-align:left;
     }
     .destino-local{
       display:flex;
@@ -433,6 +435,7 @@
       opacity:0.93;
       margin-bottom:0.9rem;
       max-width:92%;
+      text-align:left;
     }
     .destino-link{
       display:inline-flex;
@@ -450,17 +453,28 @@
       gap:0.85rem;
     }
 
+    /* ===== FOOTER ===== */
+    .footer-text,
+    .footer-bottom p{
+      text-align:center;
+    }
+
     @media (max-width: 768px){
       .destinos-hero h1{ font-size:2.15rem; }
       .destinos-hero p{ font-size:1.05rem; }
+
       .galeria-grid{ grid-template-columns:1fr; }
       .destino-overlay{ padding:1.6rem; }
       .destino-local{ font-size:1.25rem; }
-      .cta-box{ padding:2.2rem 1.3rem; }
-      .cta-box h2{ font-size:1.75rem; }
-      .cta-buttons{
-        flex-direction:column;
-        gap:0.85rem;
+
+      .cta-box{
+        padding:2rem 1.25rem;
+      }
+      .cta-box h2{
+        font-size:1.75rem;
+      }
+      .cta-box h3{
+        font-size:1.3rem;
       }
     }
   </style>
@@ -610,21 +624,25 @@
 
   <!-- CTA -->
   <section class="cta-entre">
-    <div class="cta-box fade-in">
-      <h2><span class="emoji" aria-hidden="true">🗺️</span> Quero seu próximo destino aqui!</h2>
-      <p>Me conta onde você quer ir — eu organizo tudo pra sua viagem fluir (e você curtir de verdade).</p>
-
-      <div class="cta-buttons">
-        <a href="https://wa.me/5549991628403" class="btn-primary" target="_blank" rel="noopener noreferrer">
-          Vamos conversar
-        </a>
+    <div class="cta-wrap fade-in">
+      <div class="cta-box">
+        <h2><span class="emoji" aria-hidden="true">🗺️</span> Quero seu próximo destino aqui!</h2>
+        <p>Me conta onde você quer ir — eu organizo tudo pra sua viagem fluir (e você curtir de verdade).</p>
+        <div class="cta-button-wrap">
+          <a href="https://wa.me/5549991628403" class="btn-primary" target="_blank" rel="noopener noreferrer">
+            Vamos conversar
+          </a>
+        </div>
       </div>
 
-      <div class="cta-extra">
-        <p>Já viajou com a Modo Turistagem e quer ter seu depoimento aqui? Manda pra gente.</p>
-        <a href="https://forms.gle/csQdspm91pvgnpVB8" class="btn-secondary-cta" target="_blank" rel="noopener noreferrer">
-          Enviar meu depoimento
-        </a>
+      <div class="cta-box">
+        <h3>Já viajou com a Modo Turistagem?</h3>
+        <p>Quer ter seu depoimento aqui? Manda pra gente.</p>
+        <div class="cta-button-wrap">
+          <a href="https://forms.gle/csQdspm91pvgnpVB8" class="btn-secondary-cta" target="_blank" rel="noopener noreferrer">
+            Enviar meu depoimento
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -811,7 +829,7 @@
 
       <div class="footer-bottom">
         <p>© 2024 Modo Turistagem. Todos os direitos reservados.</p>
-        <p style="margin-top: 0.5rem; font-size: 0.8rem;">
+        <p style="margin-top:0.5rem; font-size:0.8rem;">
           Roteiros feitos por viajantes, para viajantes
           <span class="emoji emoji-inline" aria-hidden="true">💙</span>
         </p>
@@ -831,6 +849,7 @@
         if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.12 });
+
     document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
 
     // Bandeiras (marquee)
@@ -888,6 +907,7 @@
         if (progress < 1) requestAnimationFrame(tick);
         else el.textContent = `${target}${suffix}`;
       }
+
       requestAnimationFrame(tick);
     }
 
@@ -915,6 +935,7 @@
           }, 130);
         }
       }
+
       requestAnimationFrame(tick);
     }
 
@@ -943,30 +964,36 @@
           if (entry.isIntersecting) playStats();
         });
       }, { threshold: 0.25 });
+
       statsObserver.observe(statsGrid);
     }
 
     // =========================================================
     // Depoimentos: loop perfeito + pausa + drag (mobile)
     // =========================================================
-    (function initTestiCarousel(){
+    (function initTestiCarousel() {
       const carousel = document.getElementById('testiCarousel');
       const track = document.getElementById('testiTrack');
       const groupA = document.getElementById('testiGroupA');
       const groupB = document.getElementById('testiGroupB');
+
       if (!carousel || !track || !groupA || !groupB) return;
 
       groupB.innerHTML = groupA.innerHTML;
 
       const imgs = track.querySelectorAll('img');
       let loaded = 0;
-      const done = () => { loaded++; if (loaded >= imgs.length) start(); };
+
+      const done = () => {
+        loaded++;
+        if (loaded >= imgs.length) start();
+      };
 
       imgs.forEach(img => {
         if (img.complete) done();
         else {
-          img.addEventListener('load', done, { once:true });
-          img.addEventListener('error', done, { once:true });
+          img.addEventListener('load', done, { once: true });
+          img.addEventListener('error', done, { once: true });
         }
       });
 
@@ -982,37 +1009,38 @@
       let startY = 0;
       let startPos = 0;
 
-      function normalizePos(){
+      function normalizePos() {
         if (!loopWidth) return;
         x = x % loopWidth;
         if (x > 0) x -= loopWidth;
       }
 
-      function apply(){
+      function apply() {
         track.style.transform = `translate3d(${x}px,0,0)`;
       }
 
-      function raf(t){
+      function raf(t) {
         if (!lastT) lastT = t;
         const dt = (t - lastT) / 1000;
         lastT = t;
 
-        if (!paused && !touching && loopWidth && !prefersReduced){
+        if (!paused && !touching && loopWidth && !prefersReduced) {
           x -= speed * dt;
           if (x <= -loopWidth) x += loopWidth;
           apply();
         }
+
         requestAnimationFrame(raf);
       }
 
-      function measure(){
+      function measure() {
         loopWidth = groupA.getBoundingClientRect().width;
         speed = loopWidth ? (loopWidth / 30) : 40;
         normalizePos();
         apply();
       }
 
-      function start(){
+      function start() {
         measure();
         requestAnimationFrame(raf);
       }
@@ -1036,8 +1064,8 @@
         const dx = cx - startX;
         const dy = cy - startY;
 
-        if (!dragActive){
-          if (Math.abs(dx) > Math.abs(dy) + 6){
+        if (!dragActive) {
+          if (Math.abs(dx) > Math.abs(dy) + 6) {
             dragActive = true;
           } else {
             return;
@@ -1069,6 +1097,3 @@
   </script>
 </body>
 </html>
-
-
-
