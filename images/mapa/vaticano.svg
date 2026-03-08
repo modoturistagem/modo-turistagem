@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1000" role="img" aria-labelledby="title desc">
+<title>Vaticano</title>
+<desc>Generated world map layer for Modo Turistagem.</desc>
+<style>
+  path {
+    fill: #ff6b00;
+    stroke: #ffffff;
+    stroke-width: 1;
+    vector-effect: non-scaling-stroke;
+  }
+</style>
+<path d="M1057.37,238.63 L1057.37,238.62 L1057.37,238.62 L1057.37,238.63 Z"/><circle cx="1057.37" cy="238.63" r="6" fill="#ff6b00" stroke="#ffffff" stroke-width="2"/><circle cx="1057.37" cy="238.63" r="10" fill="none" stroke="#ff6b00" stroke-opacity="0.25" stroke-width="3"/>
+</svg>

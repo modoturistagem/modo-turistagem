@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1000" role="img" aria-labelledby="title desc">
+<title>Suica</title>
+<desc>Generated world map layer for Modo Turistagem.</desc>
+<style>
+  path {
+    fill: #ff6b00;
+    stroke: #ffffff;
+    stroke-width: 1;
+    vector-effect: non-scaling-stroke;
+  }
+</style>
+<path d="M1045.75,208.29 L1046.20,211.00 L1044.25,211.03 L1044.74,212.82 L1043.76,211.99 L1041.96,212.42 L1041.42,211.24 L1040.61,211.32 L1039.55,215.26 L1036.76,212.80 L1036.52,211.51 L1033.94,214.70 L1030.31,214.84 L1028.04,211.49 L1024.99,213.42 L1025.66,210.73 L1029.86,206.32 L1029.06,206.17 L1029.53,205.38 L1036.99,204.78 L1036.18,204.34 L1036.93,203.53 L1042.17,205.60 L1041.46,207.89 L1044.53,209.17 L1045.75,208.29 Z"/>
+</svg>

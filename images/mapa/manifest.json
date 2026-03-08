@@ -1,0 +1,28 @@
+{
+  "base": "image/mapa/mapa-mundi-base.svg",
+  "countries": [
+    "brasil",
+    "argentina",
+    "uruguai",
+    "paraguai",
+    "chile",
+    "estados-unidos",
+    "franca",
+    "italia",
+    "espanha",
+    "portugal",
+    "irlanda",
+    "irlanda-do-norte",
+    "reino-unido",
+    "suica",
+    "alemanha",
+    "dinamarca",
+    "suecia",
+    "russia",
+    "islandia",
+    "marrocos",
+    "egito",
+    "vaticano",
+    "japao"
+  ]
+}
