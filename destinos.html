@@ -103,6 +103,138 @@
       .bandeiras-track{ animation:none; }
     }
 
+    /* ===== MAPA MUNDI ===== */
+    .mapa-mundi{
+      padding:4rem 2rem 3rem;
+      background:linear-gradient(180deg, #fff8f3 0%, var(--branco) 100%);
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+    }
+    .mapa-mundi::before{
+      content:"🗺️";
+      position:absolute;
+      font-size:14rem;
+      opacity:0.04;
+      left:-25px;
+      top:20px;
+      pointer-events:none;
+    }
+    .mapa-wrap{
+      max-width:1200px;
+      margin:0 auto;
+    }
+    .mapa-intro{
+      max-width:760px;
+      margin:0 auto 2rem;
+      color:var(--azul);
+      opacity:0.92;
+      text-align:center;
+    }
+    .mapa-shell{
+      position:relative;
+      width:100%;
+      aspect-ratio:16 / 9;
+      background:#ffffff;
+      border-radius:28px;
+      border:1px solid rgba(0,0,0,0.06);
+      box-shadow:0 18px 50px rgba(0,0,0,0.08);
+      overflow:hidden;
+      padding:1.2rem;
+    }
+    .mapa-inner{
+      position:relative;
+      width:100%;
+      height:100%;
+      border-radius:20px;
+      background:
+        radial-gradient(circle at top left, rgba(255,145,77,0.08), transparent 32%),
+        radial-gradient(circle at bottom right, rgba(33,69,186,0.08), transparent 28%),
+        #fff;
+      overflow:hidden;
+    }
+    .mapa-base,
+    .mapa-overlays{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+    }
+    .mapa-base{
+      z-index:1;
+      opacity:0.98;
+    }
+    .mapa-overlays{
+      z-index:2;
+      pointer-events:none;
+    }
+    .mapa-base svg,
+    .mapa-country-layer svg{
+      width:100%;
+      height:100%;
+      display:block;
+    }
+    .mapa-base svg *{
+      fill:#e9eef7 !important;
+      stroke:#ffffff !important;
+      stroke-width:0.9 !important;
+      vector-effect:non-scaling-stroke;
+    }
+    .mapa-country-layer{
+      position:absolute;
+      inset:0;
+      opacity:0;
+      transform:scale(0.997);
+      transition:
+        opacity 0.65s ease,
+        transform 0.65s ease,
+        filter 0.65s ease;
+      filter:drop-shadow(0 0 0 rgba(0,0,0,0));
+    }
+    .mapa-country-layer svg *{
+      fill:var(--laranja) !important;
+      stroke:#ffffff !important;
+      stroke-width:1 !important;
+      vector-effect:non-scaling-stroke;
+    }
+    .mapa-country-layer.is-blue svg *{
+      fill:var(--azul) !important;
+    }
+    .mapa-country-layer.is-visible{
+      opacity:1;
+      transform:scale(1);
+      filter:drop-shadow(0 8px 18px rgba(255, 107, 0, 0.16));
+    }
+    .mapa-country-layer.is-visible.is-blue{
+      filter:drop-shadow(0 8px 18px rgba(33, 69, 186, 0.16));
+    }
+
+    .mapa-meta{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:1rem;
+      flex-wrap:wrap;
+      margin-top:1.4rem;
+    }
+    .mapa-badge{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:0.8rem 1.15rem;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid rgba(0,0,0,0.06);
+      box-shadow:0 8px 22px rgba(0,0,0,0.06);
+      color:var(--azul);
+      font-weight:800;
+      font-size:0.95rem;
+    }
+    .mapa-badge strong{
+      color:var(--laranja);
+      margin-right:0.35rem;
+    }
+
     /* ===== STATS ===== */
     .stats{
       background:var(--cinza);
@@ -280,6 +412,7 @@
       .testi-card{ width:84vw; }
       .testi-media{ height:250px; }
       .testi-text{ font-size:0.95rem; }
+      .mapa-shell{ aspect-ratio:16 / 10; padding:0.8rem; }
     }
 
     /* ===== CTA ===== */
@@ -476,6 +609,14 @@
       .cta-box h3{
         font-size:1.3rem;
       }
+
+      .mapa-meta{
+        gap:0.75rem;
+      }
+      .mapa-badge{
+        width:100%;
+        max-width:320px;
+      }
     }
   </style>
 </head>
@@ -523,6 +664,29 @@
     <div class="bandeiras-track" id="bandeirasTrack"></div>
   </section>
 
+  <!-- Mapa Mundi -->
+  <section class="mapa-mundi">
+    <div class="mapa-wrap">
+      <div class="section-header fade-in">
+        <span class="section-tag"><span class="emoji" aria-hidden="true">🌍</span> Mapa dos destinos testados</span>
+        <h2>O mundo que já virou lembrança</h2>
+        <p class="mapa-intro">Os países visitados vão sendo preenchidos gradualmente no mapa conforme a seção entra na tela.</p>
+      </div>
+
+      <div class="mapa-shell fade-in" id="mapaShell" aria-label="Mapa mundi com países visitados">
+        <div class="mapa-inner">
+          <div class="mapa-base" id="mapaBase"></div>
+          <div class="mapa-overlays" id="mapaOverlays"></div>
+        </div>
+      </div>
+
+      <div class="mapa-meta fade-in">
+        <div class="mapa-badge"><strong>23</strong> países destacados no mapa</div>
+        <div class="mapa-badge">Preenchimento gradual em laranja e azul</div>
+      </div>
+    </div>
+  </section>
+
   <!-- Estatísticas -->
   <section class="stats">
     <div class="stats-grid fade-in" id="statsGrid">
@@ -561,7 +725,6 @@
 
             <!-- Grupo A -->
             <div class="testi-group" id="testiGroupA">
-              <!-- EXEMPLO 01 -->
               <article class="testi-card testi--orange">
                 <div class="testi-media" style="--img-pos: center 32%;">
                   <img src="images/depoimentos/Nathi.jpeg" alt="Nathalia em Santiago, Chile" loading="eager" decoding="async" />
@@ -578,7 +741,6 @@
                 </div>
               </article>
 
-              <!-- EXEMPLO 02 -->
               <article class="testi-card testi--orange">
                 <div class="testi-media" style="--img-pos: center 30%;">
                   <img src="images/depoimentos/exemplo 02.JPG" alt="Ana Luiza em Curitiba, Brasil" loading="eager" decoding="async" />
@@ -596,10 +758,9 @@
                 </div>
               </article>
 
-              <!-- EXEMPLO 03 -->
               <article class="testi-card testi--orange">
                 <div class="testi-media" style="--img-pos: center 28%;">
-                  <img src="images/depoimentos/Samara.jpg" alt="Samara em Santiago, Chile" loading="eager" decoding="async" />
+                  <img src="images/depoimentos/Samara.jpeg" alt="Samara em Santiago, Chile" loading="eager" decoding="async" />
                 </div>
                 <div class="testi-body">
                   <div class="testi-top">
@@ -614,7 +775,6 @@
               </article>
             </div>
 
-            <!-- Grupo B (clone automático via JS) -->
             <div class="testi-group" id="testiGroupB" aria-hidden="true"></div>
           </div>
         </div>
@@ -659,7 +819,6 @@
       </div>
 
       <div class="galeria-grid">
-        <!-- Chile -->
         <a class="destino-card fade-in" href="https://www.instagram.com/p/DNWTkWhSaCW/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Santiago, Chile">
           <img src="images/destinos/santiago.jpg" alt="Santiago, Chile" class="destino-img" loading="lazy" />
           <div class="destino-overlay">
@@ -669,7 +828,6 @@
           </div>
         </a>
 
-        <!-- Egito -->
         <a class="destino-card fade-in" href="https://www.instagram.com/p/B1CiddWFUyN/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Cruzeiro no Nilo, Egito">
           <img src="images/destinos/egito.jpg" alt="Cruzeiro no Nilo, Egito" class="destino-img" loading="lazy" />
           <div class="destino-overlay">
@@ -679,7 +837,6 @@
           </div>
         </a>
 
-        <!-- Paris -->
         <a class="destino-card fade-in" href="https://www.instagram.com/p/B5qxipPlgR_/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Paris, França">
           <img src="images/destinos/paris.jpg" alt="Paris, França" class="destino-img" loading="lazy" />
           <div class="destino-overlay">
@@ -689,7 +846,6 @@
           </div>
         </a>
 
-        <!-- Veneza -->
         <a class="destino-card fade-in" href="https://www.instagram.com/p/BqLD1djFKdZ/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Veneza, Itália">
           <img src="images/destinos/veneza.jpg" alt="Veneza, Itália" class="destino-img" loading="lazy" />
           <div class="destino-overlay">
@@ -699,7 +855,6 @@
           </div>
         </a>
 
-        <!-- Roma -->
         <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/Bq0OdoFFwG6/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Roma, Itália">
           <img src="images/destinos/roma.JPG" alt="Roma, Itália" class="destino-img" loading="lazy" />
           <div class="destino-overlay">
@@ -709,7 +864,6 @@
           </div>
         </a>
 
-        <!-- Marrocos -->
         <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/BsycUyqlkZW/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Marrocos">
           <img src="images/destinos/marrocos.jpg" alt="Marrocos" class="destino-img" loading="lazy" />
           <div class="destino-overlay">
@@ -719,7 +873,6 @@
           </div>
         </a>
 
-        <!-- Islândia -->
         <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/BqvF0aKlGmS/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Islândia">
           <img src="images/destinos/islandia.jpg" alt="Islândia" class="destino-img" loading="lazy" />
           <div class="destino-overlay">
@@ -729,7 +882,6 @@
           </div>
         </a>
 
-        <!-- Japão -->
         <a class="destino-card fade-in" href="https://www.instagram.com/p/DPU4BfCEx89/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Japão">
           <img src="images/destinos/japao.jpeg" alt="Japão" class="destino-img" loading="lazy" />
           <div class="destino-overlay">
@@ -739,7 +891,6 @@
           </div>
         </a>
 
-        <!-- Rio -->
         <a class="destino-card fade-in" href="https://www.instagram.com/p/DRftfnRFu4O/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Rio de Janeiro, Brasil">
           <img src="images/destinos/rio.jpeg" alt="Rio de Janeiro, Brasil" class="destino-img" loading="lazy" />
           <div class="destino-overlay">
@@ -749,7 +900,6 @@
           </div>
         </a>
 
-        <!-- Praia Grande -->
         <a class="destino-card fade-in" href="https://www.instagram.com/p/DCt0ClouK_q/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Praia Grande, Brasil">
           <img src="images/destinos/praia-grande.jpg" alt="Praia Grande, Brasil" class="destino-img" loading="lazy" />
           <div class="destino-overlay">
@@ -759,7 +909,6 @@
           </div>
         </a>
 
-        <!-- Irlanda do Norte -->
         <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/B0JusUOlwCA/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Irlanda do Norte">
           <img src="images/destinos/irlanda-do-norte.JPG" alt="Irlanda do Norte" class="destino-img" loading="lazy" />
           <div class="destino-overlay">
@@ -769,7 +918,6 @@
           </div>
         </a>
 
-        <!-- Moscou -->
         <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/BvUqcxmlNOG/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Moscou, Rússia">
           <img src="images/destinos/moscou.JPG" alt="Moscou, Rússia" class="destino-img" loading="lazy" />
           <div class="destino-overlay">
@@ -779,7 +927,6 @@
           </div>
         </a>
 
-        <!-- Beto Carrero -->
         <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/C6NAcKSsyTh/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Beto Carrero, Brasil">
           <img src="images/destinos/beto-carreiro.JPG" alt="Beto Carrero World, Brasil" class="destino-img" loading="lazy" />
           <div class="destino-overlay">
@@ -789,7 +936,6 @@
           </div>
         </a>
 
-        <!-- Fortaleza -->
         <a class="destino-card fade-in" href="https://www.instagram.com/analuizadc_/p/BlOiVTght6A/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: Fortaleza, Brasil">
           <img src="images/destinos/fortaleza.JPG" alt="Fortaleza, Brasil" class="destino-img" loading="lazy" />
           <div class="destino-overlay">
@@ -969,6 +1115,113 @@
     }
 
     // =========================================================
+    // MAPA MUNDI — preenchimento gradual dos países visitados
+    // Pasta: images/mapa
+    // =========================================================
+    const mapaConfig = {
+      base: 'images/mapa/mapa-mundi-base.svg',
+      paisesVisitados: [
+        { nome: 'Brasil', arquivo: 'brasil' },
+        { nome: 'Argentina', arquivo: 'argentina' },
+        { nome: 'Uruguai', arquivo: 'uruguai' },
+        { nome: 'Paraguai', arquivo: 'paraguai' },
+        { nome: 'Chile', arquivo: 'chile' },
+        { nome: 'Estados Unidos', arquivo: 'estados-unidos' },
+        { nome: 'Franca', arquivo: 'franca' },
+        { nome: 'Italia', arquivo: 'italia' },
+        { nome: 'Espanha', arquivo: 'espanha' },
+        { nome: 'Portugal', arquivo: 'portugal' },
+        { nome: 'Irlanda', arquivo: 'irlanda' },
+        { nome: 'Irlanda do Norte', arquivo: 'irlanda-do-norte' },
+        { nome: 'Reino Unido', arquivo: 'reino-unido' },
+        { nome: 'Suica', arquivo: 'suica' },
+        { nome: 'Alemanha', arquivo: 'alemanha' },
+        { nome: 'Dinamarca', arquivo: 'dinamarca' },
+        { nome: 'Suecia', arquivo: 'suecia' },
+        { nome: 'Russia', arquivo: 'russia' },
+        { nome: 'Islandia', arquivo: 'islandia' },
+        { nome: 'Marrocos', arquivo: 'marrocos' },
+        { nome: 'Egito', arquivo: 'egito' },
+        { nome: 'Vaticano', arquivo: 'vaticano' },
+        { nome: 'Japao', arquivo: 'japao' }
+      ]
+    };
+
+    async function carregarSvgInline(url) {
+      const resposta = await fetch(url);
+      if (!resposta.ok) {
+        throw new Error(`Não foi possível carregar ${url}`);
+      }
+      return await resposta.text();
+    }
+
+    async function montarMapaMundi() {
+      const baseEl = document.getElementById('mapaBase');
+      const overlaysEl = document.getElementById('mapaOverlays');
+      if (!baseEl || !overlaysEl) return;
+
+      try {
+        const svgBase = await carregarSvgInline(mapaConfig.base);
+        baseEl.innerHTML = svgBase;
+      } catch (erro) {
+        console.warn('Mapa base não encontrado:', erro);
+        baseEl.innerHTML = '';
+      }
+
+      for (let i = 0; i < mapaConfig.paisesVisitados.length; i++) {
+        const pais = mapaConfig.paisesVisitados[i];
+
+        try {
+          const svgPais = await carregarSvgInline(`images/mapa/${pais.arquivo}.svg`);
+          const layer = document.createElement('div');
+          layer.className = 'mapa-country-layer' + (i % 4 === 1 ? ' is-blue' : '');
+          layer.setAttribute('data-pais', pais.nome);
+          layer.setAttribute('aria-hidden', 'true');
+          layer.innerHTML = svgPais;
+          overlaysEl.appendChild(layer);
+        } catch (erro) {
+          console.warn(`SVG do país não encontrado: ${pais.arquivo}.svg`);
+        }
+      }
+
+      animarMapaQuandoEntrarNaTela();
+    }
+
+    function animarMapaQuandoEntrarNaTela() {
+      const mapaShell = document.getElementById('mapaShell');
+      const layers = document.querySelectorAll('.mapa-country-layer');
+      if (!mapaShell || !layers.length) return;
+
+      let mapaAnimado = false;
+
+      const observerMapa = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting || mapaAnimado) return;
+
+          mapaAnimado = true;
+
+          if (prefersReduced) {
+            layers.forEach(layer => layer.classList.add('is-visible'));
+            observerMapa.disconnect();
+            return;
+          }
+
+          layers.forEach((layer, index) => {
+            setTimeout(() => {
+              layer.classList.add('is-visible');
+            }, index * 180);
+          });
+
+          observerMapa.disconnect();
+        });
+      }, { threshold: 0.35 });
+
+      observerMapa.observe(mapaShell);
+    }
+
+    montarMapaMundi();
+
+    // =========================================================
     // Depoimentos: loop perfeito + pausa + drag (mobile)
     // =========================================================
     (function initTestiCarousel() {
@@ -1097,3 +1350,5 @@
   </script>
 </body>
 </html>
+</html>
+
