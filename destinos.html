@@ -247,9 +247,9 @@
     .testi-loc{
       margin:0;
       display:flex;
-      align-items:center;
+      align-items:flex-start;
       gap:0.5rem;
-      line-height:1.1;
+      line-height:1.2;
       flex-wrap:wrap;
     }
     .testi-code{
@@ -260,6 +260,18 @@
     .testi-city{
       font-size:1.28rem;
       font-weight:900;
+    }
+    .testi-flags{
+      display:inline-flex;
+      align-items:center;
+      gap:0.2rem;
+      flex-shrink:0;
+    }
+    .testi-city-list{
+      font-size:1rem;
+      font-weight:800;
+      line-height:1.3;
+      flex:1 1 100%;
     }
 
     /* JUSTIFICADO APENAS NOS DEPOIMENTOS */
@@ -280,6 +292,7 @@
       .testi-card{ width:84vw; }
       .testi-media{ height:250px; }
       .testi-text{ font-size:0.95rem; }
+      .testi-city-list{ font-size:0.95rem; }
     }
 
     /* ===== CTA ===== */
@@ -581,18 +594,21 @@
               <!-- EXEMPLO 02 -->
               <article class="testi-card testi--orange">
                 <div class="testi-media" style="--img-pos: center 30%;">
-                  <img src="images/depoimentos/exemplo 02.JPG" alt="Ana Luiza em Curitiba, Brasil" loading="eager" decoding="async" />
+                  <img src="images/depoimentos/Kauna.jpg" alt="Kauana em Itajaí, Santos, Buenos Aires e Montevideo" loading="eager" decoding="async" />
                 </div>
                 <div class="testi-body">
                   <div class="testi-top">
-                    <p class="testi-name">Ana Luiza</p>
+                    <p class="testi-name">Kauana</p>
                     <p class="testi-loc">
-                      <span class="emoji" aria-hidden="true">🇧🇷</span>
-                      <span class="testi-code">BR</span>
-                      <span class="testi-city">Curitiba</span>
+                      <span class="testi-flags" aria-label="Uruguai, Brasil e Argentina">
+                        <span class="emoji" aria-hidden="true">🇺🇾</span>
+                        <span class="emoji" aria-hidden="true">🇧🇷</span>
+                        <span class="emoji" aria-hidden="true">🇦🇷</span>
+                      </span>
+                      <span class="testi-city-list">Itajaí • Santos • Buenos Aires • Montevideo</span>
                     </p>
                   </div>
-                  <p class="testi-text">Eu queria um roteiro funcional, sem perder tempo decidindo tudo na hora. Veio dia a dia bem organizado, com sugestões de restaurantes e deslocamentos fáceis. Foi a viagem mais prática que já fiz.</p>
+                  <p class="testi-text">Viajar com um roteiro da Ana foi muito especial, de várias maneiras. Com o roteiro redondinho, consegui aproveitar o local que estava visitando, estando presente de fato, e não tentando planejar aonde ir em seguida. Foi notável ver o cuidado dela no planejamento, considerando as condições do local para o dia da viagem e também o horário em que cada local abria e fechava, quando necessário (muito importante para visitar museus, por exemplo). Além do roteiro da viagem em si, Ana também pensou nos trajetos e nas opções de entretenimento quando tínhamos tempo sobrando antes do embarque/desembarque, enfim… em todo momento, a Ana estava auxiliando: compra de passagens, translados, dicas de câmbio de moedas, o que levar na mala… Tudo perfeito! Eu amei muito! Obrigada por todo o carinho e cuidado 💖</p>
                 </div>
               </article>
 
@@ -1097,3 +1113,6 @@
   </script>
 </body>
 </html>
+</body>
+</html>
+
