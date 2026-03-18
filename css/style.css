@@ -41,12 +41,13 @@
 }
 
 :root{
-  --azul:#003399;
-  --laranja:#FF6600;
-  --azul-claro:#E6F0FF;
-  --laranja-claro:#FFF0E6;
+  --azul:#003599;
+  --laranja:#FF6B18;
+  --azul-claro:#DDE9F7;
+  --laranja-claro:#FFE3CC;
   --branco:#FFFFFF;
-  --cinza:#F5F5F5;
+  --off-white:#FCFAF6;
+  --cinza:#FCFAF6;
   --cinza-escuro:#333333;
   --texto:#333333;
 
@@ -57,7 +58,7 @@
   /* extras p/ consistência */
   --radius-lg: 20px;
   --radius-md: 16px;
-  --shadow-soft: 0 10px 30px rgba(0,51,153,0.08);
+  --shadow-soft: 0 10px 30px rgba(0,53,153,0.08);
   --shadow-card: 0 10px 40px rgba(0,0,0,0.08);
 }
 
@@ -68,7 +69,7 @@ body{
   color:var(--texto);
   line-height:1.6;
   overflow-x:hidden;
-  background:var(--branco);
+  background:var(--off-white);
 }
 
 h1,h2,h3,h4,h5,h6{
@@ -102,8 +103,9 @@ nav{
   position:fixed;
   top:0;
   width:100%;
-  background:var(--branco);
-  box-shadow:0 2px 20px rgba(0,51,153,0.1);
+  background:rgba(255,255,255,0.96);
+  backdrop-filter:blur(10px);
+  box-shadow:0 2px 20px rgba(0,53,153,0.1);
   z-index:1000;
   padding:0.8rem 0;
 }
@@ -169,8 +171,8 @@ nav{
 .btn-nav::after{ display:none!important; }
 .btn-nav:hover{
   transform:translateY(-2px);
-  box-shadow:0 5px 15px rgba(255,102,0,0.3);
-  background:#e55a00!important;
+  box-shadow:0 5px 15px rgba(255,107,24,0.3);
+  background:#E85D12!important;
 }
 
 .mobile-menu{
@@ -189,34 +191,36 @@ nav{
 .btn-primary{
   display:inline-flex;
   align-items:center;
+  justify-content:center;
   gap:0.5rem;
   background:var(--laranja);
   color:var(--branco);
   padding:1rem 2rem;
-  border-radius:50px;
+  border-radius:999px;
   text-decoration:none;
   font-weight:700;
   font-size:1rem;
   border:none;
   cursor:pointer;
   transition:all 0.3s;
-  box-shadow:0 4px 15px rgba(255,102,0,0.3);
+  box-shadow:0 4px 15px rgba(255,107,24,0.3);
 }
 
 .btn-primary:hover{
   transform:translateY(-3px);
-  box-shadow:0 8px 25px rgba(255,102,0,0.4);
-  background:#e55a00;
+  box-shadow:0 8px 25px rgba(255,107,24,0.4);
+  background:#E85D12;
 }
 
 .btn-secondary{
   display:inline-flex;
   align-items:center;
+  justify-content:center;
   gap:0.5rem;
   background:transparent;
   color:var(--azul);
   padding:1rem 2rem;
-  border-radius:50px;
+  border-radius:999px;
   text-decoration:none;
   font-weight:700;
   font-size:1rem;
@@ -229,30 +233,50 @@ nav{
   background:var(--azul);
   color:var(--branco);
   transform:translateY(-3px);
+  box-shadow:0 10px 24px rgba(0,53,153,0.18);
 }
 
 .btn-ajuda{
-  background:linear-gradient(135deg, var(--azul), #0044cc);
+  background:linear-gradient(135deg, var(--azul), #2458B8);
   color:var(--branco);
   padding:1.2rem 2.5rem;
-  border-radius:50px;
+  border-radius:999px;
   text-decoration:none;
   font-weight:700;
   font-size:1.1rem;
   display:inline-flex;
   align-items:center;
+  justify-content:center;
   gap:0.5rem;
   transition:all 0.3s;
   border:none;
   cursor:pointer;
-  box-shadow:0 5px 20px rgba(0,51,153,0.3);
+  box-shadow:0 5px 20px rgba(0,53,153,0.3);
 }
 
 .btn-ajuda:hover{
   transform:translateY(-3px) scale(1.05);
-  box-shadow:0 10px 30px rgba(0,51,153,0.4);
+  box-shadow:0 10px 30px rgba(0,53,153,0.4);
 }
 
+
+.page-intro-note{
+  max-width:760px;
+  margin:0 auto 1.5rem;
+  text-align:center;
+  color:var(--texto);
+  opacity:0.92;
+}
+
+.price-highlight{
+  color:var(--laranja);
+  font-weight:800;
+}
+
+.small-note{
+  font-size:0.95rem;
+  opacity:0.88;
+}
 /* ============================================
    ROTEIROS PRONTOS - BOTÕES (SEU PADRÃO)
    ============================================ */
@@ -291,11 +315,11 @@ nav{
 .btn-mp{
   background:var(--laranja);
   color:var(--branco);
-  box-shadow:0 4px 15px rgba(255,102,0,0.25);
+  box-shadow:0 4px 15px rgba(255,107,24,0.25);
 }
 .btn-mp:hover{
-  background:#e55a00;
-  box-shadow:0 8px 25px rgba(255,102,0,0.35);
+  background:#E85D12;
+  box-shadow:0 8px 25px rgba(255,107,24,0.35);
 }
 
 .btn-pix{
@@ -326,6 +350,7 @@ nav{
 .section-tag{
   display:inline-flex;
   align-items:center;
+  justify-content:center;
   gap:0.5rem;
   background:var(--laranja-claro);
   color:var(--laranja);
@@ -418,7 +443,7 @@ nav{
 }
 
 .modal-header{
-  background:linear-gradient(135deg, var(--azul), #0044cc);
+  background:linear-gradient(135deg, var(--azul), #2458B8);
   color:var(--branco);
   padding:2rem;
   border-radius:20px 20px 0 0;
@@ -816,7 +841,7 @@ footer{
   }
 }
 
-/* 2) Preço do Modo Conexão: mantém "R$ 59,90" na MESMA linha */
+/* 2) Preço do Modo Conexão: mantém "R$ 59,99" na MESMA linha */
 .preco-box .preco-valor {
   white-space: nowrap;
 }
@@ -845,12 +870,3 @@ footer{
   font-size: 1em;
   font-weight: 700;
 }
-
-
-
-
-
-
-
-
-
