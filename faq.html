@@ -5,8 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FAQ | Modo Turistagem</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  <meta name="description" content="Tire suas dúvidas sobre planos, preços, prazos, ajustes, suporte, pagamento e o que está incluso na consultoria da Modo Turistagem." />
+  <meta name="theme-color" content="#003599" />
+  <link rel="canonical" href="https://modoturistagem.github.io/modo-turistagem/faq.html" />
+
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="FAQ | Modo Turistagem" />
+  <meta property="og:description" content="Tire suas dúvidas sobre planos, preços, prazos, ajustes, suporte, pagamento e o que está incluso na consultoria da Modo Turistagem." />
+  <meta property="og:url" content="https://modoturistagem.github.io/modo-turistagem/faq.html" />
+  <meta property="og:site_name" content="Modo Turistagem" />
+  <meta property="og:image" content="https://modoturistagem.github.io/modo-turistagem/images/logotipo.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="FAQ | Modo Turistagem" />
+  <meta name="twitter:description" content="Tire suas dúvidas sobre planos, preços, prazos, ajustes, suporte, pagamento e o que está incluso na consultoria da Modo Turistagem." />
+  <meta name="twitter:image" content="https://modoturistagem.github.io/modo-turistagem/images/logotipo.png" />
+<link rel="stylesheet" href="css/style.css" />
 
   <style>
     /* AJUSTE DOS ÍCONES DO RODAPÉ */
@@ -31,7 +46,7 @@
     /* HERO */
     .faq-hero {
       margin-top: 70px;
-      background: linear-gradient(135deg, var(--azul) 0%, #0044cc 100%);
+      background: linear-gradient(135deg, var(--azul) 0%, #2458B8 100%);
       color: var(--branco);
       padding: 4.5rem 2rem 4rem;
       text-align: center;
@@ -75,6 +90,80 @@
       max-width: 1050px;
       margin: 0 auto;
       padding: 4rem 2rem 5rem;
+    }
+
+
+    /* RESUMO RÁPIDO */
+    .faq-resumo {
+      background: var(--branco);
+      border: 1.5px solid rgba(0, 53, 153, 0.08);
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+      border-radius: 24px;
+      padding: 1.6rem;
+      margin-bottom: 2rem;
+    }
+
+    .faq-resumo-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .faq-resumo-head h2 {
+      color: var(--azul);
+      font-size: 1.9rem;
+      margin: 0 0 0.35rem;
+      line-height: 1.1;
+    }
+
+    .faq-resumo-head p {
+      margin: 0;
+      color: var(--texto);
+      line-height: 1.7;
+      max-width: 760px;
+    }
+
+    .faq-resumo-badge {
+      background: var(--laranja-claro);
+      color: var(--azul);
+      border-radius: 999px;
+      padding: 0.55rem 0.95rem;
+      font-size: 0.9rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .faq-resumo-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .faq-resumo-card {
+      background: var(--off-white);
+      border-radius: 18px;
+      padding: 1.1rem;
+      border: 1px solid rgba(0, 53, 153, 0.08);
+    }
+
+    .faq-resumo-card h3 {
+      color: var(--azul);
+      font-size: 1.1rem;
+      margin: 0 0 0.55rem;
+      line-height: 1.25;
+    }
+
+    .faq-resumo-card p {
+      margin: 0;
+      color: var(--texto);
+      font-size: 0.98rem;
+      line-height: 1.65;
+    }
+
+    .faq-resumo-card strong {
+      color: var(--azul);
     }
 
     /* CATEGORIAS */
@@ -463,6 +552,18 @@
         padding: 2.4rem 1rem 4rem;
       }
 
+      .faq-resumo {
+        padding: 1.2rem;
+      }
+
+      .faq-resumo-head {
+        flex-direction: column;
+      }
+
+      .faq-resumo-grid {
+        grid-template-columns: 1fr;
+      }
+
       .faq-categoria {
         font-size: 1.08rem;
         margin-top: 2.3rem;
@@ -575,6 +676,38 @@
 
   <!-- FAQ -->
   <section class="faq-section">
+
+    <div class="faq-resumo fade-in" aria-label="Resumo rápido do FAQ">
+      <div class="faq-resumo-head">
+        <div>
+          <h2>Resumo rápido pra você não caçar informação no meio do textão</h2>
+          <p>Se você quer a versão expressa, é essa aqui: a Modo é consultoria, você compra tudo direto nos sites oficiais e cada plano muda o nível de profundidade, suporte e estratégia.</p>
+        </div>
+        <span class="faq-resumo-badge"><span class="emoji" aria-hidden="true">⚡</span> versão rápida</span>
+      </div>
+
+      <div class="faq-resumo-grid">
+        <div class="faq-resumo-card">
+          <h3><span class="emoji" aria-hidden="true">🧭</span> O que a Modo faz</h3>
+          <p>A gente organiza a viagem com <strong>curadoria, estratégia e roteiro</strong>. Não é pacote pronto e não é agência vendendo tudo por você.</p>
+        </div>
+
+        <div class="faq-resumo-card">
+          <h3><span class="emoji" aria-hidden="true">🛒</span> Quem compra o quê</h3>
+          <p><strong>Você faz as compras e reservas</strong> direto nos sites e fornecedores. A Modo orienta o caminho e deixa tudo mais claro.</p>
+        </div>
+
+        <div class="faq-resumo-card">
+          <h3><span class="emoji" aria-hidden="true">⏱️</span> Quando o prazo começa</h3>
+          <p>O prazo passa a contar com <strong>formulário completo + entrada confirmada</strong>. Antes disso, a viagem ainda não entrou oficialmente em produção.</p>
+        </div>
+
+        <div class="faq-resumo-card">
+          <h3><span class="emoji" aria-hidden="true">✈️</span> O que muda por plano</h3>
+          <p>Partiu = roteiro. Check-in = roteiro + hospedagem. Embarque = mais estratégia. VIP = suporte durante a viagem. <strong>Conexão entra no Embarque e no VIP.</strong></p>
+        </div>
+      </div>
+    </div>
 
     <!-- INFO (ACCORDION) -->
     <div class="faq-item fade-in">
@@ -886,24 +1019,24 @@
           <div class="faq-resposta-conteudo">
             <div class="precos-box">
               <p class="precos-intro">
-                Aqui estão os valores-base dos produtos e planos da Modo Turistagem. Acréscimos por pessoas, cidades,
-                urgência e ajustes extras podem ser aplicados conforme o caso.
+                Aqui estão os valores-base atualizados dos produtos e planos da Modo Turistagem.
+                Acréscimos por pessoas, cidades, urgência e ajustes extras podem ser aplicados quando a logística do seu caso pedir mais planejamento.
               </p>
 
               <div class="precos-mini-grid">
                 <div class="preco-mini">
                   <strong><span class="emoji" aria-hidden="true">🛬</span> Modo Conexão | Aeroporto</strong>
-                  <span>R$ 59,90</span>
+                  <span>R$ 59,99</span>
                 </div>
 
                 <div class="preco-mini">
                   <strong><span class="emoji" aria-hidden="true">🏙️</span> Modo Conexão | Turismo na cidade</strong>
-                  <span>R$ 89,90</span>
+                  <span>R$ 89,99</span>
                 </div>
 
                 <div class="preco-mini">
                   <strong><span class="emoji" aria-hidden="true">🧭</span> Painel de Partidas</strong>
-                  <span>R$ 79,90</span>
+                  <span>R$ 79,99</span>
                 </div>
               </div>
 
@@ -911,44 +1044,44 @@
                 <div class="preco-card">
                   <h4><span class="emoji" aria-hidden="true">🎒</span> Modo Partiu</h4>
                   <ul class="preco-lista">
-                    <li><span>Até 7 dias</span><span>R$ 139</span></li>
-                    <li><span>8 a 14 dias</span><span>R$ 169</span></li>
-                    <li><span>15 a 21 dias</span><span>R$ 199</span></li>
-                    <li><span>22 a 30 dias</span><span>R$ 229</span></li>
-                    <li><span>Acima de 30 dias</span><span>+ R$ 89 por semana extra</span></li>
+                    <li><span>Até 7 dias</span><span>R$ 149,99</span></li>
+                    <li><span>8 a 14 dias</span><span>R$ 179,99</span></li>
+                    <li><span>15 a 21 dias</span><span>R$ 209,99</span></li>
+                    <li><span>22 a 30 dias</span><span>R$ 239,99</span></li>
+                    <li><span>Acima de 30 dias</span><span>+ R$ 99,99 por semana extra</span></li>
                   </ul>
                 </div>
 
                 <div class="preco-card">
                   <h4><span class="emoji" aria-hidden="true">🧳</span> Modo Check-in</h4>
                   <ul class="preco-lista">
-                    <li><span>Até 7 dias</span><span>R$ 239</span></li>
-                    <li><span>8 a 14 dias</span><span>R$ 279</span></li>
-                    <li><span>15 a 21 dias</span><span>R$ 319</span></li>
-                    <li><span>22 a 30 dias</span><span>R$ 369</span></li>
-                    <li><span>Acima de 30 dias</span><span>+ R$ 129 por semana</span></li>
+                    <li><span>Até 7 dias</span><span>R$ 259,99</span></li>
+                    <li><span>8 a 14 dias</span><span>R$ 299,99</span></li>
+                    <li><span>15 a 21 dias</span><span>R$ 339,99</span></li>
+                    <li><span>22 a 30 dias</span><span>R$ 389,99</span></li>
+                    <li><span>Acima de 30 dias</span><span>+ R$ 139,99 por semana extra</span></li>
                   </ul>
                 </div>
 
                 <div class="preco-card">
                   <h4><span class="emoji" aria-hidden="true">✈️</span> Modo Embarque</h4>
                   <ul class="preco-lista">
-                    <li><span>Até 7 dias</span><span>R$ 339</span></li>
-                    <li><span>8 a 14 dias</span><span>R$ 389</span></li>
-                    <li><span>15 a 21 dias</span><span>R$ 439</span></li>
-                    <li><span>22 a 30 dias</span><span>R$ 499</span></li>
-                    <li><span>Acima de 30 dias</span><span>+ R$ 159 por semana</span></li>
+                    <li><span>Até 7 dias</span><span>R$ 359,99</span></li>
+                    <li><span>8 a 14 dias</span><span>R$ 409,99</span></li>
+                    <li><span>15 a 21 dias</span><span>R$ 459,99</span></li>
+                    <li><span>22 a 30 dias</span><span>R$ 509,99</span></li>
+                    <li><span>Acima de 30 dias</span><span>+ R$ 169,99 por semana extra</span></li>
                   </ul>
                 </div>
 
                 <div class="preco-card">
                   <h4><span class="emoji" aria-hidden="true">💎</span> Modo VIP</h4>
                   <ul class="preco-lista">
-                    <li><span>Até 7 dias</span><span>R$ 659</span></li>
-                    <li><span>8 a 14 dias</span><span>R$ 759</span></li>
-                    <li><span>15 a 21 dias</span><span>R$ 839</span></li>
-                    <li><span>22 a 30 dias</span><span>R$ 909</span></li>
-                    <li><span>Acima de 30 dias</span><span>+ R$ 259 por semana</span></li>
+                    <li><span>Até 7 dias</span><span>R$ 859,99</span></li>
+                    <li><span>8 a 14 dias</span><span>R$ 1059,99</span></li>
+                    <li><span>15 a 21 dias</span><span>R$ 1259,99</span></li>
+                    <li><span>22 a 30 dias</span><span>R$ 1459,99</span></li>
+                    <li><span>Acima de 30 dias</span><span>+ R$ 299,99 por semana extra</span></li>
                   </ul>
                 </div>
               </div>
@@ -966,7 +1099,7 @@
                   (cidades com pernoite / troca de hospedagem).
                   <br />
                   <strong>Acréscimo por cidades (acima de 2 cidades-base):</strong>
-                  3–4 cidades: +15% | 5–6 cidades: +25% | 7–8 cidades: +40% | 9+: orçamento.
+                  3–4 cidades: +25% | 5–6 cidades: +35% | 7–8 cidades: +50% | 9+: orçamento.
                 </div>
 
                 <div class="preco-info">
@@ -1002,31 +1135,31 @@
             <p><strong>Regras rápidas:</strong></p>
             <ul>
               <li><strong>Pessoas:</strong> 5–6 (+20%) | 7–8 (+30%) | 9–10 (+50%)</li>
-              <li><strong>Cidades-base:</strong> 3–4 (+15%) | 5–6 (+25%) | 7–8 (+40%)</li>
+              <li><strong>Cidades-base:</strong> 3–4 (+25%) | 5–6 (+35%) | 7–8 (+50%)</li>
             </ul>
 
             <div class="simulacao-box">
               <p><strong>Simulação 1 — grupo de 7–8 pessoas (+30%):</strong></p>
               <p>
-                Exemplo com plano de <strong>R$ 239</strong>:
+                Exemplo com plano de <strong>R$ 259,99</strong>:
                 <br />
-                <code>239 x 1,30 = 310,70</code>
+                <code>259,99 x 1,30 = 337,99</code>
                 <br />
-                Total: <strong>R$ 310,70</strong>
+                Total: <strong>R$ 337,99</strong>
               </p>
             </div>
 
             <div class="simulacao-box">
-              <p><strong>Simulação 2 — 5–6 pessoas (+20%) + 3–4 cidades-base (+15%):</strong></p>
+              <p><strong>Simulação 2 — 5–6 pessoas (+20%) + 3–4 cidades-base (+25%):</strong></p>
               <p>
-                Exemplo com plano de <strong>R$ 369</strong>:
+                Exemplo com plano de <strong>R$ 389,99</strong>:
                 <br />
-                <code>369 x 1,35 = 498,15</code>
+                <code>389,99 x 1,45 = 565,49</code>
                 <br />
-                Total: <strong>R$ 498,15</strong>
+                Total: <strong>R$ 565,49</strong>
               </p>
               <p style="margin-top: 0.6rem;">
-                (Aqui a gente usou a conta simples somando os percentuais: <strong>20% + 15% = 35%</strong>.)
+                (Aqui a gente usou a conta simples somando os percentuais: <strong>20% + 25% = 45%</strong>.)
               </p>
             </div>
 
@@ -1620,5 +1753,3 @@
 
 </body>
 </html>
-</html>
-
