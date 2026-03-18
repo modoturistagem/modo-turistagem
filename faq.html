@@ -21,325 +21,709 @@
   <meta name="twitter:title" content="FAQ | Modo Turistagem" />
   <meta name="twitter:description" content="Tire suas dúvidas sobre planos, preços, prazos, ajustes, suporte, pagamento e o que está incluso na consultoria da Modo Turistagem." />
   <meta name="twitter:image" content="https://modoturistagem.github.io/modo-turistagem/images/logotipo.png" />
-
-  <link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/style.css" />
 
   <style>
-    .emoji{font-family:var(--font-emoji)!important;font-weight:400!important;font-style:normal!important;line-height:1}
-    .emoji-inline{display:inline-block;vertical-align:middle}
-    .faq-hero{
-      margin-top:70px;
-      background:linear-gradient(135deg,var(--azul) 0%, #2458B8 100%);
-      color:var(--branco);
-      padding:4.5rem 2rem 4rem;
-      text-align:center;
-      position:relative;
-      overflow:hidden;
-    }
-    .faq-hero::before{
-      content:"❓";
-      position:absolute;
-      top:10%;
-      right:5%;
-      font-size:8rem;
-      opacity:.08;
-      pointer-events:none;
-    }
-    .faq-hero .container{position:relative;z-index:2}
-    .faq-hero h1{color:var(--branco);font-size:3rem;line-height:1.1;margin-bottom:.8rem}
-    .faq-hero p{
-      max-width:780px;
-      margin:0 auto;
-      font-size:1.08rem;
-      line-height:1.75;
-      color:rgba(255,255,255,.94);
-    }
-    .faq-section{
-      max-width:1050px;
-      margin:0 auto;
-      padding:4rem 2rem 5rem;
+    /* AJUSTE DOS ÍCONES DO RODAPÉ */
+    .social-icon-img {
+      height: 24px;
+      width: auto;
+      display: block;
     }
 
-    .faq-resumo{
-      background:var(--branco);
-      border:1.5px solid rgba(0,53,153,.08);
-      box-shadow:0 5px 18px rgba(0,0,0,.06);
-      border-radius:24px;
-      padding:1.6rem;
-      margin-bottom:2rem;
-    }
-    .faq-resumo-head{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:1rem;
-      margin-bottom:1.1rem;
-    }
-    .faq-resumo-head h2{
-      color:var(--azul);
-      font-size:1.9rem;
-      margin:0 0 .35rem;
-      line-height:1.1;
-    }
-    .faq-resumo-head p{margin:0;line-height:1.7;max-width:760px}
-    .faq-resumo-badge{
-      background:var(--laranja-claro);
-      color:var(--azul);
-      border-radius:999px;
-      padding:.55rem .95rem;
-      font-size:.9rem;
-      font-weight:800;
-      white-space:nowrap;
-    }
-    .faq-resumo-grid{
-      display:grid;
-      grid-template-columns:repeat(4,minmax(0,1fr));
-      gap:1rem;
-    }
-    .faq-resumo-card{
-      background:var(--off-white);
-      border-radius:18px;
-      padding:1.1rem;
-      border:1px solid rgba(0,53,153,.08);
-    }
-    .faq-resumo-card h3{
-      color:var(--azul);
-      font-size:1.05rem;
-      margin:0 0 .55rem;
-      line-height:1.3;
-    }
-    .faq-resumo-card p{margin:0;font-size:.98rem;line-height:1.65}
-
-    .faq-categoria{
-      margin:2.8rem 0 1rem;
-      color:var(--laranja);
-      font-size:1.3rem;
-      font-weight:800;
-      display:flex;
-      align-items:center;
-      gap:.55rem;
-      line-height:1.3;
-    }
-    .faq-item{
-      background:var(--branco);
-      border-radius:18px;
-      margin-bottom:1rem;
-      box-shadow:0 5px 18px rgba(0,0,0,.06);
-      border:1.5px solid rgba(0,53,153,.08);
-      overflow:hidden;
-      transition:border-color .25s ease, transform .25s ease;
-    }
-    .faq-item:hover{
-      border-color:rgba(255,107,24,.35);
-      transform:translateY(-2px);
-    }
-    .faq-pergunta{
-      width:100%;
-      border:0;
-      background:transparent;
-      padding:1.25rem 1.35rem;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:1rem;
-      text-align:left;
-      cursor:pointer;
-      color:var(--azul);
-      font-weight:800;
-      font-size:1.08rem;
-      line-height:1.5;
-    }
-    .faq-pergunta-texto{flex:1;min-width:0}
-    .faq-icon{
-      flex-shrink:0;
-      color:var(--laranja);
-      font-size:1.55rem;
-      line-height:1;
-      margin-left:auto;
-      transition:transform .25s ease;
-    }
-    .faq-item.active .faq-icon{transform:rotate(45deg)}
-    .faq-resposta{
-      display:grid;
-      grid-template-rows:0fr;
-      transition:grid-template-rows .3s ease;
-    }
-    .faq-item.active .faq-resposta{grid-template-rows:1fr}
-    .faq-resposta-inner{overflow:hidden}
-    .faq-resposta-conteudo{
-      padding:0 1.35rem 0;
-      line-height:1.8;
-    }
-    .faq-item.active .faq-resposta-conteudo{padding-bottom:1.35rem}
-    .faq-resposta-conteudo p{margin:0}
-    .faq-resposta-conteudo p + p{margin-top:.85rem}
-    .faq-resposta-conteudo ul{margin:.9rem 0 0;padding-left:1.2rem}
-    .faq-resposta-conteudo li + li{margin-top:.35rem}
-
-    .highlight-list{
-      list-style:none;
-      padding:0;
-      margin:1rem 0 0;
-      display:grid;
-      gap:.8rem;
-    }
-    .highlight-list li{
-      padding:.9rem 1rem;
-      border-radius:14px;
-      background:rgba(255,153,102,.08);
-      border:1px solid rgba(255,153,102,.28);
-      line-height:1.65;
+    .emoji {
+      font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif !important;
+      font-weight: 400 !important;
+      font-style: normal !important;
+      line-height: 1;
     }
 
-    .precos-box{
-      background:var(--branco);
-      border-radius:20px;
-      padding:1.4rem;
-      box-shadow:0 5px 18px rgba(0,0,0,.06);
-      border:1.5px solid rgba(0,53,153,.08);
-    }
-    .precos-intro{margin-bottom:1rem;line-height:1.75}
-    .precos-grid{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:1rem;
-      margin-bottom:1rem;
-    }
-    .precos-mini-grid{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:1rem;
-      margin-bottom:1rem;
-    }
-    .preco-card,.preco-mini{
-      background:#fff;
-      border-radius:18px;
-      border:1px solid rgba(0,53,153,.1);
-      padding:1rem;
-    }
-    .preco-card h4{margin:0 0 .7rem;color:var(--azul);font-size:1.05rem;line-height:1.35}
-    .preco-lista{
-      list-style:none;
-      padding:0;
-      margin:0;
-      display:grid;
-      gap:.45rem;
-    }
-    .preco-lista li{
-      display:flex;
-      justify-content:space-between;
-      gap:1rem;
-      line-height:1.55;
-      padding:.45rem 0;
-      border-bottom:1px dashed rgba(0,53,153,.08);
-    }
-    .preco-lista li:last-child{border-bottom:0;padding-bottom:0}
-    .preco-lista span:last-child{font-weight:800;color:var(--azul);white-space:nowrap}
-    .preco-mini strong{display:block;color:var(--azul);line-height:1.45}
-    .preco-mini span{display:block;margin-top:.45rem;font-weight:800;color:var(--laranja)}
-    .precos-observacoes{
-      display:grid;
-      gap:.85rem;
-      margin-top:1rem;
-    }
-    .preco-info,.simulacao-box,.pagamento-aviso{
-      border-radius:16px;
-      padding:1rem;
-      background:var(--off-white);
-      border:1px solid rgba(0,53,153,.08);
-      line-height:1.75;
+    .emoji-inline {
+      display: inline-block;
+      vertical-align: middle;
     }
 
-    .faq-cta{
-      margin-top:2rem;
-      text-align:center;
-      padding:2rem 1.25rem;
-      background:var(--laranja-claro);
-      border-radius:22px;
+    /* HERO */
+    .faq-hero {
+      margin-top: 70px;
+      background: linear-gradient(135deg, var(--azul) 0%, #2458B8 100%);
+      color: var(--branco);
+      padding: 4.5rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
     }
-    .faq-cta p{margin:0 0 .9rem;line-height:1.7}
 
-    @media (max-width:900px){
-      .precos-grid,.precos-mini-grid,.faq-resumo-grid{grid-template-columns:1fr}
+    .faq-hero::before {
+      content: "❓";
+      position: absolute;
+      top: 10%;
+      right: 5%;
+      font-size: 8rem;
+      opacity: 0.08;
+      line-height: 1;
+      pointer-events: none;
     }
-    @media (max-width:768px){
-      .faq-section{padding:2.4rem 1rem 4rem}
-      .faq-hero{padding:3.7rem 1.2rem 3.2rem}
-      .faq-hero h1{font-size:2.1rem}
-      .faq-hero p{font-size:.98rem}
-      .faq-resumo{padding:1.2rem}
-      .faq-resumo-head{flex-direction:column}
-      .faq-categoria{font-size:1.08rem;margin-top:2.3rem;align-items:flex-start}
-      .faq-pergunta{padding:1rem 1rem 1rem 1.05rem;font-size:.98rem;align-items:flex-start}
-      .faq-icon{font-size:1.3rem;margin-top:.05rem}
-      .faq-resposta-conteudo,.precos-box{font-size:.96rem}
-      .preco-lista li{flex-direction:column;gap:.15rem}
-      .preco-lista span:last-child{white-space:normal}
+
+    .faq-hero .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .faq-hero h1 {
+      color: var(--branco);
+      font-size: 3rem;
+      line-height: 1.1;
+      margin-bottom: 0.8rem;
+    }
+
+    .faq-hero p {
+      max-width: 780px;
+      margin: 0 auto;
+      font-size: 1.08rem;
+      line-height: 1.75;
+      color: rgba(255, 255, 255, 0.94);
+    }
+
+    /* WRAPPER */
+    .faq-section {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 4rem 2rem 5rem;
+    }
+
+
+    /* RESUMO RÁPIDO */
+    .faq-resumo {
+      background: var(--branco);
+      border: 1.5px solid rgba(0, 53, 153, 0.08);
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+      border-radius: 24px;
+      padding: 1.6rem;
+      margin-bottom: 2rem;
+    }
+
+    .faq-resumo-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .faq-resumo-head h2 {
+      color: var(--azul);
+      font-size: 1.9rem;
+      margin: 0 0 0.35rem;
+      line-height: 1.1;
+    }
+
+    .faq-resumo-head p {
+      margin: 0;
+      color: var(--texto);
+      line-height: 1.7;
+      max-width: 760px;
+    }
+
+    .faq-resumo-badge {
+      background: var(--laranja-claro);
+      color: var(--azul);
+      border-radius: 999px;
+      padding: 0.55rem 0.95rem;
+      font-size: 0.9rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .faq-resumo-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .faq-resumo-card {
+      background: var(--off-white);
+      border-radius: 18px;
+      padding: 1.1rem;
+      border: 1px solid rgba(0, 53, 153, 0.08);
+    }
+
+    .faq-resumo-card h3 {
+      color: var(--azul);
+      font-size: 1.1rem;
+      margin: 0 0 0.55rem;
+      line-height: 1.25;
+    }
+
+    .faq-resumo-card p {
+      margin: 0;
+      color: var(--texto);
+      font-size: 0.98rem;
+      line-height: 1.65;
+    }
+
+    .faq-resumo-card strong {
+      color: var(--azul);
+    }
+
+    /* CATEGORIAS */
+    .faq-categoria {
+      margin: 2.8rem 0 1rem;
+      color: var(--laranja);
+      font-size: 1.3rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      line-height: 1.3;
+    }
+
+    /* ITENS FAQ */
+    .faq-item {
+      background: var(--branco);
+      border-radius: 18px;
+      margin-bottom: 1rem;
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+      border: 1.5px solid rgba(0, 68, 204, 0.08);
+      overflow: hidden;
+      transition: border-color 0.25s ease, transform 0.25s ease;
+    }
+
+    .faq-item:hover {
+      border-color: rgba(255, 102, 51, 0.35);
+      transform: translateY(-2px);
+    }
+
+    .faq-pergunta {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      padding: 1.25rem 1.35rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      text-align: left;
+      cursor: pointer;
+      font-family: inherit;
+      color: var(--azul);
+      font-weight: 800;
+      font-size: 1.08rem;
+      line-height: 1.5;
+    }
+
+    .faq-pergunta-texto {
+      flex: 1;
+      min-width: 0;
+    }
+
+    /* + sempre no fim (direita) */
+    .faq-icon {
+      flex-shrink: 0;
+      color: var(--laranja);
+      font-size: 1.55rem;
+      line-height: 1;
+      margin-left: auto;
+      transition: transform 0.25s ease;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    /* Resposta com animação sem max-height fixo */
+    .faq-resposta {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.3s ease;
+    }
+
+    .faq-item.active .faq-resposta {
+      grid-template-rows: 1fr;
+    }
+
+    .faq-resposta-inner {
+      overflow: hidden;
+    }
+
+    .faq-resposta-conteudo {
+      padding: 0 1.35rem 0;
+      color: var(--texto);
+      line-height: 1.8;
+    }
+
+    .faq-item.active .faq-resposta-conteudo {
+      padding-bottom: 1.35rem;
+    }
+
+    .faq-resposta-conteudo p {
+      margin: 0;
+    }
+
+    .faq-resposta-conteudo p + p {
+      margin-top: 0.85rem;
+    }
+
+    .faq-resposta-conteudo ul {
+      margin: 0.9rem 0 0;
+      padding-left: 1.2rem;
+    }
+
+    .faq-resposta-conteudo li + li {
+      margin-top: 0.35rem;
+    }
+
+    /* LISTA DESTACADA */
+    .highlight-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .highlight-list li {
+      padding: 0.9rem 1rem;
+      border-radius: 14px;
+      background: rgba(255, 153, 102, 0.08);
+      border: 1px solid rgba(255, 153, 102, 0.28);
+      line-height: 1.65;
+    }
+
+    /* PAGAMENTO */
+    .pagamento-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .pagamento-card {
+      border-radius: 16px;
+      padding: 1rem;
+      background: #fff;
+      border: 1px solid rgba(0, 68, 204, 0.12);
+    }
+
+    .pagamento-topo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .pagamento-topo img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .pagamento-topo strong {
+      color: var(--azul);
+      font-size: 1rem;
+      line-height: 1.35;
+    }
+
+    .pagamento-card ul {
+      margin: 0;
+      padding-left: 1.1rem;
+      line-height: 1.7;
+    }
+
+    .pagamento-aviso {
+      margin-top: 1rem;
+      border-left: 4px solid var(--azul);
+      background: rgba(0, 68, 204, 0.05);
+      border-radius: 12px;
+      padding: 0.9rem 1rem;
+      line-height: 1.75;
+    }
+
+    /* PREÇOS */
+    .precos-box {
+      background: var(--branco);
+      border-radius: 20px;
+      padding: 1.4rem;
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+      border: 1.5px solid rgba(0, 68, 204, 0.08);
+    }
+
+    .precos-intro {
+      margin-bottom: 1rem;
+      line-height: 1.75;
+      color: var(--texto);
+    }
+
+    .precos-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .preco-card {
+      background: #fff;
+      border-radius: 18px;
+      border: 1px solid rgba(0, 68, 204, 0.1);
+      padding: 1rem;
+    }
+
+    .preco-card h4 {
+      margin: 0 0 0.7rem;
+      color: var(--azul);
+      font-size: 1.05rem;
+      line-height: 1.35;
+    }
+
+    .preco-card h4 .emoji {
+      margin-right: 0.25rem;
+    }
+
+    .preco-lista {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .preco-lista li {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      line-height: 1.55;
+      padding: 0.45rem 0;
+      border-bottom: 1px dashed rgba(0, 68, 204, 0.08);
+    }
+
+    .preco-lista li:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .preco-lista span:last-child {
+      font-weight: 800;
+      color: var(--azul);
+      white-space: nowrap;
+    }
+
+    .precos-mini-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .preco-mini {
+      background: rgba(0, 68, 204, 0.04);
+      border: 1px solid rgba(0, 68, 204, 0.08);
+      border-radius: 16px;
+      padding: 1rem;
+    }
+
+    .preco-mini strong {
+      display: block;
+      color: var(--azul);
+      margin-bottom: 0.45rem;
+      line-height: 1.45;
+    }
+
+    .preco-mini span {
+      font-weight: 800;
+      color: var(--laranja);
+      font-size: 1.05rem;
+    }
+
+    .precos-observacoes {
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .preco-info {
+      background: rgba(255, 153, 102, 0.08);
+      border: 1px solid rgba(255, 153, 102, 0.25);
+      border-radius: 14px;
+      padding: 0.95rem 1rem;
+      line-height: 1.7;
+    }
+
+    .preco-info strong {
+      color: var(--azul);
+    }
+
+    /* ACRESCIMOS (simulações) */
+    .simulacao-box {
+      margin-top: 1rem;
+      border-radius: 14px;
+      background: rgba(255, 153, 102, 0.08);
+      border: 1px solid rgba(255, 153, 102, 0.28);
+      padding: 0.95rem 1rem;
+      line-height: 1.75;
+    }
+
+    .simulacao-box code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.95em;
+      background: rgba(0,0,0,0.04);
+      padding: 0.12rem 0.35rem;
+      border-radius: 8px;
+    }
+
+    /* CANCELAMENTO BOX */
+    .cancelamento-box {
+      margin-top: 1rem;
+      border-radius: 14px;
+      background: rgba(0, 68, 204, 0.05);
+      border: 1px solid rgba(0, 68, 204, 0.12);
+      padding: 0.95rem 1rem;
+      line-height: 1.75;
+    }
+
+    .cancelamento-box strong {
+      color: var(--azul);
+    }
+
+    /* CTA */
+    .faq-cta {
+      margin-top: 3rem;
+      background: linear-gradient(135deg, rgba(0, 68, 204, 0.06) 0%, rgba(255, 153, 102, 0.1) 100%);
+      border-radius: 20px;
+      padding: 2rem 1.25rem;
+      text-align: center;
+    }
+
+    .faq-cta p {
+      margin: 0 0 1rem;
+      line-height: 1.7;
+      color: var(--texto);
+    }
+
+    .faq-cta .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      text-decoration: none;
+    }
+
+    /* FADE */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVO */
+    @media (max-width: 900px) {
+      .pagamento-grid,
+      .precos-grid,
+      .precos-mini-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .faq-hero {
+        padding: 3.7rem 1.2rem 3.2rem;
+      }
+
+      .faq-hero::before {
+        font-size: 5.5rem;
+        top: 14px;
+        right: -8px;
+      }
+
+      .faq-hero h1 {
+        font-size: 2.1rem;
+      }
+
+      .faq-hero p {
+        font-size: 0.98rem;
+      }
+
+      .faq-section {
+        padding: 2.4rem 1rem 4rem;
+      }
+
+      .faq-resumo {
+        padding: 1.2rem;
+      }
+
+      .faq-resumo-head {
+        flex-direction: column;
+      }
+
+      .faq-resumo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .faq-categoria {
+        font-size: 1.08rem;
+        margin-top: 2.3rem;
+        align-items: flex-start;
+      }
+
+      .faq-pergunta {
+        padding: 1rem 1rem 1rem 1.05rem;
+        font-size: 0.98rem;
+        align-items: flex-start;
+      }
+
+      .faq-icon {
+        font-size: 1.3rem;
+        margin-top: 0.05rem;
+      }
+
+      .faq-resposta-conteudo,
+      .precos-box {
+        font-size: 0.96rem;
+      }
+
+      .faq-resposta-conteudo {
+        padding-left: 1.05rem;
+        padding-right: 1.05rem;
+      }
+
+      .faq-item.active .faq-resposta-conteudo {
+        padding-bottom: 1.05rem;
+      }
+
+      .precos-box {
+        padding: 1rem;
+        border-radius: 18px;
+      }
+
+      .preco-lista li {
+        flex-direction: column;
+        gap: 0.15rem;
+      }
+
+      .preco-lista span:last-child {
+        white-space: normal;
+      }
+
+      .faq-cta {
+        padding: 1.5rem 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .faq-hero h1 {
+        font-size: 1.85rem;
+      }
+
+      .faq-pergunta {
+        font-size: 0.94rem;
+      }
+
+      .faq-resposta-conteudo,
+      .precos-intro,
+      .preco-card,
+      .preco-info,
+      .preco-mini,
+      .simulacao-box,
+      .cancelamento-box,
+      .faq-cta p {
+        font-size: 0.93rem;
+      }
     }
   </style>
 </head>
+
 <body>
+
+  <!-- CABEÇALHO / NAVEGAÇÃO (PADRÃO) -->
   <nav>
     <div class="nav-container">
-      <a href="index.html" class="logo"><img src="images/logotipo.png" alt="Modo Turistagem" class="logo-img" /></a>
+      <a href="index.html" class="logo">
+        <img src="images/logotipo.png" alt="Modo Turistagem" class="logo-img" />
+      </a>
+
       <button class="mobile-menu" onclick="toggleMenu()" aria-label="Abrir menu">☰</button>
+
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
         <li><a href="destinos.html">Destinos Testados</a></li>
         <li><a href="como-funciona.html">Como Funciona</a></li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="quem-somos.html">Quem Somos</a></li>
-        <li><a href="https://wa.me/5549991628403" class="btn-nav" target="_blank" rel="noopener noreferrer">Fale Conosco</a></li>
+        <li>
+          <a href="https://wa.me/5549991628403" class="btn-nav" target="_blank" rel="noopener noreferrer">
+            Fale Conosco
+          </a>
+        </li>
       </ul>
     </div>
   </nav>
 
+  <!-- HERO -->
   <section class="faq-hero">
     <div class="container fade-in">
-      <h1><span class="emoji">❓</span> FAQ</h1>
-      <p>Pra você não descobrir nada no susto: aqui estão as respostas mais importantes sobre planos, preços, radars, prazos, ajustes, suporte, pagamento e o que entra — ou não entra — na consultoria.</p>
+      <h1><span class="emoji" aria-hidden="true">❓</span> FAQ</h1>
+      <p>
+        Tire suas dúvidas sobre como funciona a consultoria, Ajuda Expressa, preços, acréscimos, pagamento, ajustes,
+        condições especiais e tudo o que você precisa saber antes de contratar.
+      </p>
     </div>
   </section>
 
+  <!-- FAQ -->
   <section class="faq-section">
+
     <div class="faq-resumo fade-in" aria-label="Resumo rápido do FAQ">
       <div class="faq-resumo-head">
         <div>
           <h2>Resumo rápido pra você não caçar informação no meio do textão</h2>
-          <p>Se você quer a versão expressa, é essa aqui: a Modo é consultoria, você compra tudo direto nos sites oficiais e agora também tem ajuda pontual pra hotel, voo e cruzeiro quando ainda não faz sentido pegar um roteiro completo.</p>
+          <p>Se você quer a versão expressa, é essa aqui: a Modo é consultoria, você compra tudo direto nos sites oficiais e a ajuda pode vir em formato de Painel, Ajuda Expressa ou plano completo.</p>
         </div>
-        <span class="faq-resumo-badge"><span class="emoji">⚡</span> versão rápida</span>
+        <span class="faq-resumo-badge"><span class="emoji" aria-hidden="true">⚡</span> versão rápida</span>
       </div>
 
       <div class="faq-resumo-grid">
         <div class="faq-resumo-card">
-          <h3><span class="emoji">🧭</span> O que a Modo faz</h3>
+          <h3><span class="emoji" aria-hidden="true">🧭</span> O que a Modo faz</h3>
           <p>A gente organiza a viagem com <strong>curadoria, estratégia e roteiro</strong>. Não é pacote pronto e não é agência vendendo tudo por você.</p>
         </div>
+
         <div class="faq-resumo-card">
-          <h3><span class="emoji">🛒</span> Quem compra o quê</h3>
+          <h3><span class="emoji" aria-hidden="true">🛒</span> Quem compra o quê</h3>
           <p><strong>Você faz as compras e reservas</strong> direto nos sites e fornecedores. A Modo orienta o caminho e deixa tudo mais claro.</p>
         </div>
+
         <div class="faq-resumo-card">
-          <h3><span class="emoji">⏱️</span> Quando o prazo começa</h3>
+          <h3><span class="emoji" aria-hidden="true">⏱️</span> Quando o prazo começa</h3>
           <p>O prazo passa a contar com <strong>formulário completo + entrada confirmada</strong>. Antes disso, a viagem ainda não entrou oficialmente em produção.</p>
         </div>
+
         <div class="faq-resumo-card">
-          <h3><span class="emoji">✨</span> O que muda agora</h3>
-          <p>Além dos planos, a Modo agora também tem <strong>Radar de Voo, Radar de Hospedagem e Radar de Cruzeiros</strong> pra ajuda pontual.</p>
+          <h3><span class="emoji" aria-hidden="true">✈️</span> O que muda por plano</h3>
+          <p>Painel = norte. Ajuda Expressa = resolve uma parte da viagem. Planos completos = roteiro com profundidade. VIP = suporte durante a viagem. <strong>Conexão entra no Embarque e no VIP.</strong></p>
         </div>
       </div>
     </div>
 
+    <!-- INFO (ACCORDION) -->
     <div class="faq-item fade-in">
       <button class="faq-pergunta" type="button" aria-expanded="false">
-        <span class="faq-pergunta-texto"><span class="emoji">💙</span> Antes de tudo: como a Modo Turistagem funciona</span>
-        <span class="faq-icon">+</span>
+        <span class="faq-pergunta-texto"><span class="emoji" aria-hidden="true">💙</span> Antes de tudo: como a Modo Turistagem funciona</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
       </button>
+
       <div class="faq-resposta">
         <div class="faq-resposta-inner">
           <div class="faq-resposta-conteudo">
-            <p>A Modo Turistagem é uma <strong>consultoria de viagens</strong>. Isso significa que a gente te ajuda a planejar, organizar e decidir melhor — com orientação real, curadoria e estratégia — mas sem atuar como agência e sem fazer intermediação obrigatória de compra com fornecedores.</p>
+            <p>
+              A Modo Turistagem é uma <strong>consultoria de viagens</strong>. Isso significa que a gente te ajuda
+              a planejar, organizar e decidir melhor — com orientação real, curadoria e estratégia —
+              mas sem atuar como agência e sem fazer intermediação obrigatória de compra com fornecedores.
+            </p>
           </div>
         </div>
       </div>
@@ -347,41 +731,117 @@
 
     <div class="faq-item fade-in">
       <button class="faq-pergunta" type="button" aria-expanded="false">
-        <span class="faq-pergunta-texto"><span class="emoji">🚫</span> O que não está incluso</span>
-        <span class="faq-icon">+</span>
+        <span class="faq-pergunta-texto"><span class="emoji" aria-hidden="true">🚫</span> O que não está incluso</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
       </button>
+
       <div class="faq-resposta">
         <div class="faq-resposta-inner">
           <div class="faq-resposta-conteudo">
-            <p>Pra deixar tudo bem claro desde o começo, estes itens não fazem parte da consultoria, salvo se houver algo diferente expressamente informado no serviço contratado:</p>
-            <ul>
-              <li>emissão de passagens, reservas e compras em nome do cliente;</li>
-              <li>garantia de preço, disponibilidade ou promoção;</li>
-              <li>suporte 24h durante a viagem, exceto quando isso estiver previsto no plano;</li>
-              <li>serviço de guia presencial ou acompanhamento físico no destino.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+            <p>
+              Pra deixar tudo bem claro desde o começo, estes itens <strong>não fazem parte da consultoria</strong>,
+              salvo se houver algo diferente expressamente informado no plano contratado:
+            </p>
 
-    <h3 class="faq-categoria fade-in"><span class="emoji">📦</span> O que está incluso em cada plano</h3>
-
-    <div class="faq-item fade-in">
-      <button class="faq-pergunta" type="button" aria-expanded="false">
-        <span class="faq-pergunta-texto"><span class="emoji">🎒</span> Modo Partiu</span>
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-resposta">
-        <div class="faq-resposta-inner">
-          <div class="faq-resposta-conteudo">
-            <p>Pra quem já tem passagem e hospedagem resolvidas e quer um roteiro dia a dia pronto, com logística e dicas práticas.</p>
             <ul class="highlight-list">
-              <li><strong>🗓️ Roteiro dia a dia:</strong> organização clara e fácil de seguir.</li>
-              <li><strong>🛬 Chegada:</strong> como sair do aeroporto ou rodoviária até a hospedagem.</li>
-              <li><strong>🚇 Locomoção:</strong> como se deslocar entre pontos do jeito mais funcional.</li>
-              <li><strong>🍽️ Restaurantes e cafés:</strong> opções variadas com links clicáveis.</li>
-              <li><strong>🔗 Links confiáveis:</strong> sites seguros e úteis pra você pesquisar ou comprar.</li>
+              <li><strong>Emissão de passagens, reservas e compras em nome do cliente</strong> (você faz tudo direto nos sites e fornecedores).</li>
+              <li><strong>Garantia de preço, disponibilidade ou promoção</strong>, já que valores mudam em tempo real.</li>
+              <li><strong>Suporte 24h durante a viagem</strong>, exceto quando isso estiver previsto no plano (como no VIP).</li>
+              <li><strong>Serviço de guia presencial</strong> ou acompanhamento físico no destino.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SOBRE -->
+    <h3 class="faq-categoria fade-in">
+      <span class="emoji" aria-hidden="true">🏢</span> Sobre a Modo Turistagem
+    </h3>
+
+    <div class="faq-item fade-in">
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">Vocês são uma agência de turismo?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+
+      <div class="faq-resposta">
+        <div class="faq-resposta-inner">
+          <div class="faq-resposta-conteudo">
+            <p>
+              Não <span class="emoji" aria-hidden="true">🙂</span> A Modo Turistagem é uma
+              <strong>consultoria de viagem</strong>: a gente planeja, organiza e recomenda,
+              mas <strong>não vende pacote</strong> e <strong>não faz intermediação obrigatória</strong> com fornecedores.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item fade-in">
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">Vocês fazem compras e reservas por mim?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+
+      <div class="faq-resposta">
+        <div class="faq-resposta-inner">
+          <div class="faq-resposta-conteudo">
+            <p>
+              As compras e reservas são responsabilidade do cliente. A gente orienta, indica links, caminhos e opções,
+              mas <strong>não faz emissão</strong> e <strong>não garante disponibilidade, preço, reserva ou condições comerciais</strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item fade-in">
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">O que exatamente vocês entregam?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+
+      <div class="faq-resposta">
+        <div class="faq-resposta-inner">
+          <div class="faq-resposta-conteudo">
+            <p>
+              Você recebe o material final conforme o plano contratado (por exemplo: PDF, painel, roteiro,
+              curadoria, mapa, links e orientações) pelos canais combinados, como e-mail e/ou WhatsApp.
+            </p>
+            <p>
+              Um ponto importante: o material conta como entregue no momento em que ele é enviado,
+              mesmo que você ainda não tenha aberto, baixado ou visualizado.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ✅ INCLUSOS EM CADA PLANO (NOVO) -->
+    <h3 class="faq-categoria fade-in">
+      <span class="emoji" aria-hidden="true">📦</span> O que está incluso em cada plano
+    </h3>
+
+    <div class="faq-item fade-in">
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto"><span class="emoji" aria-hidden="true">🔁</span> Modo Conexão | <span class="emoji" aria-hidden="true">🛬</span> Aeroporto</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+
+      <div class="faq-resposta">
+        <div class="faq-resposta-inner">
+          <div class="faq-resposta-conteudo">
+            <p>
+              Pra quando você tem conexão/layover e quer usar esse tempo com inteligência — sem correr risco de perder o voo.
+            </p>
+
+            <ul class="highlight-list">
+              <li><strong>⏱️ Estratégia de tempo:</strong> quanto tempo você realmente tem (com margem segura) e o que faz sentido fazer.</li>
+              <li><strong>🧭 Passo a passo do aeroporto:</strong> imigração, troca de terminal/portão, inspeção, e o que costuma pegar em fila.</li>
+              <li><strong>🍽️ Onde comer e descansar:</strong> opções práticas e seguras (e o que vale a pena evitar).</li>
+              <li><strong>💤 Dicas de conforto:</strong> lounges/salas VIP (quando fizer sentido), áreas de descanso, chuveiro e “onde esperar melhor”.</li>
+              <li><strong>📌 Checklist rápido:</strong> documentos, horários, alertas e “o que não pode dar bobeira”.</li>
             </ul>
           </div>
         </div>
@@ -390,19 +850,100 @@
 
     <div class="faq-item fade-in">
       <button class="faq-pergunta" type="button" aria-expanded="false">
-        <span class="faq-pergunta-texto"><span class="emoji">🧳</span> Modo Check-in</span>
-        <span class="faq-icon">+</span>
+        <span class="faq-pergunta-texto"><span class="emoji" aria-hidden="true">🔁</span> Modo Conexão | <span class="emoji" aria-hidden="true">🏙️</span> Turismo na cidade</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
       </button>
+
       <div class="faq-resposta">
         <div class="faq-resposta-inner">
           <div class="faq-resposta-conteudo">
-            <p>Pra quem quer roteiro completo e ajuda real pra decidir onde ficar, com tudo mais visual e organizado.</p>
+            <p>
+              Pra quando a conexão é longa e você quer ver se dá pra fazer um bate-volta na cidade com segurança (sem loucura).
+            </p>
+
+            <ul class="highlight-list">
+              <li><strong>🗺️ Roteiro rápido:</strong> um mini-plano com os pontos que mais valem a pena no tempo disponível.</li>
+              <li><strong>🚆 Como sair e voltar:</strong> rotas, tempo médio, e o jeito mais seguro de fazer esse trajeto.</li>
+              <li><strong>⏱️ Margem de retorno:</strong> até que horas dá pra ir e até que horas tem que voltar (sem stress).</li>
+              <li><strong>🍽️ Dicas práticas:</strong> onde comer rápido e bem, e opções que funcionam no caminho.</li>
+              <li><strong>⚠️ Alertas do mundo real:</strong> horários, distância, filas e o que pode virar perrengue.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item fade-in">
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto"><span class="emoji" aria-hidden="true">🧭</span> Painel de Partidas</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+
+      <div class="faq-resposta">
+        <div class="faq-resposta-inner">
+          <div class="faq-resposta-conteudo">
+            <p>
+              Pra quem ainda não sabe pra onde vai (ou tá em dúvida) e quer um direcionamento inteligente, realista e bem pensado.
+            </p>
+
+            <ul class="highlight-list">
+              <li><strong>🎯 Sugestões de destinos:</strong> opções que fazem sentido pro seu orçamento e estilo.</li>
+              <li><strong>🧳 Estilo de viagem:</strong> urbano, natureza, gastronômico, romântico, família… o que combina com você.</li>
+              <li><strong>💡 Estratégia de orçamento:</strong> o que priorizar e como montar a viagem sem estourar.</li>
+              <li><strong>🗺️ Formato ideal:</strong> quantidade de dias, regiões e se faz sentido bate-volta.</li>
+              <li><strong>✅ Próximo passo:</strong> qual plano faz mais sentido pra você seguir depois.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item fade-in">
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto"><span class="emoji" aria-hidden="true">🎒</span> Modo Partiu</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+
+      <div class="faq-resposta">
+        <div class="faq-resposta-inner">
+          <div class="faq-resposta-conteudo">
+            <p>
+              Pra quem já tem passagem e hospedagem resolvidas e quer um roteiro dia a dia pronto, com logística e dicas práticas.
+            </p>
+
+            <ul class="highlight-list">
+              <li><strong>🗓️ Roteiro dia a dia:</strong> organização clara e fácil de seguir (sem virar “textão confuso”).</li>
+              <li><strong>🛬 Chegada:</strong> como sair do aeroporto/rodoviária até sua hospedagem (opções + dicas).</li>
+              <li><strong>🚇 Locomoção:</strong> como se deslocar entre pontos (metrô/ônibus/apps/caminhada) do jeito mais funcional.</li>
+              <li><strong>🧭 Dicas essenciais:</strong> moeda, internet/telefone, tomada, idioma, segurança, água e macetes do destino.</li>
+              <li><strong>🍽️ Restaurantes e cafés:</strong> opções variadas com links clicáveis (Maps/Instagram).</li>
+              <li><strong>🔗 Links confiáveis:</strong> sites seguros e úteis pra você pesquisar/comprar o que precisar.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item fade-in">
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto"><span class="emoji" aria-hidden="true">🧳</span> Modo Check-in</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+
+      <div class="faq-resposta">
+        <div class="faq-resposta-inner">
+          <div class="faq-resposta-conteudo">
+            <p>
+              Pra quem quer roteiro completo e ajuda real pra decidir onde ficar, com tudo mais visual e organizado.
+            </p>
+
             <ul class="highlight-list">
               <li><strong>✅ Tudo do Partiu:</strong> roteiro, chegada, locomoção, dicas práticas e restaurantes.</li>
-              <li><strong>🗺️ Mapa no Google:</strong> lugares do roteiro organizados pra usar no celular.</li>
-              <li><strong>🏨 Sugestões de hospedagem:</strong> regiões e bairros que fazem sentido pro seu perfil.</li>
-              <li><strong>💸 Faixas de preço:</strong> o que costuma ser barato, ok ou caro.</li>
+              <li><strong>🗺️ Mapa no Google (My Maps):</strong> lugares do roteiro organizados pra você usar no celular.</li>
+              <li><strong>🏨 Sugestões de hospedagem:</strong> regiões/bairros que fazem sentido pro seu perfil.</li>
+              <li><strong>💸 Faixas de preço:</strong> o que costuma ser barato/ok/caro e onde vale mais a pena ficar.</li>
               <li><strong>🔗 Links diretos:</strong> atalhos pra você comparar e escolher hospedagem com menos dor de cabeça.</li>
+              <li><strong>✈️ Dicas de compra (quando aplicável):</strong> orientação estratégica do “como/onde pesquisar melhor”.</li>
             </ul>
           </div>
         </div>
@@ -411,18 +952,23 @@
 
     <div class="faq-item fade-in">
       <button class="faq-pergunta" type="button" aria-expanded="false">
-        <span class="faq-pergunta-texto"><span class="emoji">✈️</span> Modo Embarque</span>
-        <span class="faq-icon">+</span>
+        <span class="faq-pergunta-texto"><span class="emoji" aria-hidden="true">✈️</span> Modo Embarque</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
       </button>
+
       <div class="faq-resposta">
         <div class="faq-resposta-inner">
           <div class="faq-resposta-conteudo">
-            <p>Pra quem quer tudo do Check-in + mais estratégia, segurança e um roteiro à prova de perrengue.</p>
+            <p>
+              Pra quem quer tudo do Check-in + mais estratégia, segurança e um roteiro “à prova de perrengue”.
+            </p>
+
             <ul class="highlight-list">
               <li><strong>✅ Tudo do Check-in:</strong> roteiro completo + mapa + hospedagem bem alinhada.</li>
-              <li><strong>🌧️ Plano B:</strong> alternativas práticas se chover, mudar o clima ou o ritmo.</li>
-              <li><strong>🎧 Alinhamento por voz:</strong> call curta ou áudio explicando a lógica do roteiro.</li>
-              <li><strong>🧠 Kit sobrevivência:</strong> frases úteis e macetes do destino.</li>
+              <li><strong>🌧️ Plano B:</strong> alternativas práticas se chover/mudar o clima ou se algo não rolar.</li>
+              <li><strong>🎧 Alinhamento por voz:</strong> call curta (15–20 min) ou áudio explicando a lógica do roteiro.</li>
+              <li><strong>🧠 Kit sobrevivência:</strong> frases úteis e macetes do destino (quando fizer sentido).</li>
+              <li><strong>🛡️ Curadoria de seguro viagem:</strong> comparação de opções alinhadas ao seu perfil.</li>
               <li><strong>🛬 Conexão inclusa:</strong> se sua viagem tiver conexão, o <strong>Modo Conexão | Aeroporto</strong> já entra junto.</li>
             </ul>
           </div>
@@ -432,145 +978,86 @@
 
     <div class="faq-item fade-in">
       <button class="faq-pergunta" type="button" aria-expanded="false">
-        <span class="faq-pergunta-texto"><span class="emoji">💎</span> Modo VIP</span>
-        <span class="faq-icon">+</span>
+        <span class="faq-pergunta-texto"><span class="emoji" aria-hidden="true">💎</span> Modo VIP</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
       </button>
+
       <div class="faq-resposta">
         <div class="faq-resposta-inner">
           <div class="faq-resposta-conteudo">
-            <p>Pra quem quer a experiência mais completa — com apresentação do roteiro e suporte durante a viagem.</p>
+            <p>
+              Pra quem quer a experiência mais completa — com apresentação do roteiro e suporte durante a viagem.
+            </p>
+
             <ul class="highlight-list">
               <li><strong>✅ Tudo do Embarque:</strong> roteiro completo, mapa, estratégia, plano B e seguro.</li>
               <li><strong>📞 Apresentação em call:</strong> 45–60 min pra explicar o roteiro e alinhar tudo com você.</li>
-              <li><strong>💬 Suporte durante a viagem:</strong> em horário comercial BR.</li>
-              <li><strong>🧾 Ajuda ao vivo na compra:</strong> uma sessão combinada pra te acompanhar nas decisões.</li>
+              <li><strong>💬 Suporte durante a viagem:</strong> em horário comercial BR (dúvidas, rotas, ajustes pontuais).</li>
+              <li><strong>🧾 Ajuda ao vivo na compra:</strong> uma sessão combinada (até 60 min) pra te acompanhar em decisões.</li>
               <li><strong>🔁 Conexão inclusa:</strong> se sua viagem tiver conexão, entra <strong>Aeroporto + Turismo na cidade</strong>.</li>
+              <li><strong>🧠 Mais flexibilidade:</strong> mais margem pra ajustes pós-entrega (dentro das regras do plano).</li>
             </ul>
           </div>
         </div>
       </div>
     </div>
 
-    <h3 class="faq-categoria fade-in"><span class="emoji">✨</span> Ajuda pontual</h3>
+    <!-- PREÇOS -->
+    <h3 class="faq-categoria fade-in">
+      <span class="emoji" aria-hidden="true">🏷️</span> Preços
+    </h3>
 
-    <div class="faq-item fade-in">
-      <button class="faq-pergunta" type="button" aria-expanded="false">
-        <span class="faq-pergunta-texto">Vocês fazem só pesquisa de hospedagem, voo ou cruzeiro?</span>
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-resposta">
-        <div class="faq-resposta-inner">
-          <div class="faq-resposta-conteudo">
-            <p>Sim. Pra quando você ainda não precisa de um roteiro completo, a Modo também tem uma ajuda mais pontual: <strong>Radar de Voo</strong>, <strong>Radar de Hospedagem</strong> e <strong>Radar de Cruzeiros</strong>.</p>
-            <p>É consultoria do mesmo jeito: a gente pesquisa, compara, organiza e te dá um norte melhor. A compra continua sendo feita <strong>direto pelo cliente</strong>, e não existe garantia de preço ou disponibilidade — porque isso muda em tempo real.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="faq-item fade-in">
-      <button class="faq-pergunta" type="button" aria-expanded="false">
-        <span class="faq-pergunta-texto">O que entra no Radar de Voo?</span>
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-resposta">
-        <div class="faq-resposta-inner">
-          <div class="faq-resposta-conteudo">
-            <p><strong>Radar de Voo · R$ 59,99</strong></p>
-            <ul class="highlight-list">
-              <li><strong>💺 5 opções de voos</strong> de acordo com o seu perfil, datas e orçamento.</li>
-              <li><strong>⏱️ Comparação prática</strong> entre horários, escalas e custo-benefício.</li>
-              <li><strong>🔗 Links confiáveis</strong> pra compra direta.</li>
-              <li><strong>✅ Recomendação final</strong> com base no que faz mais sentido pra sua viagem.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="faq-item fade-in">
-      <button class="faq-pergunta" type="button" aria-expanded="false">
-        <span class="faq-pergunta-texto">O que entra no Radar de Hospedagem?</span>
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-resposta">
-        <div class="faq-resposta-inner">
-          <div class="faq-resposta-conteudo">
-            <p><strong>Radar de Hospedagem · R$ 59,99</strong></p>
-            <ul class="highlight-list">
-              <li><strong>🛏️ 5 opções de hospedagem</strong> de acordo com o seu perfil, estilo e orçamento.</li>
-              <li><strong>📍 Leitura rápida de bairros e regiões</strong> pra evitar escolha ruim.</li>
-              <li><strong>💸 Comparação prática</strong> de custo-benefício.</li>
-              <li><strong>🔗 Links confiáveis</strong> pra reserva direta.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="faq-item fade-in">
-      <button class="faq-pergunta" type="button" aria-expanded="false">
-        <span class="faq-pergunta-texto">O que entra no Radar de Cruzeiros?</span>
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-resposta">
-        <div class="faq-resposta-inner">
-          <div class="faq-resposta-conteudo">
-            <p><strong>Radar de Cruzeiros · R$ 59,99</strong></p>
-            <ul class="highlight-list">
-              <li><strong>⚓ 5 opções de cruzeiros</strong> de acordo com o seu perfil, datas e orçamento.</li>
-              <li><strong>🧭 Comparação prática</strong> entre rota, duração e cabine.</li>
-              <li><strong>🔗 Links confiáveis</strong> pra compra direta.</li>
-              <li><strong>✅ Recomendação final</strong> mais estratégica, sem cara de busca aleatória.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <h3 class="faq-categoria fade-in"><span class="emoji">🏷️</span> Preços</h3>
-
+    <!-- TABELA DE PREÇOS RETRÁTIL -->
     <div class="faq-item fade-in">
       <button class="faq-pergunta" type="button" aria-expanded="false">
         <span class="faq-pergunta-texto">Tabela de preços (planos e produtos)</span>
-        <span class="faq-icon">+</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
       </button>
+
       <div class="faq-resposta">
         <div class="faq-resposta-inner">
           <div class="faq-resposta-conteudo">
             <div class="precos-box">
-              <p class="precos-intro">Aqui estão os valores-base atualizados dos produtos e planos da Modo Turistagem. Acréscimos por pessoas, cidades, urgência e ajustes extras podem ser aplicados quando a logística do seu caso pedir mais planejamento.</p>
+              <p class="precos-intro">
+                Aqui estão os valores-base atualizados dos produtos e planos da Modo Turistagem.
+                Acréscimos por pessoas, cidades, urgência e ajustes extras podem ser aplicados quando a logística do seu caso pedir mais planejamento.
+              </p>
 
               <div class="precos-mini-grid">
                 <div class="preco-mini">
-                  <strong>🛬 Modo Conexão | Aeroporto</strong>
+                  <strong><span class="emoji" aria-hidden="true">🛬</span> Modo Conexão | Aeroporto</strong>
                   <span>R$ 59,99</span>
                 </div>
+
                 <div class="preco-mini">
-                  <strong>🏙️ Modo Conexão | Turismo na cidade</strong>
+                  <strong><span class="emoji" aria-hidden="true">🏙️</span> Modo Conexão | Turismo na cidade</strong>
                   <span>R$ 89,99</span>
                 </div>
+
                 <div class="preco-mini">
-                  <strong>🧭 Painel de Partidas</strong>
+                  <strong><span class="emoji" aria-hidden="true">🧭</span> Painel de Partidas</strong>
                   <span>R$ 79,99</span>
                 </div>
+
                 <div class="preco-mini">
-                  <strong>💺 Radar de Voo</strong>
+                  <strong><span class="emoji" aria-hidden="true">💺</span> Radar de Voo</strong>
                   <span>R$ 59,99</span>
                 </div>
+
                 <div class="preco-mini">
-                  <strong>🛏️ Radar de Hospedagem</strong>
+                  <strong><span class="emoji" aria-hidden="true">🛏️</span> Radar de Hospedagem</strong>
                   <span>R$ 59,99</span>
                 </div>
+
                 <div class="preco-mini">
-                  <strong>⚓ Radar de Cruzeiros</strong>
+                  <strong><span class="emoji" aria-hidden="true">⚓</span> Radar de Cruzeiros</strong>
                   <span>R$ 59,99</span>
                 </div>
               </div>
 
               <div class="precos-grid">
                 <div class="preco-card">
-                  <h4>🎒 Modo Partiu</h4>
+                  <h4><span class="emoji" aria-hidden="true">🎒</span> Modo Partiu</h4>
                   <ul class="preco-lista">
                     <li><span>Até 7 dias</span><span>R$ 149,99</span></li>
                     <li><span>8 a 14 dias</span><span>R$ 179,99</span></li>
@@ -581,7 +1068,7 @@
                 </div>
 
                 <div class="preco-card">
-                  <h4>🧳 Modo Check-in</h4>
+                  <h4><span class="emoji" aria-hidden="true">🧳</span> Modo Check-in</h4>
                   <ul class="preco-lista">
                     <li><span>Até 7 dias</span><span>R$ 259,99</span></li>
                     <li><span>8 a 14 dias</span><span>R$ 299,99</span></li>
@@ -592,7 +1079,7 @@
                 </div>
 
                 <div class="preco-card">
-                  <h4>✈️ Modo Embarque</h4>
+                  <h4><span class="emoji" aria-hidden="true">✈️</span> Modo Embarque</h4>
                   <ul class="preco-lista">
                     <li><span>Até 7 dias</span><span>R$ 359,99</span></li>
                     <li><span>8 a 14 dias</span><span>R$ 409,99</span></li>
@@ -603,7 +1090,7 @@
                 </div>
 
                 <div class="preco-card">
-                  <h4>💎 Modo VIP</h4>
+                  <h4><span class="emoji" aria-hidden="true">💎</span> Modo VIP</h4>
                   <ul class="preco-lista">
                     <li><span>Até 7 dias</span><span>R$ 859,99</span></li>
                     <li><span>8 a 14 dias</span><span>R$ 1059,99</span></li>
@@ -616,17 +1103,27 @@
 
               <div class="precos-observacoes">
                 <div class="preco-info">
-                  <strong>Grupo padrão:</strong> até 4 adultos ou 2 adultos + 3 crianças.<br />
-                  <strong>Acréscimo por pessoas:</strong> 5–6 pessoas: +20% | 7–8: +30% | 9–10: +50% | 11+: orçamento.
+                  <strong>Grupo padrão:</strong> até 4 adultos OU 2 adultos + 3 crianças.
+                  <br />
+                  <strong>Acréscimo por pessoas (acima do grupo padrão):</strong>
+                  5–6 pessoas: +20% | 7–8: +30% | 9–10: +50% | 11+: orçamento.
                 </div>
+
                 <div class="preco-info">
-                  <strong>Cidades inclusas no valor:</strong> até 2 cidades-base (com pernoite).<br />
-                  <strong>Acréscimo por cidades:</strong> 3–4 cidades: +25% | 5–6 cidades: +35% | 7–8 cidades: +50% | 9+: orçamento.
+                  <strong>Cidades inclusas no valor:</strong> os valores cobrem até <strong>2 cidades-base</strong>
+                  (cidades com pernoite / troca de hospedagem).
+                  <br />
+                  <strong>Acréscimo por cidades (acima de 2 cidades-base):</strong>
+                  3–4 cidades: +25% | 5–6 cidades: +35% | 7–8 cidades: +50% | 9+: orçamento.
                 </div>
+
                 <div class="preco-info">
-                  <strong>Semana extra:</strong> 7 dias (ou fração), conforme a regra do plano.<br />
-                  <strong>Ajuste simples extra:</strong> 5% do valor do plano, com mínimo de R$ 29.<br />
-                  <strong>Taxa de urgência:</strong> 30% do valor do plano para entrega em 5 dias úteis em vez de 10 dias úteis.
+                  <strong>Semana extra:</strong> 7 dias (ou fração), conforme a regra do plano.
+                  <br />
+                  <strong>Ajuste simples extra:</strong> 5% do valor do plano, com mínimo de R$ 29.
+                  <br />
+                  <strong>Taxa de urgência:</strong> 30% do valor do plano para entrega em <strong>5 dias úteis</strong>
+                  em vez de 10 dias úteis.
                 </div>
               </div>
             </div>
@@ -635,15 +1132,21 @@
       </div>
     </div>
 
+    <!-- ACRESCIMOS -->
     <div class="faq-item fade-in">
       <button class="faq-pergunta" type="button" aria-expanded="false">
         <span class="faq-pergunta-texto">Como funcionam os acréscimos?</span>
-        <span class="faq-icon">+</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
       </button>
+
       <div class="faq-resposta">
         <div class="faq-resposta-inner">
           <div class="faq-resposta-conteudo">
-            <p>Os valores dos planos cobrem um <strong>grupo padrão</strong> e até <strong>2 cidades-base</strong>. Quando a viagem passa disso, entram acréscimos porque a logística e o tempo de planejamento aumentam.</p>
+            <p>
+              Os valores dos planos cobrem um <strong>grupo padrão</strong> e até <strong>2 cidades-base</strong>.
+              Quando a viagem passa disso, entram acréscimos porque a logística e o tempo de planejamento aumentam.
+            </p>
+
             <p><strong>Regras rápidas:</strong></p>
             <ul>
               <li><strong>Pessoas:</strong> 5–6 (+20%) | 7–8 (+30%) | 9–10 (+50%)</li>
@@ -652,139 +1155,616 @@
 
             <div class="simulacao-box">
               <p><strong>Simulação 1 — grupo de 7–8 pessoas (+30%):</strong></p>
-              <p>Exemplo com plano de <strong>R$ 259,99</strong>:<br /><code>259,99 x 1,30 = 337,99</code><br />Total: <strong>R$ 337,99</strong></p>
+              <p>
+                Exemplo com plano de <strong>R$ 259,99</strong>:
+                <br />
+                <code>259,99 x 1,30 = 337,99</code>
+                <br />
+                Total: <strong>R$ 337,99</strong>
+              </p>
             </div>
 
             <div class="simulacao-box">
               <p><strong>Simulação 2 — 5–6 pessoas (+20%) + 3–4 cidades-base (+25%):</strong></p>
-              <p>Exemplo com plano de <strong>R$ 389,99</strong>:<br /><code>389,99 x 1,45 = 565,49</code><br />Total: <strong>R$ 565,49</strong></p>
-              <p style="margin-top:.6rem;">(Aqui a gente usou a conta simples somando os percentuais: <strong>20% + 25% = 45%</strong>.)</p>
+              <p>
+                Exemplo com plano de <strong>R$ 389,99</strong>:
+                <br />
+                <code>389,99 x 1,45 = 565,49</code>
+                <br />
+                Total: <strong>R$ 565,49</strong>
+              </p>
+              <p style="margin-top: 0.6rem;">
+                (Aqui a gente usou a conta simples somando os percentuais: <strong>20% + 25% = 45%</strong>.)
+              </p>
             </div>
+
+            <p>
+              Se você quiser, a gente confirma os acréscimos do seu caso antes de fechar — sem surpresa e sem “pegadinha”.
+            </p>
           </div>
         </div>
       </div>
     </div>
 
-    <h3 class="faq-categoria fade-in"><span class="emoji">💰</span> Pagamento</h3>
-
+    <!-- ORÇAMENTOS ESPECIAIS -->
     <div class="faq-item fade-in">
       <button class="faq-pergunta" type="button" aria-expanded="false">
-        <span class="faq-pergunta-texto">Como funcionam pagamento, compra e reserva?</span>
-        <span class="faq-icon">+</span>
+        <span class="faq-pergunta-texto">Orçamentos especiais (11+ pessoas ou 9+ cidades-base)</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
       </button>
+
       <div class="faq-resposta">
         <div class="faq-resposta-inner">
           <div class="faq-resposta-conteudo">
-            <p>As compras e reservas são responsabilidade do cliente. A Modo orienta, indica links e organiza o caminho — mas não faz emissão e não garante disponibilidade, preço, reserva ou condições comerciais.</p>
-            <div class="pagamento-aviso" style="margin-top:1rem;">
-              Você pode pagar por Pix ou por link de pagamento, conforme o combinado no atendimento. Se tiver parcelamento envolvido, podem existir taxas da plataforma.
+            <p>
+              Quando a viagem fica grande demais pra tabela, a gente faz orçamento personalizado —
+              porque a logística e o tempo de planejamento aumentam de verdade.
+            </p>
+
+            <p><strong>Como funciona:</strong></p>
+            <ul>
+              <li>Você manda destino(s), datas, número de pessoas, número de cidades e o plano desejado (Partiu/Check-in/Embarque/VIP).</li>
+              <li>A gente retorna com <strong>valor fechado</strong> + <strong>prazo de entrega</strong>.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGAMENTO -->
+    <h3 class="faq-categoria fade-in">
+      <span class="emoji" aria-hidden="true">💰</span> Pagamento
+    </h3>
+
+    <div class="faq-item fade-in">
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">Formas de pagamento</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+
+      <div class="faq-resposta">
+        <div class="faq-resposta-inner">
+          <div class="faq-resposta-conteudo">
+            <p>
+              Você pode escolher a forma que fizer mais sentido pra você. Se quiser parcelar,
+              a gente também pode calcular antes pra você já saber certinho como fica.
+            </p>
+
+            <div class="pagamento-grid">
+              <div class="pagamento-card">
+                <div class="pagamento-topo">
+                  <img src="images/icons/whatsapp-logo.png" alt="WhatsApp" />
+                  <strong>Pagamento via WhatsApp</strong>
+                </div>
+                <ul>
+                  <li><strong>Pix</strong></li>
+                  <li><strong>Somente à vista</strong></li>
+                  <li>Combinação e envio direto pelo WhatsApp</li>
+                </ul>
+              </div>
+
+              <div class="pagamento-card">
+                <div class="pagamento-topo">
+                  <img src="images/icons/mercadopago.png" alt="Mercado Pago" />
+                  <strong>Pagamento via Mercado Pago</strong>
+                </div>
+                <ul>
+                  <li>Pix</li>
+                  <li>Boleto</li>
+                  <li>Débito</li>
+                  <li>Crédito à vista</li>
+                  <li>Crédito parcelado</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="pagamento-aviso">
+              No caso do <strong>crédito parcelado</strong>, podem existir taxas do próprio Mercado Pago.
+              Se você quiser, a gente calcula o valor final antes pra você saber exatamente quanto vai pagar.
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <h3 class="faq-categoria fade-in"><span class="emoji">🔁</span> Ajustes e alterações</h3>
+    <div class="faq-item fade-in">
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">Os valores no roteiro são finais?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+
+      <div class="faq-resposta">
+        <div class="faq-resposta-inner">
+          <div class="faq-resposta-conteudo">
+            <p>
+              Não. Os valores apresentados são <strong>estimativas</strong>, muitas vezes na moeda local,
+              e podem variar por câmbio, IOF, taxas, datas, sazonalidade, disponibilidade, políticas do fornecedor
+              e mudanças tarifárias em tempo real.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ✅ REEMBOLSO/CANCELAMENTO -->
+    <div class="faq-item fade-in">
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">Como funciona reembolso e cancelamento?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+
+      <div class="faq-resposta">
+        <div class="faq-resposta-inner">
+          <div class="faq-resposta-conteudo">
+            <p><strong>O que vale (regra única):</strong></p>
+
+            <div class="cancelamento-box">
+              <p>
+                <strong>✅ Até 3 dias corridos</strong> após a confirmação do pagamento da <strong>entrada (20%)</strong>:
+                a entrada pode ser <strong>reembolsada integralmente</strong>, mediante solicitação do cliente.
+              </p>
+              <p style="margin-top: 0.6rem;">
+                <strong>🚫 Após 3 dias corridos:</strong> a entrada <strong>não é reembolsável</strong>.
+              </p>
+              <p style="margin-top: 0.6rem;">
+                <strong>📩 Após a entrega do material final:</strong> não há reembolso <strong>total ou parcial</strong>
+                do serviço prestado.
+              </p>
+            </div>
+
+            <p style="margin-top: 0.85rem;">
+              Se você precisar cancelar, chama a gente no WhatsApp o quanto antes pra registrar o pedido dentro do prazo.
+            </p>
+
+            <p style="margin-top: 0.85rem;">
+              <strong>Observação:</strong> em pagamentos via plataformas (ex.: Mercado Pago), eventuais taxas do próprio meio de pagamento
+              podem existir e seguem as regras da plataforma.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESPONSABILIDADES -->
+    <h3 class="faq-categoria fade-in">
+      <span class="emoji" aria-hidden="true">⚖️</span> Responsabilidades
+    </h3>
+
+    <div class="faq-item fade-in">
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">Quem toma a decisão final do que comprar e fazer?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+
+      <div class="faq-resposta">
+        <div class="faq-resposta-inner">
+          <div class="faq-resposta-conteudo">
+            <p>
+              Você. A gente entrega a curadoria e o direcionamento com base no seu briefing,
+              mas a <strong>decisão final e a execução</strong> são do cliente — inclusive conferir e aceitar
+              as políticas de cancelamento, remarcação e uso de cada fornecedor.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item fade-in">
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">Vocês se responsabilizam por imprevistos durante a viagem?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+
+      <div class="faq-resposta">
+        <div class="faq-resposta-inner">
+          <div class="faq-resposta-conteudo">
+            <p>
+              Não. A consultoria não se responsabiliza por atrasos, cancelamentos, overbooking, greves, clima,
+              mudanças de rota ou horário, fechamento de atrações ou qualquer situação fora do controle do planejamento.
+            </p>
+            <p>
+              <span class="emoji" aria-hidden="true">➡️</span> Por isso, a gente recomenda fortemente seguro viagem.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item fade-in">
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">Requisitos de entrada (passaporte, visto, vacinas): vocês cuidam disso?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+
+      <div class="faq-resposta">
+        <div class="faq-resposta-inner">
+          <div class="faq-resposta-conteudo">
+            <p>
+              Essa verificação é responsabilidade do cliente. A gente pode orientar, mas isso
+              <strong>não substitui a consulta a fontes oficiais</strong> e não inclui garantia sobre regras
+              de imigração, vistos, vacinas, autorizações ou exigências das companhias e do destino.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROCESSO -->
+    <h3 class="faq-categoria fade-in">
+      <span class="emoji" aria-hidden="true">📝</span> Processo e Entrega
+    </h3>
+
+    <div class="faq-item fade-in">
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">Quando começa a contar o prazo de entrega?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+
+      <div class="faq-resposta">
+        <div class="faq-resposta-inner">
+          <div class="faq-resposta-conteudo">
+            <p>
+              O prazo começa a contar quando você envia:
+              <strong>✅ formulário completo + ✅ confirmação do pagamento da entrada (20%)</strong>.
+            </p>
+            <p>
+              Se faltar informação, o processo pode ficar pausado até a regularização, e isso pode impactar o prazo final.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item fade-in">
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">Por que eu preciso preencher o formulário?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+
+      <div class="faq-resposta">
+        <div class="faq-resposta-inner">
+          <div class="faq-resposta-conteudo">
+            <p>
+              Porque o formulário é a base do seu planejamento. É ali que você conta
+              datas, orçamento, estilo de viagem, prioridades, limitações e preferências.
+            </p>
+            <p>
+              Quanto mais completo ele estiver, mais estratégico, útil e realmente personalizado
+              o roteiro vai ficar.
+            </p>
+            <p>
+              Em resumo: o formulário evita achismo, reduz retrabalho e faz com que a consultoria
+              seja pensada de verdade pra sua realidade.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item fade-in">
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">Posso mudar destino, datas ou estilo depois de enviar o briefing?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+
+      <div class="faq-resposta">
+        <div class="faq-resposta-inner">
+          <div class="faq-resposta-conteudo">
+            <p>
+              Mudanças significativas — como destino, datas, quantidade de pessoas, orçamento ou estilo de viagem —
+              podem exigir <strong>readequação de prazo</strong>, <strong>upgrade</strong> e/ou <strong>novo orçamento</strong>,
+              sempre alinhado com você.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item fade-in">
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">E se eu preencher o formulário errado ou esquecer informações?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+
+      <div class="faq-resposta">
+        <div class="faq-resposta-inner">
+          <div class="faq-resposta-conteudo">
+            <p>
+              As recomendações são feitas com base nas informações enviadas por você. Se algo importante for omitido
+              ou preenchido incorretamente, isso pode impactar a adequação do roteiro, das sugestões e da estratégia montada.
+            </p>
+            <p>
+              Se você perceber isso rápido, pode entrar em contato pelo WhatsApp.
+              <strong>Se o roteiro ainda não tiver sido iniciado</strong>, dá pra corrigir e preencher novamente.
+            </p>
+            <p>
+              <strong>Se o planejamento já tiver começado</strong>, aí entram os ajustes previstos dentro do plano.
+              Caso a mudança ultrapasse esse escopo, pode haver cobrança de ajuste extra, upgrade ou replanejamento.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONDIÇÕES ESPECIAIS -->
+    <h3 class="faq-categoria fade-in">
+      <span class="emoji" aria-hidden="true">✨</span> Condições especiais
+    </h3>
+
+    <div class="faq-item fade-in">
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">Vocês fazem planejamento para PCDs e necessidades específicas?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+
+      <div class="faq-resposta">
+        <div class="faq-resposta-inner">
+          <div class="faq-resposta-conteudo">
+            <p>
+              Sim. A Modo Turistagem pode planejar levando em conta necessidades de <strong>acessibilidade</strong>
+              e outras condições que impactam a experiência da viagem.
+            </p>
+            <p>
+              Isso inclui, por exemplo: <strong>mobilidade</strong>, <strong>neurodivergência</strong>,
+              <strong>questões sensoriais</strong>, ritmo, pausas, preferência por ambientes menos cheios,
+              gatilhos, adaptações de deslocamento e hospedagem.
+            </p>
+            <p>
+              Só tem um ponto essencial: isso precisa estar <strong>especificado no formulário</strong>,
+              porque muda escolhas de hospedagem, transporte, passeios e o ritmo do roteiro.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item fade-in">
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">E viagens com pets ou animais de serviço?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+
+      <div class="faq-resposta">
+        <div class="faq-resposta-inner">
+          <div class="faq-resposta-conteudo">
+            <p>
+              Sim. A gente pode montar o plano considerando <strong>pets</strong> e também <strong>animais de serviço</strong>.
+            </p>
+            <p>
+              Como isso afeta logística (transporte, hospedagem, regras do destino, rotina e passeios),
+              é importante você <strong>detalhar no formulário</strong> o tipo de animal, porte e necessidades.
+            </p>
+            <p>
+              Assim a gente consegue sugerir opções realistas e seguras — sem te colocar em perrengue por regra que muda de um lugar pro outro.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AJUSTES -->
+    <h3 class="faq-categoria fade-in">
+      <span class="emoji" aria-hidden="true">🔁</span> Ajustes e Alterações
+    </h3>
 
     <div class="faq-item fade-in">
       <button class="faq-pergunta" type="button" aria-expanded="false">
         <span class="faq-pergunta-texto">Quais alterações estão inclusas no plano?</span>
-        <span class="faq-icon">+</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
       </button>
+
       <div class="faq-resposta">
         <div class="faq-resposta-inner">
           <div class="faq-resposta-conteudo">
-            <p><strong>Alterações dentro do escopo</strong> são ajustes pequenos feitos em cima do roteiro que já foi planejado, sem mudar a base da viagem.</p>
+            <p>
+              <strong>Alterações dentro do escopo</strong> são ajustes pequenos feitos em cima do roteiro
+              que já foi planejado, sem mudar a base da viagem.
+            </p>
+
+            <p><strong>Na prática, isso inclui coisas como:</strong></p>
             <ul>
               <li>trocar um restaurante por outro parecido;</li>
               <li>substituir um passeio por outra opção no mesmo estilo;</li>
               <li>reorganizar a ordem de atividades;</li>
-              <li>ajustar detalhes de preferência dentro do que já foi combinado.</li>
+              <li>ajustar detalhes de preferência dentro do que já foi combinado;</li>
+              <li>refinar sugestões de hospedagem, transporte ou experiências sem mudar a proposta da viagem.</li>
             </ul>
-            <p>Se a mudança mexe no coração da viagem, pode entrar <strong>reorçamento, upgrade ou novo planejamento</strong>.</p>
+
+            <p>
+              Resumindo: é aquele ajuste que deixa o roteiro mais a sua cara, mas <strong>sem refazer tudo do zero</strong>.
+            </p>
+
+            <p><strong>O que não entra nisso:</strong></p>
+            <ul>
+              <li>trocar destino, cidade ou região;</li>
+              <li>mudar bastante a quantidade de dias;</li>
+              <li>mudar o estilo da viagem (ex.: de urbana pra natureza, de econômica pra premium);</li>
+              <li>incluir novos destinos, bate-voltas ou etapas que não estavam previstas.</li>
+            </ul>
+
+            <p>
+              Nesses casos, o pedido pode virar <strong>reorçamento</strong>, <strong>upgrade de plano</strong>
+              ou um <strong>novo planejamento</strong>.
+            </p>
+
+            <p>
+              Se você quiser <strong>ajustes simples extras além dos já contemplados no plano</strong>,
+              pode ser cobrada uma taxa de <strong>5% do valor do plano</strong>, com mínimo de <strong>R$ 29</strong>.
+            </p>
           </div>
         </div>
       </div>
     </div>
 
-    <h3 class="faq-categoria fade-in"><span class="emoji">📄</span> Uso do material</h3>
+    <!-- SUPORTE -->
+    <h3 class="faq-categoria fade-in">
+      <span class="emoji" aria-hidden="true">💬</span> Suporte e Comunicação
+    </h3>
+
+    <div class="faq-item fade-in">
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">Vocês fazem guia presencial? Tem suporte 24h?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+
+      <div class="faq-resposta">
+        <div class="faq-resposta-inner">
+          <div class="faq-resposta-conteudo">
+            <p>
+              A consultoria não é guia turístico presencial e não oferece suporte 24h,
+              <strong>exceto se isso estiver explicitamente previsto no plano contratado</strong>,
+              como no Modo VIP.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item fade-in">
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">Como funciona a comunicação e o prazo de resposta?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+
+      <div class="faq-resposta">
+        <div class="faq-resposta-inner">
+          <div class="faq-resposta-conteudo">
+            <p>
+              Os canais, horários de atendimento e prazos de resposta seguem o combinado no plano contratado.
+              Quando houver suporte contínuo, ele respeita as condições descritas no serviço escolhido.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- USO DO MATERIAL -->
+    <h3 class="faq-categoria fade-in">
+      <span class="emoji" aria-hidden="true">📄</span> Uso do Material
+    </h3>
 
     <div class="faq-item fade-in">
       <button class="faq-pergunta" type="button" aria-expanded="false">
         <span class="faq-pergunta-texto">Posso compartilhar ou revender o PDF/roteiro?</span>
-        <span class="faq-icon">+</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
       </button>
+
       <div class="faq-resposta">
         <div class="faq-resposta-inner">
           <div class="faq-resposta-conteudo">
-            <p>O material é de uso pessoal do cliente e do grupo da viagem. Ele não pode ser revendido, distribuído publicamente ou reutilizado comercialmente.</p>
+            <p>
+              O material é de uso pessoal do cliente e do grupo da viagem.
+              Ele não pode ser revendido, distribuído publicamente, reproduzido como produto
+              ou reutilizado comercialmente.
+            </p>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="faq-cta fade-in">
-      <p>Ainda ficou com alguma dúvida? Me chama no WhatsApp e eu te explico sem enrolação.</p>
-      <a href="https://wa.me/5549991628403" class="btn-primary" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+    <div class="faq-item fade-in">
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">Vocês compartilham meus dados?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+
+      <div class="faq-resposta">
+        <div class="faq-resposta-inner">
+          <div class="faq-resposta-conteudo">
+            <p>
+              Não. As informações são usadas apenas pra executar a consultoria e organizar a viagem,
+              e não são compartilhadas com terceiros, exceto quando isso for necessário
+              pra cumprir alguma solicitação sua.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <!-- CTA -->
+    <div class="faq-cta fade-in">
+      <p>Ainda ficou com alguma dúvida? Chama a gente no WhatsApp e a gente explica tudo direitinho antes da contratação.</p>
+      <a href="https://wa.me/5549991628403" class="btn-primary" target="_blank" rel="noopener noreferrer">
+        <span class="emoji" aria-hidden="true">💬</span> Falar no WhatsApp
+      </a>
+    </div>
+
   </section>
 
+  <!-- RODAPÉ (PADRÃO) -->
   <footer>
     <div class="footer-content">
       <img src="images/LOGOTIPO%20branco.png" alt="Modo Turistagem" class="footer-logo" />
+
       <p class="footer-text">
         Consultoria de viagens feita por quem realmente viaja.
-        <span class="emoji emoji-inline">🌎</span><br />
+        <span class="emoji emoji-inline" aria-hidden="true">🌎</span><br />
         Traduzindo sonhos em planos concretos desde 2024.
       </p>
+
       <div class="social-links">
         <a href="https://instagram.com/modoturistagem" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
           <img src="images/icons/instagram.png" alt="Instagram" class="social-icon-img" />
         </a>
+
         <a href="https://wa.me/5549991628403" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
           <img src="images/icons/whatsapp.png" alt="WhatsApp" class="social-icon-img" />
         </a>
+
         <a href="mailto:modoturistagem@gmail.com" aria-label="E-mail">
           <img src="images/icons/email.png" alt="E-mail" class="social-icon-img" />
         </a>
       </div>
+
       <div class="footer-bottom">
         <p>© 2024 Modo Turistagem. Todos os direitos reservados.</p>
-        <p style="margin-top:.5rem;font-size:.85rem;">Roteiros feitos por viajantes, para viajantes <span class="emoji emoji-inline">💙</span></p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem; font-family: 'Neulis Sans', sans-serif !important;">
+          Roteiros feitos por viajantes, para viajantes
+          <span class="emoji emoji-inline" aria-hidden="true">💙</span>
+        </p>
       </div>
     </div>
   </footer>
 
   <script>
-    const faqButtons = document.querySelectorAll('.faq-pergunta');
-    faqButtons.forEach((button) => {
-      button.addEventListener('click', () => {
-        const item = button.closest('.faq-item');
-        const isActive = item.classList.contains('active');
+    // Accordion (abre 1 por vez)
+    const faqButtons = document.querySelectorAll(".faq-pergunta");
 
-        document.querySelectorAll('.faq-item').forEach((faq) => {
-          faq.classList.remove('active');
-          const faqBtn = faq.querySelector('.faq-pergunta');
-          if (faqBtn) faqBtn.setAttribute('aria-expanded', 'false');
+    faqButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const item = button.closest(".faq-item");
+        const isActive = item.classList.contains("active");
+
+        document.querySelectorAll(".faq-item").forEach((faq) => {
+          faq.classList.remove("active");
+          const faqBtn = faq.querySelector(".faq-pergunta");
+          if (faqBtn) faqBtn.setAttribute("aria-expanded", "false");
         });
 
         if (!isActive) {
-          item.classList.add('active');
-          button.setAttribute('aria-expanded', 'true');
+          item.classList.add("active");
+          button.setAttribute("aria-expanded", "true");
         }
       });
     });
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+    // Fade-in
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("visible");
+        });
+      },
+      { threshold: 0.12 }
+    );
 
+    document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
+
+    // Menu mobile
     function toggleMenu() {
-      document.getElementById('navLinks').classList.toggle('active');
+      document.getElementById("navLinks").classList.toggle("active");
     }
   </script>
+
 </body>
 </html>
