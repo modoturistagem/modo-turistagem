@@ -5,76 +5,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Como Funciona | Modo Turistagem</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <meta name="description" content="Entenda como funciona a consultoria da Modo Turistagem: escolha do plano, formulário, prazo, entrega em PDF clicável e ajustes." />
+  <meta name="theme-color" content="#003599" />
+  <link rel="canonical" href="https://modoturistagem.github.io/modo-turistagem/como-funciona.html" />
+
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Como Funciona | Modo Turistagem" />
+  <meta property="og:description" content="Entenda como funciona a consultoria da Modo Turistagem: escolha do plano, formulário, prazo, entrega em PDF clicável e ajustes." />
+  <meta property="og:url" content="https://modoturistagem.github.io/modo-turistagem/como-funciona.html" />
+  <meta property="og:site_name" content="Modo Turistagem" />
+  <meta property="og:image" content="https://modoturistagem.github.io/modo-turistagem/images/logotipo.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Como Funciona | Modo Turistagem" />
+  <meta name="twitter:description" content="Entenda como funciona a consultoria da Modo Turistagem: escolha do plano, formulário, prazo, entrega em PDF clicável e ajustes." />
+  <meta name="twitter:image" content="https://modoturistagem.github.io/modo-turistagem/images/logotipo.png" />
+
   <link rel="stylesheet" href="css/style.css" />
 
   <style>
-    /* AJUSTE DOS ÍCONES DO RODAPÉ */
-    .social-icon-img {
-      height: 24px;
-      width: auto;
-      display: block;
+    .emoji{
+      font-family:var(--font-emoji)!important;
+      font-weight:400!important;
+      font-style:normal!important;
+      line-height:1;
     }
-
-    .emoji {
-      font-family: "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif !important;
-      font-weight: 400 !important;
-      font-style: normal !important;
-      line-height: 1;
-    }
-
-    body { overflow-x: hidden; }
-
-    /* HERO */
     .como-funciona-hero{
       margin-top:70px;
-      background:linear-gradient(135deg,var(--laranja) 0%, #ff8533 100%);
+      background:linear-gradient(135deg,var(--laranja) 0%, #FF8B47 100%);
       color:var(--branco);
-      padding:clamp(3rem, 6vw, 4.5rem) 1.25rem;
+      padding:clamp(3rem,6vw,4.5rem) 1.25rem;
       text-align:center;
     }
     .como-funciona-hero h1{
-      font-size:clamp(2rem, 5vw, 3rem);
+      font-size:clamp(2rem,5vw,3rem);
       line-height:1.1;
       margin-bottom:.75rem;
     }
     .como-funciona-hero p{
       max-width:760px;
       margin:0 auto;
-      font-size:clamp(1rem, 2vw, 1.15rem);
+      font-size:clamp(1rem,2vw,1.15rem);
       line-height:1.6;
       opacity:.95;
     }
-
-    /* SEÇÃO */
     .passos{
-      padding:clamp(3rem, 6vw, 4.5rem) 1.25rem;
+      padding:clamp(3rem,6vw,4.5rem) 1.25rem;
       background:var(--branco);
     }
     .section-header{
       text-align:center;
       margin-bottom:2.5rem;
     }
-    .section-header h2{
-      margin-top:.75rem;
-      line-height:1.2;
-    }
-
-    /* TIMELINE */
+    .section-header h2{margin-top:.75rem;line-height:1.2}
     .passos-timeline{
-      max-width: 860px;
-      margin: 0 auto;
-      position: relative;
+      max-width:860px;
+      margin:0 auto;
+      position:relative;
     }
     .passos-timeline::before{
       content:'';
       position:absolute;
-      left:28px;
-      top:0;
-      bottom:0;
+      left:28px;top:0;bottom:0;
       width:4px;
-      background: linear-gradient(to bottom, var(--laranja), var(--azul));
-      border-radius: 999px;
+      background:linear-gradient(to bottom,var(--laranja),var(--azul));
+      border-radius:999px;
     }
     .passo-item{
       display:flex;
@@ -84,344 +80,219 @@
       position:relative;
     }
     .passo-numero{
-      width:56px;
-      height:56px;
-      background: var(--branco);
-      border: 4px solid var(--laranja);
-      border-radius: 50%;
+      width:56px;height:56px;
+      background:var(--branco);
+      border:4px solid var(--laranja);
+      border-radius:50%;
       display:flex;
       align-items:center;
       justify-content:center;
       font-size:1.35rem;
       font-weight:700;
-      color: var(--laranja);
+      color:var(--laranja);
       flex-shrink:0;
       position:relative;
       z-index:1;
-      font-family:'Fredoka',sans-serif;
-      box-shadow: 0 6px 18px rgba(0,0,0,.08);
+      box-shadow:0 6px 18px rgba(0,0,0,.08);
     }
     .passo-conteudo{
       min-width:0;
       flex:1;
-      background: var(--cinza);
-      padding: 1.5rem;
-      border-radius: 20px;
-      box-shadow: 0 5px 20px rgba(0,0,0,.08);
+      background:var(--cinza);
+      padding:1.5rem;
+      border-radius:20px;
+      box-shadow:0 5px 20px rgba(0,0,0,.08);
     }
     .passo-conteudo h3{
-      color: var(--azul);
-      font-size: 1.2rem;
-      margin: 0 0 .75rem;
+      color:var(--azul);
+      font-size:1.2rem;
+      margin:0 0 .75rem;
       display:flex;
       align-items:center;
       gap:.5rem;
-      flex-wrap: wrap;
-      line-height: 1.35;
+      flex-wrap:wrap;
+      line-height:1.35;
     }
-    .passo-conteudo p{
-      margin:0;
-      color: var(--texto);
-      line-height: 1.7;
+    .passo-conteudo p{margin:0;line-height:1.7}
+    .ajustes-box,.entrega-wrap,.destaque-box,.radar-box{
+      max-width:980px;
+      margin:2.25rem auto 0;
+      background:var(--cinza);
+      border-radius:20px;
+      padding:1.5rem;
+      box-shadow:0 5px 20px rgba(0,0,0,.08);
+      border:1px solid rgba(0,0,0,.06);
     }
-
-    /* EXPLICA “AJUSTE vs REFAZER DO ZERO” */
-    .ajustes-box{
-      max-width: 980px;
-      margin: 2.25rem auto 0;
-      background: var(--cinza);
-      border-radius: 20px;
-      padding: 1.5rem;
-      box-shadow: 0 5px 20px rgba(0,0,0,.08);
-      border: 1px solid rgba(0,0,0,.06);
-    }
-    .ajustes-box h4{
-      margin: 0 0 .75rem;
-      color: var(--azul);
+    .ajustes-box h4,.destaque-box h4,.radar-box h4{
+      margin:0 0 .75rem;
+      color:var(--azul);
       display:flex;
       align-items:center;
       gap:.6rem;
-      flex-wrap: wrap;
+      flex-wrap:wrap;
     }
     .ajustes-cols{
       display:grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-      margin-top: .75rem;
+      grid-template-columns:repeat(2,1fr);
+      gap:1rem;
+      margin-top:.75rem;
     }
     .ajustes-col{
-      background: var(--branco);
-      border-radius: 16px;
-      padding: 1rem;
-      border: 1px solid rgba(0,0,0,.06);
+      background:var(--branco);
+      border-radius:16px;
+      padding:1rem;
+      border:1px solid rgba(0,0,0,.06);
     }
     .ajustes-col h5{
-      margin: 0 0 .5rem;
-      font-size: 1rem;
-      color: var(--azul);
+      margin:0 0 .5rem;
+      font-size:1rem;
+      color:var(--azul);
       display:flex;
       align-items:center;
       gap:.5rem;
     }
-    .ajustes-col ul{
-      margin: 0;
-      padding-left: 1.1rem;
-      color: var(--texto);
-      line-height: 1.7;
-    }
-    .ajustes-col li{ margin: .35rem 0; }
-
-    /* (AGORA VEM DEPOIS DO AJUSTE) — TIRA ANSIEDADE */
+    .ajustes-col ul{margin:0;padding-left:1.1rem;line-height:1.7}
     .info-grid{
-      max-width: 980px;
-      margin: 2rem auto 0;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
+      max-width:980px;
+      margin:2rem auto 0;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1rem;
     }
     .info-card{
-      background: var(--cinza);
-      border-radius: 18px;
-      padding: 1.25rem;
-      box-shadow: 0 5px 20px rgba(0,0,0,.08);
-      border: 1px solid rgba(0,0,0,.06);
+      background:var(--cinza);
+      border-radius:18px;
+      padding:1.25rem;
+      box-shadow:0 5px 20px rgba(0,0,0,.08);
+      border:1px solid rgba(0,0,0,.06);
     }
     .info-card h3{
-      margin: 0 0 .6rem;
-      color: var(--azul);
-      font-size: 1.05rem;
+      margin:0 0 .6rem;
+      color:var(--azul);
+      font-size:1.05rem;
       display:flex;
       align-items:center;
       gap:.5rem;
-      line-height: 1.3;
+      line-height:1.3;
     }
-    .info-card p{
-      margin:0;
-      color: var(--texto);
-      line-height: 1.7;
-      font-size: .98rem;
-    }
-    .info-strong{ font-weight: 800; }
+    .info-card p{margin:0;line-height:1.7;font-size:.98rem}
+    .info-strong{font-weight:800}
 
-    /* (AGORA VEM DEPOIS DO AJUSTE) — O QUE CHEGA */
-    .entrega-wrap{
-      max-width: 980px;
-      margin: 1.25rem auto 0;
-      background: var(--azul-claro);
-      border-radius: 22px;
-      padding: 1.75rem;
-      border: 1px solid rgba(0,0,0,.06);
-      position: relative;
-      overflow: hidden;
-    }
-    .entrega-wrap::before{
-      content:'';
-      position:absolute;
-      inset:-40px -120px auto auto;
-      width: 260px;
-      height: 260px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.35);
-      filter: blur(2px);
-      transform: rotate(10deg);
-    }
     .entrega-title{
-      margin:0 0 1rem;
-      color: var(--azul);
+      color:var(--azul);
+      margin-bottom:.65rem;
       display:flex;
       align-items:center;
-      gap:.6rem;
-      flex-wrap: wrap;
-      position: relative;
-      z-index: 1;
+      gap:.5rem;
     }
-    .entrega-sub{
-      margin: 0 0 1.25rem;
-      color: var(--texto);
-      line-height: 1.7;
-      max-width: 900px;
-      position: relative;
-      z-index: 1;
-    }
+    .entrega-sub{margin-bottom:1rem;line-height:1.7}
     .entrega-bullets{
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: .85rem 1rem;
-      position: relative;
-      z-index: 1;
+      list-style:none;
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:1rem;
+      padding:0;
+      margin:0;
     }
     .entrega-bullets li{
-      background: rgba(255,255,255,.65);
-      border: 1px solid rgba(0,0,0,.06);
-      border-radius: 16px;
-      padding: .9rem 1rem;
       display:flex;
       gap:.75rem;
-      align-items:flex-start;
-      box-shadow: 0 5px 18px rgba(0,0,0,.06);
+      background:var(--branco);
+      padding:1rem;
+      border-radius:16px;
+      border:1px solid rgba(0,53,153,.08);
     }
     .bullet-ico{
-      width: 34px;
-      height: 34px;
-      border-radius: 12px;
-      background: var(--branco);
+      width:42px;height:42px;
+      border-radius:50%;
+      background:var(--laranja-claro);
       display:flex;
       align-items:center;
       justify-content:center;
-      border: 1px solid rgba(0,0,0,.06);
-      flex: 0 0 auto;
-      box-shadow: 0 5px 14px rgba(0,0,0,.06);
-      margin-top: .05rem;
+      flex:0 0 auto;
     }
-    .bullet-txt{
-      margin: 0;
-      color: var(--texto);
-      line-height: 1.55;
-      font-size: .98rem;
+    .bullet-txt{margin:0;line-height:1.65}
+    .radar-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1rem;
+      margin-top:1rem;
     }
-    .bullet-txt strong{ color: var(--azul); }
-
-    /* DESTAQUE PRAZO */
-    .destaque-box{
-      max-width: 980px;
-      margin: 2.25rem auto 0;
-      background: var(--azul-claro);
-      border-left: 5px solid var(--laranja);
-      padding: 1.5rem;
-      border-radius: 0 15px 15px 0;
+    .radar-mini{
+      background:var(--branco);
+      border-radius:18px;
+      padding:1rem;
+      border:1px solid rgba(0,53,153,.08);
     }
-    .destaque-box h4{
-      color: var(--azul);
-      margin: 0 0 .5rem;
-      display:flex;
-      align-items:center;
-      gap:.5rem;
-      flex-wrap: wrap;
+    .radar-mini h5{
+      color:var(--azul);
+      font-size:1rem;
+      margin:0 0 .45rem;
     }
-    .destaque-box p{
-      margin:0;
+    .radar-mini p{margin:0;font-size:.96rem;line-height:1.65}
+    .cta-final{text-align:center;margin-top:3rem}
+    .cta-sub{
+      margin:.85rem auto 0;
+      max-width:740px;
       line-height:1.7;
-      color: var(--texto);
+      opacity:.95;
     }
 
-    .cta-final{
-      text-align:center;
-      margin-top: 3rem;
+    @media (max-width:900px){
+      .info-grid,.entrega-bullets,.radar-grid{grid-template-columns:1fr}
     }
-    .cta-final .cta-sub{
-      margin: .85rem auto 0;
-      max-width: 740px;
-      color: var(--texto);
-      line-height: 1.7;
-      opacity: .95;
-    }
-
-    /* RESPONSIVO */
-    @media (max-width: 900px){
-      .info-grid{ grid-template-columns: 1fr; }
-      .entrega-bullets{ grid-template-columns: 1fr; }
-    }
-
-    @media (max-width: 768px){
-      .como-funciona-hero{ padding: 3rem 1rem; }
-      .passos{ padding: 3rem 1rem; }
-
-      .section-header{ margin-bottom: 2rem; }
-      .section-header h2{ font-size: 1.75rem; }
-
-      .passos-timeline::before{ left: 22px; }
-      .passo-item{ gap: 1rem; margin-bottom: 1.5rem; }
-      .passo-numero{
-        width: 44px;
-        height: 44px;
-        font-size: 1.05rem;
-        border-width: 3px;
-      }
-      .passo-conteudo{
-        padding: 1.2rem;
-        border-radius: 16px;
-      }
-      .passo-conteudo h3{ font-size: 1.05rem; }
-
-      .ajustes-box{ padding: 1.2rem; border-radius: 16px; }
-      .ajustes-cols{ grid-template-columns: 1fr; }
-
-      .entrega-wrap{ padding: 1.35rem; border-radius: 18px; }
-    }
-
-    @media (max-width: 480px){
-      .como-funciona-hero h1{ font-size: 1.85rem; }
-      .como-funciona-hero p{ font-size: .95rem; }
-
-      .section-header h2{ font-size: 1.5rem; }
-
-      .passos-timeline::before{ left: 19px; }
-      .passo-item{ gap: .85rem; }
-      .passo-numero{ width: 38px; height: 38px; font-size: .95rem; }
-      .passo-conteudo{ padding: 1rem; }
-      .passo-conteudo h3{ font-size: 1rem; }
-
-      .info-card p, .bullet-txt{ font-size: .95rem; }
+    @media (max-width:768px){
+      .como-funciona-hero{padding:3rem 1rem}
+      .passos{padding:3rem 1rem}
+      .section-header{margin-bottom:2rem}
+      .section-header h2{font-size:1.75rem}
+      .passos-timeline::before{left:22px}
+      .passo-item{gap:1rem;margin-bottom:1.5rem}
+      .passo-numero{width:44px;height:44px;font-size:1.05rem;border-width:3px}
+      .passo-conteudo{padding:1.2rem;border-radius:16px}
+      .ajustes-box,.entrega-wrap,.destaque-box,.radar-box{padding:1.2rem;border-radius:16px}
+      .ajustes-cols{grid-template-columns:1fr}
     }
   </style>
 </head>
-
 <body>
-  <!-- CABEÇALHO / NAVEGAÇÃO (PADRÃO) -->
   <nav>
     <div class="nav-container">
       <a href="index.html" class="logo">
         <img src="images/logotipo.png" alt="Modo Turistagem" class="logo-img" />
       </a>
-
       <button class="mobile-menu" onclick="toggleMenu()" aria-label="Abrir menu">☰</button>
-
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
         <li><a href="destinos.html">Destinos Testados</a></li>
         <li><a href="como-funciona.html">Como Funciona</a></li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="quem-somos.html">Quem Somos</a></li>
-        <li>
-          <a href="https://wa.me/5549991628403" class="btn-nav" target="_blank" rel="noopener noreferrer">
-            Fale Conosco
-          </a>
-        </li>
+        <li><a href="https://wa.me/5549991628403" class="btn-nav" target="_blank" rel="noopener noreferrer">Fale Conosco</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- HERO -->
   <section class="como-funciona-hero">
     <div class="container fade-in">
       <h1><span class="emoji">⚙️</span> Como Funciona</h1>
-      <p>Direto ao ponto, sem mistério — e com tudo organizado pra você viajar com segurança e clareza.</p>
+      <p>Sem letrinha miúda e sem mistério: você conta a viagem, a gente organiza a estratégia e te entrega um roteiro claro, clicável e pronto pra usar.</p>
     </div>
   </section>
 
-  <!-- CONTEÚDO -->
   <section class="passos">
     <div class="container">
       <div class="section-header fade-in">
-        <span class="section-tag">
-          <span class="emoji">🚀</span> Processo
-        </span>
-        <h2>5 passos para a sua viagem sair do papel</h2>
+        <span class="section-tag"><span class="emoji">🚀</span> Processo</span>
+        <h2>5 passos pra sua viagem sair do papel</h2>
       </div>
 
-      <!-- 5 PASSOS -->
       <div class="passos-timeline">
         <div class="passo-item fade-in">
           <div class="passo-numero">1</div>
           <div class="passo-conteudo">
             <h3><span class="emoji">🎯</span> A gente te ajuda a escolher o plano ideal</h3>
-            <p>
-              Antes de comprar, dá pra responder um <strong>quiz rapidinho</strong> (ou chamar no WhatsApp).
-              Aí a gente direciona pro plano certo (Partiu / Check-in / Embarque / VIP), pros extras que fazem sentido ou até te mostra se uma curadoria avulsa de hospedagem, voos ou cruzeiro já resolve.
-            </p>
+            <p>Antes de comprar, dá pra responder um <strong>quiz rapidinho</strong> (ou chamar no WhatsApp). Aí a gente direciona pro plano certo — e pros extras que realmente fazem sentido. Nem toda viagem pede o pacote maior, e tá tudo bem.</p>
           </div>
         </div>
 
@@ -429,10 +300,7 @@
           <div class="passo-numero">2</div>
           <div class="passo-conteudo">
             <h3><span class="emoji">📝</span> Compra confirmada = formulário liberado</h3>
-            <p>
-              Depois da compra, você recebe o formulário pra contar datas, estilo, orçamento, prioridades e,
-              se tiver, conexão/layover. Se for uma ajuda mais pontual, a gente adapta o pedido pra te entregar só o que você precisa. Quanto mais claro, mais certeiro fica o roteiro.
-            </p>
+            <p>Depois da compra, você recebe o formulário pra contar datas, estilo, orçamento, prioridades e tudo que impacta a viagem. Quanto mais claro vier, mais certeiro fica o planejamento.</p>
           </div>
         </div>
 
@@ -440,156 +308,140 @@
           <div class="passo-numero">3</div>
           <div class="passo-conteudo">
             <h3><span class="emoji">✍️</span> A gente monta seu roteiro</h3>
-            <p>
-              Com o formulário completo e a entrada confirmada (20%), a gente começa a criação.
-              Aqui entra logística realista, deslocamentos, ritmo e escolhas alinhadas ao seu estilo.
-            </p>
+            <p>Com o formulário completo e a entrada confirmada, o planejamento entra em produção. Aqui entram logística realista, ritmo, deslocamentos e escolhas alinhadas ao seu estilo de viagem.</p>
           </div>
         </div>
 
         <div class="passo-item fade-in">
           <div class="passo-numero">4</div>
           <div class="passo-conteudo">
-            <h3><span class="emoji">📄</span> <span class="emoji">🔗</span> Entrega em PDF clicável (pra usar no celular)</h3>
-            <p>
-              A entrega chega organizada e pronta pra ação, com links e orientações.
-              Sem planilha infinita, sem textão confuso — é pra abrir e seguir.
-            </p>
+            <h3><span class="emoji">📄</span> Entrega em PDF clicável</h3>
+            <p>A entrega chega organizada e pronta pra ação, com links e orientações. Sem planilha infinita, sem textão confuso — é pra abrir e seguir.</p>
           </div>
         </div>
 
         <div class="passo-item fade-in">
           <div class="passo-numero">5</div>
           <div class="passo-conteudo">
-            <h3><span class="emoji">🔁</span> Ajustes</h3>
-            <p>
-              Depois da entrega, dá pra pedir ajustes dentro do <strong>mesmo destino/estrutura</strong>.
-              A quantidade de alterações depende do plano contratado.
-            </p>
+            <h3><span class="emoji">🔁</span> Ajustes dentro do escopo</h3>
+            <p>Se precisar lapidar algum detalhe dentro do que foi combinado, a gente ajusta. Quando a mudança mexe na base da viagem, aí pode entrar reorçamento, upgrade ou novo planejamento.</p>
           </div>
         </div>
       </div>
 
-      <!-- AJUSTE vs REFAZER -->
+      <div class="radar-box fade-in">
+        <h4><span class="emoji">✨</span> Extras que fazem sentido (e o novo serviço avulso da vez)</h4>
+        <p>Nem sempre você precisa de um roteiro inteiro. Às vezes, o que falta é só uma curadoria mais certeira pra hotel, voo ou cruzeiro — e é aí que entram os <strong>Radars</strong>: um serviço avulso, mais enxuto, mas ainda estratégico, humano e bem pensado.</p>
+
+        <div class="radar-grid">
+          <div class="radar-mini">
+            <h5>💺 Radar de Voo</h5>
+            <p>5 opções de voo + comparação prática + links confiáveis + recomendação final.</p>
+          </div>
+          <div class="radar-mini">
+            <h5>🛏️ Radar de Hospedagem</h5>
+            <p>5 opções de hospedagem + leitura rápida de região + custo-benefício + links confiáveis.</p>
+          </div>
+          <div class="radar-mini">
+            <h5>⚓ Radar de Cruzeiros</h5>
+            <p>5 opções de cruzeiro + comparação entre rota, duração e cabine + links confiáveis.</p>
+          </div>
+        </div>
+      </div>
+
       <div class="ajustes-box fade-in">
-        <h4><span class="emoji">🛠️</span> O que é “ajuste” vs. o que é “refazer do zero”</h4>
+        <h4><span class="emoji">🛠️</span> O que é ajuste vs. o que é refazer do zero</h4>
 
         <div class="ajustes-cols">
           <div class="ajustes-col">
-            <h5><span class="emoji">✅</span> Ajuste (entra no pacote)</h5>
+            <h5><span class="emoji">✅</span> Ajuste</h5>
             <ul>
-              <li>Trocar um passeio por outro no mesmo dia (mantendo a lógica do roteiro).</li>
-              <li>Reorganizar dias (sem mudar o destino/base da viagem).</li>
-              <li>Ajustar preferências (ex.: trocar restaurante por uma opção similar).</li>
-              <li>Pequenas correções de horários/rotas, mantendo a estrutura.</li>
+              <li>Trocar um restaurante por outro parecido</li>
+              <li>Substituir um passeio por outra opção no mesmo estilo</li>
+              <li>Reorganizar a ordem das atividades</li>
+              <li>Lapidar detalhes dentro do que já foi combinado</li>
             </ul>
           </div>
 
           <div class="ajustes-col">
-            <h5><span class="emoji">🚫</span> Refazer do zero (novo escopo)</h5>
+            <h5><span class="emoji">🚫</span> Refazer do zero</h5>
             <ul>
-              <li>Mudar o destino principal ou adicionar cidades grandes que mudam o roteiro todo.</li>
-              <li>Alterar datas de forma que muda completamente a logística (voos/base/tempo).</li>
-              <li>Trocar o estilo inteiro depois de aprovado (ex.: “era natureza, agora é urbano + compras”).</li>
-              <li>Recomeçar do zero porque o formulário estava incompleto/inconsistente.</li>
+              <li>Trocar destino, cidade ou região</li>
+              <li>Mudar bastante a quantidade de dias</li>
+              <li>Mudar o estilo da viagem de forma grande</li>
+              <li>Incluir etapas que não estavam previstas</li>
             </ul>
           </div>
         </div>
       </div>
 
-      <!-- (MOVIDOS PARA BAIXO DO AJUSTE) — CARDS -->
       <div class="info-grid">
         <div class="info-card fade-in">
           <h3><span class="emoji">⏱️</span> Prazo padrão</h3>
-          <p>
-            O prazo padrão de entrega é de <span class="info-strong">10 dias úteis</span> (podendo variar conforme complexidade e temporada).
-            A contagem começa quando chegam <span class="info-strong">formulário completo + entrada confirmada (20%)</span>.
-          </p>
+          <p>O prazo padrão de entrega é de <span class="info-strong">10 dias úteis</span>. A contagem começa quando chegam <span class="info-strong">formulário completo + entrada confirmada</span>.</p>
         </div>
 
         <div class="info-card fade-in">
           <h3><span class="emoji">🧾</span> Transparência total</h3>
-          <p>
-            A gente faz consultoria (não agência): vocês compram e reservam direto nos sites oficiais.
-            A gente entrega tudo mastigado, com links e caminhos seguros.
-          </p>
+          <p>A gente faz consultoria, não agência. Você compra e reserva direto nos sites oficiais; a gente entrega tudo mastigado, com links e caminhos seguros.</p>
         </div>
 
         <div class="info-card fade-in">
           <h3><span class="emoji">🧠</span> Sem “e se der errado?”</h3>
-          <p>
-            A gente pensa em logística, deslocamentos e plano B (quando fizer sentido),
-            pra você não ficar refém de improviso.
-          </p>
+          <p>A gente pensa em logística, deslocamentos e plano B quando fizer sentido, pra você não ficar refém de improviso.</p>
         </div>
       </div>
 
-      <!-- (MOVIDO PARA BAIXO DO AJUSTE) — ENTREGA -->
       <div class="entrega-wrap fade-in">
         <h3 class="entrega-title"><span class="emoji">📦</span> O que chega na entrega</h3>
-        <p class="entrega-sub">
-          Dependendo do plano, a entrega pode incluir (sempre do jeito mais prático possível pra usar no celular):
-        </p>
+        <p class="entrega-sub">Dependendo do plano, a entrega pode incluir (sempre do jeito mais prático possível pra usar no celular):</p>
 
         <ul class="entrega-bullets">
           <li>
             <div class="bullet-ico"><span class="emoji">📄</span></div>
-            <p class="bullet-txt"><strong>PDF clicável</strong> com tudo organizado (e links funcionando).</p>
+            <p class="bullet-txt"><strong>PDF clicável</strong> com tudo organizado e links funcionando.</p>
           </li>
           <li>
             <div class="bullet-ico"><span class="emoji">🗓️</span></div>
-            <p class="bullet-txt"><strong>Roteiro dia a dia</strong> (com ordem inteligente e tempo realista).</p>
+            <p class="bullet-txt"><strong>Roteiro dia a dia</strong> com ordem inteligente e tempo realista.</p>
           </li>
           <li>
             <div class="bullet-ico"><span class="emoji">🧭</span></div>
-            <p class="bullet-txt"><strong>Logística</strong>: deslocamentos, regiões pra ficar, como encaixar cada parte.</p>
+            <p class="bullet-txt"><strong>Logística</strong> de deslocamentos, regiões e encaixes da viagem.</p>
           </li>
           <li>
             <div class="bullet-ico"><span class="emoji">🔗</span></div>
-            <p class="bullet-txt"><strong>Links confiáveis</strong> (ingressos, reservas, passes e referências).</p>
+            <p class="bullet-txt"><strong>Links confiáveis</strong> pra reservas, ingressos e referências.</p>
           </li>
           <li>
             <div class="bullet-ico"><span class="emoji">🗺️</span></div>
-            <p class="bullet-txt"><strong>Mapa</strong> (quando o plano incluir) pra visualizar tudo sem se perder.</p>
+            <p class="bullet-txt"><strong>Mapa</strong> quando o plano incluir, pra visualizar tudo no celular.</p>
           </li>
           <li>
             <div class="bullet-ico"><span class="emoji">🌧️</span></div>
-            <p class="bullet-txt"><strong>Plano B</strong> (quando fizer sentido): chuva, cansaço ou mudança de ritmo.</p>
+            <p class="bullet-txt"><strong>Plano B</strong> quando fizer sentido: chuva, cansaço ou mudança de ritmo.</p>
           </li>
         </ul>
       </div>
 
-      <!-- PRAZO COMEÇA -->
       <div class="destaque-box fade-in">
         <h4><span class="emoji">💡</span> Quando o prazo começa a contar</h4>
-        <p>
-          O prazo de entrega começa quando a gente recebe:
-          <strong>✅ formulário completo + ✅ confirmação do pagamento da entrada (20%)</strong>.
-          Se faltar informação, o processo pode pausar (e isso impacta o prazo).
-          <br /><br />
-          <strong>Prazo padrão:</strong> <span class="info-strong">10 dias úteis</span>.
-        </p>
+        <p>O prazo de entrega começa quando a gente recebe <strong>formulário completo + confirmação da entrada</strong>. Se faltar informação, o processo pode pausar — e isso impacta o prazo. <br /><br /><strong>Prazo padrão:</strong> <span class="info-strong">10 dias úteis</span>.</p>
       </div>
 
       <div class="cta-final fade-in">
-        <a href="index.html#planos" class="btn-primary">
-          <span class="emoji">🎒</span> Ver planos e preços
-        </a>
-        <p class="cta-sub">
-          Se preferir, dá pra chamar no WhatsApp e a gente ajuda a bater o martelo no plano ideal. <strong>(Sem pressão.)</strong>
-        </p>
+        <a href="index.html#planos" class="btn-primary"><span class="emoji">🎒</span> Ver planos e preços</a>
+        <p class="cta-sub">Se preferir, dá pra chamar no WhatsApp e a gente ajuda a bater o martelo no plano ideal — ou no radar mais útil pra esse momento. <strong>(Sem pressão.)</strong></p>
       </div>
     </div>
   </section>
 
-  <!-- RODAPÉ (PADRÃO) -->
   <footer>
     <div class="footer-content">
       <img src="images/LOGOTIPO%20branco.png" alt="Modo Turistagem" class="footer-logo" />
-
       <p class="footer-text">
         Consultoria de viagens feita por quem realmente viaja.
-        <span class="emoji emoji-inline" aria-hidden="true">🌎</span><br />
+        <span class="emoji emoji-inline">🌎</span><br />
         Traduzindo sonhos em planos concretos desde 2024.
       </p>
 
@@ -597,11 +449,9 @@
         <a href="https://instagram.com/modoturistagem" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
           <img src="images/icons/instagram.png" alt="Instagram" class="social-icon-img" />
         </a>
-
         <a href="https://wa.me/5549991628403" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
           <img src="images/icons/whatsapp.png" alt="WhatsApp" class="social-icon-img" />
         </a>
-
         <a href="mailto:modoturistagem@gmail.com" aria-label="E-mail">
           <img src="images/icons/email.png" alt="E-mail" class="social-icon-img" />
         </a>
@@ -609,32 +459,21 @@
 
       <div class="footer-bottom">
         <p>© 2024 Modo Turistagem. Todos os direitos reservados.</p>
-        <p style="margin-top: 0.5rem; font-size: 0.85rem; font-family: 'Neulis Sans', sans-serif !important;">
-          Roteiros feitos por viajantes, para viajantes
-          <span class="emoji emoji-inline" aria-hidden="true">💙</span>
-        </p>
+        <p style="margin-top:.5rem;font-size:.85rem;">Roteiros feitos por viajantes, para viajantes <span class="emoji emoji-inline">💙</span></p>
       </div>
     </div>
   </footer>
 
   <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) entry.target.classList.add("visible");
+        if (entry.isIntersecting) entry.target.classList.add('visible');
       });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
-
-    function toggleMenu() {
-      document.getElementById("navLinks").classList.toggle("active");
-    }
-
-    document.querySelectorAll("#navLinks a").forEach((link) => {
-      link.addEventListener("click", () => {
-        document.getElementById("navLinks").classList.remove("active");
-      });
-    });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
   </script>
 </body>
 </html>
