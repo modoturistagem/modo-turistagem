@@ -1,9 +1,7 @@
 /* ============================================
    MODO TURISTAGEM - ESTILOS GLOBAIS
-   (versão ajustada p/ quiz mobile ficar lindo)
    ============================================ */
 
-/* Fontes locais Neulis */
 @font-face {
   font-family: 'Neulis Cursive';
   src: url('../fonts/NeulisCursive-Regular.otf') format('opentype'),
@@ -17,16 +15,7 @@
   font-family: 'Neulis Sans';
   src: url('../fonts/NeulisSans-Regular.otf') format('opentype'),
        url('../fonts/NeulisSans-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Neulis Sans';
-  src: url('../fonts/NeulisSans-Bold.otf') format('opentype'),
-       url('../fonts/NeulisSans-Bold.ttf') format('truetype');
-  font-weight: bold;
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
@@ -40,6 +29,15 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Neulis Sans';
+  src: url('../fonts/NeulisSans-Bold.otf') format('opentype'),
+       url('../fonts/NeulisSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root{
   --azul:#003599;
   --laranja:#FF6B18;
@@ -48,22 +46,16 @@
   --branco:#FFFFFF;
   --off-white:#FCFAF6;
   --cinza:#FCFAF6;
-  --cinza-escuro:#333333;
   --texto:#333333;
-
+  --shadow-soft:0 10px 30px rgba(0,53,153,0.08);
+  --shadow-card:0 10px 40px rgba(0,0,0,0.08);
   --font-titulo:'Neulis Cursive', cursive;
   --font-texto:'Neulis Sans', sans-serif;
   --font-emoji:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;
-
-  /* extras p/ consistência */
-  --radius-lg: 20px;
-  --radius-md: 16px;
-  --shadow-soft: 0 10px 30px rgba(0,53,153,0.08);
-  --shadow-card: 0 10px 40px rgba(0,0,0,0.08);
 }
 
-*{ margin:0; padding:0; box-sizing:border-box; }
-html{ scroll-behavior:smooth; }
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
   font-family:var(--font-texto);
   color:var(--texto);
@@ -74,16 +66,16 @@ body{
 
 h1,h2,h3,h4,h5,h6{
   font-family:var(--font-titulo);
-  font-weight:normal;
+  font-weight:400;
   line-height:1.2;
 }
 
-p,a,button,input,li,label,select,textarea{
+p,a,button,input,li,label,select,textarea,strong,small,span{
   font-family:var(--font-texto);
 }
 
 .emoji{
-  font-family:var(--font-emoji);
+  font-family:var(--font-emoji)!important;
   font-style:normal;
   line-height:1;
   display:inline-flex;
@@ -91,14 +83,9 @@ p,a,button,input,li,label,select,textarea{
   justify-content:center;
   vertical-align:middle;
 }
+.emoji-inline{font-size:1rem}
 
-.emoji-inline{ font-size:1rem; }
-.social-icon{ font-size:1.4rem; line-height:1; }
-
-/* ============================================
-   NAVEGAÇÃO
-   ============================================ */
-
+/* NAV */
 nav{
   position:fixed;
   top:0;
@@ -119,17 +106,8 @@ nav{
   align-items:center;
 }
 
-.logo{
-  display:flex;
-  align-items:center;
-  gap:0.8rem;
-  text-decoration:none;
-}
-
-.logo-img{
-  height:50px;
-  width:auto;
-}
+.logo{display:flex;align-items:center;text-decoration:none}
+.logo-img{height:50px;width:auto}
 
 .nav-links{
   display:flex;
@@ -142,36 +120,34 @@ nav{
   text-decoration:none;
   color:var(--azul);
   font-weight:600;
-  font-size:0.95rem;
-  transition:color 0.3s;
+  font-size:.95rem;
+  transition:color .3s;
   position:relative;
 }
 
 .nav-links a::after{
   content:'';
   position:absolute;
-  bottom:-5px;
-  left:0;
-  width:0;
-  height:2px;
+  left:0;bottom:-5px;
+  width:0;height:2px;
   background:var(--laranja);
-  transition:width 0.3s;
+  transition:width .3s;
 }
 
-.nav-links a:hover{ color:var(--laranja); }
-.nav-links a:hover::after{ width:100%; }
+.nav-links a:hover{color:var(--laranja)}
+.nav-links a:hover::after{width:100%}
 
 .btn-nav{
   background:var(--laranja);
   color:var(--branco)!important;
-  padding:0.6rem 1.5rem;
-  border-radius:25px;
-  transition:all 0.3s;
+  padding:.6rem 1.5rem;
+  border-radius:999px;
+  transition:all .3s;
 }
-.btn-nav::after{ display:none!important; }
+.btn-nav::after{display:none!important}
 .btn-nav:hover{
   transform:translateY(-2px);
-  box-shadow:0 5px 15px rgba(255,107,24,0.3);
+  box-shadow:0 5px 15px rgba(255,107,24,.3);
   background:#E85D12!important;
 }
 
@@ -184,247 +160,262 @@ nav{
   color:var(--azul);
 }
 
-/* ============================================
-   BOTÕES GLOBAIS
-   ============================================ */
+/* BUTTONS */
+.btn-primary,
+.btn-secondary,
+.btn-ajuda,
+.btn-plano,
+.btn-roteiro,
+.btn-disabled{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.5rem;
+  text-decoration:none;
+  font-weight:700;
+  border:none;
+  cursor:pointer;
+  transition:all .3s;
+  border-radius:999px;
+}
 
 .btn-primary{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:0.5rem;
   background:var(--laranja);
   color:var(--branco);
   padding:1rem 2rem;
-  border-radius:999px;
-  text-decoration:none;
-  font-weight:700;
-  font-size:1rem;
-  border:none;
-  cursor:pointer;
-  transition:all 0.3s;
   box-shadow:0 4px 15px rgba(255,107,24,0.3);
 }
-
 .btn-primary:hover{
   transform:translateY(-3px);
-  box-shadow:0 8px 25px rgba(255,107,24,0.4);
-  background:#E85D12;
-}
-
-.btn-secondary{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:0.5rem;
-  background:transparent;
-  color:var(--azul);
-  padding:1rem 2rem;
-  border-radius:999px;
-  text-decoration:none;
-  font-weight:700;
-  font-size:1rem;
-  border:3px solid var(--azul);
-  cursor:pointer;
-  transition:all 0.3s;
-}
-
-.btn-secondary:hover{
-  background:var(--azul);
-  color:var(--branco);
-  transform:translateY(-3px);
-  box-shadow:0 10px 24px rgba(0,53,153,0.18);
-}
-
-.btn-ajuda{
-  background:linear-gradient(135deg, var(--azul), #2458B8);
-  color:var(--branco);
-  padding:1.2rem 2.5rem;
-  border-radius:999px;
-  text-decoration:none;
-  font-weight:700;
-  font-size:1.1rem;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:0.5rem;
-  transition:all 0.3s;
-  border:none;
-  cursor:pointer;
-  box-shadow:0 5px 20px rgba(0,53,153,0.3);
-}
-
-.btn-ajuda:hover{
-  transform:translateY(-3px) scale(1.05);
-  box-shadow:0 10px 30px rgba(0,53,153,0.4);
-}
-
-
-.page-intro-note{
-  max-width:760px;
-  margin:0 auto 1.5rem;
-  text-align:center;
-  color:var(--texto);
-  opacity:0.92;
-}
-
-.price-highlight{
-  color:var(--laranja);
-  font-weight:800;
-}
-
-.small-note{
-  font-size:0.95rem;
-  opacity:0.88;
-}
-/* ============================================
-   ROTEIROS PRONTOS - BOTÕES (SEU PADRÃO)
-   ============================================ */
-
-.botoes-roteiro{
-  display:flex;
-  flex-direction:column;
-  gap:0.75rem;
-  margin-top:1rem;
-}
-
-.btn-roteiro{
-  width:100%;
-  border-radius:50px;
-  padding:0.95rem 1.2rem;
-  text-decoration:none;
-  font-weight:700;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:0.6rem;
-  transition:all 0.3s;
-  border:3px solid transparent;
-  cursor:pointer;
-  white-space:nowrap;
-}
-
-.btn-roteiro:hover{ transform:translateY(-2px); }
-
-.btn-ico{
-  height:20px;
-  width:auto;
-  flex:0 0 auto;
-}
-
-.btn-mp{
-  background:var(--laranja);
-  color:var(--branco);
-  box-shadow:0 4px 15px rgba(255,107,24,0.25);
-}
-.btn-mp:hover{
   background:#E85D12;
   box-shadow:0 8px 25px rgba(255,107,24,0.35);
 }
 
-.btn-pix{
+.btn-secondary{
   background:transparent;
   color:var(--azul);
-  border-color:var(--azul);
+  padding:1rem 2rem;
+  border:3px solid var(--azul);
 }
-.btn-pix:hover{
+.btn-secondary:hover{
   background:var(--azul);
   color:var(--branco);
+  transform:translateY(-3px);
+  box-shadow:0 10px 24px rgba(0,53,153,.18);
 }
+
+.btn-ajuda{
+  background:linear-gradient(135deg,var(--azul),#2458B8);
+  color:var(--branco);
+  padding:1.2rem 2.5rem;
+  font-size:1.05rem;
+  box-shadow:0 5px 20px rgba(0,53,153,.3);
+}
+.btn-ajuda:hover{
+  transform:translateY(-3px) scale(1.03);
+  box-shadow:0 10px 30px rgba(0,53,153,.35);
+}
+
+.btn-plano{
+  width:100%;
+  background:var(--laranja);
+  color:var(--branco);
+  padding:1rem;
+  font-size:1rem;
+}
+.btn-plano:hover{background:#E85D12;transform:scale(1.02)}
+
+.btn-disabled{
+  width:100%;
+  background:#d7d7d7;
+  color:#6b6b6b;
+  padding:1rem;
+  cursor:default;
+  pointer-events:none;
+  filter:saturate(0);
+}
+
+.btn-roteiro{
+  width:100%;
+  padding:.95rem 1.2rem;
+  border:3px solid transparent;
+  white-space:nowrap;
+}
+.btn-mp{background:var(--laranja);color:var(--branco)}
+.btn-mp:hover{background:#E85D12;transform:translateY(-2px)}
+.btn-pix{background:transparent;color:var(--azul);border-color:var(--azul)}
+.btn-pix:hover{background:var(--azul);color:var(--branco);transform:translateY(-2px)}
+
+.btn-ico{height:20px;width:auto;flex:0 0 auto}
 
 .pagamento-sub{
   margin-top:-0.4rem;
-  font-size:0.82rem;
-  font-weight:400;
+  font-size:.82rem;
   text-align:center;
-  opacity:0.95;
+  opacity:.95;
   line-height:1.3;
 }
-.pagamento-sub.mp{ color:var(--laranja); }
-.pagamento-sub.pix{ color:var(--azul); }
+.pagamento-sub.mp{color:var(--laranja)}
+.pagamento-sub.pix{color:var(--azul)}
 
-/* ============================================
-   SEÇÕES COMUNS
-   ============================================ */
-
+/* COMMON */
+.container{max-width:1200px;margin:0 auto;padding:0 2rem}
 .section-tag{
   display:inline-flex;
   align-items:center;
-  justify-content:center;
-  gap:0.5rem;
+  gap:.5rem;
   background:var(--laranja-claro);
   color:var(--laranja);
-  padding:0.5rem 1.5rem;
+  padding:.5rem 1.5rem;
   border-radius:20px;
   font-weight:700;
   margin-bottom:1rem;
-  font-size:0.9rem;
+  font-size:.9rem;
 }
-
-.container{
-  max-width:1200px;
-  margin:0 auto;
-  padding:0 2rem;
-}
-
 .section-header{
   text-align:center;
-  max-width:800px;
+  max-width:860px;
   margin:0 auto 3rem;
 }
-
 .section-header h2{
   font-size:2.5rem;
   color:var(--azul);
   margin-bottom:1rem;
 }
-
 .section-header p{
-  font-size:1.2rem;
+  font-size:1.15rem;
   color:var(--texto);
 }
 
-/* Inclusos (flex pra centralizar última linha) */
 .inclusos-grid{
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
-  gap:0.9rem;
+  gap:.9rem;
 }
-.inclusos-grid > div{ flex:0 1 260px; }
+.inclusos-grid > div{flex:0 1 260px}
 
-/* ============================================
-   ANIMAÇÕES
-   ============================================ */
+.page-intro-note{max-width:760px;margin:0 auto 1.5rem;text-align:center;opacity:.92}
+.price-highlight{color:var(--laranja);font-weight:800}
+.small-note{font-size:.95rem;opacity:.88}
 
-.fade-in{
-  opacity:0;
-  transform:translateY(30px);
-  transition:all 0.6s ease;
+/* RADAR / microofertas */
+.avulsos{
+  padding:4.5rem 2rem;
+  background:linear-gradient(180deg,var(--branco) 0%,var(--cinza) 100%);
 }
-.fade-in.visible{
-  opacity:1;
-  transform:translateY(0);
+.avulsos-wrap{
+  max-width:1200px;
+  margin:0 auto;
+}
+.avulsos-intro{
+  max-width:760px;
+  margin:0 auto 2rem;
+  text-align:center;
+}
+.avulsos-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1.3rem;
+}
+.avulso-card{
+  background:var(--branco);
+  border-radius:22px;
+  padding:1.6rem;
+  box-shadow:var(--shadow-soft);
+  border:1px solid rgba(0,53,153,0.08);
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.avulso-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 18px 42px rgba(0,53,153,0.12);
+  border-color:rgba(255,107,24,0.35);
+}
+.avulso-top{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:1rem;
+}
+.avulso-title{
+  color:var(--azul);
+  font-size:1.5rem;
+  margin:0;
+}
+.avulso-emoji{
+  font-size:2rem;
+  flex:0 0 auto;
+}
+.avulso-preco{
+  display:inline-flex;
+  align-items:baseline;
+  gap:.35rem;
+  align-self:flex-start;
+  background:var(--azul-claro);
+  color:var(--azul);
+  border-radius:999px;
+  padding:.55rem .95rem;
+  font-weight:800;
+}
+.avulso-preco .currency{font-size:.9rem}
+.avulso-desc{margin:0;color:var(--texto);line-height:1.7}
+.avulso-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  gap:.5rem;
+}
+.avulso-list li{
+  position:relative;
+  padding-left:1.35rem;
+}
+.avulso-list li::before{
+  content:'✓';
+  position:absolute;
+  left:0;
+  color:var(--laranja);
+  font-weight:700;
+}
+.avulso-note{
+  font-size:.92rem;
+  opacity:.88;
+  color:var(--texto);
+  padding-top:.4rem;
+  border-top:1px dashed rgba(0,53,153,0.15);
 }
 
-@keyframes float{
-  0%,100%{ transform:translateY(0px); }
-  50%{ transform:translateY(-20px); }
+/* cards / coming soon */
+.roteiro-card.is-coming-soon{
+  filter:saturate(0);
+  opacity:.85;
 }
-@keyframes shine{
-  0%{ transform:translateX(-100%) translateY(-100%) rotate(45deg); }
-  100%{ transform:translateX(100%) translateY(100%) rotate(45deg); }
+.em-breve-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:.35rem;
+  background:#ececec;
+  color:#666;
+  border-radius:999px;
+  padding:.45rem .8rem;
+  font-size:.8rem;
+  font-weight:700;
+  margin-bottom:.9rem;
 }
 
-/* ============================================
-   MODAL / QUIZ (desktop base + mobile perfeito)
-   ============================================ */
+/* ANIMATIONS */
+.fade-in{opacity:0;transform:translateY(30px);transition:all .6s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
 
+/* MODAL / QUIZ */
 .modal{
   display:none;
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,0.8);
+  background:rgba(0,0,0,.8);
   z-index:2000;
   justify-content:center;
   align-items:center;
@@ -434,7 +425,7 @@ nav{
 .modal-content{
   background:var(--branco);
   border-radius:20px;
-  max-width:600px;
+  max-width:640px;
   width:100%;
   max-height:90vh;
   overflow-y:auto;
@@ -443,41 +434,35 @@ nav{
 }
 
 .modal-header{
-  background:linear-gradient(135deg, var(--azul), #2458B8);
+  background:linear-gradient(135deg,var(--azul),#2458B8);
   color:var(--branco);
   padding:2rem;
   border-radius:20px 20px 0 0;
   text-align:center;
 }
-
 .modal-header h3{
   font-size:1.8rem;
-  margin-bottom:0.5rem;
+  margin-bottom:.5rem;
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:0.5rem;
+  gap:.5rem;
 }
+.modal-header p{opacity:.95}
+.modal-body{padding:2rem}
 
-.modal-header p{ opacity:0.95; }
-
-.modal-body{ padding:2rem; }
-
-.quiz-step{ display:none; }
-.quiz-step.active{ display:block; }
+.quiz-step{display:none}
+.quiz-step.active{display:block}
 
 .quiz-question{
   font-size:1.2rem;
   color:var(--azul);
   margin-bottom:1.25rem;
   font-weight:700;
+  line-height:1.4;
 }
 
-.quiz-options{
-  display:flex;
-  flex-direction:column;
-  gap:1rem;
-}
+.quiz-options{display:flex;flex-direction:column;gap:1rem}
 
 .quiz-option{
   background:var(--cinza);
@@ -485,35 +470,37 @@ nav{
   padding:1rem 1.25rem;
   border-radius:15px;
   cursor:pointer;
-  transition:all 0.25s;
+  transition:all .25s;
   text-align:left;
   font-size:1rem;
   display:flex;
   align-items:flex-start;
-  gap:0.6rem;
+  gap:.6rem;
 }
-
 .quiz-option:hover{
   border-color:var(--laranja);
   background:var(--laranja-claro);
 }
-
-.quiz-result{
-  text-align:center;
-  padding:2rem;
-}
-
-.quiz-result h4{
-  color:var(--azul);
-  font-size:1.5rem;
-  margin-bottom:1rem;
-}
-
+.quiz-result{text-align:center;padding:2rem}
+.quiz-result h4{color:var(--azul);font-size:1.5rem;margin-bottom:1rem}
 .recomendacao{
   background:var(--laranja-claro);
-  padding:1.25rem 1.25rem;
+  padding:1.25rem;
   border-radius:15px;
   margin:1rem 0;
+  text-align:left;
+}
+.recomendacao ul{margin:0;padding-left:1.1rem}
+.recomendacao li+li{margin-top:.35rem}
+.quiz-cta-stack{
+  display:flex;
+  flex-direction:column;
+  gap:.75rem;
+}
+.quiz-help-text{
+  font-size:.92rem;
+  opacity:.88;
+  margin-top:.35rem;
 }
 
 .close-modal{
@@ -522,351 +509,121 @@ nav{
   right:1rem;
   background:rgba(255,255,255,0.2);
   border:none;
-  width:40px;
-  height:40px;
+  width:40px;height:40px;
   border-radius:50%;
   color:var(--branco);
   font-size:1.5rem;
   cursor:pointer;
-  transition:all 0.3s;
+  transition:all .3s;
   display:flex;
   align-items:center;
   justify-content:center;
 }
-
 .close-modal:hover{
   background:rgba(255,255,255,0.3);
   transform:rotate(90deg);
 }
 
-/* ============================================
-   FOOTER
-   ============================================ */
-
+/* FOOTER */
 footer{
   background:var(--azul);
   color:var(--branco);
   padding:3rem 2rem 1rem;
   margin-top:4rem;
 }
-
-.footer-content{
-  max-width:1000px;
-  margin:0 auto;
-  text-align:center;
-}
-
-.footer-logo{
-  height:60px;
-  margin-bottom:1.5rem;
-}
-
+.footer-content{max-width:1000px;margin:0 auto;text-align:center}
+.footer-logo{height:60px;margin-bottom:1.5rem}
 .footer-text{
-  opacity:0.9;
+  opacity:.9;
   margin-bottom:2rem;
   max-width:600px;
   margin-left:auto;
   margin-right:auto;
 }
-
 .social-links{
   display:flex;
   justify-content:center;
   gap:1.5rem;
   margin-bottom:2rem;
 }
-
 .social-links a{
-  width:50px;
-  height:50px;
-  background:rgba(255,255,255,0.1);
+  width:50px;height:50px;
+  background:rgba(255,255,255,.1);
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
   text-decoration:none;
-  transition:all 0.3s;
+  transition:all .3s;
 }
-
 .social-links a:hover{
   background:var(--laranja);
   transform:translateY(-3px);
 }
-
+.social-icon-img{height:24px;width:auto;display:block}
 .footer-bottom{
-  border-top:1px solid rgba(255,255,255,0.2);
+  border-top:1px solid rgba(255,255,255,.2);
   padding-top:2rem;
-  opacity:0.7;
-  font-size:0.9rem;
-}
-/* Ícones do rodapé (logos) */
-.social-icon-img{
-  height: 24px;
-  width: auto;
-  display: block;
+  opacity:.7;
+  font-size:.9rem;
 }
 
-/* ============================================
-   RESPONSIVO (mobile first p/ quiz)
-   ============================================ */
+/* RESPONSIVE */
+@media (max-width: 900px){
+  .section-header h2{font-size:2rem}
+}
 
 @media (max-width: 768px){
-  html, body{ overflow-x:hidden; }
-
-  /* NAV mobile */
-  .nav-container{ position:relative; }
-  .mobile-menu{ display:block; }
-
+  html,body{overflow-x:hidden}
+  .nav-container{position:relative}
+  .mobile-menu{display:block}
   .nav-links{
     display:none;
     position:absolute;
-    top:calc(100% + 0.75rem);
-    left:1rem;
-    right:1rem;
+    top:calc(100% + .75rem);
+    left:1rem;right:1rem;
     flex-direction:column;
-    gap:0.25rem;
+    gap:.25rem;
     background:var(--branco);
     padding:1rem;
     border-radius:16px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.12);
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
     z-index:999;
   }
-  .nav-links.active{ display:flex; }
-
-  /* ajustes gerais */
-  .container{ padding:0 1rem; }
-  .section-header h2{ font-size:1.9rem; }
-  .section-header p{ font-size:1.05rem; }
-
-  /* botões full width no mobile quando usados em colunas */
-  .btn-primary,.btn-secondary,.btn-ajuda{ width:100%; justify-content:center; }
-
-  /* ======================
-     QUIZ MOBILE PERFEITO
-     ====================== */
-
-  .modal{
-    padding:0;
-    align-items:flex-end; /* estilo bottom-sheet */
-  }
-
+  .nav-links.active{display:flex}
+  .container{padding:0 1rem}
+  .btn-primary,.btn-secondary,.btn-ajuda{width:100%;justify-content:center}
+  .modal{padding:0;align-items:flex-end}
   .modal-content{
     width:100%;
     max-width:none;
     max-height:92vh;
-    border-radius:20px 20px 0 0;
-    overflow:hidden; /* segura header no topo bonito */
+    border-radius:22px 22px 0 0;
+    overflow:hidden;
   }
-
   .modal-header{
-    padding:1.15rem 1.15rem 1rem;
-    border-radius:20px 20px 0 0;
+    padding:1.15rem 3.6rem 1rem 1.15rem;
+    border-radius:22px 22px 0 0;
   }
-
-  .modal-header h3{
-    font-size:1.35rem;
-    line-height:1.15;
-  }
-
-  .modal-header p{
-    font-size:0.95rem;
-    opacity:0.95;
-  }
-
+  .modal-header h3{font-size:1.3rem;line-height:1.15}
+  .modal-header p{font-size:.95rem;line-height:1.35}
   .close-modal{
-    top:0.75rem;
-    right:0.75rem;
-    width:38px;
-    height:38px;
-    font-size:1.25rem;
+    top:.75rem;right:.75rem;
+    width:40px;height:40px;font-size:1.25rem;
   }
-
   .modal-body{
-    padding:1rem 1rem 1.25rem;
+    padding:1rem 1.1rem 1.25rem;
+    max-height:calc(92vh - 96px);
     overflow-y:auto;
-    max-height:calc(92vh - 90px);
     -webkit-overflow-scrolling:touch;
   }
-
-  .quiz-question{
-    font-size:1.05rem;
-    line-height:1.35;
-    margin-bottom:0.9rem;
-  }
-
-  .quiz-options{ gap:0.75rem; }
-
-  .quiz-option{
-    padding:0.95rem 0.95rem;
-    border-radius:16px;
-    font-size:0.98rem;
-    line-height:1.25;
-    gap:0.55rem;
-  }
-
-  .quiz-option .emoji{
-    margin-top:0.05rem;
-    flex:0 0 auto;
-  }
-
-  /* melhora toque: área clicável e feedback */
-  .quiz-option:active{
-    transform:scale(0.99);
-  }
-
-  /* Resultado */
-  .quiz-result{
-    padding:1.25rem 0.25rem 0.25rem;
-  }
-
-  .quiz-result h4{
-    font-size:1.25rem;
-    line-height:1.2;
-    margin-bottom:0.75rem;
-  }
-
-  .recomendacao{
-    padding:1rem;
-    border-radius:16px;
-    margin:0.75rem 0;
-    text-align:left;
-  }
-
-  /* CTA stack bonitinho */
-  #result .btn-primary,
-  #result .btn-secondary{
-    width:100%;
-    justify-content:center;
-  }
+  .quiz-question{font-size:1.05rem;line-height:1.35;margin-bottom:.85rem}
+  .quiz-options{gap:.65rem}
+  .quiz-option{padding:.95rem 1rem;border-radius:16px;font-size:.98rem;line-height:1.25}
+  .recomendacao{padding:1rem;border-radius:16px}
+  .avulsos-grid{grid-template-columns:1fr}
 }
 
-@media (max-width: 480px){
-  .pagamento-sub{ font-size:0.78rem; }
-
-  /* quiz ainda mais confortável */
-  .modal-header h3{ font-size:1.25rem; }
-  .quiz-option{ font-size:0.95rem; }
-}
-
-/* =========================
-   PATCH — QUIZ MOBILE + PREÇO MODO CONEXÃO
-   (cole no FINAL do style.css)
-   ========================= */
-
-/* 1) QUIZ no mobile: vira bottom-sheet, header compacto e sem briga com o X */
-@media (max-width: 768px) {
-  .modal {
-    padding: 0 !important;
-    align-items: flex-end !important;
-  }
-
-  .modal-content {
-    width: 100% !important;
-    max-width: none !important;
-    max-height: 92vh !important;
-    border-radius: 22px 22px 0 0 !important;
-    overflow: hidden !important; /* evita "vazar" arredondado */
-  }
-
-  /* Dá espaço pro X sem sobrepor o título */
-  .modal-header {
-    padding: 1.15rem 3.6rem 1rem 1.15rem !important; /* padding-right maior */
-    border-radius: 22px 22px 0 0 !important;
-  }
-
-  .modal-header h3 {
-    font-size: 1.3rem !important;
-    line-height: 1.15 !important;
-    margin-bottom: 0.45rem !important;
-  }
-
-  .modal-header p {
-    font-size: 0.95rem !important;
-    line-height: 1.35 !important;
-  }
-
-  .close-modal {
-    top: 0.75rem !important;
-    right: 0.75rem !important;
-    width: 40px !important;
-    height: 40px !important;
-    font-size: 1.25rem !important;
-    background: rgba(255,255,255,0.18) !important;
-  }
-
-  .modal-body {
-    padding: 1rem 1.1rem 1.25rem !important;
-    max-height: calc(92vh - 96px) !important;
-    overflow-y: auto !important;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .quiz-question {
-    font-size: 1.05rem !important;
-    line-height: 1.35 !important;
-    margin-bottom: 0.85rem !important;
-  }
-
-  .quiz-options {
-    gap: 0.65rem !important;
-  }
-
-  .quiz-option {
-    padding: 0.95rem 1rem !important;
-    border-radius: 16px !important;
-    font-size: 0.98rem !important;
-    line-height: 1.25 !important;
-  }
-
-  /* Resultado mais "limpo" */
-  #resultTitle {
-    font-size: 1.35rem !important;
-    line-height: 1.2 !important;
-  }
-
-  .recomendacao {
-    padding: 1rem !important;
-    border-radius: 16px !important;
-    margin: 0.85rem 0 !important;
-    text-align: left !important;
-  }
-
-  .recomendacao ul {
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  .recomendacao li {
-    margin-bottom: 0.55rem !important;
-  }
-}
-
-/* 2) Preço do Modo Conexão: mantém "R$ 59,99" na MESMA linha */
-.preco-box .preco-valor {
-  white-space: nowrap;
-}
-
-/* Se ficar apertado em telas bem pequenas, reduz levemente o tamanho */
-@media (max-width: 420px) {
-  .preco-box .preco-valor {
-    font-size: 1.35rem !important;
-  }
-}
-
-/* Se você usar spans (recomendado abaixo), esses estilos deixam perfeito */
-.preco-box .preco-valor.currency-inline {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.35rem;
-  white-space: nowrap;
-}
-
-.preco-box .preco-valor.currency-inline .currency {
-  font-size: 0.92em;
-  font-weight: 700;
-}
-
-.preco-box .preco-valor.currency-inline .amount {
-  font-size: 1em;
-  font-weight: 700;
+@media (max-width: 420px){
+  .pagamento-sub{font-size:.78rem}
 }
