@@ -5,23 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Modo Turistagem | Consultoria de Viagens Personalizada</title>
 
-  <meta name="description" content="Consultoria de viagens personalizada com roteiros reais, claros e do seu jeito. A Modo Turistagem transforma sonho em plano sem enrolação e sem pacote genérico." />
-  <meta name="theme-color" content="#003599" />
-  <link rel="canonical" href="https://modoturistagem.github.io/modo-turistagem/" />
-
-  <meta property="og:locale" content="pt_BR" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Modo Turistagem | Consultoria de Viagens Personalizada" />
-  <meta property="og:description" content="Consultoria de viagens personalizada com roteiros reais, claros e do seu jeito. A Modo Turistagem transforma sonho em plano sem enrolação e sem pacote genérico." />
-  <meta property="og:url" content="https://modoturistagem.github.io/modo-turistagem/" />
-  <meta property="og:site_name" content="Modo Turistagem" />
-  <meta property="og:image" content="https://modoturistagem.github.io/modo-turistagem/images/logotipo.png" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Modo Turistagem | Consultoria de Viagens Personalizada" />
-  <meta name="twitter:description" content="Consultoria de viagens personalizada com roteiros reais, claros e do seu jeito. A Modo Turistagem transforma sonho em plano sem enrolação e sem pacote genérico." />
-  <meta name="twitter:image" content="https://modoturistagem.github.io/modo-turistagem/images/logotipo.png" />
-
   <link rel="stylesheet" href="css/style.css" />
 
   <style>
@@ -125,7 +108,7 @@
       background:#fff;
       border-radius:28px;
       padding:1.2rem 1.2rem 1.8rem;
-      box-shadow:0 20px 60px rgba(0,53,153,0.15);
+      box-shadow:0 20px 60px rgba(0,51,153,0.15);
       width:min(380px, 100%);
       position:relative;
       transform:rotate(-2deg);
@@ -412,12 +395,12 @@
     }
 
     .btn-plano:hover{
-      background:#E85D12;
+      background:#e55a00;
       transform:scale(1.02);
     }
 
     .plano-card.destaque .btn-plano{ background:var(--azul); }
-    .plano-card.destaque .btn-plano:hover{ background:#002D80; }
+    .plano-card.destaque .btn-plano:hover{ background:#002266; }
 
     .plano-footer{
       margin-top:1rem;
@@ -510,6 +493,121 @@
       font-family:'Neulis Sans',sans-serif !important;
     }
 
+    /* Pesquisas Avulsas */
+    .pesquisas-avulsas{
+      background:linear-gradient(to bottom,var(--branco),var(--cinza));
+      padding:4rem 2rem;
+    }
+
+    .pesquisas-grid{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:1.8rem;
+      max-width:1200px;
+      margin:0 auto;
+    }
+
+    .pesquisa-card{
+      flex:0 1 320px;
+      background:var(--branco);
+      border-radius:22px;
+      padding:2rem;
+      box-shadow:0 10px 30px rgba(0,53,153,0.08);
+      border:2px solid transparent;
+      transition:all .3s;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .pesquisa-card:hover{
+      transform:translateY(-5px);
+      border-color:var(--laranja);
+      box-shadow:0 16px 40px rgba(0,53,153,0.12);
+    }
+
+    .pesquisa-icon{
+      font-size:2.2rem;
+      line-height:1;
+      margin-bottom:.8rem;
+      display:inline-flex;
+    }
+
+    .pesquisa-card h3{
+      color:var(--azul);
+      font-size:1.45rem;
+      margin-bottom:.35rem;
+      font-family:'Neulis Cursive',cursive !important;
+    }
+
+    .pesquisa-subtitle{
+      color:var(--laranja);
+      font-size:.95rem;
+      font-weight:700;
+      margin-bottom:1rem;
+      font-family:'Neulis Sans',sans-serif !important;
+    }
+
+    .pesquisa-preco{
+      background:var(--azul-claro);
+      color:var(--azul);
+      border-radius:16px;
+      padding:1rem;
+      text-align:center;
+      margin-bottom:1rem;
+    }
+
+    .pesquisa-preco .label{
+      font-size:.82rem;
+      opacity:.8;
+      font-family:'Neulis Sans',sans-serif !important;
+    }
+
+    .pesquisa-preco .valor{
+      display:block;
+      margin-top:.2rem;
+      font-size:2rem;
+      font-weight:700;
+      font-family:'Neulis Cursive',cursive !important;
+      line-height:1.05;
+    }
+
+    .pesquisa-features{
+      list-style:none;
+      margin:0 0 1.4rem;
+      padding:0;
+      display:grid;
+      gap:.55rem;
+      flex-grow:1;
+    }
+
+    .pesquisa-features li{
+      position:relative;
+      padding-left:1.35rem;
+      color:var(--texto);
+      font-size:.96rem;
+      line-height:1.6;
+      font-family:'Neulis Sans',sans-serif !important;
+    }
+
+    .pesquisa-features li::before{
+      content:'✓';
+      position:absolute;
+      left:0;
+      color:var(--laranja);
+      font-weight:800;
+    }
+
+    .pesquisas-note{
+      margin:1.4rem auto 0;
+      max-width:900px;
+      text-align:center;
+      color:#666;
+      font-size:.95rem;
+      line-height:1.7;
+      font-family:'Neulis Sans',sans-serif !important;
+    }
+
     /* Roteiros Prontos */
     .roteiros{ background:var(--branco); padding:4rem 2rem; }
 
@@ -529,7 +627,7 @@
       text-align:center;
       transition:all .3s;
       border:2px solid transparent;
-      box-shadow:0 10px 30px rgba(0,53,153,0.06);
+      box-shadow:0 10px 30px rgba(0,51,153,0.06);
       position:relative;
       overflow:hidden;
       background:linear-gradient(135deg,var(--azul-claro),var(--branco));
@@ -595,11 +693,76 @@
         url('images/roteiros-prontos/japao.jpeg'),
         url('images/roteiros-prontos/japao.png');
     }
+    .roteiro-card.roteiro-gramado::before{
+      background-image:
+        url('images/roteiros-prontos/gramado.jpg'),
+        url('images/roteiros-prontos/gramado.jpeg'),
+        url('images/roteiros-prontos/gramado.png');
+    }
+    .roteiro-card.roteiro-rio::before{
+      background-image:
+        url('images/roteiros-prontos/rio.jpg'),
+        url('images/roteiros-prontos/rio.jpeg'),
+        url('images/destinos/rio.jpeg');
+    }
+    .roteiro-card.roteiro-buenos::before{
+      background-image:
+        url('images/roteiros-prontos/buenos-aires.jpg'),
+        url('images/roteiros-prontos/buenos-aires.jpeg'),
+        url('images/roteiros-prontos/buenos-aires.png');
+    }
+
+    .roteiro-card.em-breve::before{
+      filter:grayscale(1) saturate(0);
+      opacity:.17;
+    }
+
+    .roteiro-card.em-breve::after{
+      background:linear-gradient(
+        135deg,
+        rgba(242,244,247,0.94),
+        rgba(255,255,255,0.97)
+      );
+    }
+
+    .roteiro-card.em-breve .preco{
+      color:#7d8795;
+    }
+
+    .roteiro-badge{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:.4rem .8rem;
+      border-radius:999px;
+      background:rgba(0,53,153,0.08);
+      color:var(--azul);
+      font-size:.82rem;
+      font-weight:800;
+      margin-bottom:.8rem;
+      font-family:'Neulis Sans',sans-serif !important;
+    }
+
+    .btn-disabled{
+      background:#D7DFEA;
+      color:#667085;
+      box-shadow:none;
+      cursor:default;
+      pointer-events:none;
+      border-color:transparent;
+    }
+
+    .btn-disabled:hover{
+      transform:none;
+      background:#D7DFEA;
+      color:#667085;
+      box-shadow:none;
+    }
 
     .roteiro-card:hover{
       transform:translateY(-5px);
       border-color:var(--laranja);
-      box-shadow:0 16px 40px rgba(0,53,153,0.12);
+      box-shadow:0 16px 40px rgba(0,51,153,0.12);
     }
 
     .roteiro-card h4{
@@ -624,7 +787,7 @@
       padding:1.8rem;
       max-width:1200px;
       margin:0 auto 2rem;
-      box-shadow:0 10px 30px rgba(0,53,153,0.08);
+      box-shadow:0 10px 30px rgba(0,51,153,0.08);
     }
 
     .inclusos-grid{
@@ -671,11 +834,11 @@
     .btn-mp{
       background:var(--laranja);
       color:var(--branco);
-      box-shadow:0 4px 15px rgba(255,107,24,0.25);
+      box-shadow:0 4px 15px rgba(255,102,0,0.25);
     }
     .btn-mp:hover{
-      background:#E85D12;
-      box-shadow:0 8px 25px rgba(255,107,24,0.35);
+      background:#e55a00;
+      box-shadow:0 8px 25px rgba(255,102,0,0.35);
     }
 
     .btn-pix{
@@ -762,7 +925,7 @@
     }
 
     .modal-header{
-      background:linear-gradient(135deg,var(--azul),#2458B8);
+      background:linear-gradient(135deg,var(--azul),#0044cc);
       color:var(--branco);
       padding:2rem 4.5rem 2rem 2rem;
       text-align:center;
@@ -1079,7 +1242,7 @@
       </span>
 
       <h2 style="font-family: 'Neulis Cursive', cursive !important;">Escolha seu Modo de Viajar</h2>
-      <p style="font-family: 'Neulis Sans', sans-serif !important;">Tem desde direção pra quem ainda nem decidiu o destino até acompanhamento VIP durante a viagem. Você escolhe o nível de ajuda; a gente organiza o caos bonito.</p>
+      <p style="font-family: 'Neulis Sans', sans-serif !important;">De roteiros prontos a acompanhamento VIP durante a viagem. Temos o plano perfeito para o seu estilo.</p>
 
       <button class="btn-ajuda" onclick="openModal()" style="margin-top: 1.5rem;">
         <span class="emoji emoji-inline" aria-hidden="true">❓</span>
@@ -1098,7 +1261,7 @@
 
         <div class="plano-preco">
           <div class="preco-start">A partir de</div>
-          <div class="preco-valor">R$ 79,99</div>
+          <div class="preco-valor">R$ 79,90</div>
           <div class="preco-periodo">Direcionamento completo</div>
         </div>
 
@@ -1108,7 +1271,7 @@
           <li>Recomendações de prioridades</li>
           <li class="destaque-item">
             <span class="emoji emoji-inline" aria-hidden="true">💸</span>
-            Crédito de R$ 79,99 para qualquer plano (15 dias)
+            Crédito de R$ 79,90 para qualquer plano (15 dias)
           </li>
         </ul>
 
@@ -1132,7 +1295,7 @@
             <div class="preco-label">Aeroporto</div>
             <div class="preco-valor currency-inline">
               <span class="currency">R$</span>
-              <span class="amount">59,99</span>
+              <span class="amount">59,90</span>
             </div>
             <div class="preco-descricao">Descanso e organização</div>
           </div>
@@ -1141,7 +1304,7 @@
             <div class="preco-label">Turismo na Cidade</div>
             <div class="preco-valor currency-inline">
               <span class="currency">R$</span>
-              <span class="amount">89,99</span>
+              <span class="amount">89,90</span>
             </div>
             <div class="preco-descricao">Roteiro rápido</div>
           </div>
@@ -1171,7 +1334,7 @@
 
         <div class="plano-preco">
           <div class="preco-start">A partir de</div>
-          <div class="preco-valor">R$ 149,99</div>
+          <div class="preco-valor">R$ 139,90</div>
           <div class="preco-periodo">até 7 dias</div>
         </div>
 
@@ -1201,7 +1364,7 @@
 
         <div class="plano-preco">
           <div class="preco-start">A partir de</div>
-          <div class="preco-valor">R$ 259,99</div>
+          <div class="preco-valor">R$ 239,90</div>
           <div class="preco-periodo">até 7 dias</div>
         </div>
 
@@ -1231,7 +1394,7 @@
 
         <div class="plano-preco">
           <div class="preco-start">A partir de</div>
-          <div class="preco-valor">R$ 359,99</div>
+          <div class="preco-valor">R$ 339,90</div>
           <div class="preco-periodo">até 7 dias</div>
         </div>
 
@@ -1265,7 +1428,7 @@
 
         <div class="plano-preco">
           <div class="preco-start">A partir de</div>
-          <div class="preco-valor">R$ 859,99</div>
+          <div class="preco-valor">R$ 659,90</div>
           <div class="preco-periodo">até 7 dias</div>
         </div>
 
@@ -1331,9 +1494,9 @@
           <p>Acréscimo por cidades extras:</p>
 
           <ul>
-            <li>3–4 cidades: <span class="tag">+25%</span></li>
-            <li>5–6 cidades: <span class="tag">+35%</span></li>
-            <li>7–8 cidades: <span class="tag">+50%</span></li>
+            <li>3–4 cidades: <span class="tag">+15%</span></li>
+            <li>5–6 cidades: <span class="tag">+25%</span></li>
+            <li>7–8 cidades: <span class="tag">+40%</span></li>
             <li>9+: consulte orçamento</li>
           </ul>
 
@@ -1352,17 +1515,111 @@
           <p>Para layovers e conexões inteligentes:</p>
 
           <ul style="margin-top: 1rem;">
-            <li><strong>Aeroporto:</strong> R$ 59,99</li>
-            <li><strong>Turismo na cidade:</strong> R$ 89,99</li>
+            <li><strong>Aeroporto:</strong> R$ 59,90</li>
+            <li><strong>Turismo na cidade:</strong> R$ 89,90</li>
           </ul>
 
           <p style="margin-top: 1rem; font-size: 0.95rem; font-family: 'Neulis Sans', sans-serif !important;">
             <span class="emoji emoji-inline" aria-hidden="true">✈️</span>
-            <strong>Incluso no Embarque (Aeroporto) e no VIP (Aeroporto + Turismo na cidade).</strong><br />
-            Se a conexão fizer parte da sua viagem, a gente já encaixa isso no planejamento sem deixar ponta solta.
+            <strong>Incluso nos planos Embarque e VIP!</strong><br />
+            Add-on para outros planos: R$ 39,90 (Aeroporto) / R$ 59,90 (Cidade)
           </p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Pesquisas Avulsas -->
+  <section class="pesquisas-avulsas">
+    <div class="container fade-in">
+      <div class="section-header">
+        <span class="section-tag">
+          <span class="emoji emoji-inline" aria-hidden="true">🧩</span>
+          Ajuda Pontual
+        </span>
+
+        <h2 style="font-family: 'Neulis Cursive', cursive !important;">Só quer resolver uma parte da viagem?</h2>
+
+        <p style="font-family: 'Neulis Sans', sans-serif !important;">
+          Se você ainda não precisa de um roteiro completo, mas quer cortar horas de pesquisa e receber opções mais certeiras,
+          essas curadorias avulsas já resolvem bonito.
+        </p>
+      </div>
+
+      <div class="pesquisas-grid">
+        <div class="pesquisa-card">
+          <span class="pesquisa-icon" aria-hidden="true">🛏️</span>
+          <h3>Curadoria de Hospedagem</h3>
+          <p class="pesquisa-subtitle">pra parar de abrir 27 abas e ainda continuar em dúvida</p>
+
+          <div class="pesquisa-preco">
+            <span class="label">valor avulso</span>
+            <span class="valor">R$ 59,99</span>
+          </div>
+
+          <ul class="pesquisa-features">
+            <li>até 5 opções de hospedagem que façam sentido pro seu perfil</li>
+            <li>bairros e regiões que valem mais a pena pra sua viagem</li>
+            <li>comparação prática de faixa de preço, estilo e localização</li>
+            <li>links diretos pra você reservar com mais segurança</li>
+            <li>recomendação final sem enrolação</li>
+          </ul>
+
+          <a href="https://wa.me/5549991628403?text=Oi!%20Quero%20saber%20mais%20sobre%20a%20Curadoria%20de%20Hospedagem%20%F0%9F%9B%8F%EF%B8%8F" class="btn-plano" target="_blank" rel="noopener noreferrer">
+            Quero essa ajuda →
+          </a>
+        </div>
+
+        <div class="pesquisa-card">
+          <span class="pesquisa-icon" aria-hidden="true">💺</span>
+          <h3>Curadoria de Voos</h3>
+          <p class="pesquisa-subtitle">pra comparar melhor e decidir sem surtar com tanta opção</p>
+
+          <div class="pesquisa-preco">
+            <span class="label">valor avulso</span>
+            <span class="valor">R$ 59,99</span>
+          </div>
+
+          <ul class="pesquisa-features">
+            <li>até 5 opções de voo ou rota dentro do que você precisa</li>
+            <li>comparação de horário, bagagem, escalas e aeroportos</li>
+            <li>alerta do que vale a pena e do que é melhor evitar</li>
+            <li>links confiáveis pra você comprar direto</li>
+            <li>recomendação final pensando em custo-benefício real</li>
+          </ul>
+
+          <a href="https://wa.me/5549991628403?text=Oi!%20Quero%20saber%20mais%20sobre%20a%20Curadoria%20de%20Voos%20%F0%9F%92%BA" class="btn-plano" target="_blank" rel="noopener noreferrer">
+            Quero essa ajuda →
+          </a>
+        </div>
+
+        <div class="pesquisa-card">
+          <span class="pesquisa-icon" aria-hidden="true">⚓</span>
+          <h3>Curadoria de Cruzeiros</h3>
+          <p class="pesquisa-subtitle">pra achar a opção certa sem se perder no meio do mar de abas</p>
+
+          <div class="pesquisa-preco">
+            <span class="label">valor avulso</span>
+            <span class="valor">R$ 59,99</span>
+          </div>
+
+          <ul class="pesquisa-features">
+            <li>até 5 opções de cruzeiro alinhadas ao seu perfil e orçamento</li>
+            <li>comparação de roteiro, duração, cabine e estilo de viagem</li>
+            <li>alertas práticos sobre o que faz ou não faz sentido</li>
+            <li>links confiáveis pra você pesquisar e reservar direto</li>
+            <li>recomendação final pra decidir com muito menos dúvida</li>
+          </ul>
+
+          <a href="https://wa.me/5549991628403?text=Oi!%20Quero%20saber%20mais%20sobre%20a%20Curadoria%20de%20Cruzeiros%20%E2%9A%93" class="btn-plano" target="_blank" rel="noopener noreferrer">
+            Quero essa ajuda →
+          </a>
+        </div>
+      </div>
+
+      <p class="pesquisas-note">
+        Importante: aqui a Modo faz a curadoria e organiza as melhores opções pra você, mas a compra continua sendo feita direto por você nos sites e fornecedores.
+      </p>
     </div>
   </section>
 
@@ -1438,7 +1695,7 @@
       <div class="roteiros-grid">
         <div class="roteiro-card roteiro-santiago">
           <h4>🏔️ Andes na Janela: 5 Dias em Santiago (Inverno)</h4>
-          <div class="preco">R$ 59,99</div>
+          <div class="preco">R$ 49,90</div>
 
           <div class="botoes-roteiro">
             <a href="https://mpago.la/2eRhVqN" target="_blank" rel="noopener" class="btn-roteiro btn-mp">
@@ -1462,7 +1719,7 @@
 
         <div class="roteiro-card roteiro-cruzeiro">
           <h4>🚢 Rota do Prata: 7 dias em Cruzeiro Argentina + Uruguai</h4>
-          <div class="preco">R$ 49,99</div>
+          <div class="preco">R$ 49,90</div>
 
           <div class="botoes-roteiro">
             <a href="https://mpago.la/1monhF9" target="_blank" rel="noopener" class="btn-roteiro btn-mp">
@@ -1484,19 +1741,18 @@
           </p>
         </div>
 
-        <div class="roteiro-card roteiro-disney">
-          <h4>✨ Orlando Mágico: 15 Dias de Parques & Compras</h4>
-          <div class="preco">R$ 79,99</div>
+        <div class="roteiro-card roteiro-gramado">
+          <h4>🍂 Serra no Modo Off: 6 Dias em Gramado + Canela</h4>
+          <div class="preco">R$ 59,99</div>
 
           <div class="botoes-roteiro">
-            <a href="https://mpago.la/2TjCW5o" target="_blank" rel="noopener" class="btn-roteiro btn-mp">
-              <img src="images/icons/mercadopago.png" alt="Mercado Pago" class="btn-ico" />
-              Comprar
+            <a href="https://wa.me/5549991628403?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%20Serra%20no%20Modo%20Off%20%E2%80%94%206%20dias%20em%20Gramado%20%2B%20Canela.%20%F0%9F%8D%82" target="_blank" rel="noopener noreferrer" class="btn-roteiro btn-mp">
+              <img src="images/icons/whatsapp-logo.png" alt="WhatsApp" class="btn-ico" />
+              Quero comprar
             </a>
-            <div class="pagamento-sub mp">Pix • Cartão à vista • Parcelado (com taxas)</div>
+            <div class="pagamento-sub mp">Compra combinada pelo WhatsApp</div>
 
-            <a href="https://wa.me/5549991628403?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%20Orlando%20M%C3%A1gico%20%E2%80%94%2015%20dias%20de%20Parques%20%26%20Compras%20via%20Pix.%20%F0%9F%98%8A%20Pode%20me%20enviar%20a%20chave%20e%20o%20valor%3F"
-               target="_blank" rel="noopener noreferrer" class="btn-roteiro btn-pix">
+            <a href="https://wa.me/5549991628403?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%20Serra%20no%20Modo%20Off%20%E2%80%94%206%20dias%20em%20Gramado%20%2B%20Canela%20via%20Pix.%20%F0%9F%98%8A" target="_blank" rel="noopener noreferrer" class="btn-roteiro btn-pix">
               <img src="images/icons/whatsapp-logo.png" alt="WhatsApp" class="btn-ico" />
               Comprar via Pix
             </a>
@@ -1508,28 +1764,44 @@
           </p>
         </div>
 
-        <div class="roteiro-card roteiro-japao">
-          <h4>⛩️ Do Templo ao Izakaya: Japão em 20 Dias</h4>
-          <div class="preco">R$ 99,99</div>
+        <div class="roteiro-card roteiro-rio em-breve">
+          <span class="roteiro-badge">Em breve</span>
+          <h4>🌞 Rio sem Correria: 6 Dias no Rio de Janeiro</h4>
+          <div class="preco">R$ 59,99</div>
 
           <div class="botoes-roteiro">
-            <a href="https://mpago.la/1BroPmr" target="_blank" rel="noopener" class="btn-roteiro btn-mp">
-              <img src="images/icons/mercadopago.png" alt="Mercado Pago" class="btn-ico" />
-              Comprar
-            </a>
-            <div class="pagamento-sub mp">Pix • Cartão à vista • Parcelado (com taxas)</div>
-
-            <a href="https://wa.me/5549991628403?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%20Do%20Templo%20ao%20Izakaya%20%E2%80%94%20Jap%C3%A3o%20em%2020%20dias%20via%20Pix.%20%F0%9F%98%8A%20Pode%20me%20enviar%20a%20chave%20e%20o%20valor%3F"
-               target="_blank" rel="noopener noreferrer" class="btn-roteiro btn-pix">
-              <img src="images/icons/whatsapp-logo.png" alt="WhatsApp" class="btn-ico" />
-              Comprar via Pix
-            </a>
-            <div class="pagamento-sub pix">Pix via WhatsApp</div>
+            <span class="btn-roteiro btn-disabled">Em breve</span>
           </div>
+        </div>
 
-          <p style="margin-top: 0.95rem; font-size: 0.86rem; color: #666; font-family: 'Neulis Sans', sans-serif !important;">
-            ⏱ Entrega do PDF: até 30 min após confirmação do pagamento.
-          </p>
+        <div class="roteiro-card roteiro-buenos em-breve">
+          <span class="roteiro-badge">Em breve</span>
+          <h4>🇦🇷 Primeira Carimbada: Buenos Aires em 6 Dias</h4>
+          <div class="preco">R$ 59,99</div>
+
+          <div class="botoes-roteiro">
+            <span class="btn-roteiro btn-disabled">Em breve</span>
+          </div>
+        </div>
+
+        <div class="roteiro-card roteiro-disney em-breve">
+          <span class="roteiro-badge">Em breve</span>
+          <h4>✨ Orlando Mágico: 15 Dias de Parques & Compras</h4>
+          <div class="preco">R$ 79,90</div>
+
+          <div class="botoes-roteiro">
+            <span class="btn-roteiro btn-disabled">Em breve</span>
+          </div>
+        </div>
+
+        <div class="roteiro-card roteiro-japao em-breve">
+          <span class="roteiro-badge">Em breve</span>
+          <h4>⛩️ Do Templo ao Izakaya: Japão em 20 Dias</h4>
+          <div class="preco">R$ 99,90</div>
+
+          <div class="botoes-roteiro">
+            <span class="btn-roteiro btn-disabled">Em breve</span>
+          </div>
         </div>
       </div>
     </div>
@@ -1602,108 +1874,135 @@
 
         <!-- Passo 2 -->
         <div class="quiz-step" id="step2">
-          <p class="quiz-question">2. Já comprou alguma coisa?</p>
+          <p class="quiz-question">2. Você quer uma ajudinha mais pontual ou algo mais completo?</p>
 
           <div class="quiz-options">
             <button class="quiz-option" onclick="nextStep(2, 'q2a')">
-              <span class="emoji" aria-hidden="true">❌</span>
-              Não
+              <span class="emoji" aria-hidden="true">🛏️</span>
+              Só quero ajuda com hospedagem
             </button>
 
             <button class="quiz-option" onclick="nextStep(2, 'q2b')">
-              <span class="emoji" aria-hidden="true">✈️</span>
-              Sim, as passagens
+              <span class="emoji" aria-hidden="true">💺</span>
+              Só quero ajuda com passagens
             </button>
 
             <button class="quiz-option" onclick="nextStep(2, 'q2c')">
-              <span class="emoji" aria-hidden="true">🏨</span>
-              Sim, a hospedagem
+              <span class="emoji" aria-hidden="true">⚓</span>
+              Só quero ajuda com cruzeiro
             </button>
 
             <button class="quiz-option" onclick="nextStep(2, 'q2d')">
-              <span class="emoji" aria-hidden="true">✅</span>
-              Sim, passagem e hospedagem
+              <span class="emoji" aria-hidden="true">🧳</span>
+              Quero algo mais completo
             </button>
           </div>
         </div>
 
         <!-- Passo 3 -->
         <div class="quiz-step" id="step3">
-          <p class="quiz-question">3. Você tem interesse em seguro de viagem?</p>
+          <p class="quiz-question">3. Já comprou alguma coisa?</p>
 
           <div class="quiz-options">
             <button class="quiz-option" onclick="nextStep(3, 'q3a')">
-              <span class="emoji" aria-hidden="true">🛡️</span>
-              Sim
+              <span class="emoji" aria-hidden="true">❌</span>
+              Não
             </button>
 
             <button class="quiz-option" onclick="nextStep(3, 'q3b')">
-              <span class="emoji" aria-hidden="true">🙅‍♀️</span>
-              Não
+              <span class="emoji" aria-hidden="true">✈️</span>
+              Sim, as passagens
+            </button>
+
+            <button class="quiz-option" onclick="nextStep(3, 'q3c')">
+              <span class="emoji" aria-hidden="true">🏨</span>
+              Sim, a hospedagem
+            </button>
+
+            <button class="quiz-option" onclick="nextStep(3, 'q3d')">
+              <span class="emoji" aria-hidden="true">✅</span>
+              Sim, passagem e hospedagem
             </button>
           </div>
         </div>
 
         <!-- Passo 4 -->
         <div class="quiz-step" id="step4">
-          <p class="quiz-question">4. Que tipo de ajuda você precisa?</p>
+          <p class="quiz-question">4. Você tem interesse em seguro de viagem?</p>
 
           <div class="quiz-options">
             <button class="quiz-option" onclick="nextStep(4, 'q4a')">
-              <span class="emoji" aria-hidden="true">💎</span>
-              Suporte durante a viagem
+              <span class="emoji" aria-hidden="true">🛡️</span>
+              Sim
             </button>
 
             <button class="quiz-option" onclick="nextStep(4, 'q4b')">
-              <span class="emoji" aria-hidden="true">📝</span>
-              Só um roteiro mesmo
-            </button>
-
-            <button class="quiz-option" onclick="nextStep(4, 'q4c')">
-              <span class="emoji" aria-hidden="true">🗺️</span>
-              Um mapa personalizado no Google Maps
+              <span class="emoji" aria-hidden="true">🙅‍♀️</span>
+              Não
             </button>
           </div>
         </div>
 
         <!-- Passo 5 -->
         <div class="quiz-step" id="step5">
-          <p class="quiz-question">5. O que é mais importante pra você?</p>
+          <p class="quiz-question">5. Que tipo de ajuda você precisa?</p>
 
           <div class="quiz-options">
             <button class="quiz-option" onclick="nextStep(5, 'q5a')">
-              <span class="emoji" aria-hidden="true">💰</span>
-              Economizar e ter um roteiro funcional
+              <span class="emoji" aria-hidden="true">💎</span>
+              Suporte durante a viagem
             </button>
 
             <button class="quiz-option" onclick="nextStep(5, 'q5b')">
-              <span class="emoji" aria-hidden="true">📲</span>
-              Ter tudo mapeado e organizado no celular
+              <span class="emoji" aria-hidden="true">📝</span>
+              Só um roteiro mesmo
             </button>
 
             <button class="quiz-option" onclick="nextStep(5, 'q5c')">
-              <span class="emoji" aria-hidden="true">🛡️</span>
-              Segurança e um plano B
-            </button>
-
-            <button class="quiz-option" onclick="nextStep(5, 'q5d')">
-              <span class="emoji" aria-hidden="true">🧳</span>
-              Ajuda para comprar e fazer reservas
+              <span class="emoji" aria-hidden="true">🗺️</span>
+              Um mapa personalizado no Google Maps
             </button>
           </div>
         </div>
 
         <!-- Passo 6 -->
         <div class="quiz-step" id="step6">
-          <p class="quiz-question">6. Como você prefere seu roteiro?</p>
+          <p class="quiz-question">6. O que é mais importante pra você?</p>
 
           <div class="quiz-options">
             <button class="quiz-option" onclick="nextStep(6, 'q6a')">
+              <span class="emoji" aria-hidden="true">💰</span>
+              Economizar e ter um roteiro funcional
+            </button>
+
+            <button class="quiz-option" onclick="nextStep(6, 'q6b')">
+              <span class="emoji" aria-hidden="true">📲</span>
+              Ter tudo mapeado e organizado no celular
+            </button>
+
+            <button class="quiz-option" onclick="nextStep(6, 'q6c')">
+              <span class="emoji" aria-hidden="true">🛡️</span>
+              Segurança e um plano B
+            </button>
+
+            <button class="quiz-option" onclick="nextStep(6, 'q6d')">
+              <span class="emoji" aria-hidden="true">🧳</span>
+              Ajuda para comprar e fazer reservas
+            </button>
+          </div>
+        </div>
+
+        <!-- Passo 7 -->
+        <div class="quiz-step" id="step7">
+          <p class="quiz-question">7. Como você prefere seu roteiro?</p>
+
+          <div class="quiz-options">
+            <button class="quiz-option" onclick="nextStep(7, 'q7a')">
               <span class="emoji" aria-hidden="true">⚡</span>
               Enxuto e certeiro
             </button>
 
-            <button class="quiz-option" onclick="nextStep(6, 'q6b')">
+            <button class="quiz-option" onclick="nextStep(7, 'q7b')">
               <span class="emoji" aria-hidden="true">🍽️</span>
               Mais completo e com variedade
             </button>
@@ -1712,13 +2011,13 @@
 
         <!-- Resultado -->
         <div class="quiz-step quiz-result" id="result">
-          <h4 id="resultTitle">Seu plano ideal é:</h4>
+          <h4 id="resultTitle">Sua melhor opção é:</h4>
 
           <div class="recomendacao" id="recomendacao"></div>
 
           <div class="quiz-cta-stack">
             <a href="#" id="resultBtn" class="btn-primary" target="_blank" rel="noopener noreferrer" style="justify-content:center;">
-              Quero esse plano
+              Quero seguir com essa opção
             </a>
 
             <a href="https://forms.gle/rZX3TJbtUrqEEz4k8" class="btn-secondary" target="_blank" rel="noopener noreferrer" style="justify-content:center; text-decoration:none;">
@@ -1726,7 +2025,7 @@
             </a>
 
             <p class="quiz-help-text">
-              Ao clicar, você vai para um formulário mais detalhado pra eu te direcionar certinho.
+              Se quiser, eu também posso te direcionar certinho pelo WhatsApp sem complicação.
             </p>
           </div>
         </div>
@@ -1800,11 +2099,14 @@
     let respostas = {};
 
     const planMeta = {
-      painel:   { nome: 'Painel de Partidas', emoji: '🧭', preco: 'R$ 79,99' },
-      partiu:   { nome: 'Modo Partiu',        emoji: '🎒', preco: 'R$ 149,99' },
-      checkin:  { nome: 'Modo Check-in',      emoji: '🧳', preco: 'R$ 259,99' },
-      embarque: { nome: 'Modo Embarque',      emoji: '✈️', preco: 'R$ 359,99' },
-      vip:      { nome: 'Modo VIP',           emoji: '💎', preco: 'R$ 859,99' }
+      painel:      { nome: 'Painel de Partidas',      emoji: '🧭', preco: 'R$ 79,99', cta: 'Quero esse direcionamento' },
+      hospedagem:  { nome: 'Curadoria de Hospedagem', emoji: '🛏️', preco: 'R$ 59,99', cta: 'Quero essa curadoria' },
+      voos:        { nome: 'Curadoria de Voos',       emoji: '💺', preco: 'R$ 59,99', cta: 'Quero essa curadoria' },
+      cruzeiros:   { nome: 'Curadoria de Cruzeiros',  emoji: '⚓', preco: 'R$ 59,99', cta: 'Quero essa curadoria' },
+      partiu:      { nome: 'Modo Partiu',             emoji: '🎒', preco: 'R$ 149,99', cta: 'Quero esse plano' },
+      checkin:     { nome: 'Modo Check-in',           emoji: '🧳', preco: 'R$ 259,99', cta: 'Quero esse plano' },
+      embarque:    { nome: 'Modo Embarque',           emoji: '✈️', preco: 'R$ 359,99', cta: 'Quero esse plano' },
+      vip:         { nome: 'Modo VIP',                emoji: '💎', preco: 'R$ 859,99', cta: 'Quero esse plano' }
     };
 
     function showOnlyStep(stepId) {
@@ -1816,13 +2118,18 @@
     function nextStep(step, answer) {
       respostas['step' + step] = answer;
 
-      // Regra: se ainda não sabe destino -> Painel
       if (step === 1 && answer === 'q1b') {
         renderResult('painel');
         return;
       }
 
-      if (step < 6) {
+      if (step === 2) {
+        if (answer === 'q2a') return renderResult('hospedagem');
+        if (answer === 'q2b') return renderResult('voos');
+        if (answer === 'q2c') return renderResult('cruzeiros');
+      }
+
+      if (step < 7) {
         showOnlyStep('step' + (step + 1));
         return;
       }
@@ -1834,52 +2141,45 @@
     function calcularPlanoVencedor() {
       const scores = { partiu: 0, checkin: 0, embarque: 0, vip: 0 };
 
-      const q2 = respostas.step2;
       const q3 = respostas.step3;
       const q4 = respostas.step4;
       const q5 = respostas.step5;
       const q6 = respostas.step6;
+      const q7 = respostas.step7;
 
-      const partiuElegivel = q2 === 'q2d';
-      const vipForte = q4 === 'q4a' || q5 === 'q5d';
-      const embarqueTemSinal = (q4 === 'q4c' || q5 === 'q5b' || q5 === 'q5c' || q3 === 'q3a');
+      const partiuElegivel = q3 === 'q3d';
+      const vipForte = q5 === 'q5a' || q6 === 'q6d';
+      const embarqueTemSinal = (q5 === 'q5c' || q6 === 'q6b' || q6 === 'q6c' || q4 === 'q4a');
 
-      // Q2
-      if (q2 === 'q2a' || q2 === 'q2b' || q2 === 'q2c') {
+      if (q3 === 'q3a' || q3 === 'q3b' || q3 === 'q3c') {
         scores.checkin += 2;
         scores.embarque += 2;
         scores.vip += 1;
-      } else if (q2 === 'q2d') {
+      } else if (q3 === 'q3d') {
         scores.partiu += 2;
         scores.checkin += 2;
         scores.embarque += 2;
         scores.vip += 1;
       }
 
-      // Q3
-      if (q3 === 'q3a') { scores.embarque += 3; scores.vip += 1; }
-      if (q3 === 'q3b') { scores.partiu += 1;  scores.checkin += 2; }
+      if (q4 === 'q4a') { scores.embarque += 3; scores.vip += 1; }
+      if (q4 === 'q4b') { scores.partiu += 1; scores.checkin += 2; }
 
-      // Q4
-      if (q4 === 'q4a') { scores.vip += 6; }
-      if (q4 === 'q4b') { scores.partiu += 2; scores.checkin += 2; }
-      if (q4 === 'q4c') { scores.embarque += 5; scores.vip += 1; }
+      if (q5 === 'q5a') { scores.vip += 6; }
+      if (q5 === 'q5b') { scores.partiu += 2; scores.checkin += 2; }
+      if (q5 === 'q5c') { scores.embarque += 5; scores.vip += 1; }
 
-      // Q5
-      if (q5 === 'q5a') { scores.partiu += 2; scores.checkin += 2; }
-      if (q5 === 'q5b') { scores.embarque += 4; scores.vip += 1; }
-      if (q5 === 'q5c') { scores.embarque += 4; scores.vip += 1; }
-      if (q5 === 'q5d') { scores.vip += 6; }
+      if (q6 === 'q6a') { scores.partiu += 2; scores.checkin += 2; }
+      if (q6 === 'q6b') { scores.embarque += 4; scores.vip += 1; }
+      if (q6 === 'q6c') { scores.embarque += 4; scores.vip += 1; }
+      if (q6 === 'q6d') { scores.vip += 6; }
 
-      // Q6
-      if (q6 === 'q6a') { scores.partiu += 3; }
-      if (q6 === 'q6b') { scores.checkin += 3; scores.embarque += 1; }
+      if (q7 === 'q7a') { scores.partiu += 3; }
+      if (q7 === 'q7b') { scores.checkin += 3; scores.embarque += 1; }
 
-      // Candidatos
       const candidatos = ['checkin', 'embarque', 'vip'];
       if (partiuElegivel) candidatos.push('partiu');
 
-      // Embarque x VIP “muito próximo”
       if (!vipForte && scores.vip > scores.embarque && (scores.vip - scores.embarque <= 1)) {
         scores.embarque = scores.vip;
       }
@@ -1890,12 +2190,11 @@
       let maior = Math.max(...candidatos.map(p => scores[p]));
       let empatados = candidatos.filter(p => scores[p] === maior);
 
-      // Desempates
       if (vipForte && empatados.includes('vip')) return 'vip';
       if (empatados.includes('embarque') && empatados.includes('vip')) empatados = empatados.filter(p => p !== 'vip');
 
       if (empatados.includes('partiu') && empatados.includes('checkin')) {
-        if (q6 === 'q6a' && partiuElegivel) return 'partiu';
+        if (q7 === 'q7a' && partiuElegivel) return 'partiu';
         return 'checkin';
       }
 
@@ -1911,71 +2210,95 @@
       return empatados[0] || 'checkin';
     }
 
-    // Justificativas curtas + emoji
     function buildJustificativasShort(planKey) {
-      const q3 = respostas.step3;
       const q4 = respostas.step4;
       const q5 = respostas.step5;
       const q6 = respostas.step6;
+      const q7 = respostas.step7;
 
       if (planKey === 'painel') {
         return [
           '🧭 Você ainda está decidindo o destino.',
-          '🎯 Vamos achar o melhor destino pro seu perfil.',
-          '💸 Você ganha crédito pro próximo plano.'
+          '🎯 Vamos achar o lugar que faz mais sentido pra sua viagem.',
+          '💸 Depois, esse valor ainda vira crédito pro próximo plano.'
+        ];
+      }
+
+      if (planKey === 'hospedagem') {
+        return [
+          '🛏️ Você quer resolver só a hospedagem, sem complicar o resto.',
+          '📍 Aqui entram até 5 opções alinhadas ao seu perfil e à sua viagem.',
+          '🔗 Você recebe comparação prática + links diretos pra reservar.'
+        ];
+      }
+
+      if (planKey === 'voos') {
+        return [
+          '💺 Você quer uma ajuda pontual pra comparar melhor as passagens.',
+          '✈️ Aqui entram até 5 opções de voo ou rota, com olhar estratégico.',
+          '🔗 Você recebe comparação clara + links confiáveis pra compra.'
+        ];
+      }
+
+      if (planKey === 'cruzeiros') {
+        return [
+          '⚓ Você quer comparar cruzeiros sem se perder em mil abas.',
+          '🛳️ Aqui entram até 5 opções alinhadas ao seu perfil e orçamento.',
+          '📍 Você recebe comparação prática + recomendação final.'
         ];
       }
 
       if (planKey === 'partiu') {
-        const arr = ['✅ Base da viagem já fechada.'];
-        if (q6 === 'q6a') arr.push('⚡ Você prefere um roteiro enxuto.');
-        if (q5 === 'q5a') arr.push('💰 Você quer economizar com estratégia.');
-        if (arr.length < 3) arr.push('🗓️ Roteiro pronto pra só curtir.');
+        const arr = ['✅ A base da viagem já está resolvida.'];
+        if (q7 === 'q7a') arr.push('⚡ Você prefere um roteiro mais enxuto e certeiro.');
+        if (q6 === 'q6a') arr.push('💰 Você quer economizar com estratégia.');
+        if (arr.length < 3) arr.push('🗓️ É a opção ideal pra transformar isso em roteiro pronto.');
         return arr.slice(0, 3);
       }
 
       if (planKey === 'checkin') {
-        const arr = ['🏨 Você quer ajuda com hospedagem.'];
-        if (q4 === 'q4b') arr.push('📝 Você quer só o roteiro (sem suporte).');
-        if (q6 === 'q6b') arr.push('🍽️ Você prefere mais variedade no roteiro.');
-        if (arr.length < 3) arr.push('📍 Tudo bem organizado e prático.');
+        const arr = ['🧳 Você quer um roteiro completo com ajuda pra base da viagem.'];
+        if (q5 === 'q5b') arr.push('📝 Você quer o roteiro bem resolvido, sem precisar de suporte durante a viagem.');
+        if (q7 === 'q7b') arr.push('🍽️ Você prefere algo mais completo e com variedade.');
+        if (arr.length < 3) arr.push('📍 Aqui entra roteiro + hospedagem bem alinhada.');
         return arr.slice(0, 3);
       }
 
       if (planKey === 'embarque') {
         const arr = [];
-        if (q5 === 'q5c' || q3 === 'q3a') arr.push('🛡️ Você quer segurança e plano B.');
-        else arr.push('🗺️ Você quer tudo bem organizado.');
-        if (q4 === 'q4c' || q5 === 'q5b') arr.push('📲 Você quer tudo mapeado no celular.');
-        arr.push('✈️ Estratégia + menos perrengue.');
+        if (q6 === 'q6c' || q4 === 'q4a') arr.push('🛡️ Você quer mais segurança e margem de plano B.');
+        else arr.push('🗺️ Você quer a viagem toda mais redondinha e estratégica.');
+        if (q5 === 'q5c' || q6 === 'q6b') arr.push('📲 Você quer tudo bem organizado e fácil de usar no celular.');
+        arr.push('✈️ É o melhor meio-termo entre completo e muito bem pensado.');
         return arr.slice(0, 3);
       }
 
-      // vip
       return [
-        '💎 Você quer suporte durante a viagem.',
-        '🧳 Você quer ajuda pra comprar/reservar.',
-        '💬 Acompanhamento mais premium.'
+        '💎 Você quer suporte durante a viagem e uma experiência mais premium.',
+        '🧳 Você quer ajuda mais próxima pra decidir e ajustar o que for preciso.',
+        '💬 É a opção mais completa pra quem quer acompanhamento de verdade.'
       ];
     }
 
     function renderResult(planKey) {
       const meta = planMeta[planKey];
-      const plano = meta.nome;
+      const opcao = meta.nome;
       const emoji = meta.emoji;
       const preco = meta.preco;
 
       const justificativas = buildJustificativasShort(planKey);
-
-      const mensagem = `Oi! Fiz o quiz no site e meu resultado foi: ${emoji} ${plano} — A partir de ${preco}. Quero fechar esse plano. 😊`;
+      const mensagem = `Oi! Fiz o quiz no site e meu resultado foi: ${emoji} ${opcao} — A partir de ${preco}. Quero seguir com essa opção. 😊`;
       const whatsappUrl = `https://wa.me/5549991628403?text=${encodeURIComponent(mensagem)}`;
 
       const titleEl = document.getElementById('resultTitle');
       const recEl = document.getElementById('recomendacao');
       const btnEl = document.getElementById('resultBtn');
 
-      if (titleEl) titleEl.textContent = `Seu plano ideal é: ${emoji} ${plano}`;
-      if (btnEl) btnEl.href = whatsappUrl;
+      if (titleEl) titleEl.textContent = `Sua melhor opção é: ${emoji} ${opcao}`;
+      if (btnEl) {
+        btnEl.href = whatsappUrl;
+        btnEl.textContent = meta.cta || 'Quero seguir com essa opção';
+      }
 
       if (recEl) {
         recEl.innerHTML = `
@@ -1998,9 +2321,12 @@
       const recEl = document.getElementById('recomendacao');
       const btnEl = document.getElementById('resultBtn');
 
-      if (titleEl) titleEl.textContent = 'Seu plano ideal é:';
+      if (titleEl) titleEl.textContent = 'Sua melhor opção é:';
       if (recEl) recEl.innerHTML = '';
-      if (btnEl) btnEl.href = '#';
+      if (btnEl) {
+        btnEl.href = '#';
+        btnEl.textContent = 'Quero seguir com essa opção';
+      }
 
       showOnlyStep('step1');
     }
@@ -2051,5 +2377,4 @@
   </script>
 </body>
 </html>
-
 
