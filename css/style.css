@@ -70,6 +70,10 @@ h1,h2,h3,h4,h5,h6{
   line-height:1.2;
 }
 
+h1 span,h2 span,h3 span,h4 span,h5 span,h6 span{
+  font-family:inherit;
+}
+
 p,a,button,input,li,label,select,textarea,strong,small,span{
   font-family:var(--font-texto);
 }
@@ -143,6 +147,9 @@ nav{
   padding:.6rem 1.5rem;
   border-radius:999px;
   transition:all .3s;
+  display:inline-flex;
+  align-items:center;
+  gap:.45rem;
 }
 .btn-nav::after{display:none!important}
 .btn-nav:hover{
@@ -622,6 +629,10 @@ footer{
   .quiz-option{padding:.95rem 1rem;border-radius:16px;font-size:.98rem;line-height:1.25}
   .recomendacao{padding:1rem;border-radius:16px}
   .avulsos-grid{grid-template-columns:1fr}
+}
+
+@media (max-width: 420px){
+  .pagamento-sub{font-size:.78rem}
 }
 
 @media (max-width: 420px){
