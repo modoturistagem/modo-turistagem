@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roteiros Prontos | Modo Turistagem</title>
+
+  <meta name="description" content="Viaje com tudo planejado, sem perder horas pesquisando. Escolha seu destino, baixe seu roteiro pronto e só aproveite." />
+  <meta name="theme-color" content="#003599" />
+  <link rel="canonical" href="https://modoturistagem.github.io/modo-turistagem/roteiros-prontos.html" />
+
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Roteiros Prontos | Modo Turistagem" />
+  <meta property="og:description" content="Escolha seu destino, baixe seu roteiro pronto e viaje com mais clareza, praticidade e zero enrolação." />
+  <meta property="og:url" content="https://modoturistagem.github.io/modo-turistagem/roteiros-prontos.html" />
+  <meta property="og:site_name" content="Modo Turistagem" />
+  <meta property="og:image" content="https://modoturistagem.github.io/modo-turistagem/images/logotipo.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Roteiros Prontos | Modo Turistagem" />
+  <meta name="twitter:description" content="Escolha seu destino, baixe seu roteiro pronto e viaje com mais clareza, praticidade e zero enrolação." />
+  <meta name="twitter:image" content="https://modoturistagem.github.io/modo-turistagem/images/logotipo.png" />
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    .social-icon-img{height:24px;width:auto;display:block}
+
+    .roteiros-hero{
+      margin-top:70px;
+      padding:4.5rem 2rem 4rem;
+      background:linear-gradient(135deg,var(--azul-claro) 0%, var(--branco) 52%, var(--laranja-claro) 100%);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .roteiros-hero::before{
+      content:'🗺️';
+      position:absolute;
+      top:-10px;
+      right:-20px;
+      font-size:13rem;
+      line-height:1;
+      opacity:.05;
+      pointer-events:none;
+    }
+
+    .roteiros-hero .container{
+      max-width:980px;
+      text-align:center;
+      position:relative;
+      z-index:2;
+    }
+
+    .roteiros-hero h1{
+      color:var(--azul);
+      font-size:3.1rem;
+      line-height:1.08;
+      margin-bottom:1rem;
+    }
+
+    .roteiros-hero p{
+      max-width:760px;
+      margin:0 auto;
+      color:var(--texto);
+      line-height:1.8;
+      font-size:1.14rem;
+    }
+
+    .hero-mini-actions{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:.85rem;
+      margin-top:1.6rem;
+    }
+
+    .hero-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:.5rem;
+      padding:.7rem 1rem;
+      border-radius:999px;
+      background:rgba(255,255,255,.9);
+      color:var(--azul);
+      font-weight:800;
+      box-shadow:0 8px 22px rgba(0,53,153,.08);
+      border:1px solid rgba(0,53,153,.08);
+    }
+
+    .roteiros-note{
+      max-width:980px;
+      margin:-1.35rem auto 0;
+      background:var(--branco);
+      border-radius:20px;
+      padding:1.1rem 1.3rem;
+      box-shadow:0 14px 34px rgba(0,53,153,.10);
+      border:1px solid rgba(0,53,153,.08);
+      text-align:center;
+      color:var(--azul);
+      font-weight:700;
+      line-height:1.65;
+      position:relative;
+      z-index:3;
+    }
+
+    .roteiro-inclusos{
+      padding:4rem 2rem 2.4rem;
+      background:var(--branco);
+    }
+
+    .roteiro-inclusos-card{
+      max-width:1200px;
+      margin:0 auto;
+      background:var(--azul-claro);
+      border-radius:28px;
+      padding:2rem;
+      box-shadow:0 16px 40px rgba(0,53,153,.08);
+    }
+
+    .roteiro-inclusos-card h2{
+      color:var(--azul);
+      font-size:2rem;
+      text-align:center;
+      margin-bottom:.8rem;
+    }
+
+    .roteiro-inclusos-card .intro{
+      text-align:center;
+      max-width:760px;
+      margin:0 auto 1.4rem;
+      line-height:1.75;
+      color:var(--texto);
+    }
+
+    .inclusos-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+      gap:1rem;
+    }
+
+    .incluso-box{
+      background:var(--branco);
+      border-radius:18px;
+      padding:1rem;
+      box-shadow:0 8px 20px rgba(0,0,0,.05);
+    }
+
+    .incluso-box strong{
+      display:block;
+      color:var(--azul);
+      margin-bottom:.35rem;
+    }
+
+    .incluso-box p{
+      margin:0;
+      color:var(--texto);
+      line-height:1.58;
+      font-size:.95rem;
+    }
+
+    .fit-section{
+      padding:0 2rem 4rem;
+      background:var(--branco);
+    }
+
+    .fit-grid{
+      max-width:1200px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:1rem;
+    }
+
+    .fit-card{
+      background:var(--off-white);
+      border-radius:22px;
+      padding:1.6rem;
+      border:1px solid rgba(0,53,153,.08);
+      box-shadow:0 8px 22px rgba(0,0,0,.04);
+    }
+
+    .fit-card h3{
+      color:var(--azul);
+      font-size:1.4rem;
+      margin-bottom:.75rem;
+    }
+
+    .fit-card ul{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:grid;
+      gap:.65rem;
+    }
+
+    .fit-card li{
+      position:relative;
+      padding-left:1.35rem;
+      line-height:1.65;
+      color:var(--texto);
+    }
+
+    .fit-card.ideal li::before,
+    .fit-card.nao-ideal li::before{
+      position:absolute;
+      left:0;
+      top:0;
+      font-weight:800;
+    }
+
+    .fit-card.ideal li::before{content:'✓'; color:var(--laranja)}
+    .fit-card.nao-ideal li::before{content:'–'; color:var(--azul)}
+
+    .categorias{
+      padding:0 2rem 4rem;
+      background:var(--branco);
+    }
+
+    .categoria-wrap{
+      max-width:1200px;
+      margin:0 auto;
+    }
+
+    .categoria-bloco + .categoria-bloco{margin-top:3rem}
+
+    .categoria-head{
+      margin-bottom:1rem;
+    }
+
+    .categoria-head h2{
+      color:var(--azul);
+      font-size:2rem;
+      margin-bottom:.45rem;
+      display:flex;
+      align-items:center;
+      gap:.55rem;
+    }
+
+    .categoria-head p{
+      margin:0;
+      color:var(--texto);
+      line-height:1.65;
+      max-width:760px;
+    }
+
+    .roteiros-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:1.4rem;
+    }
+
+    .roteiro-card{
+      background:var(--branco);
+      border:1px solid rgba(0,53,153,.08);
+      border-radius:24px;
+      padding:1.2rem;
+      box-shadow:0 14px 34px rgba(0,0,0,.06);
+      display:flex;
+      flex-direction:column;
+      gap:.9rem;
+      transition:transform .25s ease, box-shadow .25s ease;
+    }
+
+    .roteiro-card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 18px 42px rgba(0,0,0,.09);
+    }
+
+    .card-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:.75rem;
+    }
+
+    .selo-modo{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:max-content;
+      padding:.48rem .8rem;
+      border-radius:999px;
+      background:var(--azul-claro);
+      color:var(--azul);
+      font-size:.8rem;
+      font-weight:800;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:max-content;
+      padding:.42rem .72rem;
+      border-radius:999px;
+      background:var(--laranja-claro);
+      color:var(--laranja);
+      font-size:.8rem;
+      font-weight:800;
+      text-align:center;
+    }
+
+    .roteiro-card h3{
+      color:var(--azul);
+      font-size:1.36rem;
+      line-height:1.25;
+      margin:0;
+    }
+
+    .preco{
+      color:var(--laranja);
+      font-size:1.7rem;
+      font-weight:900;
+      line-height:1;
+    }
+
+    .disponibilidade{
+      color:var(--texto);
+      font-size:.94rem;
+      line-height:1.6;
+      margin-top:-.2rem;
+    }
+
+    .topicos{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.55rem;
+    }
+
+    .topico{
+      background:var(--off-white);
+      border:1px solid rgba(0,53,153,.08);
+      border-radius:999px;
+      padding:.45rem .72rem;
+      font-size:.86rem;
+      color:var(--texto);
+      line-height:1.3;
+    }
+
+    .roteiro-card .mini-copy{
+      margin:0;
+      color:var(--texto);
+      line-height:1.68;
+      font-size:.96rem;
+    }
+
+    .botoes-roteiro{
+      display:flex;
+      flex-direction:column;
+      gap:.55rem;
+      margin-top:auto;
+    }
+
+    .pagamento-sub{
+      text-align:center;
+      margin-top:-.2rem;
+    }
+
+    .btn-disabled{
+      filter:saturate(0);
+    }
+
+    .roteiro-card.em-breve{
+      filter:saturate(0);
+      opacity:.92;
+      background:#f7f7f7;
+    }
+
+    .roteiro-card.em-breve .mini-copy{
+      color:#555;
+    }
+
+    .atualizacao-note{
+      max-width:1200px;
+      margin:0 auto 2rem;
+      background:var(--off-white);
+      border-radius:18px;
+      padding:1rem 1.15rem;
+      text-align:center;
+      color:var(--texto);
+      line-height:1.65;
+      border:1px solid rgba(0,53,153,.08);
+    }
+
+    .upsell{
+      padding:0 2rem 4rem;
+      background:var(--branco);
+    }
+
+    .upsell-box{
+      max-width:1200px;
+      margin:0 auto;
+      background:linear-gradient(135deg,var(--azul) 0%, #2458B8 100%);
+      color:var(--branco);
+      border-radius:30px;
+      padding:2.3rem;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1.5rem;
+      flex-wrap:wrap;
+      box-shadow:0 18px 42px rgba(0,53,153,.22);
+    }
+
+    .upsell-copy{
+      flex:1 1 540px;
+    }
+
+    .upsell-copy h2{
+      color:var(--branco);
+      font-size:2rem;
+      margin-bottom:.7rem;
+    }
+
+    .upsell-copy p{
+      margin:0 0 1rem;
+      opacity:.96;
+      line-height:1.75;
+      max-width:700px;
+    }
+
+    .upsell-list{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:grid;
+      gap:.55rem;
+    }
+
+    .upsell-list li{
+      line-height:1.55;
+      font-weight:700;
+    }
+
+    .upsell-action{
+      flex:0 1 260px;
+      display:flex;
+      flex-direction:column;
+      gap:.8rem;
+    }
+
+    .upsell-action .btn-primary{
+      background:var(--laranja);
+      width:100%;
+    }
+
+    .upsell-action small{
+      text-align:center;
+      opacity:.9;
+      line-height:1.5;
+    }
+
+    @media (max-width: 900px){
+      .fit-grid{grid-template-columns:1fr}
+      .roteiros-hero h1{font-size:2.5rem}
+    }
+
+    @media (max-width: 768px){
+      .roteiros-hero,
+      .roteiro-inclusos,
+      .fit-section,
+      .categorias,
+      .upsell{padding-left:1rem;padding-right:1rem}
+      .roteiros-hero{padding-top:4rem}
+      .roteiros-note{margin:-1rem 1rem 0}
+      .roteiro-inclusos-card,
+      .upsell-box{padding:1.35rem}
+      .categoria-head h2{font-size:1.6rem}
+      .roteiros-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="images/logotipo.png" alt="Modo Turistagem" class="logo-img" />
+      </a>
+
+      <button class="mobile-menu" onclick="toggleMenu()" aria-label="Abrir menu">☰</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="roteiros-prontos.html" class="active">Roteiros Prontos</a></li>
+        <li><a href="destinos.html">Destinos Testados</a></li>
+        <li><a href="como-funciona.html">Como Funciona</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="quem-somos.html">Quem Somos</a></li>
+        <li>
+          <a href="https://wa.me/5549991628403" class="btn-nav" target="_blank" rel="noopener noreferrer">
+            Fale Conosco
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="roteiros-hero">
+    <div class="container fade-in">
+      <span class="section-tag">
+        <span class="emoji emoji-inline" aria-hidden="true">📚</span>
+        Roteiros Prontos
+      </span>
+
+      <h1>Viaje com tudo planejado — sem perder horas pesquisando</h1>
+      <p>Escolha seu destino, baixe seu roteiro pronto e só aproveite ✈️ É o jeito mais prático de sair da ideia e ir pra ação com uma base clara, organizada e feita por quem realmente ama montar viagem.</p>
+
+      <div class="hero-mini-actions">
+        <span class="hero-pill">📥 download digital</span>
+        <span class="hero-pill">🧳 prático e organizado</span>
+        <span class="hero-pill">🔄 atualizado regularmente</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="roteiros-note fade-in">
+    Os roteiros são atualizados regularmente — então essa vitrine vai ficando cada vez mais bonita, completa e útil pra quem quer praticidade sem começar do zero.
+  </div>
+
+  <section class="roteiro-inclusos">
+    <div class="roteiro-inclusos-card fade-in">
+      <h2>O que está incluso em cada roteiro</h2>
+      <p class="intro">A ideia aqui é te entregar uma base útil de verdade — não um PDF bonito e vazio. Cada roteiro vem pensado pra facilitar decisão, economizar tempo e te deixar menos perdida na hora de organizar a viagem.</p>
+
+      <div class="inclusos-grid">
+        <div class="incluso-box">
+          <strong>🗓️ Roteiro dia a dia</strong>
+          <p>Organizado, claro e fácil de seguir.</p>
+        </div>
+
+        <div class="incluso-box">
+          <strong>🍽️ Restaurantes e cafés selecionados</strong>
+          <p>Opções que fazem sentido pro destino e pro ritmo da viagem.</p>
+        </div>
+
+        <div class="incluso-box">
+          <strong>🏨 Sugestões de hospedagem</strong>
+          <p>Bairros mais estratégicos e referências pra começar bem.</p>
+        </div>
+
+        <div class="incluso-box">
+          <strong>🔗 Links e sites confiáveis</strong>
+          <p>Pra pesquisa e compra sem cair em link aleatório.</p>
+        </div>
+
+        <div class="incluso-box">
+          <strong>🧭 Informações essenciais do destino</strong>
+          <p>Moeda, tomada, internet, deslocamento, costumes e detalhes úteis.</p>
+        </div>
+
+        <div class="incluso-box">
+          <strong>🚇 Deslocamentos explicados</strong>
+          <p>Pra entender como ir de um ponto ao outro sem sofrer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="fit-section">
+    <div class="fit-grid fade-in">
+      <div class="fit-card ideal">
+        <h3>Esse formato é ideal se você…</h3>
+        <ul>
+          <li>quer praticidade e uma base pronta pra seguir;</li>
+          <li>não quer montar tudo do zero;</li>
+          <li>quer economizar tempo na pesquisa;</li>
+          <li>gosta de adaptar depois no seu ritmo.</li>
+        </ul>
+      </div>
+
+      <div class="fit-card nao-ideal">
+        <h3>Pode não ser a melhor opção se você…</h3>
+        <ul>
+          <li>quer tudo 100% personalizado;</li>
+          <li>tem muitas restrições ou necessidades específicas;</li>
+          <li>precisa de suporte mais próximo durante a viagem;</li>
+          <li>quer que a gente encaixe cada detalhe do seu jeitinho.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="categorias">
+    <div class="categoria-wrap">
+      <div class="atualizacao-note fade-in">Tem destino disponível agora, tem destino entrando na fila e tem roteiro que ainda pode virar consultoria depois. Bem do jeitinho Modo: prático, bonito e sem enrolação.</div>
+
+      <div class="categoria-bloco fade-in">
+        <div class="categoria-head">
+          <h2>🏰 Viagens Temáticas</h2>
+          <p>Pra quem quer uma experiência com vibe muito específica — parque, gastronomia, cruzeiro ou aquela viagem que já vem com tema próprio.</p>
+        </div>
+
+        <div class="roteiros-grid">
+          <article class="roteiro-card em-breve">
+            <div class="card-top">
+              <span class="selo-modo">Roteiro Modo Turistagem</span>
+              <span class="badge">⭐ Mais vendido</span>
+            </div>
+            <h3>✨ Orlando Mágico: 15 Dias de Parques & Compras</h3>
+            <div class="preco">R$ 89,99</div>
+            <div class="topicos">
+              <span class="topico">parques organizados</span>
+              <span class="topico">compras estratégicas</span>
+              <span class="topico">feito pra famílias</span>
+            </div>
+            <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+            <div class="botoes-roteiro">
+              <span class="btn-disabled">Em breve</span>
+            </div>
+          </article>
+
+          <article class="roteiro-card em-breve">
+            <div class="card-top">
+              <span class="selo-modo">Roteiro Modo Turistagem</span>
+              <span class="badge">🔥 Perfeito pra primeira viagem</span>
+            </div>
+            <h3>👨‍🍳 Modo MasterChef: 4 Dias Gastronômicos em São Paulo</h3>
+            <div class="preco">R$ 59,99</div>
+            <div class="topicos">
+              <span class="topico">restaurantes e cafés</span>
+              <span class="topico">cidade sem complicar</span>
+              <span class="topico">fim de semana redondo</span>
+            </div>
+            <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+            <div class="botoes-roteiro">
+              <span class="btn-disabled">Em breve</span>
+            </div>
+          </article>
+
+          <article class="roteiro-card">
+            <div class="card-top">
+              <span class="selo-modo">Roteiro Modo Turistagem</span>
+              <span class="badge">💸 Melhor custo-benefício</span>
+            </div>
+            <h3>🚢 Rota do Prata: 7 Dias em Cruzeiro Argentina + Uruguai</h3>
+            <div class="preco">R$ 49,99</div>
+            <div class="topicos">
+              <span class="topico">roteiro de cruzeiro</span>
+              <span class="topico">portos sem perrengue</span>
+              <span class="topico">primeiro cruzeiro friendly</span>
+            </div>
+            <p class="mini-copy">Ideal pra quem quer um cruzeiro internacional gostoso, bem explicado e sem precisar pesquisar tudo sozinha.</p>
+            <div class="botoes-roteiro">
+              <a href="https://mpago.la/1monhF9" target="_blank" rel="noopener" class="btn-roteiro btn-mp">Comprar</a>
+              <div class="pagamento-sub mp">Pix • Cartão à vista • Parcelado (com taxas)</div>
+              <a href="https://wa.me/5549991628403?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%20Rota%20do%20Prata%20via%20Pix.%20Pode%20me%20enviar%20a%20chave%20e%20o%20valor%3F" target="_blank" rel="noopener noreferrer" class="btn-roteiro btn-pix">Comprar via Pix</a>
+              <div class="pagamento-sub pix">Entrega do PDF: até 30 min após confirmação</div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="categoria-bloco fade-in">
+        <div class="categoria-head">
+          <h2>✈️ Viagens dos Sonhos</h2>
+          <p>Praquele destino que mora no Pinterest, no TikTok, na lista da vida e no “um dia eu vou”. Aqui a ideia é te dar uma base linda e funcional pra começar direito.</p>
+        </div>
+
+        <div class="roteiros-grid">
+          <article class="roteiro-card em-breve">
+            <div class="card-top">
+              <span class="selo-modo">Roteiro Modo Turistagem</span>
+              <span class="badge">⭐ Mais vendido</span>
+            </div>
+            <h3>⛩️ Do Templo ao Izakaya: Japão em 20 Dias</h3>
+            <div class="preco">R$ 109,99</div>
+            <div class="topicos">
+              <span class="topico">templos e bairros icônicos</span>
+              <span class="topico">restaurantes selecionados</span>
+              <span class="topico">deslocamentos explicados</span>
+            </div>
+            <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+            <div class="botoes-roteiro">
+              <span class="btn-disabled">Em breve</span>
+            </div>
+          </article>
+
+          <article class="roteiro-card em-breve">
+            <div class="card-top">
+              <span class="selo-modo">Roteiro Modo Turistagem</span>
+              <span class="badge">🔥 Perfeito pra primeira viagem</span>
+            </div>
+            <h3>🍝 Itália dos Sonhos: 12 Dias entre Roma, Florença &amp; Veneza</h3>
+            <div class="preco">R$ 89,99</div>
+            <div class="topicos">
+              <span class="topico">clássicos imperdíveis</span>
+              <span class="topico">trens explicados</span>
+              <span class="topico">cidade com alma</span>
+            </div>
+            <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+            <div class="botoes-roteiro">
+              <span class="btn-disabled">Em breve</span>
+            </div>
+          </article>
+
+          <article class="roteiro-card em-breve">
+            <div class="card-top">
+              <span class="selo-modo">Roteiro Modo Turistagem</span>
+              <span class="badge">💸 Melhor custo-benefício</span>
+            </div>
+            <h3>🗽 Nova York Sem Pressa: 7 Dias na Big Apple</h3>
+            <div class="preco">R$ 69,99</div>
+            <div class="topicos">
+              <span class="topico">city completo</span>
+              <span class="topico">cafés e clássicos</span>
+              <span class="topico">deslocamentos simples</span>
+            </div>
+            <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+            <div class="botoes-roteiro">
+              <span class="btn-disabled">Em breve</span>
+            </div>
+          </article>
+
+          <article class="roteiro-card em-breve">
+            <div class="card-top">
+              <span class="selo-modo">Roteiro Modo Turistagem</span>
+              <span class="badge">🔥 Perfeito pra primeira viagem</span>
+            </div>
+            <h3>🦙 Peru Inesquecível: 7 Dias entre Cusco &amp; Machu Picchu</h3>
+            <div class="preco">R$ 79,99</div>
+            <div class="topicos">
+              <span class="topico">história e paisagem</span>
+              <span class="topico">roteiro redondo</span>
+              <span class="topico">primeira vez friendly</span>
+            </div>
+            <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+            <div class="botoes-roteiro">
+              <span class="btn-disabled">Em breve</span>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="categoria-bloco fade-in">
+        <div class="categoria-head">
+          <h2>🇧🇷 Brasil Sem Erro</h2>
+          <p>Roteiros nacionais pra resolver a viagem com mais facilidade — seja pra primeira vez no destino, pra um feriado ou pra um plano mais redondinho sem passar trabalho.</p>
+        </div>
+
+        <div class="roteiros-grid">
+          <article class="roteiro-card em-breve">
+            <div class="card-top">
+              <span class="selo-modo">Roteiro Modo Turistagem</span>
+              <span class="badge">⭐ Mais vendido</span>
+            </div>
+            <h3>☀️ Cidade Maravilhosa: 6 Dias no Rio</h3>
+            <div class="preco">R$ 59,99</div>
+            <div class="topicos">
+              <span class="topico">city completo</span>
+              <span class="topico">praia + clássico</span>
+              <span class="topico">deslocamento explicado</span>
+            </div>
+            <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+            <div class="botoes-roteiro">
+              <span class="btn-disabled">Em breve</span>
+            </div>
+          </article>
+
+          <article class="roteiro-card">
+            <div class="card-top">
+              <span class="selo-modo">Roteiro Modo Turistagem</span>
+              <span class="badge">⭐ Mais vendido</span>
+            </div>
+            <h3>🍂 Encantos da Serra Gaúcha: 6 Dias entre Gramado + Canela</h3>
+            <div class="preco">R$ 59,99</div>
+            <div class="topicos">
+              <span class="topico">vinícolas</span>
+              <span class="topico">neve na temporada</span>
+              <span class="topico">city completo</span>
+            </div>
+            <p class="mini-copy">Perfeito pra quem quer uma viagem redondinha, charmosa e fácil de seguir — com atrações clássicas, cafés gostosos e deslocamentos mais claros.</p>
+            <div class="botoes-roteiro">
+              <a href="https://mpago.la/1v8ENBH" target="_blank" rel="noopener" class="btn-roteiro btn-mp">Comprar</a>
+              <div class="pagamento-sub mp">Pix • Cartão à vista • Parcelado (com taxas)</div>
+              <a href="https://wa.me/5549991628403?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%20Encantos%20da%20Serra%20Ga%C3%BAcha%20via%20Pix.%20Pode%20me%20enviar%20a%20chave%20e%20o%20valor%3F" target="_blank" rel="noopener noreferrer" class="btn-roteiro btn-pix">Comprar via Pix</a>
+              <div class="pagamento-sub pix">Entrega do PDF: até 30 min após confirmação</div>
+            </div>
+          </article>
+
+          <article class="roteiro-card em-breve">
+            <div class="card-top">
+              <span class="selo-modo">Roteiro Modo Turistagem</span>
+              <span class="badge">💸 Melhor custo-benefício</span>
+            </div>
+            <h3>🎢 Diversão Garantida: 6 Dias no Beto Carrero + Praias</h3>
+            <div class="preco">R$ 59,99</div>
+            <div class="topicos">
+              <span class="topico">parque + descanso</span>
+              <span class="topico">feito pra famílias</span>
+              <span class="topico">ritmo sem correria</span>
+            </div>
+            <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+            <div class="botoes-roteiro">
+              <span class="btn-disabled">Em breve</span>
+            </div>
+          </article>
+
+          <article class="roteiro-card em-breve">
+            <div class="card-top">
+              <span class="selo-modo">Roteiro Modo Turistagem</span>
+              <span class="badge">💸 Melhor custo-benefício</span>
+            </div>
+            <h3>💦 Cataratas Impressionantes: 4 Dias em Foz do Iguaçu</h3>
+            <div class="preco">R$ 49,99</div>
+            <div class="topicos">
+              <span class="topico">cataratas sem correria</span>
+              <span class="topico">parques organizados</span>
+              <span class="topico">logística simples</span>
+            </div>
+            <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+            <div class="botoes-roteiro">
+              <span class="btn-disabled">Em breve</span>
+            </div>
+          </article>
+
+          <article class="roteiro-card em-breve">
+            <div class="card-top">
+              <span class="selo-modo">Roteiro Modo Turistagem</span>
+              <span class="badge">🔥 Perfeito pra primeira viagem</span>
+            </div>
+            <h3>🏙️ SP Sem Erro: Fim de Semana Perfeito</h3>
+            <div class="preco">R$ 39,99</div>
+            <div class="topicos">
+              <span class="topico">fim de semana prático</span>
+              <span class="topico">cafés e clássicos</span>
+              <span class="topico">cidade bem amarrada</span>
+            </div>
+            <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+            <div class="botoes-roteiro">
+              <span class="btn-disabled">Em breve</span>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="categoria-bloco fade-in">
+        <div class="categoria-head">
+          <h2>🌎 Primeira Viagem Internacional</h2>
+          <p>A categoria que costuma vender muito porque resolve bem a dor de quem quer sair do país pela primeira vez sem complicar demais a vida.</p>
+        </div>
+
+        <div class="roteiros-grid">
+          <article class="roteiro-card em-breve">
+            <div class="card-top">
+              <span class="selo-modo">Roteiro Modo Turistagem</span>
+              <span class="badge">🔥 Perfeito pra primeira viagem</span>
+            </div>
+            <h3>🛂 Primeira Carimbada: 6 Dias em Buenos Aires</h3>
+            <div class="preco">R$ 69,99</div>
+            <div class="topicos">
+              <span class="topico">primeira viagem friendly</span>
+              <span class="topico">cafés e clássicos</span>
+              <span class="topico">city completo</span>
+            </div>
+            <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+            <div class="botoes-roteiro">
+              <span class="btn-disabled">Em breve</span>
+            </div>
+          </article>
+
+          <article class="roteiro-card">
+            <div class="card-top">
+              <span class="selo-modo">Roteiro Modo Turistagem</span>
+              <span class="badge">🔥 Perfeito pra primeira viagem</span>
+            </div>
+            <h3>🏔️ Andes na Janela: 5 Dias em Santiago</h3>
+            <div class="preco">R$ 59,99</div>
+            <div class="topicos">
+              <span class="topico">vinícolas</span>
+              <span class="topico">neve na temporada</span>
+              <span class="topico">city completo</span>
+            </div>
+            <p class="mini-copy">Uma base ótima pra quem quer estrear fora do Brasil com um destino lindo, prático e bem gostoso de montar sem excesso de complicação.</p>
+            <div class="botoes-roteiro">
+              <a href="https://mpago.la/2eRhVqN" target="_blank" rel="noopener" class="btn-roteiro btn-mp">Comprar</a>
+              <div class="pagamento-sub mp">Pix • Cartão à vista • Parcelado (com taxas)</div>
+              <a href="https://wa.me/5549991628403?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%20Santiago%20via%20Pix.%20Pode%20me%20enviar%20a%20chave%20e%20o%20valor%3F" target="_blank" rel="noopener noreferrer" class="btn-roteiro btn-pix">Comprar via Pix</a>
+              <div class="pagamento-sub pix">Entrega do PDF: até 30 min após confirmação</div>
+            </div>
+          </article>
+
+          <article class="roteiro-card">
+            <div class="card-top">
+              <span class="selo-modo">Roteiro Modo Turistagem</span>
+              <span class="badge">💸 Melhor custo-benefício</span>
+            </div>
+            <h3>🚢 Cruzeiro Argentina + Uruguai</h3>
+            <div class="preco">R$ 49,99</div>
+            <div class="topicos">
+              <span class="topico">primeira saída internacional</span>
+              <span class="topico">logística simples</span>
+              <span class="topico">roteiro prático</span>
+            </div>
+            <p class="mini-copy">Pra quem quer sentir gostinho de viagem internacional com uma logística mais leve, boa relação custo-benefício e uma experiência bem gostosa.</p>
+            <div class="botoes-roteiro">
+              <a href="https://mpago.la/1monhF9" target="_blank" rel="noopener" class="btn-roteiro btn-mp">Comprar</a>
+              <div class="pagamento-sub mp">Pix • Cartão à vista • Parcelado (com taxas)</div>
+              <a href="https://wa.me/5549991628403?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%20Cruzeiro%20Argentina%20%2B%20Uruguai%20via%20Pix.%20Pode%20me%20enviar%20a%20chave%20e%20o%20valor%3F" target="_blank" rel="noopener noreferrer" class="btn-roteiro btn-pix">Comprar via Pix</a>
+              <div class="pagamento-sub pix">Entrega do PDF: até 30 min após confirmação</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="upsell">
+    <div class="upsell-box fade-in">
+      <div class="upsell-copy">
+        <h2>Quer esse roteiro adaptado pra você?</h2>
+        <p>Se você gostou da base, mas quer deixar a viagem mais redonda, mais específica ou mais a sua cara, dá pra transformar esse roteiro em consultoria personalizada com:</p>
+        <ul class="upsell-list">
+          <li>🧳 Modo Check-in</li>
+          <li>✈️ Modo Embarque</li>
+          <li>💎 Modo VIP</li>
+        </ul>
+      </div>
+
+      <div class="upsell-action">
+        <a href="index.html#planos" class="btn-primary">👉 Ver consultoria</a>
+        <small>Você pode começar com praticidade agora e evoluir depois, sem perder o fio da meada.</small>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <img src="images/LOGOTIPO%20branco.png" alt="Modo Turistagem" class="footer-logo" />
+
+      <p class="footer-text">
+        Consultoria de viagens feita por quem realmente viaja.
+        <span class="emoji emoji-inline" aria-hidden="true">🌎</span><br />
+        Traduzindo sonhos em planos concretos desde 2024.
+      </p>
+
+      <div class="social-links">
+        <a href="https://instagram.com/modoturistagem" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <img src="images/icons/instagram.png" alt="Instagram" class="social-icon-img" />
+        </a>
+
+        <a href="https://wa.me/5549991628403" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+          <img src="images/icons/whatsapp.png" alt="WhatsApp" class="social-icon-img" />
+        </a>
+
+        <a href="mailto:modoturistagem@gmail.com" aria-label="E-mail">
+          <img src="images/icons/email.png" alt="E-mail" class="social-icon-img" />
+        </a>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2024 Modo Turistagem. Todos os direitos reservados.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem; font-family: 'Neulis Sans', sans-serif !important;">
+          Roteiros feitos por viajantes, para viajantes <span class="emoji emoji-inline" aria-hidden="true">💙</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
