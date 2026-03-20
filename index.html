@@ -515,181 +515,6 @@
       margin-right:.5rem;
       font-family:'Neulis Sans',sans-serif !important;
     }
-
-    /* Roteiros Prontos */
-    .roteiros{ background:var(--branco); padding:4rem 2rem; }
-
-    .roteiros-grid{
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
-      gap:1.8rem;
-      max-width:1200px;
-      margin:0 auto;
-    }
-
-    .roteiro-card{
-      flex:0 1 320px;
-      padding:2.25rem;
-      border-radius:22px;
-      text-align:center;
-      transition:all .3s;
-      border:2px solid transparent;
-      box-shadow:0 10px 30px rgba(0,53,153,0.06);
-      position:relative;
-      overflow:hidden;
-      background:linear-gradient(135deg,var(--azul-claro),var(--branco));
-      isolation:isolate;
-    }
-
-    /* foto no fundo */
-    .roteiro-card::before{
-      content:'';
-      position:absolute;
-      inset:0;
-      background-size:cover;
-      background-position:center;
-      background-repeat:no-repeat;
-      opacity:.12; /* opacidade baixa */
-      transform:scale(1.06);
-      z-index:0;
-      pointer-events:none;
-    }
-
-    /* camada clara por cima da foto */
-    .roteiro-card::after{
-      content:'';
-      position:absolute;
-      inset:0;
-      background:linear-gradient(
-        135deg,
-        rgba(234,242,255,0.90),
-        rgba(255,255,255,0.94)
-      );
-      z-index:1;
-      pointer-events:none;
-    }
-
-    .roteiro-card > *{ position:relative; z-index:2; }
-
-    /* imagens por card (fallback de extensões) */
-    .roteiro-card.roteiro-santiago::before{
-      background-image:
-        url('images/roteiros-prontos/santiago.jpg'),
-        url('images/roteiros-prontos/santiago.JPG'),
-        url('images/roteiros-prontos/santiago.jpeg'),
-        url('images/roteiros-prontos/santiago.png');
-    }
-    .roteiro-card.roteiro-cruzeiro::before{
-      background-image:
-        url('images/roteiros-prontos/cruzeiro.jpg'),
-        url('images/roteiros-prontos/cruzeiro.JPG'),
-        url('images/roteiros-prontos/cruzeiro.jpeg'),
-        url('images/roteiros-prontos/cruzeiro.png');
-    }
-    .roteiro-card.roteiro-disney::before{
-      background-image:
-        url('images/roteiros-prontos/disney.jpg'),
-        url('images/roteiros-prontos/disney.JPG'),
-        url('images/roteiros-prontos/disney.jpeg'),
-        url('images/roteiros-prontos/disney.png');
-    }
-    .roteiro-card.roteiro-japao::before{
-      background-image:
-        url('images/roteiros-prontos/japao.jpg'),
-        url('images/roteiros-prontos/japao.JPG'),
-        url('images/roteiros-prontos/japao.jpeg'),
-        url('images/roteiros-prontos/japao.png');
-    }
-
-    .roteiro-card:hover{
-      transform:translateY(-5px);
-      border-color:var(--laranja);
-      box-shadow:0 16px 40px rgba(0,53,153,0.12);
-    }
-
-    .roteiro-card h4{
-      color:var(--azul);
-      margin-bottom:.6rem;
-      font-size:1.22rem;
-      font-family:'Neulis Cursive',cursive !important;
-    }
-
-    .roteiro-card .preco{
-      font-size:2.15rem;
-      color:var(--laranja);
-      font-weight:700;
-      font-family:'Neulis Cursive',cursive !important;
-      margin:1rem 0 .8rem;
-    }
-
-    /* Mini-card: inclusos */
-    .roteiro-inclusos-card{
-      background:var(--azul-claro);
-      border-radius:20px;
-      padding:1.8rem;
-      max-width:1200px;
-      margin:0 auto 2rem;
-      box-shadow:0 10px 30px rgba(0,53,153,0.08);
-    }
-
-    .inclusos-grid{
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
-      gap:.9rem;
-    }
-    .inclusos-grid > div{ flex:0 1 280px; }
-
-    /* Botões dos roteiros */
-    .botoes-roteiro{
-      display:flex;
-      flex-direction:column;
-      gap:.75rem;
-      margin-top:1rem;
-    }
-
-    .btn-roteiro{
-      width:100%;
-      border-radius:50px;
-      padding:.95rem 1.2rem;
-      text-decoration:none;
-      font-family:'Neulis Sans',sans-serif !important;
-      font-weight:700;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:.6rem;
-      transition:all .3s;
-      border:3px solid transparent;
-      cursor:pointer;
-      white-space:nowrap;
-    }
-    .btn-roteiro:hover{ transform:translateY(-2px); }
-
-    .btn-ico{
-      height:20px;
-      width:auto;
-      flex:0 0 auto;
-      display:block;
-    }
-
-    .btn-mp{
-      background:var(--laranja);
-      color:var(--branco);
-      box-shadow:0 4px 15px rgba(255,107,24,0.25);
-    }
-    .btn-mp:hover{
-      background:#E85D12;
-      box-shadow:0 8px 25px rgba(255,107,24,0.35);
-    }
-
-    .btn-pix{
-      background:transparent;
-      color:var(--azul);
-      border-color:var(--azul);
-    }
-    
     /* Ajuda Expressa */
     .ajuda-expressa{
       background:linear-gradient(to bottom,var(--branco),var(--cinza));
@@ -1093,14 +918,15 @@
       <button class="mobile-menu" onclick="toggleMenu()" aria-label="Abrir menu">☰</button>
 
       <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="roteiros-prontos.html">Roteiros Prontos</a></li>
         <li><a href="destinos.html">Destinos Testados</a></li>
         <li><a href="como-funciona.html">Como Funciona</a></li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="quem-somos.html">Quem Somos</a></li>
         <li>
           <a href="https://wa.me/5549991628403" class="btn-nav" target="_blank" rel="noopener noreferrer">
-            <span class="emoji" aria-hidden="true">📲</span> Chamar no WhatsApp
+            Fale Conosco
           </a>
         </li>
       </ul>
@@ -1118,6 +944,10 @@
           <a href="#planos" class="btn-primary">
             <span class="emoji emoji-inline" aria-hidden="true">✈️</span>
             Ver Planos
+          </a>
+
+          <a href="roteiros-prontos.html" class="btn-blue">
+            Roteiros Prontos
           </a>
 
           <button class="btn-secondary" onclick="openModal()">
@@ -1178,10 +1008,16 @@
       <h2 style="font-family: 'Neulis Cursive', cursive !important;">Escolha seu Modo de Viajar</h2>
       <p style="font-family: 'Neulis Sans', sans-serif !important;">Tem desde direção pra quem ainda nem decidiu o destino até acompanhamento VIP durante a viagem. Você escolhe o nível de ajuda; a gente organiza o caos bonito.</p>
 
-      <button class="btn-ajuda" onclick="openModal()" style="margin-top: 1.5rem;">
-        <span class="emoji emoji-inline" aria-hidden="true">❓</span>
-        Me Ajude a Escolher
-      </button>
+      <div class="hero-buttons" style="justify-content:center; margin-top: 1.5rem;">
+        <a href="roteiros-prontos.html" class="btn-blue">
+          Roteiros Prontos
+        </a>
+
+        <button class="btn-ajuda" onclick="openModal()">
+          <span class="emoji emoji-inline" aria-hidden="true">❓</span>
+          Me Ajude a Escolher
+        </button>
+      </div>
     </div>
 
     <div class="planos-grid">
@@ -1390,6 +1226,30 @@
     </div>
   </section>
 
+
+  <section class="cta-roteiros-inline">
+    <div class="container fade-in">
+      <div class="cta-roteiros-box">
+        <div class="cta-roteiros-copy">
+          <span class="mini-tag">
+            <span class="emoji emoji-inline" aria-hidden="true">✨</span>
+            Não quer algo personalizado agora?
+          </span>
+
+          <h3>Conheça nossos roteiros prontos — práticos, organizados e prontos pra usar.</h3>
+          <p>
+            É a opção perfeita pra quem quer economizar tempo, já sair com um caminho montado e ter uma base super útil antes de comprar ou ajustar qualquer detalhe da viagem.
+          </p>
+        </div>
+
+        <div class="cta-roteiros-actions">
+          <a href="roteiros-prontos.html" class="btn-primary">Ver roteiros</a>
+          <small class="small-note">Tem destino já pronto, destino entrando na fila e opção pra depois transformar tudo em consultoria personalizada.</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Regras -->
   <section class="regras">
     <div class="container fade-in">
@@ -1566,342 +1426,27 @@
     </div>
   </section>
 
-  <!-- Roteiros Prontos -->
-  <section class="roteiros">
+
+  <section class="cta-roteiros-home">
     <div class="container fade-in">
-      <div class="section-header">
-        <span class="section-tag">
-          <span class="emoji emoji-inline" aria-hidden="true">📚</span>
-          Produto Digital
-        </span>
+      <div class="cta-roteiros-box">
+        <div class="cta-roteiros-copy">
+          <span class="mini-tag">
+            <span class="emoji emoji-inline" aria-hidden="true">📚</span>
+            Produto digital da casa
+          </span>
 
-        <h2 style="font-family: 'Neulis Cursive', cursive !important;">Roteiros Prontos</h2>
+          <h3>Quer praticidade sem começar do zero?</h3>
+          <p>
+            Vai de roteiro pronto. Você escolhe o destino, baixa o material e já começa a viagem com mais clareza, menos pesquisa solta e muito mais segurança pra decidir o que faz sentido pra você.
+          </p>
+        </div>
 
-        <p style="font-family: 'Neulis Sans', sans-serif !important;">
-          Quer um roteiro pronto, mais barato e imediato? Baixe agora!
-        </p>
-
-        <p style="font-family: 'Neulis Sans', sans-serif !important; margin-top: 0.6rem; font-size: 1rem; opacity: 0.9;">
-          Entrega imediata + links confiáveis + roteiro dia a dia + dicas essenciais.
-        </p>
+        <div class="cta-roteiros-actions">
+          <a href="roteiros-prontos.html" class="btn-primary">Ir para roteiros prontos</a>
+          <small class="small-note">Os roteiros são atualizados regularmente e a vitrine vai mudando conforme novos destinos entram no ar.</small>
+        </div>
       </div>
-
-      <!-- Mini-card: inclusos -->
-      <div class="roteiro-inclusos-card">
-        <h3 style="font-family: 'Neulis Cursive', cursive !important; color: var(--azul); font-size: 1.6rem; margin-bottom: 1rem; text-align: center;">
-          O que está incluso em cada Roteiro Pronto
-        </h3>
-
-        <div class="inclusos-grid">
-          <div style="background: var(--branco); border-radius: 16px; padding: 1rem; box-shadow: 0 6px 18px rgba(0,0,0,0.06);">
-            <strong style="font-family: 'Neulis Sans', sans-serif !important;">🗓️ Roteiro dia a dia</strong>
-            <p style="margin-top: 0.4rem; font-family: 'Neulis Sans', sans-serif !important; opacity: 0.9;">Bem organizadinho e fácil de seguir.</p>
-          </div>
-
-          <div style="background: var(--branco); border-radius: 16px; padding: 1rem; box-shadow: 0 6px 18px rgba(0,0,0,0.06);">
-            <strong style="font-family: 'Neulis Sans', sans-serif !important;">🍽️ Sugestões de restaurantes</strong>
-            <p style="margin-top: 0.4rem; font-family: 'Neulis Sans', sans-serif !important; opacity: 0.9;">Opções por região/estilo, com links.</p>
-          </div>
-
-          <div style="background: var(--branco); border-radius: 16px; padding: 1rem; box-shadow: 0 6px 18px rgba(0,0,0,0.06);">
-            <strong style="font-family: 'Neulis Sans', sans-serif !important;">🏨 Sugestões de hospedagem</strong>
-            <p style="margin-top: 0.4rem; font-family: 'Neulis Sans', sans-serif !important; opacity: 0.9;">Bairros recomendados + opções.</p>
-          </div>
-
-          <div style="background: var(--branco); border-radius: 16px; padding: 1rem; box-shadow: 0 6px 18px rgba(0,0,0,0.06);">
-            <strong style="font-family: 'Neulis Sans', sans-serif !important;">🔗 Sites confiáveis</strong>
-            <p style="margin-top: 0.4rem; font-family: 'Neulis Sans', sans-serif !important; opacity: 0.9;">Para passagens, hospedagem e passeios (links diretos).</p>
-          </div>
-
-          <div style="background: var(--branco); border-radius: 16px; padding: 1rem; box-shadow: 0 6px 18px rgba(0,0,0,0.06);">
-            <strong style="font-family: 'Neulis Sans', sans-serif !important;">🧭 Infos essenciais do destino</strong>
-            <p style="margin-top: 0.4rem; font-family: 'Neulis Sans', sans-serif !important; opacity: 0.9;">Moeda, internet/telefone, tomada, documentação, segurança e costumes.</p>
-          </div>
-
-          <div style="background: var(--branco); border-radius: 16px; padding: 1rem; box-shadow: 0 6px 18px rgba(0,0,0,0.06);">
-            <strong style="font-family: 'Neulis Sans', sans-serif !important;">🚇 Dicas de transporte</strong>
-            <p style="margin-top: 0.4rem; font-family: 'Neulis Sans', sans-serif !important; opacity: 0.9;">Como se locomover, cartões/apps úteis, como economizar.</p>
-          </div>
-
-          <div style="background: var(--branco); border-radius: 16px; padding: 1rem; box-shadow: 0 6px 18px rgba(0,0,0,0.06);">
-            <strong style="font-family: 'Neulis Sans', sans-serif !important;">📌 Checklist de viagem</strong>
-            <p style="margin-top: 0.4rem; font-family: 'Neulis Sans', sans-serif !important; opacity: 0.9;">Pra você não esquecer nada importante.</p>
-          </div>
-        </div>
-
-        <p style="margin-top: 1.2rem; text-align: center; font-size: 0.95rem; color: #555; font-style: italic; font-family: 'Neulis Sans', sans-serif !important;">
-          ⚠️ Dias de voo/traslado não estão contabilizados.
-        </p>
-      </div>
-
-      <!-- Cards dos roteiros -->
-      <div class="roteiros-grid">
-        <div class="roteiro-card roteiro-cruzeiro">
-          <h4>🚢 Rota do Prata: 7 dias em Cruzeiro Argentina + Uruguai</h4>
-          <div class="preco">R$ 49,99</div>
-
-          <div class="botoes-roteiro">
-            <a href="https://mpago.la/1monhF9" target="_blank" rel="noopener" class="btn-roteiro btn-mp">
-              <img src="images/icons/mercadopago.png" alt="Mercado Pago" class="btn-ico" />
-              Comprar
-            </a>
-            <div class="pagamento-sub mp">Pix • Cartão à vista • Parcelado (com taxas)</div>
-
-            <a href="https://wa.me/5549991628403?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%20Rota%20do%20Prata%20%E2%80%94%207%20dias%20(Cruzeiro%20Argentina%20%2B%20Uruguai)%20via%20Pix.%20%F0%9F%98%8A%20Pode%20me%20enviar%20a%20chave%20e%20o%20valor%3F"
-               target="_blank" rel="noopener noreferrer" class="btn-roteiro btn-pix">
-              <img src="images/icons/whatsapp-logo.png" alt="WhatsApp" class="btn-ico" />
-              Comprar via Pix
-            </a>
-            <div class="pagamento-sub pix">Pix via WhatsApp</div>
-          </div>
-
-          <p style="margin-top: 0.95rem; font-size: 0.86rem; color: #666; font-family: 'Neulis Sans', sans-serif !important;">
-            ⏱ Entrega do PDF: até 30 min após confirmação do pagamento.
-          </p>
-        </div>
-
-        <div class="roteiro-card roteiro-santiago">
-          <h4>🏔️ Andes na Janela: 5 Dias em Santiago (Inverno)</h4>
-          <div class="preco">R$ 59,99</div>
-
-          <div class="botoes-roteiro">
-            <a href="https://mpago.la/2eRhVqN" target="_blank" rel="noopener" class="btn-roteiro btn-mp">
-              <img src="images/icons/mercadopago.png" alt="Mercado Pago" class="btn-ico" />
-              Comprar
-            </a>
-            <div class="pagamento-sub mp">Pix • Cartão à vista • Parcelado (com taxas)</div>
-
-            <a href="https://wa.me/5549991628403?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%205%20dias%20%E2%80%94%20Santiago%20(Inverno)%20via%20Pix.%20%F0%9F%98%8A%20Pode%20me%20enviar%20a%20chave%20e%20o%20valor%3F"
-               target="_blank" rel="noopener noreferrer" class="btn-roteiro btn-pix">
-              <img src="images/icons/whatsapp-logo.png" alt="WhatsApp" class="btn-ico" />
-              Comprar via Pix
-            </a>
-            <div class="pagamento-sub pix">Pix via WhatsApp</div>
-          </div>
-
-          <p style="margin-top: 0.95rem; font-size: 0.86rem; color: #666; font-family: 'Neulis Sans', sans-serif !important;">
-            ⏱ Entrega do PDF: até 30 min após confirmação do pagamento.
-          </p>
-        </div>
-
-        <div class="roteiro-card roteiro-gramado">
-          <h4>🍂 Encantos da Serra Gaúcha: 6 Dias entre Gramado + Canela</h4>
-          <div class="preco">R$ 59,99</div>
-
-          <div class="botoes-roteiro">
-            <a href="https://mpago.la/1v8ENBH" target="_blank" rel="noopener" class="btn-roteiro btn-mp">
-              <img src="images/icons/mercadopago.png" alt="Mercado Pago" class="btn-ico" />
-              Comprar
-            </a>
-            <div class="pagamento-sub mp">Pix • Cartão à vista • Parcelado (com taxas)</div>
-
-            <a href="https://wa.me/5549991628403?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%20Encantos%20da%20Serra%20Ga%C3%BAcha%20%E2%80%94%206%20dias%20entre%20Gramado%20%2B%20Canela%20via%20Pix.%20%F0%9F%98%8A%20Pode%20me%20enviar%20a%20chave%20e%20o%20valor%3F"
-               target="_blank" rel="noopener noreferrer" class="btn-roteiro btn-pix">
-              <img src="images/icons/whatsapp-logo.png" alt="WhatsApp" class="btn-ico" />
-              Comprar via Pix
-            </a>
-            <div class="pagamento-sub pix">Pix via WhatsApp</div>
-          </div>
-
-          <p style="margin-top: 0.95rem; font-size: 0.86rem; color: #666; font-family: 'Neulis Sans', sans-serif !important;">
-            ⏱ Entrega do PDF: até 30 min após confirmação do pagamento.
-          </p>
-        </div>
-
-        <div class="roteiro-card roteiro-rio em-breve">
-          <h4>☀️ Cidade Maravilhosa: 6 Dias no Rio</h4>
-          <div class="preco">R$ 59,99</div>
-
-          <div class="botoes-roteiro">
-            <span class="btn-disabled">
-              <span class="emoji" aria-hidden="true">⏳</span>
-              Em breve
-            </span>
-          </div>
-
-          <p class="em-breve-note">
-            Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.
-          </p>
-        </div>
-
-        <div class="roteiro-card roteiro-buenos em-breve">
-          <h4>🛂 Primeira Carimbada: 6 Dias em Buenos Aires</h4>
-          <div class="preco">R$ 69,99</div>
-
-          <div class="botoes-roteiro">
-            <span class="btn-disabled">
-              <span class="emoji" aria-hidden="true">⏳</span>
-              Em breve
-            </span>
-          </div>
-
-          <p class="em-breve-note">
-            Ideal pra quem quer estrear fora do Brasil sem complicação — e ele já está vindo.
-          </p>
-        </div>
-
-        <div class="roteiro-card roteiro-disney em-breve">
-          <h4>✨ Orlando Mágico: 15 Dias de Parques & Compras</h4>
-          <div class="preco">R$ 89,99</div>
-
-          <div class="botoes-roteiro">
-            <span class="btn-disabled">
-              <span class="emoji" aria-hidden="true">⏳</span>
-              Em breve
-            </span>
-          </div>
-
-          <p class="em-breve-note">
-            Esse volta pra vitrine assim que a nova versão estiver redondinha.
-          </p>
-        </div>
-
-        <div class="roteiro-card roteiro-japao em-breve">
-          <h4>⛩️ Do Templo ao Izakaya: Japão em 20 Dias</h4>
-          <div class="preco">R$ 109,99</div>
-
-          <div class="botoes-roteiro">
-            <span class="btn-disabled">
-              <span class="emoji" aria-hidden="true">⏳</span>
-              Em breve
-            </span>
-          </div>
-
-          <p class="em-breve-note">
-            O roteiro mais robusto da casa está sendo ajustado com carinho e já já volta.
-          </p>
-        </div>
-      
-
-
-<div class="roteiro-card em-breve">
-  <h4>🍝 Itália dos Sonhos: 12 Dias entre Roma, Florença &amp; Veneza</h4>
-  <div class="preco">R$ 89,99</div>
-
-  <div class="botoes-roteiro">
-    <span class="btn-disabled">
-      <span class="emoji" aria-hidden="true">⏳</span>
-      Em breve
-    </span>
-  </div>
-
-  <p class="em-breve-note">
-    Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.
-  </p>
-</div>
-
-<div class="roteiro-card em-breve">
-  <h4>🗽 Nova York Sem Pressa: 7 Dias na Big Apple</h4>
-  <div class="preco">R$ 69,99</div>
-
-  <div class="botoes-roteiro">
-    <span class="btn-disabled">
-      <span class="emoji" aria-hidden="true">⏳</span>
-      Em breve
-    </span>
-  </div>
-
-  <p class="em-breve-note">
-    Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.
-  </p>
-</div>
-
-<div class="roteiro-card em-breve">
-  <h4>🦙 Peru Inesquecível: 7 Dias entre Cusco &amp; Machu Picchu</h4>
-  <div class="preco">R$ 79,99</div>
-
-  <div class="botoes-roteiro">
-    <span class="btn-disabled">
-      <span class="emoji" aria-hidden="true">⏳</span>
-      Em breve
-    </span>
-  </div>
-
-  <p class="em-breve-note">
-    Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.
-  </p>
-</div>
-
-<div class="roteiro-card em-breve">
-  <h4>🍷 Sabores &amp; Azulejos: 12 Dias em Portugal</h4>
-  <div class="preco">R$ 89,99</div>
-
-  <div class="botoes-roteiro">
-    <span class="btn-disabled">
-      <span class="emoji" aria-hidden="true">⏳</span>
-      Em breve
-    </span>
-  </div>
-
-  <p class="em-breve-note">
-    Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.
-  </p>
-</div>
-
-<div class="roteiro-card em-breve">
-  <h4>💦 Cataratas Impressionantes: 4 Dias em Foz do Iguaçu</h4>
-  <div class="preco">R$ 49,99</div>
-
-  <div class="botoes-roteiro">
-    <span class="btn-disabled">
-      <span class="emoji" aria-hidden="true">⏳</span>
-      Em breve
-    </span>
-  </div>
-
-  <p class="em-breve-note">
-    Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.
-  </p>
-</div>
-
-<div class="roteiro-card em-breve">
-  <h4>🎢 Diversão Garantida: 6 Dias no Beto Carrero + Praias</h4>
-  <div class="preco">R$ 59,99</div>
-
-  <div class="botoes-roteiro">
-    <span class="btn-disabled">
-      <span class="emoji" aria-hidden="true">⏳</span>
-      Em breve
-    </span>
-  </div>
-
-  <p class="em-breve-note">
-    Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.
-  </p>
-</div>
-
-<div class="roteiro-card em-breve">
-  <h4>🏙️ SP Sem Erro: Fim de Semana Perfeito</h4>
-  <div class="preco">R$ 39,99</div>
-
-  <div class="botoes-roteiro">
-    <span class="btn-disabled">
-      <span class="emoji" aria-hidden="true">⏳</span>
-      Em breve
-    </span>
-  </div>
-
-  <p class="em-breve-note">
-    Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.
-  </p>
-</div>
-
-<div class="roteiro-card em-breve">
-  <h4>👨‍🍳 Modo MasterChef: 4 Dias Gastronômicos em São Paulo</h4>
-  <div class="preco">R$ 59,99</div>
-
-  <div class="botoes-roteiro">
-    <span class="btn-disabled">
-      <span class="emoji" aria-hidden="true">⏳</span>
-      Em breve
-    </span>
-  </div>
-
-  <p class="em-breve-note">
-    Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.
-  </p>
-</div>
-      </div></div>
     </div>
   </section>
 
@@ -1988,6 +1533,11 @@
             <button class="quiz-option" onclick="handleDefinedDestination('radarCruzeiro')">
               <span class="emoji" aria-hidden="true">⚓</span>
               Só cruzeiro
+            </button>
+
+            <button class="quiz-option" onclick="handleDefinedDestination('roteiros')">
+              <span class="emoji" aria-hidden="true">📚</span>
+              Quero algo pronto e prático
             </button>
 
             <button class="quiz-option" onclick="handleDefinedDestination('completo')">
@@ -2123,7 +1673,7 @@
             </a>
 
             <p class="quiz-help-text">
-              Ao clicar, você já vai pro caminho certo — sem precisar adivinhar qual opção faz mais sentido pra sua viagem.
+              Ao clicar, você já vai pro caminho certo — seja pra falar com a gente no WhatsApp ou cair direto na vitrine de roteiros prontos.
             </p>
           </div>
         </div>
@@ -2201,6 +1751,7 @@
       radarVoo:          { nome: 'Radar de Voo', emoji: '💺', preco: 'R$ 59,99', cta: 'Quero esse radar' },
       radarHospedagem:   { nome: 'Radar de Hospedagem', emoji: '🛏️', preco: 'R$ 59,99', cta: 'Quero esse radar' },
       radarCruzeiro:     { nome: 'Radar de Cruzeiros', emoji: '⚓', preco: 'R$ 59,99', cta: 'Quero esse radar' },
+      roteiros:          { nome: 'Roteiros Prontos', emoji: '📚', preco: 'A partir de R$ 49,99', cta: 'Ver roteiros prontos' },
       partiu:            { nome: 'Modo Partiu', emoji: '🎒', preco: 'R$ 149,99', cta: 'Quero esse plano' },
       checkin:           { nome: 'Modo Check-in', emoji: '🧳', preco: 'R$ 259,99', cta: 'Quero esse plano' },
       embarque:          { nome: 'Modo Embarque', emoji: '✈️', preco: 'R$ 359,99', cta: 'Quero esse plano' },
@@ -2364,6 +1915,14 @@
         ];
       }
 
+      if (planKey === 'roteiros') {
+        return [
+          '📚 Você quer um caminho pronto e mais prático.',
+          '⏱️ Faz sentido pra quem quer economizar tempo.',
+          '🧳 Depois você ainda pode transformar em consultoria.'
+        ];
+      }
+
       if (planKey === 'partiu') {
         const arr = ['✅ Base da viagem já fechada.'];
         if (q6 === 'q6a') arr.push('⚡ Você prefere um roteiro enxuto.');
@@ -2408,15 +1967,22 @@
 
       const mensagem = `Oi! Fiz o quiz no site e meu resultado foi: ${emoji} ${plano} — ${preco}. Quero seguir com essa opção. 😊`;
       const whatsappUrl = `https://wa.me/5549991628403?text=${encodeURIComponent(mensagem)}`;
+      const finalUrl = planKey === 'roteiros' ? 'roteiros-prontos.html' : whatsappUrl;
 
       const titleEl = document.getElementById('resultTitle');
       const recEl = document.getElementById('recomendacao');
       const btnEl = document.getElementById('resultBtn');
 
-      if (titleEl) titleEl.textContent = `Sua melhor opção é: ${emoji} ${plano}`;
+      if (titleEl) {
+        titleEl.textContent = planKey === 'roteiros'
+          ? 'Talvez faça mais sentido começar por um roteiro pronto:'
+          : `Sua melhor opção é: ${emoji} ${plano}`;
+      }
+
       if (btnEl) {
-        btnEl.href = whatsappUrl;
+        btnEl.href = finalUrl;
         btnEl.textContent = ctaText;
+        btnEl.target = planKey === 'roteiros' ? '_self' : '_blank';
       }
 
       if (recEl) {
@@ -2445,6 +2011,7 @@
       if (btnEl) {
         btnEl.href = '#';
         btnEl.textContent = 'Quero essa opção';
+        btnEl.target = '_blank';
       }
 
       showOnlyStep('step1');
