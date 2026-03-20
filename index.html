@@ -89,6 +89,8 @@
     .hero-content h1 span{
       color:var(--laranja);
       display:inline;
+      font-family:'Neulis Cursive', cursive !important;
+      font-weight:inherit;
     }
 
     .hero-content p{
@@ -311,22 +313,24 @@
     .plano-precos-duplos{
       display:grid;
       grid-template-columns:1fr 1fr;
-      gap:.8rem;
-      margin-bottom:1.5rem;
+      gap:.55rem;
+      margin-bottom:1.35rem;
     }
 
     .preco-box{
       background:var(--azul-claro);
-      padding:1rem;
+      padding:.9rem .85rem;
       border-radius:15px;
       text-align:center;
     }
 
     .preco-box .preco-label{
-      font-size:.8rem;
+      font-size:.78rem;
       color:var(--azul);
       font-weight:700;
-      margin-bottom:.35rem;
+      margin-bottom:.2rem;
+      line-height:1.08;
+      letter-spacing:-0.01em;
       font-family:'Neulis Sans',sans-serif !important;
     }
 
@@ -360,9 +364,11 @@
     }
 
     .preco-box .preco-descricao{
-      font-size:.8rem;
+      font-size:.76rem;
       color:var(--texto);
-      margin-top:.35rem;
+      margin-top:.22rem;
+      line-height:1.12;
+      letter-spacing:-0.01em;
       font-family:'Neulis Sans',sans-serif !important;
     }
 
@@ -737,6 +743,7 @@
 
     .roteiro-card.em-breve{
       border-color:rgba(0,53,153,0.10);
+      filter:saturate(0);
     }
 
     .roteiro-card.em-breve h4,
@@ -1093,7 +1100,7 @@
         <li><a href="quem-somos.html">Quem Somos</a></li>
         <li>
           <a href="https://wa.me/5549991628403" class="btn-nav" target="_blank" rel="noopener noreferrer">
-            Fale Conosco
+            <span class="emoji" aria-hidden="true">📲</span> Chamar no WhatsApp
           </a>
         </li>
       </ul>
@@ -1173,7 +1180,7 @@
 
       <button class="btn-ajuda" onclick="openModal()" style="margin-top: 1.5rem;">
         <span class="emoji emoji-inline" aria-hidden="true">❓</span>
-        Me Ajude a Escolher Meu Plano
+        Me Ajude a Escolher
       </button>
     </div>
 
@@ -1198,7 +1205,7 @@
           <li>Recomendações de prioridades</li>
           <li class="destaque-item">
             <span class="emoji emoji-inline" aria-hidden="true">💸</span>
-            Crédito de R$ 79,99 para qualquer plano (15 dias)
+            100% do valor pago volta como crédito em qualquer plano (15 dias)
           </li>
         </ul>
 
@@ -1447,7 +1454,7 @@
           </ul>
 
           <p style="margin-top: 1rem; font-size: 0.95rem; font-family: 'Neulis Sans', sans-serif !important;">
-            <span class="emoji emoji-inline" aria-hidden="true">✈️</span>
+            <span class="emoji emoji-inline" aria-hidden="true">🔁</span>
             <strong>Incluso no Embarque (Aeroporto) e no VIP (Aeroporto + Turismo na cidade).</strong><br />
             Se a conexão fizer parte da sua viagem, a gente já encaixa isso no planejamento sem deixar ponta solta.
           </p>
@@ -1678,11 +1685,17 @@
         </div>
 
         <div class="roteiro-card roteiro-gramado">
-          <h4>🌲 Serra no Capricho: 6 Dias entre Gramado + Canela</h4>
+          <h4>🍂 Encantos da Serra Gaúcha: 6 Dias entre Gramado + Canela</h4>
           <div class="preco">R$ 59,99</div>
 
           <div class="botoes-roteiro">
-            <a href="https://wa.me/5549991628403?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%20Serra%20no%20Capricho%20%E2%80%94%206%20dias%20entre%20Gramado%20%2B%20Canela%20via%20Pix.%20%F0%9F%98%8A%20Pode%20me%20enviar%20a%20chave%20e%20o%20valor%3F"
+            <a href="https://mpago.la/1v8ENBH" target="_blank" rel="noopener" class="btn-roteiro btn-mp">
+              <img src="images/icons/mercadopago.png" alt="Mercado Pago" class="btn-ico" />
+              Comprar
+            </a>
+            <div class="pagamento-sub mp">Pix • Cartão à vista • Parcelado (com taxas)</div>
+
+            <a href="https://wa.me/5549991628403?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%20Encantos%20da%20Serra%20Ga%C3%BAcha%20%E2%80%94%206%20dias%20entre%20Gramado%20%2B%20Canela%20via%20Pix.%20%F0%9F%98%8A%20Pode%20me%20enviar%20a%20chave%20e%20o%20valor%3F"
                target="_blank" rel="noopener noreferrer" class="btn-roteiro btn-pix">
               <img src="images/icons/whatsapp-logo.png" alt="WhatsApp" class="btn-ico" />
               Comprar via Pix
@@ -1696,7 +1709,7 @@
         </div>
 
         <div class="roteiro-card roteiro-rio em-breve">
-          <h4>☀️ Rio sem Correria: 6 Dias no Rio de Janeiro</h4>
+          <h4>☀️ Cidade Maravilhosa: 6 Dias no Rio</h4>
           <div class="preco">R$ 59,99</div>
 
           <div class="botoes-roteiro">
@@ -1712,8 +1725,8 @@
         </div>
 
         <div class="roteiro-card roteiro-buenos em-breve">
-          <h4>🥐 Primeira Internacional: 6 Dias em Buenos Aires</h4>
-          <div class="preco">R$ 59,99</div>
+          <h4>🛂 Primeira Carimbada: 6 Dias em Buenos Aires</h4>
+          <div class="preco">R$ 69,99</div>
 
           <div class="botoes-roteiro">
             <span class="btn-disabled">
@@ -1729,7 +1742,7 @@
 
         <div class="roteiro-card roteiro-disney em-breve">
           <h4>✨ Orlando Mágico: 15 Dias de Parques & Compras</h4>
-          <div class="preco">R$ 79,99</div>
+          <div class="preco">R$ 89,99</div>
 
           <div class="botoes-roteiro">
             <span class="btn-disabled">
@@ -1745,7 +1758,7 @@
 
         <div class="roteiro-card roteiro-japao em-breve">
           <h4>⛩️ Do Templo ao Izakaya: Japão em 20 Dias</h4>
-          <div class="preco">R$ 99,99</div>
+          <div class="preco">R$ 109,99</div>
 
           <div class="botoes-roteiro">
             <span class="btn-disabled">
@@ -1758,6 +1771,136 @@
             O roteiro mais robusto da casa está sendo ajustado com carinho e já já volta.
           </p>
         </div>
+      
+
+
+<div class="roteiro-card em-breve">
+  <h4>🍝 Itália dos Sonhos: 12 Dias entre Roma, Florença &amp; Veneza</h4>
+  <div class="preco">R$ 89,99</div>
+
+  <div class="botoes-roteiro">
+    <span class="btn-disabled">
+      <span class="emoji" aria-hidden="true">⏳</span>
+      Em breve
+    </span>
+  </div>
+
+  <p class="em-breve-note">
+    Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.
+  </p>
+</div>
+
+<div class="roteiro-card em-breve">
+  <h4>🗽 Nova York Sem Pressa: 7 Dias na Big Apple</h4>
+  <div class="preco">R$ 69,99</div>
+
+  <div class="botoes-roteiro">
+    <span class="btn-disabled">
+      <span class="emoji" aria-hidden="true">⏳</span>
+      Em breve
+    </span>
+  </div>
+
+  <p class="em-breve-note">
+    Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.
+  </p>
+</div>
+
+<div class="roteiro-card em-breve">
+  <h4>🦙 Peru Inesquecível: 7 Dias entre Cusco &amp; Machu Picchu</h4>
+  <div class="preco">R$ 79,99</div>
+
+  <div class="botoes-roteiro">
+    <span class="btn-disabled">
+      <span class="emoji" aria-hidden="true">⏳</span>
+      Em breve
+    </span>
+  </div>
+
+  <p class="em-breve-note">
+    Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.
+  </p>
+</div>
+
+<div class="roteiro-card em-breve">
+  <h4>🍷 Sabores &amp; Azulejos: 12 Dias em Portugal</h4>
+  <div class="preco">R$ 89,99</div>
+
+  <div class="botoes-roteiro">
+    <span class="btn-disabled">
+      <span class="emoji" aria-hidden="true">⏳</span>
+      Em breve
+    </span>
+  </div>
+
+  <p class="em-breve-note">
+    Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.
+  </p>
+</div>
+
+<div class="roteiro-card em-breve">
+  <h4>💦 Cataratas Impressionantes: 4 Dias em Foz do Iguaçu</h4>
+  <div class="preco">R$ 49,99</div>
+
+  <div class="botoes-roteiro">
+    <span class="btn-disabled">
+      <span class="emoji" aria-hidden="true">⏳</span>
+      Em breve
+    </span>
+  </div>
+
+  <p class="em-breve-note">
+    Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.
+  </p>
+</div>
+
+<div class="roteiro-card em-breve">
+  <h4>🎢 Diversão Garantida: 6 Dias no Beto Carrero + Praias</h4>
+  <div class="preco">R$ 59,99</div>
+
+  <div class="botoes-roteiro">
+    <span class="btn-disabled">
+      <span class="emoji" aria-hidden="true">⏳</span>
+      Em breve
+    </span>
+  </div>
+
+  <p class="em-breve-note">
+    Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.
+  </p>
+</div>
+
+<div class="roteiro-card em-breve">
+  <h4>🏙️ SP Sem Erro: Fim de Semana Perfeito</h4>
+  <div class="preco">R$ 39,99</div>
+
+  <div class="botoes-roteiro">
+    <span class="btn-disabled">
+      <span class="emoji" aria-hidden="true">⏳</span>
+      Em breve
+    </span>
+  </div>
+
+  <p class="em-breve-note">
+    Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.
+  </p>
+</div>
+
+<div class="roteiro-card em-breve">
+  <h4>👨‍🍳 Modo MasterChef: 4 Dias Gastronômicos em São Paulo</h4>
+  <div class="preco">R$ 59,99</div>
+
+  <div class="botoes-roteiro">
+    <span class="btn-disabled">
+      <span class="emoji" aria-hidden="true">⏳</span>
+      Em breve
+    </span>
+  </div>
+
+  <p class="em-breve-note">
+    Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.
+  </p>
+</div>
       </div></div>
     </div>
   </section>
