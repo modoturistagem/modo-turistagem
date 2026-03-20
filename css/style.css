@@ -140,16 +140,22 @@ nav{
 
 .nav-links a:hover{color:var(--laranja)}
 .nav-links a:hover::after{width:100%}
+.nav-links a.active{
+  font-weight:800;
+  color:var(--azul);
+}
+.nav-links a.active::after{width:100%}
 
 .btn-nav{
   background:var(--laranja);
   color:var(--branco)!important;
-  padding:.6rem 1.5rem;
+  padding:.72rem 1.45rem;
   border-radius:999px;
   transition:all .3s;
   display:inline-flex;
   align-items:center;
-  gap:.45rem;
+  justify-content:center;
+  min-width:148px;
 }
 .btn-nav::after{display:none!important}
 .btn-nav:hover{
@@ -635,6 +641,78 @@ footer{
   .pagamento-sub{font-size:.78rem}
 }
 
-@media (max-width: 420px){
-  .pagamento-sub{font-size:.78rem}
+.btn-blue{
+  background:linear-gradient(135deg,var(--azul),#2458B8);
+  color:var(--branco);
+  padding:1rem 2rem;
+  box-shadow:0 5px 18px rgba(0,53,153,.24);
+}
+.btn-blue:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 28px rgba(0,53,153,.3);
+}
+
+.cta-roteiros-inline,
+.cta-roteiros-home{
+  padding:0 2rem 4rem;
+  background:var(--branco);
+}
+.cta-roteiros-inline .container,
+.cta-roteiros-home .container{
+  max-width:1100px;
+}
+.cta-roteiros-box{
+  background:linear-gradient(135deg,var(--azul-claro) 0%, var(--branco) 55%, var(--laranja-claro) 100%);
+  border:1px solid rgba(0,53,153,.08);
+  border-radius:28px;
+  padding:2.2rem;
+  box-shadow:0 16px 40px rgba(0,53,153,.08);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1.5rem;
+  flex-wrap:wrap;
+}
+.cta-roteiros-copy{
+  flex:1 1 480px;
+}
+.cta-roteiros-copy .mini-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  background:rgba(255,255,255,.9);
+  color:var(--laranja);
+  border-radius:999px;
+  padding:.5rem .95rem;
+  font-size:.9rem;
+  font-weight:800;
+  margin-bottom:.9rem;
+}
+.cta-roteiros-copy h3{
+  color:var(--azul);
+  font-size:2rem;
+  margin-bottom:.75rem;
+}
+.cta-roteiros-copy p{
+  margin:0;
+  color:var(--texto);
+  line-height:1.75;
+  max-width:650px;
+}
+.cta-roteiros-actions{
+  flex:0 1 280px;
+  display:flex;
+  flex-direction:column;
+  gap:.75rem;
+  align-items:stretch;
+}
+.cta-roteiros-actions .small-note{
+  text-align:center;
+}
+
+@media (max-width: 768px){
+  .cta-roteiros-inline,
+  .cta-roteiros-home{padding:0 1rem 3rem}
+  .cta-roteiros-box{padding:1.4rem;border-radius:22px}
+  .cta-roteiros-copy h3{font-size:1.65rem}
 }
