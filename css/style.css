@@ -108,25 +108,33 @@ nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
+  gap:1.5rem;
 }
 
 .logo{display:flex;align-items:center;text-decoration:none}
-.logo-img{height:50px;width:auto}
+.logo-img{height:48px;width:auto}
 
 .nav-links{
   display:flex;
-  gap:2rem;
+  gap:1.25rem;
   list-style:none;
   align-items:center;
+  justify-content:flex-end;
+  flex-wrap:wrap;
 }
+
+.nav-links li{display:flex;align-items:center}
 
 .nav-links a{
   text-decoration:none;
   color:var(--azul);
   font-weight:600;
-  font-size:.95rem;
+  font-size:.92rem;
   transition:color .3s;
   position:relative;
+  display:inline-flex;
+  align-items:center;
+  white-space:nowrap;
 }
 
 .nav-links a::after{
@@ -179,6 +187,7 @@ nav{
 .btn-ajuda,
 .btn-plano,
 .btn-roteiro,
+.btn-blue,
 .btn-disabled{
   display:inline-flex;
   align-items:center;
@@ -597,6 +606,7 @@ footer{
     left:1rem;right:1rem;
     flex-direction:column;
     gap:.25rem;
+    flex-wrap:nowrap;
     background:var(--branco);
     padding:1rem;
     border-radius:16px;
@@ -605,7 +615,7 @@ footer{
   }
   .nav-links.active{display:flex}
   .container{padding:0 1rem}
-  .btn-primary,.btn-secondary,.btn-ajuda{width:100%;justify-content:center}
+  .btn-primary,.btn-secondary,.btn-ajuda,.btn-blue{width:100%;justify-content:center}
   .modal{padding:0;align-items:flex-end}
   .modal-content{
     width:100%;
@@ -642,6 +652,11 @@ footer{
 }
 
 .btn-blue{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.5rem;
+  text-decoration:none;
   background:linear-gradient(135deg,var(--azul),#2458B8);
   color:var(--branco);
   padding:1rem 2rem;
@@ -668,13 +683,16 @@ footer{
   padding:2.2rem;
   box-shadow:0 16px 40px rgba(0,53,153,.08);
   display:flex;
+  flex-direction:column;
   align-items:center;
-  justify-content:space-between;
-  gap:1.5rem;
-  flex-wrap:wrap;
+  justify-content:center;
+  gap:1.1rem;
+  text-align:center;
 }
 .cta-roteiros-copy{
-  flex:1 1 480px;
+  flex:0 1 auto;
+  max-width:760px;
+  text-align:center;
 }
 .cta-roteiros-copy .mini-tag{
   display:inline-flex;
@@ -694,20 +712,23 @@ footer{
   margin-bottom:.75rem;
 }
 .cta-roteiros-copy p{
-  margin:0;
+  margin:0 auto;
   color:var(--texto);
   line-height:1.75;
   max-width:650px;
 }
 .cta-roteiros-actions{
-  flex:0 1 280px;
+  flex:0 1 auto;
   display:flex;
   flex-direction:column;
   gap:.75rem;
-  align-items:stretch;
+  align-items:center;
+  width:100%;
+  max-width:320px;
 }
 .cta-roteiros-actions .small-note{
   text-align:center;
+  max-width:420px;
 }
 
 @media (max-width: 768px){
@@ -715,4 +736,5 @@ footer{
   .cta-roteiros-home{padding:0 1rem 3rem}
   .cta-roteiros-box{padding:1.4rem;border-radius:22px}
   .cta-roteiros-copy h3{font-size:1.65rem}
+  .cta-roteiros-actions{max-width:100%}
 }
