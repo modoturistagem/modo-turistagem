@@ -725,11 +725,14 @@ footer{
   gap:.75rem;
   align-items:center;
   width:100%;
-  max-width:320px;
+  max-width:650px;
+}
+.cta-roteiros-actions .btn-primary{
+  min-width:280px;
 }
 .cta-roteiros-actions .small-note{
   text-align:center;
-  max-width:420px;
+  max-width:650px;
 }
 
 @media (max-width: 768px){
