@@ -875,6 +875,70 @@
     }
 
   </style>
+
+  <style>
+    .roteiros-note{
+      color:var(--laranja) !important;
+      font-weight:800;
+    }
+
+    .filter-chip-wrap--primary{
+      margin-bottom:.25rem;
+    }
+
+    .filter-chip-wrap--extra[hidden]{
+      display:none !important;
+    }
+
+    .more-filters-row{
+      display:flex;
+      justify-content:center;
+      margin-bottom:.95rem;
+    }
+
+    .more-filters-btn{
+      border:none;
+      background:transparent;
+      color:var(--azul);
+      font-weight:800;
+      text-decoration:underline;
+      text-underline-offset:4px;
+      cursor:pointer;
+      padding:.2rem .35rem;
+    }
+
+    .more-filters-btn:hover{
+      color:var(--laranja);
+    }
+
+    .upsell-list{
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      max-width:540px;
+      margin:0.15rem auto 0;
+      gap:.7rem 1.4rem;
+      text-align:left;
+    }
+
+    .upsell-list li{
+      width:100%;
+    }
+
+    .upsell-discount{
+      text-align:center;
+    }
+
+    @media (max-width: 768px){
+      .upsell-list{
+        grid-template-columns:1fr;
+        max-width:320px;
+      }
+
+      .more-filters-row{
+        justify-content:flex-start;
+      }
+    }
+  </style>
+
 </head>
 <body>
   <nav>
@@ -992,43 +1056,52 @@
             <span class="emoji emoji-inline" aria-hidden="true">🔎</span>
             Encontre o roteiro com mais a sua cara
           </span>
-          <h2>Busque pelo destino ou filtre pelo tipo de viagem</h2>
-          <p>As tags aqui funcionam como um atalho esperto: você bate o olho e já entende se o roteiro combina com o seu estilo, seu momento e o tipo de experiência que você quer viver.</p>
+          <h2>Busque pelo destino, pelas palavras-chave ou filtre pelo tipo de viagem</h2>
+          <p>As tags aqui funcionam como uma copy disfarçada: você bate o olho e já entende se aquele roteiro combina com o seu estilo, seu momento e o tipo de experiência que você quer viver.</p>
         </div>
 
         <div class="roteiros-search-row">
           <label class="search-input-wrap" for="roteiroSearch">
             <span class="search-icon" aria-hidden="true">🔎</span>
-            <input type="search" id="roteiroSearch" placeholder="Busque por destino, experiência ou tag" aria-label="Buscar roteiros" />
+            <input type="search" id="roteiroSearch" placeholder="Busque por destino, país, roteiro, experiência ou quantidade de dias" aria-label="Buscar roteiros" />
           </label>
           <button type="button" class="clear-filters" id="clearRoteiroFilters">Limpar filtros</button>
         </div>
 
-        <div class="filter-chip-wrap" id="filterChipWrap">
-<button type="button" class="chip-filter" data-tag="🌎 Primeira viagem">🌎 Primeira viagem</button>
-<button type="button" class="chip-filter" data-tag="💸 Econômico">💸 Econômico</button>
+        <div class="filter-chip-wrap filter-chip-wrap--primary" id="filterChipWrap">
+<button type="button" class="chip-filter" data-tag="🌎 1° Viagem Internacional">🌎 1° Viagem Internacional</button>
 <button type="button" class="chip-filter" data-tag="🇧🇷 Brasil">🇧🇷 Brasil</button>
 <button type="button" class="chip-filter" data-tag="✈️ Internacional">✈️ Internacional</button>
-<button type="button" class="chip-filter" data-tag="💕 Romântico">💕 Romântico</button>
+<button type="button" class="chip-filter" data-tag="💸 Econômico">💸 Econômico</button>
 <button type="button" class="chip-filter" data-tag="👨‍👩‍👧 Família">👨‍👩‍👧 Família</button>
+<button type="button" class="chip-filter" data-tag="⭐ Mais vendido">⭐ Mais vendido</button>
 <button type="button" class="chip-filter" data-tag="🍽️ Gastronomia">🍽️ Gastronomia</button>
-<button type="button" class="chip-filter" data-tag="🏰 Parques / atrações">🏰 Parques / atrações</button>
+        </div>
+
+        <div class="more-filters-row">
+          <button type="button" class="more-filters-btn" id="toggleExtraFilters">Ver mais filtros</button>
+        </div>
+
+        <div class="filter-chip-wrap filter-chip-wrap--extra" id="extraFilterWrap" hidden>
+<button type="button" class="chip-filter" data-tag="🏙️ Urbano">🏙️ Urbano</button>
 <button type="button" class="chip-filter" data-tag="❄️ Frio / Neve">❄️ Frio / Neve</button>
-<button type="button" class="chip-filter" data-tag="💰 Custo-benefício">💰 Custo-benefício</button>
-<button type="button" class="chip-filter" data-tag="🏙️ Cidade grande">🏙️ Cidade grande</button>
-<button type="button" class="chip-filter" data-tag="🌿 Natureza">🌿 Natureza</button>
 <button type="button" class="chip-filter" data-tag="🚢 Cruzeiro">🚢 Cruzeiro</button>
 <button type="button" class="chip-filter" data-tag="🚆 Transporte eficiente">🚆 Transporte eficiente</button>
-<button type="button" class="chip-filter" data-tag="🧭 Roteiro multi-cidades">🧭 Roteiro multi-cidades</button>
+<button type="button" class="chip-filter" data-tag="🧭 Multi-cidades">🧭 Multi-cidades</button>
 <button type="button" class="chip-filter" data-tag="⚡ Intenso">⚡ Intenso</button>
 <button type="button" class="chip-filter" data-tag="📸 Paisagens icônicas">📸 Paisagens icônicas</button>
 <button type="button" class="chip-filter" data-tag="⏱️ Viagem curta">⏱️ Viagem curta</button>
 <button type="button" class="chip-filter" data-tag="👫 Amigos">👫 Amigos</button>
 <button type="button" class="chip-filter" data-tag="💎 Conforto">💎 Conforto</button>
-<button type="button" class="chip-filter" data-tag="⭐ Mais vendido">⭐ Mais vendido</button>
 <button type="button" class="chip-filter" data-tag="🌴 Praia">🌴 Praia</button>
 <button type="button" class="chip-filter" data-tag="🎭 Cultura / histórico">🎭 Cultura / histórico</button>
 <button type="button" class="chip-filter" data-tag="🚶‍♂️ Fácil logística">🚶‍♂️ Fácil logística</button>
+<button type="button" class="chip-filter" data-tag="💕 Romântico">💕 Romântico</button>
+<button type="button" class="chip-filter" data-tag="🌿 Natureza">🌿 Natureza</button>
+<button type="button" class="chip-filter" data-tag="🛍️ Compras">🛍️ Compras</button>
+<button type="button" class="chip-filter" data-tag="🧍 Solo">🧍 Solo</button>
+<button type="button" class="chip-filter" data-tag="🏰 Parques / atrações">🏰 Parques / atrações</button>
+<button type="button" class="chip-filter" data-tag="💰 Custo-benefício">💰 Custo-benefício</button>
         </div>
 
         <p class="search-helper">Dica Modo: começar pelos filtros costuma ser mais rápido do que digitar — e ajuda muito na hora de pensar “isso aqui é pra mim”.</p>
@@ -1042,7 +1115,36 @@
         </div>
 
         <div class="roteiros-grid">
-<details class="roteiro-details disponivel" data-search="🍂 Encantos da Serra Gaúcha: 6 Dias entre Gramado + Canela ⭐ Mais vendido 🇧🇷 Brasil ❄️ Frio / Neve 🍽️ Gastronomia 👨‍👩‍👧 Família 💎 Conforto ⭐ Mais vendido" data-tags="🇧🇷 Brasil|❄️ Frio / Neve|🍽️ Gastronomia|👨‍👩‍👧 Família|💎 Conforto|⭐ Mais vendido">
+<details class="roteiro-details disponivel" data-search="🎈 Experiência de Balão 3 dias no sul do Brasil balão litoral santa catarina rio grande do sul praia grande torres canion balão brasil romântico praia paisagens icônicas viagem curta economico" data-tags="🇧🇷 Brasil|💕 Romântico|🌴 Praia|📸 Paisagens icônicas|⏱️ Viagem curta|💸 Econômico">
+  <summary class="roteiro-summary">
+    <div class="roteiro-summary-copy">
+      <span class="badge">💸 Melhor custo-benefício</span>
+      <h3>🎈 Experiência de Balão: 3 Dias no Sul do Brasil</h3>
+    </div>
+    <div class="roteiro-summary-meta">
+      <span class="preco">R$ 39,99</span>
+      <span class="roteiro-expand" aria-hidden="true">+</span>
+    </div>
+  </summary>
+  <div class="roteiro-body">
+    <p class="roteiro-status">Disponível agora</p>
+    <div class="topicos"><button type="button" class="topico filter-tag" data-tag="🇧🇷 Brasil">🇧🇷 Brasil</button><button type="button" class="topico filter-tag" data-tag="💕 Romântico">💕 Romântico</button><button type="button" class="topico filter-tag" data-tag="🌴 Praia">🌴 Praia</button><button type="button" class="topico filter-tag" data-tag="📸 Paisagens icônicas">📸 Paisagens icônicas</button><button type="button" class="topico filter-tag" data-tag="⏱️ Viagem curta">⏱️ Viagem curta</button><button type="button" class="topico filter-tag" data-tag="💸 Econômico">💸 Econômico</button></div>
+    <p class="mini-copy">Pra quem quer uma escapada curtinha, bonita e diferente — com clima de viagem especial, paisagem linda e aquela sensação gostosa de viver algo memorável.</p>
+    <div class="botoes-roteiro">
+      <a href="https://wa.me/5549991628403?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%20Experi%C3%AAncia%20de%20Bal%C3%A3o.%20Pode%20me%20enviar%20o%20link%20de%20pagamento%3F" target="_blank" rel="noopener" class="btn-roteiro btn-mp">
+        <img src="images/icons/mercadopago.png" alt="" class="btn-ico" />
+        Comprar
+      </a>
+      <div class="pagamento-sub mp">Pix • Cartão à vista • Parcelado (com taxas)</div>
+      <a href="https://wa.me/5549991628403?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%20Experi%C3%AAncia%20de%20Bal%C3%A3o%20via%20Pix.%20Pode%20me%20enviar%20a%20chave%20e%20o%20valor%3F" target="_blank" rel="noopener noreferrer" class="btn-roteiro btn-pix">
+        <img src="images/icons/whatsapp-logo.png" alt="" class="btn-ico" />
+        Comprar via Pix
+      </a>
+      <div class="pagamento-sub pix">Entrega do PDF: até 30 min após confirmação</div>
+    </div>
+  </div>
+</details>
+<details class="roteiro-details disponivel" data-search="🍂 Encantos da Serra Gaúcha 6 dias entre Gramado Canela gramado canela natal luz snowland inverno rio grande do sul america do sul serra gaucha vinho vinicolas neve gastronomia familia conforto mais vendido" data-tags="🇧🇷 Brasil|❄️ Frio / Neve|🍽️ Gastronomia|👨‍👩‍👧 Família|💎 Conforto|⭐ Mais vendido">
   <summary class="roteiro-summary">
     <div class="roteiro-summary-copy">
       <span class="badge">⭐ Mais vendido</span>
@@ -1071,10 +1173,10 @@
     </div>
   </div>
 </details>
-<details class="roteiro-details em-breve" data-search="🏙️ SP Sem Erro: Fim de Semana Perfeito 🔥 Perfeito pra primeira viagem 🇧🇷 Brasil 🌎 Primeira viagem 🏙️ Cidade grande ⏱️ Viagem curta 🚶‍♂️ Fácil logística 💸 Econômico" data-tags="🇧🇷 Brasil|🌎 Primeira viagem|🏙️ Cidade grande|⏱️ Viagem curta|🚶‍♂️ Fácil logística|💸 Econômico">
+<details class="roteiro-details em-breve" data-search="🏙️ SP Sem Erro fim de semana perfeito sao paulo sp 2 dias dois dias vida noturna bate e volta restaurantes bares urbano viagem curta facil logistica solo brasil" data-tags="🇧🇷 Brasil|🏙️ Urbano|⏱️ Viagem curta|🚶‍♂️ Fácil logística|🧍 Solo">
   <summary class="roteiro-summary">
     <div class="roteiro-summary-copy">
-      <span class="badge">🔥 Perfeito pra primeira viagem</span>
+      <span class="badge">🧍 Ideal solo</span>
       <h3>🏙️ SP Sem Erro: Fim de Semana Perfeito</h3>
     </div>
     <div class="roteiro-summary-meta">
@@ -1084,14 +1186,14 @@
   </summary>
   <div class="roteiro-body">
     <p class="roteiro-status">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
-    <div class="topicos"><button type="button" class="topico filter-tag" data-tag="🇧🇷 Brasil">🇧🇷 Brasil</button><button type="button" class="topico filter-tag" data-tag="🌎 Primeira viagem">🌎 Primeira viagem</button><button type="button" class="topico filter-tag" data-tag="🏙️ Cidade grande">🏙️ Cidade grande</button><button type="button" class="topico filter-tag" data-tag="⏱️ Viagem curta">⏱️ Viagem curta</button><button type="button" class="topico filter-tag" data-tag="🚶‍♂️ Fácil logística">🚶‍♂️ Fácil logística</button><button type="button" class="topico filter-tag" data-tag="💸 Econômico">💸 Econômico</button></div>
+    <div class="topicos"><button type="button" class="topico filter-tag" data-tag="🇧🇷 Brasil">🇧🇷 Brasil</button><button type="button" class="topico filter-tag" data-tag="🏙️ Urbano">🏙️ Urbano</button><button type="button" class="topico filter-tag" data-tag="⏱️ Viagem curta">⏱️ Viagem curta</button><button type="button" class="topico filter-tag" data-tag="🚶‍♂️ Fácil logística">🚶‍♂️ Fácil logística</button><button type="button" class="topico filter-tag" data-tag="🧍 Solo">🧍 Solo</button></div>
     <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
     <div class="botoes-roteiro">
       <span class="btn-disabled">Em breve</span>
     </div>
   </div>
 </details>
-<details class="roteiro-details em-breve" data-search="💦 Cataratas Impressionantes: 4 Dias em Foz do Iguaçu 💸 Melhor custo-benefício 🇧🇷 Brasil 🌿 Natureza 📸 Paisagens icônicas 👨‍👩‍👧 Família 💰 Custo-benefício" data-tags="🇧🇷 Brasil|🌿 Natureza|📸 Paisagens icônicas|👨‍👩‍👧 Família|💰 Custo-benefício">
+<details class="roteiro-details em-breve" data-search="💦 Cataratas Impressionantes 4 dias em Foz do Iguaçu foz do iguaçu parque das aves itaipu parana sul quatro dias natureza paisagens iconicas familia custo-beneficio brasil economico" data-tags="🇧🇷 Brasil|🌿 Natureza|📸 Paisagens icônicas|👨‍👩‍👧 Família|💰 Custo-benefício|💸 Econômico">
   <summary class="roteiro-summary">
     <div class="roteiro-summary-copy">
       <span class="badge">💸 Melhor custo-benefício</span>
@@ -1104,14 +1206,14 @@
   </summary>
   <div class="roteiro-body">
     <p class="roteiro-status">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
-    <div class="topicos"><button type="button" class="topico filter-tag" data-tag="🇧🇷 Brasil">🇧🇷 Brasil</button><button type="button" class="topico filter-tag" data-tag="🌿 Natureza">🌿 Natureza</button><button type="button" class="topico filter-tag" data-tag="📸 Paisagens icônicas">📸 Paisagens icônicas</button><button type="button" class="topico filter-tag" data-tag="👨‍👩‍👧 Família">👨‍👩‍👧 Família</button><button type="button" class="topico filter-tag" data-tag="💰 Custo-benefício">💰 Custo-benefício</button></div>
+    <div class="topicos"><button type="button" class="topico filter-tag" data-tag="🇧🇷 Brasil">🇧🇷 Brasil</button><button type="button" class="topico filter-tag" data-tag="🌿 Natureza">🌿 Natureza</button><button type="button" class="topico filter-tag" data-tag="📸 Paisagens icônicas">📸 Paisagens icônicas</button><button type="button" class="topico filter-tag" data-tag="👨‍👩‍👧 Família">👨‍👩‍👧 Família</button><button type="button" class="topico filter-tag" data-tag="💰 Custo-benefício">💰 Custo-benefício</button><button type="button" class="topico filter-tag" data-tag="💸 Econômico">💸 Econômico</button></div>
     <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
     <div class="botoes-roteiro">
       <span class="btn-disabled">Em breve</span>
     </div>
   </div>
 </details>
-<details class="roteiro-details em-breve" data-search="☀️ Cidade Maravilhosa: 6 Dias no Rio ⭐ Mais vendido 🇧🇷 Brasil 🌴 Praia 🏙️ Cidade grande 🌎 Primeira viagem 📸 Paisagens icônicas ⭐ Mais vendido" data-tags="🇧🇷 Brasil|🌴 Praia|🏙️ Cidade grande|🌎 Primeira viagem|📸 Paisagens icônicas|⭐ Mais vendido">
+<details class="roteiro-details em-breve" data-search="☀️ Cidade Maravilhosa 6 dias no Rio rio de janeiro praia cristo redentor pao de acucar america do sul urbano paisagens iconicas mais vendido brasil" data-tags="🇧🇷 Brasil|🌴 Praia|🏙️ Urbano|📸 Paisagens icônicas|⭐ Mais vendido">
   <summary class="roteiro-summary">
     <div class="roteiro-summary-copy">
       <span class="badge">⭐ Mais vendido</span>
@@ -1124,14 +1226,14 @@
   </summary>
   <div class="roteiro-body">
     <p class="roteiro-status">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
-    <div class="topicos"><button type="button" class="topico filter-tag" data-tag="🇧🇷 Brasil">🇧🇷 Brasil</button><button type="button" class="topico filter-tag" data-tag="🌴 Praia">🌴 Praia</button><button type="button" class="topico filter-tag" data-tag="🏙️ Cidade grande">🏙️ Cidade grande</button><button type="button" class="topico filter-tag" data-tag="🌎 Primeira viagem">🌎 Primeira viagem</button><button type="button" class="topico filter-tag" data-tag="📸 Paisagens icônicas">📸 Paisagens icônicas</button><button type="button" class="topico filter-tag" data-tag="⭐ Mais vendido">⭐ Mais vendido</button></div>
+    <div class="topicos"><button type="button" class="topico filter-tag" data-tag="🇧🇷 Brasil">🇧🇷 Brasil</button><button type="button" class="topico filter-tag" data-tag="🌴 Praia">🌴 Praia</button><button type="button" class="topico filter-tag" data-tag="🏙️ Urbano">🏙️ Urbano</button><button type="button" class="topico filter-tag" data-tag="📸 Paisagens icônicas">📸 Paisagens icônicas</button><button type="button" class="topico filter-tag" data-tag="⭐ Mais vendido">⭐ Mais vendido</button></div>
     <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
     <div class="botoes-roteiro">
       <span class="btn-disabled">Em breve</span>
     </div>
   </div>
 </details>
-<details class="roteiro-details em-breve" data-search="🎢 Diversão Garantida: 6 Dias no Beto Carrero + Praias 💸 Melhor custo-benefício 🇧🇷 Brasil 🏰 Parques / atrações 👨‍👩‍👧 Família 🌴 Praia 💰 Custo-benefício" data-tags="🇧🇷 Brasil|🏰 Parques / atrações|👨‍👩‍👧 Família|🌴 Praia|💰 Custo-benefício">
+<details class="roteiro-details em-breve" data-search="🎢 Diversão Garantida 6 dias no Beto Carrero praias beto carrero praia penha santa catarina parque familia criança litoral sul seis dias parques atracoes praia brasil custo-beneficio economico" data-tags="🇧🇷 Brasil|🏰 Parques / atrações|👨‍👩‍👧 Família|🌴 Praia|💰 Custo-benefício|💸 Econômico">
   <summary class="roteiro-summary">
     <div class="roteiro-summary-copy">
       <span class="badge">💸 Melhor custo-benefício</span>
@@ -1144,7 +1246,7 @@
   </summary>
   <div class="roteiro-body">
     <p class="roteiro-status">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
-    <div class="topicos"><button type="button" class="topico filter-tag" data-tag="🇧🇷 Brasil">🇧🇷 Brasil</button><button type="button" class="topico filter-tag" data-tag="🏰 Parques / atrações">🏰 Parques / atrações</button><button type="button" class="topico filter-tag" data-tag="👨‍👩‍👧 Família">👨‍👩‍👧 Família</button><button type="button" class="topico filter-tag" data-tag="🌴 Praia">🌴 Praia</button><button type="button" class="topico filter-tag" data-tag="💰 Custo-benefício">💰 Custo-benefício</button></div>
+    <div class="topicos"><button type="button" class="topico filter-tag" data-tag="🇧🇷 Brasil">🇧🇷 Brasil</button><button type="button" class="topico filter-tag" data-tag="🏰 Parques / atrações">🏰 Parques / atrações</button><button type="button" class="topico filter-tag" data-tag="👨‍👩‍👧 Família">👨‍👩‍👧 Família</button><button type="button" class="topico filter-tag" data-tag="🌴 Praia">🌴 Praia</button><button type="button" class="topico filter-tag" data-tag="💰 Custo-benefício">💰 Custo-benefício</button><button type="button" class="topico filter-tag" data-tag="💸 Econômico">💸 Econômico</button></div>
     <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
     <div class="botoes-roteiro">
       <span class="btn-disabled">Em breve</span>
@@ -1153,6 +1255,7 @@
 </details>
         </div>
       </div>
+
       <div class="categoria-bloco fade-in">
         <div class="categoria-head">
           <h2>🌎 Primeira Viagem Internacional</h2>
@@ -1160,7 +1263,7 @@
         </div>
 
         <div class="roteiros-grid">
-<details class="roteiro-details disponivel" data-search="🚢 Rota do Prata: 7 Dias em Cruzeiro Argentina + Uruguai 💸 Melhor custo-benefício 🌎 Primeira viagem ✈️ Internacional 🚢 Cruzeiro 🚶‍♂️ Fácil logística 💰 Custo-benefício 💕 Romântico" data-tags="🌎 Primeira viagem|✈️ Internacional|🚢 Cruzeiro|🚶‍♂️ Fácil logística|💰 Custo-benefício|💕 Romântico">
+<details class="roteiro-details disponivel" data-search="🚢 Rota do Prata 7 dias em cruzeiro argentina uruguai cruzeiro argentina uruguai america do sul navio buenos aires montevideo itajai santos internacional 1 viagem internacional facil logistica economico custo-beneficio romantico" data-tags="🌎 1° Viagem Internacional|✈️ Internacional|🚢 Cruzeiro|🚶‍♂️ Fácil logística|💸 Econômico|💕 Romântico">
   <summary class="roteiro-summary">
     <div class="roteiro-summary-copy">
       <span class="badge">💸 Melhor custo-benefício</span>
@@ -1173,7 +1276,7 @@
   </summary>
   <div class="roteiro-body">
     <p class="roteiro-status">Disponível agora</p>
-    <div class="topicos"><button type="button" class="topico filter-tag" data-tag="🌎 Primeira viagem">🌎 Primeira viagem</button><button type="button" class="topico filter-tag" data-tag="✈️ Internacional">✈️ Internacional</button><button type="button" class="topico filter-tag" data-tag="🚢 Cruzeiro">🚢 Cruzeiro</button><button type="button" class="topico filter-tag" data-tag="🚶‍♂️ Fácil logística">🚶‍♂️ Fácil logística</button><button type="button" class="topico filter-tag" data-tag="💰 Custo-benefício">💰 Custo-benefício</button><button type="button" class="topico filter-tag" data-tag="💕 Romântico">💕 Romântico</button></div>
+    <div class="topicos"><button type="button" class="topico filter-tag" data-tag="🌎 1° Viagem Internacional">🌎 1° Viagem Internacional</button><button type="button" class="topico filter-tag" data-tag="✈️ Internacional">✈️ Internacional</button><button type="button" class="topico filter-tag" data-tag="🚢 Cruzeiro">🚢 Cruzeiro</button><button type="button" class="topico filter-tag" data-tag="🚶‍♂️ Fácil logística">🚶‍♂️ Fácil logística</button><button type="button" class="topico filter-tag" data-tag="💸 Econômico">💸 Econômico</button><button type="button" class="topico filter-tag" data-tag="💕 Romântico">💕 Romântico</button></div>
     <p class="mini-copy">Uma forma prática e gostosa de fazer a primeira viagem internacional sem logística maluca — com portos, tempo e ritmo mais redondinhos.</p>
     <div class="botoes-roteiro">
       <a href="https://mpago.la/1monhF9" target="_blank" rel="noopener" class="btn-roteiro btn-mp">
@@ -1189,10 +1292,10 @@
     </div>
   </div>
 </details>
-<details class="roteiro-details disponivel" data-search="🏔️ Andes na Janela: 5 Dias em Santiago 🔥 Perfeito pra primeira viagem 🌎 Primeira viagem ✈️ Internacional ❄️ Frio / Neve 🍽️ Gastronomia 🚆 Transporte eficiente 💰 Custo-benefício" data-tags="🌎 Primeira viagem|✈️ Internacional|❄️ Frio / Neve|🍽️ Gastronomia|🚆 Transporte eficiente|💰 Custo-benefício">
+<details class="roteiro-details disponivel" data-search="🏔️ Andes na Janela 5 dias em Santiago santiago chile america do sul esqui inverno vinho vinicolas andes neve gastronomia transporte eficiente custo-beneficio internacional 1 viagem internacional" data-tags="🌎 1° Viagem Internacional|✈️ Internacional|❄️ Frio / Neve|🍽️ Gastronomia|🚆 Transporte eficiente|💰 Custo-benefício">
   <summary class="roteiro-summary">
     <div class="roteiro-summary-copy">
-      <span class="badge">🔥 Perfeito pra primeira viagem</span>
+      <span class="badge">🔥 Perfeito pra 1ª internacional</span>
       <h3>🏔️ Andes na Janela: 5 Dias em Santiago</h3>
     </div>
     <div class="roteiro-summary-meta">
@@ -1202,7 +1305,7 @@
   </summary>
   <div class="roteiro-body">
     <p class="roteiro-status">Disponível agora</p>
-    <div class="topicos"><button type="button" class="topico filter-tag" data-tag="🌎 Primeira viagem">🌎 Primeira viagem</button><button type="button" class="topico filter-tag" data-tag="✈️ Internacional">✈️ Internacional</button><button type="button" class="topico filter-tag" data-tag="❄️ Frio / Neve">❄️ Frio / Neve</button><button type="button" class="topico filter-tag" data-tag="🍽️ Gastronomia">🍽️ Gastronomia</button><button type="button" class="topico filter-tag" data-tag="🚆 Transporte eficiente">🚆 Transporte eficiente</button><button type="button" class="topico filter-tag" data-tag="💰 Custo-benefício">💰 Custo-benefício</button></div>
+    <div class="topicos"><button type="button" class="topico filter-tag" data-tag="🌎 1° Viagem Internacional">🌎 1° Viagem Internacional</button><button type="button" class="topico filter-tag" data-tag="✈️ Internacional">✈️ Internacional</button><button type="button" class="topico filter-tag" data-tag="❄️ Frio / Neve">❄️ Frio / Neve</button><button type="button" class="topico filter-tag" data-tag="🍽️ Gastronomia">🍽️ Gastronomia</button><button type="button" class="topico filter-tag" data-tag="🚆 Transporte eficiente">🚆 Transporte eficiente</button><button type="button" class="topico filter-tag" data-tag="💰 Custo-benefício">💰 Custo-benefício</button></div>
     <p class="mini-copy">Um destino que funciona muito bem pra primeira internacional: cidade organizada, paisagem linda, vinho bom e deslocamentos mais simples.</p>
     <div class="botoes-roteiro">
       <a href="https://mpago.la/2eRhVqN" target="_blank" rel="noopener" class="btn-roteiro btn-mp">
@@ -1218,10 +1321,10 @@
     </div>
   </div>
 </details>
-<details class="roteiro-details em-breve" data-search="🛂 Primeira Carimbada: 6 Dias em Buenos Aires 🔥 Perfeito pra primeira viagem 🌎 Primeira viagem ✈️ Internacional 🍽️ Gastronomia 🎭 Cultura / histórico 🚶‍♂️ Fácil logística 💕 Romântico" data-tags="🌎 Primeira viagem|✈️ Internacional|🍽️ Gastronomia|🎭 Cultura / histórico|🚶‍♂️ Fácil logística|💕 Romântico">
+<details class="roteiro-details em-breve" data-search="🛂 Primeira Carimbada 6 dias em Buenos Aires buenos aires argentina america do sul vinho tango gastronomia cultura historico facil logistica romantico internacional 1 viagem internacional" data-tags="🌎 1° Viagem Internacional|✈️ Internacional|🍽️ Gastronomia|🎭 Cultura / histórico|🚶‍♂️ Fácil logística|💕 Romântico">
   <summary class="roteiro-summary">
     <div class="roteiro-summary-copy">
-      <span class="badge">🔥 Perfeito pra primeira viagem</span>
+      <span class="badge">🔥 Perfeito pra 1ª internacional</span>
       <h3>🛂 Primeira Carimbada: 6 Dias em Buenos Aires</h3>
     </div>
     <div class="roteiro-summary-meta">
@@ -1231,17 +1334,17 @@
   </summary>
   <div class="roteiro-body">
     <p class="roteiro-status">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
-    <div class="topicos"><button type="button" class="topico filter-tag" data-tag="🌎 Primeira viagem">🌎 Primeira viagem</button><button type="button" class="topico filter-tag" data-tag="✈️ Internacional">✈️ Internacional</button><button type="button" class="topico filter-tag" data-tag="🍽️ Gastronomia">🍽️ Gastronomia</button><button type="button" class="topico filter-tag" data-tag="🎭 Cultura / histórico">🎭 Cultura / histórico</button><button type="button" class="topico filter-tag" data-tag="🚶‍♂️ Fácil logística">🚶‍♂️ Fácil logística</button><button type="button" class="topico filter-tag" data-tag="💕 Romântico">💕 Romântico</button></div>
+    <div class="topicos"><button type="button" class="topico filter-tag" data-tag="🌎 1° Viagem Internacional">🌎 1° Viagem Internacional</button><button type="button" class="topico filter-tag" data-tag="✈️ Internacional">✈️ Internacional</button><button type="button" class="topico filter-tag" data-tag="🍽️ Gastronomia">🍽️ Gastronomia</button><button type="button" class="topico filter-tag" data-tag="🎭 Cultura / histórico">🎭 Cultura / histórico</button><button type="button" class="topico filter-tag" data-tag="🚶‍♂️ Fácil logística">🚶‍♂️ Fácil logística</button><button type="button" class="topico filter-tag" data-tag="💕 Romântico">💕 Romântico</button></div>
     <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
     <div class="botoes-roteiro">
       <span class="btn-disabled">Em breve</span>
     </div>
   </div>
 </details>
-<details class="roteiro-details em-breve" data-search="🦙 Peru Inesquecível: 7 Dias entre Cusco &amp; Machu Picchu 🔥 Perfeito pra primeira viagem ✈️ Internacional 🌿 Natureza 🎭 Cultura / histórico 📸 Paisagens icônicas ⚡ Intenso 🧭 Roteiro multi-cidades" data-tags="✈️ Internacional|🌿 Natureza|🎭 Cultura / histórico|📸 Paisagens icônicas|⚡ Intenso|🧭 Roteiro multi-cidades">
+<details class="roteiro-details em-breve" data-search="🦙 Peru Inesquecível 7 dias entre Cusco Machu Picchu peru america do sul machu picchu cusco natureza paisagens iconicas multi-cidades intenso internacional 1 viagem internacional" data-tags="🌎 1° Viagem Internacional|✈️ Internacional|🌿 Natureza|📸 Paisagens icônicas|🧭 Multi-cidades|⚡ Intenso">
   <summary class="roteiro-summary">
     <div class="roteiro-summary-copy">
-      <span class="badge">🔥 Perfeito pra primeira viagem</span>
+      <span class="badge">🔥 Perfeito pra 1ª internacional</span>
       <h3>🦙 Peru Inesquecível: 7 Dias entre Cusco &amp; Machu Picchu</h3>
     </div>
     <div class="roteiro-summary-meta">
@@ -1251,7 +1354,7 @@
   </summary>
   <div class="roteiro-body">
     <p class="roteiro-status">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
-    <div class="topicos"><button type="button" class="topico filter-tag" data-tag="✈️ Internacional">✈️ Internacional</button><button type="button" class="topico filter-tag" data-tag="🌿 Natureza">🌿 Natureza</button><button type="button" class="topico filter-tag" data-tag="🎭 Cultura / histórico">🎭 Cultura / histórico</button><button type="button" class="topico filter-tag" data-tag="📸 Paisagens icônicas">📸 Paisagens icônicas</button><button type="button" class="topico filter-tag" data-tag="⚡ Intenso">⚡ Intenso</button><button type="button" class="topico filter-tag" data-tag="🧭 Roteiro multi-cidades">🧭 Roteiro multi-cidades</button></div>
+    <div class="topicos"><button type="button" class="topico filter-tag" data-tag="🌎 1° Viagem Internacional">🌎 1° Viagem Internacional</button><button type="button" class="topico filter-tag" data-tag="✈️ Internacional">✈️ Internacional</button><button type="button" class="topico filter-tag" data-tag="🌿 Natureza">🌿 Natureza</button><button type="button" class="topico filter-tag" data-tag="📸 Paisagens icônicas">📸 Paisagens icônicas</button><button type="button" class="topico filter-tag" data-tag="🧭 Multi-cidades">🧭 Multi-cidades</button><button type="button" class="topico filter-tag" data-tag="⚡ Intenso">⚡ Intenso</button></div>
     <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
     <div class="botoes-roteiro">
       <span class="btn-disabled">Em breve</span>
@@ -1260,6 +1363,7 @@
 </details>
         </div>
       </div>
+
       <div class="categoria-bloco fade-in">
         <div class="categoria-head">
           <h2>✈️ Viagens dos Sonhos</h2>
@@ -1267,7 +1371,7 @@
         </div>
 
         <div class="roteiros-grid">
-<details class="roteiro-details em-breve" data-search="🗽 Nova York Sem Pressa: 7 Dias na Big Apple 💸 Melhor custo-benefício ✈️ Internacional 🏙️ Cidade grande 🛍️ Compras ⚡ Intenso 🚆 Transporte eficiente 👫 Amigos" data-tags="✈️ Internacional|🏙️ Cidade grande|🛍️ Compras|⚡ Intenso|🚆 Transporte eficiente|👫 Amigos">
+<details class="roteiro-details em-breve" data-search="🗽 Nova York Sem Pressa 7 dias na Big Apple nova york nova iorque nyc ny manhattan EUA USA estados unidos america do norte compras urbano intenso transporte eficiente amigos internacional" data-tags="✈️ Internacional|🏙️ Urbano|🛍️ Compras|⚡ Intenso|🚆 Transporte eficiente|👫 Amigos">
   <summary class="roteiro-summary">
     <div class="roteiro-summary-copy">
       <span class="badge">💸 Melhor custo-benefício</span>
@@ -1280,17 +1384,17 @@
   </summary>
   <div class="roteiro-body">
     <p class="roteiro-status">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
-    <div class="topicos"><button type="button" class="topico filter-tag" data-tag="✈️ Internacional">✈️ Internacional</button><button type="button" class="topico filter-tag" data-tag="🏙️ Cidade grande">🏙️ Cidade grande</button><button type="button" class="topico filter-tag" data-tag="🛍️ Compras">🛍️ Compras</button><button type="button" class="topico filter-tag" data-tag="⚡ Intenso">⚡ Intenso</button><button type="button" class="topico filter-tag" data-tag="🚆 Transporte eficiente">🚆 Transporte eficiente</button><button type="button" class="topico filter-tag" data-tag="👫 Amigos">👫 Amigos</button></div>
+    <div class="topicos"><button type="button" class="topico filter-tag" data-tag="✈️ Internacional">✈️ Internacional</button><button type="button" class="topico filter-tag" data-tag="🏙️ Urbano">🏙️ Urbano</button><button type="button" class="topico filter-tag" data-tag="🛍️ Compras">🛍️ Compras</button><button type="button" class="topico filter-tag" data-tag="⚡ Intenso">⚡ Intenso</button><button type="button" class="topico filter-tag" data-tag="🚆 Transporte eficiente">🚆 Transporte eficiente</button><button type="button" class="topico filter-tag" data-tag="👫 Amigos">👫 Amigos</button></div>
     <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
     <div class="botoes-roteiro">
       <span class="btn-disabled">Em breve</span>
     </div>
   </div>
 </details>
-<details class="roteiro-details em-breve" data-search="🍝 Itália dos Sonhos: 12 Dias entre Roma, Florença &amp; Veneza 🔥 Perfeito pra primeira viagem ✈️ Internacional 🍽️ Gastronomia 🎭 Cultura / histórico 💕 Romântico 🚆 Transporte eficiente 🧭 Roteiro multi-cidades" data-tags="✈️ Internacional|🍽️ Gastronomia|🎭 Cultura / histórico|💕 Romântico|🚆 Transporte eficiente|🧭 Roteiro multi-cidades">
+<details class="roteiro-details em-breve" data-search="🍝 Itália dos Sonhos 12 dias entre Roma Florença Veneza italia europa coliseu mediterraneo roma florença pisa veneza verona gastronomia cultura historico romantico transporte eficiente multi-cidades internacional" data-tags="✈️ Internacional|🍽️ Gastronomia|🎭 Cultura / histórico|💕 Romântico|🚆 Transporte eficiente|🧭 Multi-cidades">
   <summary class="roteiro-summary">
     <div class="roteiro-summary-copy">
-      <span class="badge">🔥 Perfeito pra primeira viagem</span>
+      <span class="badge">💕 Romântico</span>
       <h3>🍝 Itália dos Sonhos: 12 Dias entre Roma, Florença &amp; Veneza</h3>
     </div>
     <div class="roteiro-summary-meta">
@@ -1300,14 +1404,14 @@
   </summary>
   <div class="roteiro-body">
     <p class="roteiro-status">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
-    <div class="topicos"><button type="button" class="topico filter-tag" data-tag="✈️ Internacional">✈️ Internacional</button><button type="button" class="topico filter-tag" data-tag="🍽️ Gastronomia">🍽️ Gastronomia</button><button type="button" class="topico filter-tag" data-tag="🎭 Cultura / histórico">🎭 Cultura / histórico</button><button type="button" class="topico filter-tag" data-tag="💕 Romântico">💕 Romântico</button><button type="button" class="topico filter-tag" data-tag="🚆 Transporte eficiente">🚆 Transporte eficiente</button><button type="button" class="topico filter-tag" data-tag="🧭 Roteiro multi-cidades">🧭 Roteiro multi-cidades</button></div>
+    <div class="topicos"><button type="button" class="topico filter-tag" data-tag="✈️ Internacional">✈️ Internacional</button><button type="button" class="topico filter-tag" data-tag="🍽️ Gastronomia">🍽️ Gastronomia</button><button type="button" class="topico filter-tag" data-tag="🎭 Cultura / histórico">🎭 Cultura / histórico</button><button type="button" class="topico filter-tag" data-tag="💕 Romântico">💕 Romântico</button><button type="button" class="topico filter-tag" data-tag="🚆 Transporte eficiente">🚆 Transporte eficiente</button><button type="button" class="topico filter-tag" data-tag="🧭 Multi-cidades">🧭 Multi-cidades</button></div>
     <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
     <div class="botoes-roteiro">
       <span class="btn-disabled">Em breve</span>
     </div>
   </div>
 </details>
-<details class="roteiro-details em-breve" data-search="⛩️ Do Templo ao Izakaya: Japão em 20 Dias ⭐ Mais vendido ✈️ Internacional 🍽️ Gastronomia 🎭 Cultura / histórico ⚡ Intenso 🧭 Roteiro multi-cidades ⭐ Mais vendido" data-tags="✈️ Internacional|🍽️ Gastronomia|🎭 Cultura / histórico|⚡ Intenso|🧭 Roteiro multi-cidades|⭐ Mais vendido">
+<details class="roteiro-details em-breve" data-search="⛩️ Do Templo ao Izakaya Japão em 20 dias japao tokyo osaka kyoto asia kobe nara hiroshima gastronomia cultura historico intenso multi-cidades mais vendido internacional" data-tags="✈️ Internacional|🍽️ Gastronomia|🎭 Cultura / histórico|⚡ Intenso|🧭 Multi-cidades|⭐ Mais vendido">
   <summary class="roteiro-summary">
     <div class="roteiro-summary-copy">
       <span class="badge">⭐ Mais vendido</span>
@@ -1320,7 +1424,27 @@
   </summary>
   <div class="roteiro-body">
     <p class="roteiro-status">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
-    <div class="topicos"><button type="button" class="topico filter-tag" data-tag="✈️ Internacional">✈️ Internacional</button><button type="button" class="topico filter-tag" data-tag="🍽️ Gastronomia">🍽️ Gastronomia</button><button type="button" class="topico filter-tag" data-tag="🎭 Cultura / histórico">🎭 Cultura / histórico</button><button type="button" class="topico filter-tag" data-tag="⚡ Intenso">⚡ Intenso</button><button type="button" class="topico filter-tag" data-tag="🧭 Roteiro multi-cidades">🧭 Roteiro multi-cidades</button><button type="button" class="topico filter-tag" data-tag="⭐ Mais vendido">⭐ Mais vendido</button></div>
+    <div class="topicos"><button type="button" class="topico filter-tag" data-tag="✈️ Internacional">✈️ Internacional</button><button type="button" class="topico filter-tag" data-tag="🍽️ Gastronomia">🍽️ Gastronomia</button><button type="button" class="topico filter-tag" data-tag="🎭 Cultura / histórico">🎭 Cultura / histórico</button><button type="button" class="topico filter-tag" data-tag="⚡ Intenso">⚡ Intenso</button><button type="button" class="topico filter-tag" data-tag="🧭 Multi-cidades">🧭 Multi-cidades</button><button type="button" class="topico filter-tag" data-tag="⭐ Mais vendido">⭐ Mais vendido</button></div>
+    <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+    <div class="botoes-roteiro">
+      <span class="btn-disabled">Em breve</span>
+    </div>
+  </div>
+</details>
+<details class="roteiro-details em-breve" data-search="🌌 Caçada à Aurora Boreal 12 dias pela Escandinavia aurora boreal noruega suecia vikings islandia fiordes nordica reinos do norte romantico conforto paisagens iconicas multi-cidades frio neve internacional" data-tags="✈️ Internacional|💕 Romântico|💎 Conforto|📸 Paisagens icônicas|🧭 Multi-cidades|❄️ Frio / Neve">
+  <summary class="roteiro-summary">
+    <div class="roteiro-summary-copy">
+      <span class="badge">💕 Romântico</span>
+      <h3>🌌 Caçada à Aurora Boreal: 12 Dias pela Escandinávia</h3>
+    </div>
+    <div class="roteiro-summary-meta">
+      <span class="preco">R$ 109,99</span>
+      <span class="roteiro-expand" aria-hidden="true">+</span>
+    </div>
+  </summary>
+  <div class="roteiro-body">
+    <p class="roteiro-status">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+    <div class="topicos"><button type="button" class="topico filter-tag" data-tag="✈️ Internacional">✈️ Internacional</button><button type="button" class="topico filter-tag" data-tag="💕 Romântico">💕 Romântico</button><button type="button" class="topico filter-tag" data-tag="💎 Conforto">💎 Conforto</button><button type="button" class="topico filter-tag" data-tag="📸 Paisagens icônicas">📸 Paisagens icônicas</button><button type="button" class="topico filter-tag" data-tag="🧭 Multi-cidades">🧭 Multi-cidades</button><button type="button" class="topico filter-tag" data-tag="❄️ Frio / Neve">❄️ Frio / Neve</button></div>
     <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
     <div class="botoes-roteiro">
       <span class="btn-disabled">Em breve</span>
@@ -1329,6 +1453,7 @@
 </details>
         </div>
       </div>
+
       <div class="categoria-bloco fade-in">
         <div class="categoria-head">
           <h2>🏰 Viagens Temáticas</h2>
@@ -1336,10 +1461,30 @@
         </div>
 
         <div class="roteiros-grid">
-<details class="roteiro-details em-breve" data-search="👨‍🍳 Modo MasterChef: 4 Dias Gastronômicos em São Paulo 🔥 Perfeito pra primeira viagem 🇧🇷 Brasil 🍽️ Gastronomia 🏙️ Cidade grande ⏱️ Viagem curta 👫 Amigos" data-tags="🇧🇷 Brasil|🍽️ Gastronomia|🏙️ Cidade grande|⏱️ Viagem curta|👫 Amigos">
+<details class="roteiro-details em-breve" data-search="☕ Paris Estilo Emily 5 dias na Cidade Luz paris frança europa emily in paris emily em paris viagem romantica gastronomia urbano viagem curta romantico internacional" data-tags="✈️ Internacional|🍽️ Gastronomia|🏙️ Urbano|⏱️ Viagem curta|💕 Romântico">
   <summary class="roteiro-summary">
     <div class="roteiro-summary-copy">
-      <span class="badge">🔥 Perfeito pra primeira viagem</span>
+      <span class="badge">💕 Romântico</span>
+      <h3>☕ Paris Estilo Emily: 5 Dias na Cidade Luz</h3>
+    </div>
+    <div class="roteiro-summary-meta">
+      <span class="preco">R$ 49,99</span>
+      <span class="roteiro-expand" aria-hidden="true">+</span>
+    </div>
+  </summary>
+  <div class="roteiro-body">
+    <p class="roteiro-status">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+    <div class="topicos"><button type="button" class="topico filter-tag" data-tag="✈️ Internacional">✈️ Internacional</button><button type="button" class="topico filter-tag" data-tag="🍽️ Gastronomia">🍽️ Gastronomia</button><button type="button" class="topico filter-tag" data-tag="🏙️ Urbano">🏙️ Urbano</button><button type="button" class="topico filter-tag" data-tag="⏱️ Viagem curta">⏱️ Viagem curta</button><button type="button" class="topico filter-tag" data-tag="💕 Romântico">💕 Romântico</button></div>
+    <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+    <div class="botoes-roteiro">
+      <span class="btn-disabled">Em breve</span>
+    </div>
+  </div>
+</details>
+<details class="roteiro-details em-breve" data-search="👨‍🍳 Modo MasterChef 4 dias gastronômicos em São Paulo masterchef sp restaurantes quatro dias chefs experiencia gastronomica sao paulo urbano viagem curta amigos brasil" data-tags="🇧🇷 Brasil|🍽️ Gastronomia|🏙️ Urbano|⏱️ Viagem curta|👫 Amigos">
+  <summary class="roteiro-summary">
+    <div class="roteiro-summary-copy">
+      <span class="badge">🍽️ Gastronomia</span>
       <h3>👨‍🍳 Modo MasterChef: 4 Dias Gastronômicos em São Paulo</h3>
     </div>
     <div class="roteiro-summary-meta">
@@ -1349,14 +1494,14 @@
   </summary>
   <div class="roteiro-body">
     <p class="roteiro-status">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
-    <div class="topicos"><button type="button" class="topico filter-tag" data-tag="🇧🇷 Brasil">🇧🇷 Brasil</button><button type="button" class="topico filter-tag" data-tag="🍽️ Gastronomia">🍽️ Gastronomia</button><button type="button" class="topico filter-tag" data-tag="🏙️ Cidade grande">🏙️ Cidade grande</button><button type="button" class="topico filter-tag" data-tag="⏱️ Viagem curta">⏱️ Viagem curta</button><button type="button" class="topico filter-tag" data-tag="👫 Amigos">👫 Amigos</button></div>
+    <div class="topicos"><button type="button" class="topico filter-tag" data-tag="🇧🇷 Brasil">🇧🇷 Brasil</button><button type="button" class="topico filter-tag" data-tag="🍽️ Gastronomia">🍽️ Gastronomia</button><button type="button" class="topico filter-tag" data-tag="🏙️ Urbano">🏙️ Urbano</button><button type="button" class="topico filter-tag" data-tag="⏱️ Viagem curta">⏱️ Viagem curta</button><button type="button" class="topico filter-tag" data-tag="👫 Amigos">👫 Amigos</button></div>
     <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
     <div class="botoes-roteiro">
       <span class="btn-disabled">Em breve</span>
     </div>
   </div>
 </details>
-<details class="roteiro-details em-breve" data-search="✨ Orlando Mágico: 15 Dias de Parques &amp; Compras ⭐ Mais vendido ✈️ Internacional 🏰 Parques / atrações 👨‍👩‍👧 Família 🛍️ Compras ⚡ Intenso ⭐ Mais vendido" data-tags="✈️ Internacional|🏰 Parques / atrações|👨‍👩‍👧 Família|🛍️ Compras|⚡ Intenso|⭐ Mais vendido">
+<details class="roteiro-details em-breve" data-search="✨ Orlando Mágico 15 dias de parques compras orlando disney parque universal harry poter harry potter mickey estados unidos EUA USA america do norte criança familia parques atracoes compras intenso internacional mais vendido" data-tags="✈️ Internacional|🏰 Parques / atrações|👨‍👩‍👧 Família|🛍️ Compras|⚡ Intenso|⭐ Mais vendido">
   <summary class="roteiro-summary">
     <div class="roteiro-summary-copy">
       <span class="badge">⭐ Mais vendido</span>
@@ -1376,8 +1521,29 @@
     </div>
   </div>
 </details>
+<details class="roteiro-details em-breve" data-search="🧙‍♂️ Magia pela Inglaterra Escócia 14 dias estilo Harry Potter harry potter londres edimburgo reino unido hogwarts europa paisagens iconicas multi-cidades transporte eficiente internacional familia" data-tags="✈️ Internacional|📸 Paisagens icônicas|🧭 Multi-cidades|🚆 Transporte eficiente|👨‍👩‍👧 Família">
+  <summary class="roteiro-summary">
+    <div class="roteiro-summary-copy">
+      <span class="badge">👨‍👩‍👧 Família</span>
+      <h3>🧙‍♂️ Magia pela Inglaterra &amp; Escócia: 14 Dias Estilo Harry Potter</h3>
+    </div>
+    <div class="roteiro-summary-meta">
+      <span class="preco">R$ 99,99</span>
+      <span class="roteiro-expand" aria-hidden="true">+</span>
+    </div>
+  </summary>
+  <div class="roteiro-body">
+    <p class="roteiro-status">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+    <div class="topicos"><button type="button" class="topico filter-tag" data-tag="✈️ Internacional">✈️ Internacional</button><button type="button" class="topico filter-tag" data-tag="📸 Paisagens icônicas">📸 Paisagens icônicas</button><button type="button" class="topico filter-tag" data-tag="🧭 Multi-cidades">🧭 Multi-cidades</button><button type="button" class="topico filter-tag" data-tag="🚆 Transporte eficiente">🚆 Transporte eficiente</button><button type="button" class="topico filter-tag" data-tag="👨‍👩‍👧 Família">👨‍👩‍👧 Família</button></div>
+    <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+    <div class="botoes-roteiro">
+      <span class="btn-disabled">Em breve</span>
+    </div>
+  </div>
+</details>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -1436,21 +1602,25 @@
     </div>
   </footer>
 
+  
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
     document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
 
     function toggleMenu() {
-      document.getElementById('navLinks').classList.toggle('active');
+      const nav = document.getElementById('navLinks');
+      if (nav) nav.classList.toggle('active');
     }
 
     const searchInput = document.getElementById('roteiroSearch');
     const clearButton = document.getElementById('clearRoteiroFilters');
+    const toggleExtraFiltersButton = document.getElementById('toggleExtraFilters');
+    const extraFilterWrap = document.getElementById('extraFilterWrap');
     const chipButtons = Array.from(document.querySelectorAll('.chip-filter'));
     const cardTagButtons = Array.from(document.querySelectorAll('.filter-tag'));
     const routeCards = Array.from(document.querySelectorAll('.roteiro-details'));
@@ -1462,7 +1632,14 @@
       return (value || '')
         .toLowerCase()
         .normalize('NFD')
-        .replace(/[̀-ͯ]/g, '');
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z0-9\s]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+
+    function getQueryTerms() {
+      return normalizeText(searchInput.value).split(' ').filter(Boolean);
     }
 
     function syncChipStates() {
@@ -1474,13 +1651,13 @@
     }
 
     function filterRoutes() {
-      const query = normalizeText(searchInput.value.trim());
+      const queryTerms = getQueryTerms();
       let visibleCount = 0;
 
       routeCards.forEach((card) => {
         const searchText = normalizeText(card.dataset.search || '');
         const tags = (card.dataset.tags || '').split('|').filter(Boolean);
-        const matchesQuery = !query || searchText.includes(query);
+        const matchesQuery = !queryTerms.length || queryTerms.every((term) => searchText.includes(normalizeText(term)));
         const matchesTags = !activeTags.size || Array.from(activeTags).every((tag) => tags.includes(tag));
         const shouldShow = matchesQuery && matchesTags;
 
@@ -1494,7 +1671,7 @@
         block.classList.toggle('is-hidden', !hasVisibleCards);
       });
 
-      noResults.hidden = visibleCount !== 0;
+      if (noResults) noResults.hidden = visibleCount !== 0;
     }
 
     function toggleTag(tag) {
@@ -1519,17 +1696,35 @@
       });
     });
 
-    searchInput.addEventListener('input', filterRoutes);
+    if (searchInput) {
+      searchInput.addEventListener('input', filterRoutes);
+    }
 
-    clearButton.addEventListener('click', () => {
-      searchInput.value = '';
-      activeTags.clear();
-      syncChipStates();
-      filterRoutes();
-    });
+    if (clearButton) {
+      clearButton.addEventListener('click', () => {
+        if (searchInput) searchInput.value = '';
+        activeTags.clear();
+        syncChipStates();
+        filterRoutes();
+      });
+    }
+
+    if (toggleExtraFiltersButton && extraFilterWrap) {
+      toggleExtraFiltersButton.addEventListener('click', () => {
+        const isHidden = extraFilterWrap.hasAttribute('hidden');
+        if (isHidden) {
+          extraFilterWrap.removeAttribute('hidden');
+          toggleExtraFiltersButton.textContent = 'Ver menos filtros';
+        } else {
+          extraFilterWrap.setAttribute('hidden', '');
+          toggleExtraFiltersButton.textContent = 'Ver mais filtros';
+        }
+      });
+    }
 
     syncChipStates();
     filterRoutes();
   </script>
+
 </body>
 </html>
