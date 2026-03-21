@@ -537,9 +537,15 @@
 
     .ajuda-expressa .planos-grid{
       margin-top:2rem;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:2rem;
     }
 
-    .ajuda-expressa .plano-card{
+    .ajuda-expressa .planos-grid .plano-card{
+      flex:0 1 360px;
+      max-width:380px;
       min-height:100%;
     }
 
@@ -929,7 +935,14 @@
       }
 
       .ajuda-expressa .planos-grid{
-        grid-template-columns:1fr;
+        display:flex;
+        flex-direction:column;
+        gap:1rem;
+      }
+
+      .ajuda-expressa .planos-grid .plano-card{
+        max-width:none;
+        width:100%;
       }
     }
 
@@ -971,6 +984,7 @@
           </a>
 
           <a href="roteiros-prontos.html" class="btn-blue">
+            <span class="emoji emoji-inline" aria-hidden="true">📚</span>
             Roteiros Prontos
           </a>
 </div>
@@ -1029,7 +1043,8 @@
 
       <div class="hero-buttons" style="justify-content:center; margin-top: 1.5rem;">
         <a href="roteiros-prontos.html" class="btn-blue">
-          Roteiros Prontos
+          <span class="emoji emoji-inline" aria-hidden="true">📚</span>
+            Roteiros Prontos
         </a>
 
         <button class="btn-ajuda" onclick="openModal()">
@@ -1686,6 +1701,10 @@
             <a href="#" id="resultBtn" class="btn-primary" target="_blank" rel="noopener noreferrer" style="justify-content:center;">
               Quero esse plano
             </a>
+
+            <button type="button" class="btn-secondary" onclick="resetQuiz()" style="justify-content:center;">
+              Voltar para o início
+            </button>
 
             <a href="https://forms.gle/rZX3TJbtUrqEEz4k8" class="btn-secondary" target="_blank" rel="noopener noreferrer" style="justify-content:center; text-decoration:none;">
               Quero mais ajuda pra escolher
