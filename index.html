@@ -904,6 +904,35 @@
       .pagamento-sub{ font-size:.78rem; }
       .quiz-preco-value{ font-size:1.55rem; }
     }
+  
+    .ajuda-expressa .section-header,
+    .ajuda-expressa .section-header h2,
+    .ajuda-expressa .section-header p{
+      text-align:center;
+    }
+
+    @media (max-width:768px){
+      .hero-buttons{
+        width:100%;
+        flex-direction:column;
+        align-items:center;
+      }
+
+      .hero-buttons > *{
+        width:100%;
+      }
+
+      .ajuda-expressa .section-header{
+        max-width:100%;
+        margin-left:auto;
+        margin-right:auto;
+      }
+
+      .ajuda-expressa .planos-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
   </style>
 </head>
 
@@ -924,12 +953,7 @@
         <li><a href="como-funciona.html">Como Funciona</a></li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="quem-somos.html">Quem Somos</a></li>
-        <li>
-          <a href="https://wa.me/5549991628403" class="btn-nav" target="_blank" rel="noopener noreferrer">
-            Fale Conosco
-          </a>
-        </li>
-      </ul>
+</ul>
     </div>
   </nav>
 
@@ -949,12 +973,7 @@
           <a href="roteiros-prontos.html" class="btn-blue">
             Roteiros Prontos
           </a>
-
-          <button class="btn-secondary" onclick="openModal()">
-            <span class="emoji emoji-inline" aria-hidden="true">🎯</span>
-            Me Ajude a Escolher
-          </button>
-        </div>
+</div>
       </div>
 
       <div class="hero-visual fade-in">
@@ -1243,7 +1262,7 @@
         </div>
 
         <div class="cta-roteiros-actions">
-          <a href="roteiros-prontos.html" class="btn-primary">Ver roteiros</a>
+          <a href="roteiros-prontos.html" class="btn-primary"><span class="emoji emoji-inline" aria-hidden="true">📚</span> Ver roteiros</a>
           <small class="small-note">Tem destino já pronto, destino entrando na fila e opção pra depois transformar tudo em consultoria personalizada.</small>
         </div>
       </div>
@@ -1443,7 +1462,7 @@
         </div>
 
         <div class="cta-roteiros-actions">
-          <a href="roteiros-prontos.html" class="btn-primary">Ir para roteiros prontos</a>
+          <a href="roteiros-prontos.html" class="btn-primary"><span class="emoji emoji-inline" aria-hidden="true">📚</span> Ir para roteiros prontos</a>
           <small class="small-note">Os roteiros são atualizados regularmente e a vitrine vai mudando conforme novos destinos entram no ar.</small>
         </div>
       </div>
@@ -1751,7 +1770,7 @@
       radarVoo:          { nome: 'Radar de Voo', emoji: '💺', preco: 'R$ 59,99', cta: 'Quero esse radar' },
       radarHospedagem:   { nome: 'Radar de Hospedagem', emoji: '🛏️', preco: 'R$ 59,99', cta: 'Quero esse radar' },
       radarCruzeiro:     { nome: 'Radar de Cruzeiros', emoji: '⚓', preco: 'R$ 59,99', cta: 'Quero esse radar' },
-      roteiros:          { nome: 'Roteiros Prontos', emoji: '📚', preco: 'A partir de R$ 49,99', cta: 'Ver roteiros prontos' },
+      roteiros:          { nome: 'Roteiros Prontos', emoji: '📚', preco: 'A partir de R$ 49,99', cta: '📚 Ver roteiros prontos' },
       partiu:            { nome: 'Modo Partiu', emoji: '🎒', preco: 'R$ 149,99', cta: 'Quero esse plano' },
       checkin:           { nome: 'Modo Check-in', emoji: '🧳', preco: 'R$ 259,99', cta: 'Quero esse plano' },
       embarque:          { nome: 'Modo Embarque', emoji: '✈️', preco: 'R$ 359,99', cta: 'Quero esse plano' },
