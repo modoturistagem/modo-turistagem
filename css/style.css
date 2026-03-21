@@ -116,11 +116,11 @@ nav{
 
 .nav-links{
   display:flex;
-  gap:1.25rem;
+  gap:clamp(.75rem,1.4vw,1.15rem);
   list-style:none;
   align-items:center;
   justify-content:flex-end;
-  flex-wrap:wrap;
+  flex-wrap:nowrap;
 }
 
 .nav-links li{display:flex;align-items:center}
@@ -129,12 +129,13 @@ nav{
   text-decoration:none;
   color:var(--azul);
   font-weight:600;
-  font-size:.92rem;
+  font-size:clamp(.82rem,.9vw,.92rem);
   transition:color .3s;
   position:relative;
   display:inline-flex;
   align-items:center;
   white-space:nowrap;
+  text-align:center;
 }
 
 .nav-links a::after{
