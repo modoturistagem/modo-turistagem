@@ -470,6 +470,214 @@
       .categoria-head h2{font-size:1.6rem}
       .roteiros-grid{grid-template-columns:1fr}
     }
+  
+    /* ===== ajustes novos ===== */
+    .inclusos-grid{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:1rem;
+    }
+
+    .incluso-box{
+      flex:0 1 240px;
+      text-align:left;
+    }
+
+    .fit-card.nao-ideal li::before{content:'-'; color:var(--laranja)}
+
+    .roteiros-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:1rem;
+    }
+
+    .roteiro-details{
+      background:var(--branco);
+      border:1px solid rgba(0,53,153,.08);
+      border-radius:24px;
+      box-shadow:0 14px 34px rgba(0,0,0,.06);
+      overflow:hidden;
+      transition:border-color .25s ease, box-shadow .25s ease;
+    }
+
+    .roteiro-details:hover{
+      border-color:rgba(255,107,24,.25);
+      box-shadow:0 18px 42px rgba(0,0,0,.08);
+    }
+
+    .roteiro-details.em-breve{
+      filter:saturate(0);
+      opacity:.96;
+      background:#f7f7f7;
+    }
+
+    .roteiro-summary{
+      list-style:none;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1rem;
+      padding:1.2rem 1.25rem;
+    }
+
+    .roteiro-summary::-webkit-details-marker{display:none}
+
+    .roteiro-summary-copy{
+      display:flex;
+      flex-direction:column;
+      gap:.55rem;
+      min-width:0;
+      flex:1 1 auto;
+    }
+
+    .roteiro-summary-copy h3{
+      margin:0;
+      color:var(--azul);
+      font-size:1.22rem;
+      line-height:1.28;
+    }
+
+    .roteiro-summary-meta{
+      display:flex;
+      align-items:center;
+      gap:.8rem;
+      flex-shrink:0;
+    }
+
+    .roteiro-summary .badge{
+      align-self:flex-start;
+      background:var(--laranja-claro);
+      color:var(--laranja);
+    }
+
+    .roteiro-summary .preco{
+      color:var(--laranja);
+      font-size:1.28rem;
+      font-weight:900;
+      white-space:nowrap;
+    }
+
+    .roteiro-expand{
+      width:34px;
+      height:34px;
+      border-radius:999px;
+      background:var(--azul-claro);
+      color:var(--azul);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      font-size:1.25rem;
+      font-weight:800;
+      line-height:1;
+      flex-shrink:0;
+      transition:transform .25s ease;
+    }
+
+    .roteiro-details[open] .roteiro-expand{
+      transform:rotate(45deg);
+    }
+
+    .roteiro-body{
+      padding:0 1.25rem 1.25rem;
+      color:var(--texto);
+    }
+
+    .roteiro-status{
+      color:var(--azul);
+      font-weight:800;
+      line-height:1.6;
+      margin-bottom:.9rem;
+    }
+
+    .topicos{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.55rem;
+      margin-bottom:.95rem;
+    }
+
+    .topico{
+      background:var(--off-white);
+      border:1px solid rgba(0,53,153,.08);
+      border-radius:999px;
+      padding:.45rem .72rem;
+      font-size:.86rem;
+      color:var(--texto);
+      line-height:1.3;
+    }
+
+    .mini-copy{
+      margin:0;
+      color:var(--texto);
+      line-height:1.68;
+      font-size:.96rem;
+    }
+
+    .botoes-roteiro{
+      display:flex;
+      flex-direction:column;
+      gap:.55rem;
+      margin-top:1rem;
+    }
+
+    .upsell-box{
+      text-align:center;
+      justify-content:center;
+    }
+
+    .upsell-copy{
+      flex:0 1 760px;
+      text-align:center;
+    }
+
+    .upsell-copy p{
+      margin-left:auto;
+      margin-right:auto;
+    }
+
+    .upsell-list{
+      justify-items:center;
+      max-width:360px;
+      margin:0 auto;
+    }
+
+    .upsell-discount{
+      margin-top:1rem !important;
+      max-width:760px;
+    }
+
+    .upsell-action{
+      flex:0 1 auto;
+      margin:0 auto;
+      align-items:center;
+      width:100%;
+      max-width:320px;
+    }
+
+    .upsell-action small{
+      max-width:340px;
+    }
+
+    @media (max-width: 768px){
+      .roteiro-summary{
+        padding:1rem;
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .roteiro-summary-meta{
+        width:100%;
+        justify-content:space-between;
+      }
+
+      .roteiro-summary-copy h3{font-size:1.08rem}
+      .roteiro-summary .preco{font-size:1.12rem}
+      .roteiro-body{padding:0 1rem 1rem}
+      .incluso-box{flex:1 1 100%}
+    }
+
   </style>
 </head>
 <body>
@@ -488,12 +696,7 @@
         <li><a href="como-funciona.html">Como Funciona</a></li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="quem-somos.html">Quem Somos</a></li>
-        <li>
-          <a href="https://wa.me/5549991628403" class="btn-nav" target="_blank" rel="noopener noreferrer">
-            Fale Conosco
-          </a>
-        </li>
-      </ul>
+</ul>
     </div>
   </nav>
 
@@ -582,156 +785,10 @@
     </div>
   </section>
 
+  
   <section class="categorias">
     <div class="categoria-wrap">
       <div class="atualizacao-note fade-in">Tem destino disponível agora, tem destino entrando na fila e tem roteiro que ainda pode virar consultoria depois. Bem do jeitinho Modo: prático, bonito e sem enrolação.</div>
-
-      <div class="categoria-bloco fade-in">
-        <div class="categoria-head">
-          <h2>🏰 Viagens Temáticas</h2>
-          <p>Pra quem quer uma experiência com vibe muito específica — parque, gastronomia, cruzeiro ou aquela viagem que já vem com tema próprio.</p>
-        </div>
-
-        <div class="roteiros-grid">
-          <article class="roteiro-card em-breve">
-            <div class="card-top">
-              <span class="selo-modo">Roteiro Modo Turistagem</span>
-              <span class="badge">⭐ Mais vendido</span>
-            </div>
-            <h3>✨ Orlando Mágico: 15 Dias de Parques & Compras</h3>
-            <div class="preco">R$ 89,99</div>
-            <div class="topicos">
-              <span class="topico">parques organizados</span>
-              <span class="topico">compras estratégicas</span>
-              <span class="topico">feito pra famílias</span>
-            </div>
-            <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
-            <div class="botoes-roteiro">
-              <span class="btn-disabled">Em breve</span>
-            </div>
-          </article>
-
-          <article class="roteiro-card em-breve">
-            <div class="card-top">
-              <span class="selo-modo">Roteiro Modo Turistagem</span>
-              <span class="badge">🔥 Perfeito pra primeira viagem</span>
-            </div>
-            <h3>👨‍🍳 Modo MasterChef: 4 Dias Gastronômicos em São Paulo</h3>
-            <div class="preco">R$ 59,99</div>
-            <div class="topicos">
-              <span class="topico">restaurantes e cafés</span>
-              <span class="topico">cidade sem complicar</span>
-              <span class="topico">fim de semana redondo</span>
-            </div>
-            <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
-            <div class="botoes-roteiro">
-              <span class="btn-disabled">Em breve</span>
-            </div>
-          </article>
-
-          <article class="roteiro-card">
-            <div class="card-top">
-              <span class="selo-modo">Roteiro Modo Turistagem</span>
-              <span class="badge">💸 Melhor custo-benefício</span>
-            </div>
-            <h3>🚢 Rota do Prata: 7 Dias em Cruzeiro Argentina + Uruguai</h3>
-            <div class="preco">R$ 49,99</div>
-            <div class="topicos">
-              <span class="topico">roteiro de cruzeiro</span>
-              <span class="topico">portos sem perrengue</span>
-              <span class="topico">primeiro cruzeiro friendly</span>
-            </div>
-            <p class="mini-copy">Ideal pra quem quer um cruzeiro internacional gostoso, bem explicado e sem precisar pesquisar tudo sozinha.</p>
-            <div class="botoes-roteiro">
-              <a href="https://mpago.la/1monhF9" target="_blank" rel="noopener" class="btn-roteiro btn-mp">Comprar</a>
-              <div class="pagamento-sub mp">Pix • Cartão à vista • Parcelado (com taxas)</div>
-              <a href="https://wa.me/5549991628403?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%20Rota%20do%20Prata%20via%20Pix.%20Pode%20me%20enviar%20a%20chave%20e%20o%20valor%3F" target="_blank" rel="noopener noreferrer" class="btn-roteiro btn-pix">Comprar via Pix</a>
-              <div class="pagamento-sub pix">Entrega do PDF: até 30 min após confirmação</div>
-            </div>
-          </article>
-        </div>
-      </div>
-
-      <div class="categoria-bloco fade-in">
-        <div class="categoria-head">
-          <h2>✈️ Viagens dos Sonhos</h2>
-          <p>Praquele destino que mora no Pinterest, no TikTok, na lista da vida e no “um dia eu vou”. Aqui a ideia é te dar uma base linda e funcional pra começar direito.</p>
-        </div>
-
-        <div class="roteiros-grid">
-          <article class="roteiro-card em-breve">
-            <div class="card-top">
-              <span class="selo-modo">Roteiro Modo Turistagem</span>
-              <span class="badge">⭐ Mais vendido</span>
-            </div>
-            <h3>⛩️ Do Templo ao Izakaya: Japão em 20 Dias</h3>
-            <div class="preco">R$ 109,99</div>
-            <div class="topicos">
-              <span class="topico">templos e bairros icônicos</span>
-              <span class="topico">restaurantes selecionados</span>
-              <span class="topico">deslocamentos explicados</span>
-            </div>
-            <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
-            <div class="botoes-roteiro">
-              <span class="btn-disabled">Em breve</span>
-            </div>
-          </article>
-
-          <article class="roteiro-card em-breve">
-            <div class="card-top">
-              <span class="selo-modo">Roteiro Modo Turistagem</span>
-              <span class="badge">🔥 Perfeito pra primeira viagem</span>
-            </div>
-            <h3>🍝 Itália dos Sonhos: 12 Dias entre Roma, Florença &amp; Veneza</h3>
-            <div class="preco">R$ 89,99</div>
-            <div class="topicos">
-              <span class="topico">clássicos imperdíveis</span>
-              <span class="topico">trens explicados</span>
-              <span class="topico">cidade com alma</span>
-            </div>
-            <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
-            <div class="botoes-roteiro">
-              <span class="btn-disabled">Em breve</span>
-            </div>
-          </article>
-
-          <article class="roteiro-card em-breve">
-            <div class="card-top">
-              <span class="selo-modo">Roteiro Modo Turistagem</span>
-              <span class="badge">💸 Melhor custo-benefício</span>
-            </div>
-            <h3>🗽 Nova York Sem Pressa: 7 Dias na Big Apple</h3>
-            <div class="preco">R$ 69,99</div>
-            <div class="topicos">
-              <span class="topico">city completo</span>
-              <span class="topico">cafés e clássicos</span>
-              <span class="topico">deslocamentos simples</span>
-            </div>
-            <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
-            <div class="botoes-roteiro">
-              <span class="btn-disabled">Em breve</span>
-            </div>
-          </article>
-
-          <article class="roteiro-card em-breve">
-            <div class="card-top">
-              <span class="selo-modo">Roteiro Modo Turistagem</span>
-              <span class="badge">🔥 Perfeito pra primeira viagem</span>
-            </div>
-            <h3>🦙 Peru Inesquecível: 7 Dias entre Cusco &amp; Machu Picchu</h3>
-            <div class="preco">R$ 79,99</div>
-            <div class="topicos">
-              <span class="topico">história e paisagem</span>
-              <span class="topico">roteiro redondo</span>
-              <span class="topico">primeira vez friendly</span>
-            </div>
-            <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
-            <div class="botoes-roteiro">
-              <span class="btn-disabled">Em breve</span>
-            </div>
-          </article>
-        </div>
-      </div>
 
       <div class="categoria-bloco fade-in">
         <div class="categoria-head">
@@ -740,101 +797,138 @@
         </div>
 
         <div class="roteiros-grid">
-          <article class="roteiro-card em-breve">
-            <div class="card-top">
-              <span class="selo-modo">Roteiro Modo Turistagem</span>
+          
+        <details class="roteiro-details disponivel">
+          <summary class="roteiro-summary">
+            <div class="roteiro-summary-copy">
               <span class="badge">⭐ Mais vendido</span>
+              <h3>🍂 Encantos da Serra Gaúcha: 6 Dias entre Gramado + Canela</h3>
             </div>
-            <h3>☀️ Cidade Maravilhosa: 6 Dias no Rio</h3>
-            <div class="preco">R$ 59,99</div>
+            <div class="roteiro-summary-meta">
+              <span class="preco">R$ 59,99</span>
+              <span class="roteiro-expand" aria-hidden="true">+</span>
+            </div>
+          </summary>
+          
+          <div class="roteiro-body">
+            <p class="roteiro-status">Disponível agora</p>
             <div class="topicos">
-              <span class="topico">city completo</span>
-              <span class="topico">praia + clássico</span>
-              <span class="topico">deslocamento explicado</span>
-            </div>
-            <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
-            <div class="botoes-roteiro">
-              <span class="btn-disabled">Em breve</span>
-            </div>
-          </article>
-
-          <article class="roteiro-card">
-            <div class="card-top">
-              <span class="selo-modo">Roteiro Modo Turistagem</span>
-              <span class="badge">⭐ Mais vendido</span>
-            </div>
-            <h3>🍂 Encantos da Serra Gaúcha: 6 Dias entre Gramado + Canela</h3>
-            <div class="preco">R$ 59,99</div>
-            <div class="topicos">
-              <span class="topico">vinícolas</span>
-              <span class="topico">neve na temporada</span>
-              <span class="topico">city completo</span>
+              <span class="topico">vinícolas</span><span class="topico">neve na temporada</span><span class="topico">city completo</span>
             </div>
             <p class="mini-copy">Perfeito pra quem quer uma viagem redondinha, charmosa e fácil de seguir — com atrações clássicas, cafés gostosos e deslocamentos mais claros.</p>
             <div class="botoes-roteiro">
-              <a href="https://mpago.la/1v8ENBH" target="_blank" rel="noopener" class="btn-roteiro btn-mp">Comprar</a>
+    
+              <a href="https://mpago.la/1v8ENBH" target="_blank" rel="noopener" class="btn-roteiro btn-mp">
+                <img src="images/icons/mercadopago.png" alt="" class="btn-ico" />
+                Comprar
+              </a>
               <div class="pagamento-sub mp">Pix • Cartão à vista • Parcelado (com taxas)</div>
-              <a href="https://wa.me/5549991628403?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%20Encantos%20da%20Serra%20Ga%C3%BAcha%20via%20Pix.%20Pode%20me%20enviar%20a%20chave%20e%20o%20valor%3F" target="_blank" rel="noopener noreferrer" class="btn-roteiro btn-pix">Comprar via Pix</a>
+              <a href="https://wa.me/5549991628403?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%20Encantos%20da%20Serra%20Ga%C3%BAcha%20via%20Pix.%20Pode%20me%20enviar%20a%20chave%20e%20o%20valor%3F" target="_blank" rel="noopener noreferrer" class="btn-roteiro btn-pix">
+                <img src="images/icons/whatsapp-logo.png" alt="" class="btn-ico" />
+                Comprar via Pix
+              </a>
               <div class="pagamento-sub pix">Entrega do PDF: até 30 min após confirmação</div>
             </div>
-          </article>
-
-          <article class="roteiro-card em-breve">
-            <div class="card-top">
-              <span class="selo-modo">Roteiro Modo Turistagem</span>
-              <span class="badge">💸 Melhor custo-benefício</span>
-            </div>
-            <h3>🎢 Diversão Garantida: 6 Dias no Beto Carrero + Praias</h3>
-            <div class="preco">R$ 59,99</div>
-            <div class="topicos">
-              <span class="topico">parque + descanso</span>
-              <span class="topico">feito pra famílias</span>
-              <span class="topico">ritmo sem correria</span>
-            </div>
-            <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
-            <div class="botoes-roteiro">
-              <span class="btn-disabled">Em breve</span>
-            </div>
-          </article>
-
-          <article class="roteiro-card em-breve">
-            <div class="card-top">
-              <span class="selo-modo">Roteiro Modo Turistagem</span>
-              <span class="badge">💸 Melhor custo-benefício</span>
-            </div>
-            <h3>💦 Cataratas Impressionantes: 4 Dias em Foz do Iguaçu</h3>
-            <div class="preco">R$ 49,99</div>
-            <div class="topicos">
-              <span class="topico">cataratas sem correria</span>
-              <span class="topico">parques organizados</span>
-              <span class="topico">logística simples</span>
-            </div>
-            <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
-            <div class="botoes-roteiro">
-              <span class="btn-disabled">Em breve</span>
-            </div>
-          </article>
-
-          <article class="roteiro-card em-breve">
-            <div class="card-top">
-              <span class="selo-modo">Roteiro Modo Turistagem</span>
+          </div>
+        </details>
+        <details class="roteiro-details em-breve">
+          <summary class="roteiro-summary">
+            <div class="roteiro-summary-copy">
               <span class="badge">🔥 Perfeito pra primeira viagem</span>
+              <h3>🏙️ SP Sem Erro: Fim de Semana Perfeito</h3>
             </div>
-            <h3>🏙️ SP Sem Erro: Fim de Semana Perfeito</h3>
-            <div class="preco">R$ 39,99</div>
+            <div class="roteiro-summary-meta">
+              <span class="preco">R$ 39,99</span>
+              <span class="roteiro-expand" aria-hidden="true">+</span>
+            </div>
+          </summary>
+          
+          <div class="roteiro-body">
+            <p class="roteiro-status">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
             <div class="topicos">
-              <span class="topico">fim de semana prático</span>
-              <span class="topico">cafés e clássicos</span>
-              <span class="topico">cidade bem amarrada</span>
+              <span class="topico">fim de semana prático</span><span class="topico">cafés e clássicos</span><span class="topico">cidade bem amarrada</span>
             </div>
             <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
             <div class="botoes-roteiro">
+    
               <span class="btn-disabled">Em breve</span>
             </div>
-          </article>
+          </div>
+        </details>
+        <details class="roteiro-details em-breve">
+          <summary class="roteiro-summary">
+            <div class="roteiro-summary-copy">
+              <span class="badge">💸 Melhor custo-benefício</span>
+              <h3>💦 Cataratas Impressionantes: 4 Dias em Foz do Iguaçu</h3>
+            </div>
+            <div class="roteiro-summary-meta">
+              <span class="preco">R$ 49,99</span>
+              <span class="roteiro-expand" aria-hidden="true">+</span>
+            </div>
+          </summary>
+          
+          <div class="roteiro-body">
+            <p class="roteiro-status">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+            <div class="topicos">
+              <span class="topico">cataratas sem correria</span><span class="topico">parques organizados</span><span class="topico">logística simples</span>
+            </div>
+            <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+            <div class="botoes-roteiro">
+    
+              <span class="btn-disabled">Em breve</span>
+            </div>
+          </div>
+        </details>
+        <details class="roteiro-details em-breve">
+          <summary class="roteiro-summary">
+            <div class="roteiro-summary-copy">
+              <span class="badge">⭐ Mais vendido</span>
+              <h3>☀️ Cidade Maravilhosa: 6 Dias no Rio</h3>
+            </div>
+            <div class="roteiro-summary-meta">
+              <span class="preco">R$ 59,99</span>
+              <span class="roteiro-expand" aria-hidden="true">+</span>
+            </div>
+          </summary>
+          
+          <div class="roteiro-body">
+            <p class="roteiro-status">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+            <div class="topicos">
+              <span class="topico">city completo</span><span class="topico">praia + clássico</span><span class="topico">deslocamento explicado</span>
+            </div>
+            <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+            <div class="botoes-roteiro">
+    
+              <span class="btn-disabled">Em breve</span>
+            </div>
+          </div>
+        </details>
+        <details class="roteiro-details em-breve">
+          <summary class="roteiro-summary">
+            <div class="roteiro-summary-copy">
+              <span class="badge">💸 Melhor custo-benefício</span>
+              <h3>🎢 Diversão Garantida: 6 Dias no Beto Carrero + Praias</h3>
+            </div>
+            <div class="roteiro-summary-meta">
+              <span class="preco">R$ 59,99</span>
+              <span class="roteiro-expand" aria-hidden="true">+</span>
+            </div>
+          </summary>
+          
+          <div class="roteiro-body">
+            <p class="roteiro-status">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+            <div class="topicos">
+              <span class="topico">parque + descanso</span><span class="topico">feito pra famílias</span><span class="topico">ritmo sem correria</span>
+            </div>
+            <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+            <div class="botoes-roteiro">
+    
+              <span class="btn-disabled">Em breve</span>
+            </div>
+          </div>
+        </details>
         </div>
       </div>
-
       <div class="categoria-bloco fade-in">
         <div class="categoria-head">
           <h2>🌎 Primeira Viagem Internacional</h2>
@@ -842,65 +936,318 @@
         </div>
 
         <div class="roteiros-grid">
-          <article class="roteiro-card em-breve">
-            <div class="card-top">
-              <span class="selo-modo">Roteiro Modo Turistagem</span>
-              <span class="badge">🔥 Perfeito pra primeira viagem</span>
-            </div>
-            <h3>🛂 Primeira Carimbada: 6 Dias em Buenos Aires</h3>
-            <div class="preco">R$ 69,99</div>
-            <div class="topicos">
-              <span class="topico">primeira viagem friendly</span>
-              <span class="topico">cafés e clássicos</span>
-              <span class="topico">city completo</span>
-            </div>
-            <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
-            <div class="botoes-roteiro">
-              <span class="btn-disabled">Em breve</span>
-            </div>
-          </article>
-
-          <article class="roteiro-card">
-            <div class="card-top">
-              <span class="selo-modo">Roteiro Modo Turistagem</span>
-              <span class="badge">🔥 Perfeito pra primeira viagem</span>
-            </div>
-            <h3>🏔️ Andes na Janela: 5 Dias em Santiago</h3>
-            <div class="preco">R$ 59,99</div>
-            <div class="topicos">
-              <span class="topico">vinícolas</span>
-              <span class="topico">neve na temporada</span>
-              <span class="topico">city completo</span>
-            </div>
-            <p class="mini-copy">Uma base ótima pra quem quer estrear fora do Brasil com um destino lindo, prático e bem gostoso de montar sem excesso de complicação.</p>
-            <div class="botoes-roteiro">
-              <a href="https://mpago.la/2eRhVqN" target="_blank" rel="noopener" class="btn-roteiro btn-mp">Comprar</a>
-              <div class="pagamento-sub mp">Pix • Cartão à vista • Parcelado (com taxas)</div>
-              <a href="https://wa.me/5549991628403?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%20Santiago%20via%20Pix.%20Pode%20me%20enviar%20a%20chave%20e%20o%20valor%3F" target="_blank" rel="noopener noreferrer" class="btn-roteiro btn-pix">Comprar via Pix</a>
-              <div class="pagamento-sub pix">Entrega do PDF: até 30 min após confirmação</div>
-            </div>
-          </article>
-
-          <article class="roteiro-card">
-            <div class="card-top">
-              <span class="selo-modo">Roteiro Modo Turistagem</span>
+          
+        <details class="roteiro-details disponivel">
+          <summary class="roteiro-summary">
+            <div class="roteiro-summary-copy">
               <span class="badge">💸 Melhor custo-benefício</span>
+              <h3>🚢 Cruzeiro Argentina + Uruguai</h3>
             </div>
-            <h3>🚢 Cruzeiro Argentina + Uruguai</h3>
-            <div class="preco">R$ 49,99</div>
+            <div class="roteiro-summary-meta">
+              <span class="preco">R$ 49,99</span>
+              <span class="roteiro-expand" aria-hidden="true">+</span>
+            </div>
+          </summary>
+          
+          <div class="roteiro-body">
+            <p class="roteiro-status">Disponível agora</p>
             <div class="topicos">
-              <span class="topico">primeira saída internacional</span>
-              <span class="topico">logística simples</span>
-              <span class="topico">roteiro prático</span>
+              <span class="topico">primeira saída internacional</span><span class="topico">logística simples</span><span class="topico">roteiro prático</span>
             </div>
             <p class="mini-copy">Pra quem quer sentir gostinho de viagem internacional com uma logística mais leve, boa relação custo-benefício e uma experiência bem gostosa.</p>
             <div class="botoes-roteiro">
-              <a href="https://mpago.la/1monhF9" target="_blank" rel="noopener" class="btn-roteiro btn-mp">Comprar</a>
+    
+              <a href="https://mpago.la/1monhF9" target="_blank" rel="noopener" class="btn-roteiro btn-mp">
+                <img src="images/icons/mercadopago.png" alt="" class="btn-ico" />
+                Comprar
+              </a>
               <div class="pagamento-sub mp">Pix • Cartão à vista • Parcelado (com taxas)</div>
-              <a href="https://wa.me/5549991628403?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%20Cruzeiro%20Argentina%20%2B%20Uruguai%20via%20Pix.%20Pode%20me%20enviar%20a%20chave%20e%20o%20valor%3F" target="_blank" rel="noopener noreferrer" class="btn-roteiro btn-pix">Comprar via Pix</a>
+              <a href="https://wa.me/5549991628403?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%20Cruzeiro%20Argentina%20%2B%20Uruguai%20via%20Pix.%20Pode%20me%20enviar%20a%20chave%20e%20o%20valor%3F" target="_blank" rel="noopener noreferrer" class="btn-roteiro btn-pix">
+                <img src="images/icons/whatsapp-logo.png" alt="" class="btn-ico" />
+                Comprar via Pix
+              </a>
               <div class="pagamento-sub pix">Entrega do PDF: até 30 min após confirmação</div>
             </div>
-          </article>
+          </div>
+        </details>
+        <details class="roteiro-details disponivel">
+          <summary class="roteiro-summary">
+            <div class="roteiro-summary-copy">
+              <span class="badge">🔥 Perfeito pra primeira viagem</span>
+              <h3>🏔️ Andes na Janela: 5 Dias em Santiago</h3>
+            </div>
+            <div class="roteiro-summary-meta">
+              <span class="preco">R$ 59,99</span>
+              <span class="roteiro-expand" aria-hidden="true">+</span>
+            </div>
+          </summary>
+          
+          <div class="roteiro-body">
+            <p class="roteiro-status">Disponível agora</p>
+            <div class="topicos">
+              <span class="topico">vinícolas</span><span class="topico">neve na temporada</span><span class="topico">city completo</span>
+            </div>
+            <p class="mini-copy">Uma base ótima pra quem quer estrear fora do Brasil com um destino lindo, prático e bem gostoso de montar sem excesso de complicação.</p>
+            <div class="botoes-roteiro">
+    
+              <a href="https://mpago.la/2eRhVqN" target="_blank" rel="noopener" class="btn-roteiro btn-mp">
+                <img src="images/icons/mercadopago.png" alt="" class="btn-ico" />
+                Comprar
+              </a>
+              <div class="pagamento-sub mp">Pix • Cartão à vista • Parcelado (com taxas)</div>
+              <a href="https://wa.me/5549991628403?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%20Santiago%20via%20Pix.%20Pode%20me%20enviar%20a%20chave%20e%20o%20valor%3F" target="_blank" rel="noopener noreferrer" class="btn-roteiro btn-pix">
+                <img src="images/icons/whatsapp-logo.png" alt="" class="btn-ico" />
+                Comprar via Pix
+              </a>
+              <div class="pagamento-sub pix">Entrega do PDF: até 30 min após confirmação</div>
+            </div>
+          </div>
+        </details>
+        <details class="roteiro-details em-breve">
+          <summary class="roteiro-summary">
+            <div class="roteiro-summary-copy">
+              <span class="badge">🔥 Perfeito pra primeira viagem</span>
+              <h3>🛂 Primeira Carimbada: 6 Dias em Buenos Aires</h3>
+            </div>
+            <div class="roteiro-summary-meta">
+              <span class="preco">R$ 69,99</span>
+              <span class="roteiro-expand" aria-hidden="true">+</span>
+            </div>
+          </summary>
+          
+          <div class="roteiro-body">
+            <p class="roteiro-status">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+            <div class="topicos">
+              <span class="topico">primeira viagem friendly</span><span class="topico">cafés e clássicos</span><span class="topico">city completo</span>
+            </div>
+            <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+            <div class="botoes-roteiro">
+    
+              <span class="btn-disabled">Em breve</span>
+            </div>
+          </div>
+        </details>
+        <details class="roteiro-details em-breve">
+          <summary class="roteiro-summary">
+            <div class="roteiro-summary-copy">
+              <span class="badge">🔥 Perfeito pra primeira viagem</span>
+              <h3>🦙 Peru Inesquecível: 7 Dias entre Cusco &amp; Machu Picchu</h3>
+            </div>
+            <div class="roteiro-summary-meta">
+              <span class="preco">R$ 79,99</span>
+              <span class="roteiro-expand" aria-hidden="true">+</span>
+            </div>
+          </summary>
+          
+          <div class="roteiro-body">
+            <p class="roteiro-status">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+            <div class="topicos">
+              <span class="topico">história e paisagem</span><span class="topico">roteiro redondo</span><span class="topico">primeira vez friendly</span>
+            </div>
+            <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+            <div class="botoes-roteiro">
+    
+              <span class="btn-disabled">Em breve</span>
+            </div>
+          </div>
+        </details>
+        </div>
+      </div>
+      <div class="categoria-bloco fade-in">
+        <div class="categoria-head">
+          <h2>✈️ Viagens dos Sonhos</h2>
+          <p>Praquele destino que mora no Pinterest, no TikTok, na lista da vida e no “um dia eu vou”. Aqui a ideia é te dar uma base linda e funcional pra começar direito.</p>
+        </div>
+
+        <div class="roteiros-grid">
+          
+        <details class="roteiro-details em-breve">
+          <summary class="roteiro-summary">
+            <div class="roteiro-summary-copy">
+              <span class="badge">💸 Melhor custo-benefício</span>
+              <h3>🗽 Nova York Sem Pressa: 7 Dias na Big Apple</h3>
+            </div>
+            <div class="roteiro-summary-meta">
+              <span class="preco">R$ 69,99</span>
+              <span class="roteiro-expand" aria-hidden="true">+</span>
+            </div>
+          </summary>
+          
+          <div class="roteiro-body">
+            <p class="roteiro-status">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+            <div class="topicos">
+              <span class="topico">city completo</span><span class="topico">cafés e clássicos</span><span class="topico">deslocamentos simples</span>
+            </div>
+            <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+            <div class="botoes-roteiro">
+    
+              <span class="btn-disabled">Em breve</span>
+            </div>
+          </div>
+        </details>
+        <details class="roteiro-details em-breve">
+          <summary class="roteiro-summary">
+            <div class="roteiro-summary-copy">
+              <span class="badge">🔥 Perfeito pra primeira viagem</span>
+              <h3>🦙 Peru Inesquecível: 7 Dias entre Cusco &amp; Machu Picchu</h3>
+            </div>
+            <div class="roteiro-summary-meta">
+              <span class="preco">R$ 79,99</span>
+              <span class="roteiro-expand" aria-hidden="true">+</span>
+            </div>
+          </summary>
+          
+          <div class="roteiro-body">
+            <p class="roteiro-status">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+            <div class="topicos">
+              <span class="topico">história e paisagem</span><span class="topico">roteiro redondo</span><span class="topico">primeira vez friendly</span>
+            </div>
+            <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+            <div class="botoes-roteiro">
+    
+              <span class="btn-disabled">Em breve</span>
+            </div>
+          </div>
+        </details>
+        <details class="roteiro-details em-breve">
+          <summary class="roteiro-summary">
+            <div class="roteiro-summary-copy">
+              <span class="badge">🔥 Perfeito pra primeira viagem</span>
+              <h3>🍝 Itália dos Sonhos: 12 Dias entre Roma, Florença &amp; Veneza</h3>
+            </div>
+            <div class="roteiro-summary-meta">
+              <span class="preco">R$ 89,99</span>
+              <span class="roteiro-expand" aria-hidden="true">+</span>
+            </div>
+          </summary>
+          
+          <div class="roteiro-body">
+            <p class="roteiro-status">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+            <div class="topicos">
+              <span class="topico">clássicos imperdíveis</span><span class="topico">trens explicados</span><span class="topico">cidade com alma</span>
+            </div>
+            <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+            <div class="botoes-roteiro">
+    
+              <span class="btn-disabled">Em breve</span>
+            </div>
+          </div>
+        </details>
+        <details class="roteiro-details em-breve">
+          <summary class="roteiro-summary">
+            <div class="roteiro-summary-copy">
+              <span class="badge">⭐ Mais vendido</span>
+              <h3>⛩️ Do Templo ao Izakaya: Japão em 20 Dias</h3>
+            </div>
+            <div class="roteiro-summary-meta">
+              <span class="preco">R$ 109,99</span>
+              <span class="roteiro-expand" aria-hidden="true">+</span>
+            </div>
+          </summary>
+          
+          <div class="roteiro-body">
+            <p class="roteiro-status">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+            <div class="topicos">
+              <span class="topico">templos e bairros icônicos</span><span class="topico">restaurantes selecionados</span><span class="topico">deslocamentos explicados</span>
+            </div>
+            <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+            <div class="botoes-roteiro">
+    
+              <span class="btn-disabled">Em breve</span>
+            </div>
+          </div>
+        </details>
+        </div>
+      </div>
+      <div class="categoria-bloco fade-in">
+        <div class="categoria-head">
+          <h2>🏰 Viagens Temáticas</h2>
+          <p>Pra quem quer uma experiência com vibe muito específica — parque, gastronomia, cruzeiro ou aquela viagem que já vem com tema próprio.</p>
+        </div>
+
+        <div class="roteiros-grid">
+          
+        <details class="roteiro-details disponivel">
+          <summary class="roteiro-summary">
+            <div class="roteiro-summary-copy">
+              <span class="badge">💸 Melhor custo-benefício</span>
+              <h3>🚢 Rota do Prata: 7 Dias em Cruzeiro Argentina + Uruguai</h3>
+            </div>
+            <div class="roteiro-summary-meta">
+              <span class="preco">R$ 49,99</span>
+              <span class="roteiro-expand" aria-hidden="true">+</span>
+            </div>
+          </summary>
+          
+          <div class="roteiro-body">
+            <p class="roteiro-status">Disponível agora</p>
+            <div class="topicos">
+              <span class="topico">roteiro de cruzeiro</span><span class="topico">portos sem perrengue</span><span class="topico">primeiro cruzeiro friendly</span>
+            </div>
+            <p class="mini-copy">Ideal pra quem quer um cruzeiro internacional gostoso, bem explicado e sem precisar pesquisar tudo sozinha.</p>
+            <div class="botoes-roteiro">
+    
+              <a href="https://mpago.la/1monhF9" target="_blank" rel="noopener" class="btn-roteiro btn-mp">
+                <img src="images/icons/mercadopago.png" alt="" class="btn-ico" />
+                Comprar
+              </a>
+              <div class="pagamento-sub mp">Pix • Cartão à vista • Parcelado (com taxas)</div>
+              <a href="https://wa.me/5549991628403?text=Oi!%20Quero%20comprar%20o%20Roteiro%20Pronto%20Rota%20do%20Prata%20via%20Pix.%20Pode%20me%20enviar%20a%20chave%20e%20o%20valor%3F" target="_blank" rel="noopener noreferrer" class="btn-roteiro btn-pix">
+                <img src="images/icons/whatsapp-logo.png" alt="" class="btn-ico" />
+                Comprar via Pix
+              </a>
+              <div class="pagamento-sub pix">Entrega do PDF: até 30 min após confirmação</div>
+            </div>
+          </div>
+        </details>
+        <details class="roteiro-details em-breve">
+          <summary class="roteiro-summary">
+            <div class="roteiro-summary-copy">
+              <span class="badge">🔥 Perfeito pra primeira viagem</span>
+              <h3>👨‍🍳 Modo MasterChef: 4 Dias Gastronômicos em São Paulo</h3>
+            </div>
+            <div class="roteiro-summary-meta">
+              <span class="preco">R$ 59,99</span>
+              <span class="roteiro-expand" aria-hidden="true">+</span>
+            </div>
+          </summary>
+          
+          <div class="roteiro-body">
+            <p class="roteiro-status">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+            <div class="topicos">
+              <span class="topico">restaurantes e cafés</span><span class="topico">cidade sem complicar</span><span class="topico">fim de semana redondo</span>
+            </div>
+            <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+            <div class="botoes-roteiro">
+    
+              <span class="btn-disabled">Em breve</span>
+            </div>
+          </div>
+        </details>
+        <details class="roteiro-details em-breve">
+          <summary class="roteiro-summary">
+            <div class="roteiro-summary-copy">
+              <span class="badge">⭐ Mais vendido</span>
+              <h3>✨ Orlando Mágico: 15 Dias de Parques & Compras</h3>
+            </div>
+            <div class="roteiro-summary-meta">
+              <span class="preco">R$ 89,99</span>
+              <span class="roteiro-expand" aria-hidden="true">+</span>
+            </div>
+          </summary>
+          
+          <div class="roteiro-body">
+            <p class="roteiro-status">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+            <div class="topicos">
+              <span class="topico">parques organizados</span><span class="topico">compras estratégicas</span><span class="topico">feito pra famílias</span>
+            </div>
+            <p class="mini-copy">Esse roteiro já entrou na fila — assim que estiver pronto, ele aparece aqui bonitinho.</p>
+            <div class="botoes-roteiro">
+    
+              <span class="btn-disabled">Em breve</span>
+            </div>
+          </div>
+        </details>
         </div>
       </div>
     </div>
@@ -911,21 +1258,24 @@
       <div class="upsell-copy">
         <h2>Quer esse roteiro adaptado pra você?</h2>
         <p>Se você gostou da base, mas quer deixar a viagem mais redonda, mais específica ou mais a sua cara, dá pra transformar esse roteiro em consultoria personalizada com:</p>
+
         <ul class="upsell-list">
+          <li>🎒 Modo Partiu</li>
           <li>🧳 Modo Check-in</li>
           <li>✈️ Modo Embarque</li>
           <li>💎 Modo VIP</li>
         </ul>
+
+        <p class="upsell-discount"><strong>Se você já comprou um roteiro pronto e quiser personalizar depois, 100% do valor pago entra como desconto na contratação de um plano.</strong></p>
       </div>
 
       <div class="upsell-action">
-        <a href="index.html#planos" class="btn-primary">👉 Ver consultoria</a>
-        <small>Você pode começar com praticidade agora e evoluir depois, sem perder o fio da meada.</small>
+        <a href="index.html#planos" class="btn-primary">✨ Ver consultoria</a>
+        <small>Você começa com praticidade agora e, se quiser, depois transforma tudo em algo 100% seu.</small>
       </div>
     </div>
   </section>
-
-  <footer>
+<footer>
     <div class="footer-content">
       <img src="images/LOGOTIPO%20branco.png" alt="Modo Turistagem" class="footer-logo" />
 
