@@ -13,6 +13,24 @@
   <main class="admin-main">
     <section class="dashboard-hero admin-hero"><span class="eyebrow eyebrow-orange">Bastidores da Modo</span><h1>Publicar sem diagramar tudo de novo.</h1><p>O visual já está pronto. Importe um JSON privado, confira a prévia, salve e crie os acessos dos clientes.</p></section>
 
+    <section class="admin-card admin-library" aria-labelledby="all-routes-title">
+      <div class="admin-library-head">
+        <div>
+          <span class="eyebrow">Sua biblioteca</span>
+          <h2 id="all-routes-title">Todos os roteiros</h2>
+          <p id="adminRoutesCount">Carregando os roteiros do portal…</p>
+        </div>
+        <div class="admin-actions">
+          <button type="button" id="refreshRoutesButton" class="btn btn-small btn-secondary">Atualizar lista</button>
+          <button type="button" id="newRouteButton" class="btn btn-small btn-primary">Novo roteiro</button>
+        </div>
+      </div>
+      <div id="adminRoutesGrid" class="admin-routes-grid">
+        <div class="admin-route-empty">Carregando…</div>
+      </div>
+      <p id="routesMessage" class="form-message" role="status" aria-live="polite"></p>
+    </section>
+
     <section class="admin-grid">
       <form id="itineraryForm" class="admin-card">
         <div class="admin-card-head">
@@ -26,7 +44,7 @@
         </div>
         <div class="form-grid two-cols">
           <label>Slug<input id="routeSlug" required placeholder="andes-na-janela" /></label>
-          <label>Status<select id="routeStatus"><option value="draft">Rascunho</option><option value="published">Publicado</option></select></label>
+          <label>Status<select id="routeStatus"><option value="draft">Rascunho</option><option value="published">Publicado</option><option value="archived">Arquivado</option></select></label>
           <label>Título<input id="routeTitle" required /></label><label>Subtítulo<input id="routeSubtitle" /></label>
           <label>Destino<input id="routeDestination" /></label><label>Duração<input id="routeDuration" /></label>
           <label>Temporada<input id="routeSeason" /></label><label>Versão<input id="routeVersion" /></label>
@@ -51,7 +69,7 @@
             <input id="clientPassword" type="text" required minlength="8" autocomplete="new-password" placeholder="mínimo de 8 caracteres" />
             <button type="button" id="generatePasswordButton" class="btn btn-small btn-secondary">Gerar</button>
           </div>
-          <label>Roteiro<select id="clientItinerarySlug" required><option value="andes-na-janela">Andes na Janela</option></select></label>
+          <label>Roteiro<select id="clientItinerarySlug" required><option value="">Carregando roteiros…</option></select></label>
           <label>Validade opcional<input id="clientExpiry" type="date" /></label>
           <button type="submit" id="createClientButton" class="btn btn-primary">Criar acesso</button>
           <p id="clientMessage" class="form-message" role="status"></p>
