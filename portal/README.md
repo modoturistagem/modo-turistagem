@@ -32,16 +32,14 @@ Internamente, o Supabase usa um e-mail técnico que o cliente nunca precisa ver.
 
 ## Ativação
 
-1. Rode `portal/supabase/schema.sql` no SQL Editor.
-2. Caso apareça erro de política já existente, rode `portal/supabase/reparar-politicas.sql` e depois execute o `schema.sql` novamente.
-3. Rode `portal/supabase/admin-generated-access.sql`.
-4. Em **Authentication > Users**, crie manualmente a primeira conta de administradora usando seu e-mail real e uma senha forte.
-5. Rode `portal/supabase/promote-admin.sql`, trocando o e-mail pelo seu.
-6. Em **Authentication > Providers > Email**, desative **Allow new users to sign up**. Apenas contas já criadas poderão entrar.
-7. Publique a função `supabase/functions/create-client/index.ts` com o nome `create-client`.
-8. Entre em `portal/admin.html` usando seu e-mail real no campo de usuário e sua senha.
-9. Importe o JSON privado, confira a prévia e salve o roteiro.
-10. Use **Criar usuário e senha** para gerar o acesso do cliente e liberar o roteiro na mesma ação.
+1. Rode `portal/supabase/schema-v2.sql` no SQL Editor. Esse arquivo é idempotente e corrige tentativas parciais anteriores.
+2. Em **Authentication > Users**, crie manualmente a primeira conta de administradora usando seu e-mail real e uma senha forte.
+3. Rode `portal/supabase/promote-admin.sql`, trocando o e-mail pelo seu.
+4. Em **Authentication > Providers > Email**, desative **Allow new users to sign up**. Apenas contas já criadas poderão entrar.
+5. Publique a função `supabase/functions/create-client/index.ts` com o nome `create-client`.
+6. Entre em `portal/admin.html` usando seu e-mail real no campo de usuário e sua senha.
+7. Importe o JSON privado, confira a prévia e salve o roteiro.
+8. Use **Criar usuário e senha** para gerar o acesso do cliente e liberar o roteiro na mesma ação.
 
 ## Publicar a Edge Function
 
