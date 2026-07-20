@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#003599" />
   <title>Portal de Roteiros | Modo Turistagem</title>
-  <link rel="stylesheet" href="css/portal.css" /><link rel="stylesheet" href="css/private-full.css" />
+  <link rel="stylesheet" href="css/portal.css" />
+  <link rel="stylesheet" href="css/private-full.css" />
 </head>
 <body class="auth-page">
   <main class="auth-shell">
@@ -16,31 +17,34 @@
       <p>Entre para acessar somente os roteiros liberados para você — com links, checklist e atualizações no mesmo lugar.</p>
       <div class="auth-benefits"><span>📱 feito pro celular</span><span>🔗 links organizados</span><span>🔄 sempre na versão mais recente</span></div>
     </section>
+
     <section class="auth-card" aria-labelledby="login-title">
-      <div class="auth-card-header"><span class="eyebrow">Modo Roteiro ON</span><h2 id="login-title">Entrar no portal</h2><p>Use o e-mail informado na compra.</p></div>
+      <div class="auth-card-header">
+        <span class="eyebrow">Modo Roteiro ON</span>
+        <h2 id="login-title">Entrar no portal</h2>
+        <p>Use o usuário e a senha enviados pela Modo Turistagem.</p>
+      </div>
+
       <form id="passwordForm" class="auth-form">
-        <label for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email" required placeholder="voce@email.com" />
-        <label for="password">Senha</label><input id="password" name="password" type="password" autocomplete="current-password" required minlength="6" placeholder="••••••••" />
+        <label for="username">Usuário</label>
+        <input id="username" name="username" type="text" autocomplete="username" required minlength="3" maxlength="64" autocapitalize="none" spellcheck="false" placeholder="seu.usuario" />
+        <label for="password">Senha</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required minlength="8" placeholder="••••••••" />
         <button type="submit" class="btn btn-primary" id="passwordButton">Entrar</button>
       </form>
-      <details class="first-access-box">
-        <summary>Primeiro acesso? Criar minha senha</summary>
-        <form id="signupForm" class="auth-form compact-form">
-          <label for="signupEmail">E-mail usado na compra</label><input id="signupEmail" name="signupEmail" type="email" autocomplete="email" required placeholder="voce@email.com" />
-          <label for="signupPassword">Crie uma senha</label><input id="signupPassword" name="signupPassword" type="password" autocomplete="new-password" required minlength="6" placeholder="mínimo de 6 caracteres" />
-          <button type="submit" class="btn btn-secondary" id="signupButton">Criar acesso</button>
-        </form>
-      </details>
-      <div class="auth-divider"><span>ou</span></div>
-      <form id="magicForm" class="auth-form compact-form">
-        <label for="magicEmail">Receber link de acesso por e-mail</label>
-        <div class="inline-form"><input id="magicEmail" name="magicEmail" type="email" autocomplete="email" required placeholder="voce@email.com" /><button type="submit" class="btn btn-secondary" id="magicButton">Enviar link</button></div>
-      </form>
+
+      <div class="access-notice">
+        <strong>🔐 Acesso individual</strong>
+        <p>Não há cadastro público. Cada usuário e senha é criado e liberado pela Modo Turistagem.</p>
+      </div>
+
       <button type="button" class="demo-button" id="demoButton">Ver demonstração do roteiro do Chile →</button>
       <p id="authMessage" class="form-message" role="status" aria-live="polite"></p>
-      <p class="auth-help">Não recebeu acesso? <a href="https://wa.me/5549991628403" target="_blank" rel="noopener noreferrer">Chama a Modo no WhatsApp</a>.</p>
+      <p class="auth-help">Perdeu seus dados de acesso? <a href="https://wa.me/5549991628403" target="_blank" rel="noopener noreferrer">Chama a Modo no WhatsApp</a>.</p>
     </section>
   </main>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="js/config.js"></script><script src="js/auth.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/auth.js"></script>
 </body>
 </html>
