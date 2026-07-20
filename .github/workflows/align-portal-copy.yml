@@ -1,0 +1,443 @@
+name: Alinhar site ao Portal de Roteiros
+
+on:
+  push:
+    branches:
+      - agent/alinha-site-portal-roteiros
+
+permissions:
+  contents: write
+
+jobs:
+  update-copy:
+    if: github.event.head_commit.message != 'Alinha site ao Portal de Roteiros'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/alinha-site-portal-roteiros
+          fetch-depth: 0
+
+      - name: Atualizar páginas
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          def read(path):
+              return Path(path).read_text(encoding="utf-8")
+
+          def write(path, text):
+              Path(path).write_text(text, encoding="utf-8")
+
+          def replace_once(path, old, new):
+              text = read(path)
+              if old not in text:
+                  raise RuntimeError(f"Trecho não encontrado em {path}: {old[:100]!r}")
+              write(path, text.replace(old, new, 1))
+
+          def replace_regex(path, pattern, replacement, count=1):
+              text = read(path)
+              updated, matches = re.subn(pattern, replacement, text, count=count, flags=re.S)
+              if matches != count:
+                  raise RuntimeError(f"Esperava {count} ocorrência(s) em {path}, encontrei {matches}: {pattern}")
+              write(path, updated)
+
+          def replace_faq_answer(question, body_html):
+              path = "faq.html"
+              text = read(path)
+              qpos = text.find(f'<span class="faq-pergunta-texto">{question}</span>')
+              if qpos < 0:
+                  raise RuntimeError(f"Pergunta não encontrada: {question}")
+              start_marker = '<div class="faq-resposta-conteudo">'
+              start = text.find(start_marker, qpos)
+              if start < 0:
+                  raise RuntimeError(f"Resposta não encontrada: {question}")
+              content_start = start + len(start_marker)
+              end = text.find('</div>', content_start)
+              if end < 0:
+                  raise RuntimeError(f"Fim da resposta não encontrado: {question}")
+              updated = text[:content_start] + "\n" + body_html.strip() + "\n          " + text[end:]
+              write(path, updated)
+
+          # ROTEIROS PRONTOS — posicionamento, acesso e entrega
+          path = "roteiros-prontos.html"
+          text = read(path)
+          text = re.sub(
+              r'<meta name="description" content="[^"]*" />',
+              '<meta name="description" content="Escolha seu destino e acesse seu roteiro pelo Portal de Roteiros da Modo Turistagem, com usuário e senha, links organizados e atualizações no mesmo lugar." />',
+              text,
+              count=1,
+          )
+          text = re.sub(
+              r'<meta property="og:description" content="[^"]*" />',
+              '<meta property="og:description" content="Escolha seu destino e acesse seu roteiro pelo Portal de Roteiros, com uma biblioteca individual pronta para usar no celular." />',
+              text,
+              count=1,
+          )
+          text = re.sub(
+              r'<meta name="twitter:description" content="[^"]*" />',
+              '<meta name="twitter:description" content="Escolha seu destino e acesse seu roteiro pelo Portal de Roteiros, com uma biblioteca individual pronta para usar no celular." />',
+              text,
+              count=1,
+          )
+          old_hero = '<p>Escolha seu destino, baixe seu roteiro pronto e só aproveite ✈️ É o jeito mais prático de sair da ideia e ir pra ação com uma base clara, organizada e feita por quem realmente ama montar viagem.</p>'
+          new_hero = '<p>Escolha seu destino e receba acesso individual ao Portal de Roteiros ✈️ Tudo fica organizado em uma biblioteca feita pra abrir no celular, consultar durante a viagem e acompanhar sempre na versão mais recente.</p>'
+          if old_hero not in text:
+              raise RuntimeError("Texto principal da página de roteiros não encontrado")
+          text = text.replace(old_hero, new_hero, 1)
+          text = text.replace('<span class="hero-pill">📥 download digital</span>', '<span class="hero-pill">🔐 acesso individual</span>', 1)
+          text = text.replace('<span class="hero-pill">🧳 prático e organizado</span>', '<span class="hero-pill">📱 feito pro celular</span>', 1)
+          text = text.replace('<span class="hero-pill">🔄 atualizado regularmente</span>', '<span class="hero-pill">🔄 sempre na versão mais recente</span>', 1)
+          old_note = 'Os roteiros são atualizados regularmente — então essa vitrine vai ficando cada vez mais bonita, completa e útil pra quem quer praticidade sem começar do zero.'
+          new_note = 'Comprou um roteiro? A Modo cria seu usuário e sua senha, libera o destino na sua biblioteca e envia os dados de acesso depois da confirmação do pagamento.'
+          if old_note not in text:
+              raise RuntimeError("Nota da página de roteiros não encontrada")
+          text = text.replace(old_note, new_note, 1)
+          text = text.replace('não um PDF bonito e vazio', 'não um material bonito e vazio', 1)
+          delivery_count = text.count('Entrega do PDF: até 30 min após confirmação')
+          if delivery_count == 0:
+              raise RuntimeError("Nenhuma nota antiga de entrega em PDF encontrada")
+          text = text.replace('Entrega do PDF: até 30 min após confirmação', 'Acesso ao Portal enviado após a confirmação do pagamento')
+
+          portal_css = '''
+  <style>
+    .portal-access-section{
+      padding:2.4rem 2rem 0;
+      background:var(--branco);
+    }
+    .portal-access-card{
+      max-width:980px;
+      margin:0 auto;
+      padding:2rem;
+      border-radius:28px;
+      background:linear-gradient(135deg,var(--azul) 0%,#2458B8 100%);
+      color:var(--branco);
+      text-align:center;
+      box-shadow:0 18px 42px rgba(0,53,153,.2);
+    }
+    .portal-access-card h2{
+      color:var(--branco);
+      font-size:2rem;
+      margin-bottom:.7rem;
+    }
+    .portal-access-card p{
+      max-width:760px;
+      margin:0 auto;
+      line-height:1.75;
+      opacity:.96;
+    }
+    .portal-access-steps{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:.75rem;
+      margin:1.35rem 0;
+    }
+    .portal-access-step{
+      padding:.9rem;
+      border-radius:16px;
+      background:rgba(255,255,255,.1);
+      border:1px solid rgba(255,255,255,.16);
+      line-height:1.5;
+      font-size:.92rem;
+    }
+    .portal-access-actions{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:.8rem;
+    }
+    .portal-access-actions .btn-secondary{
+      border-color:var(--branco);
+      color:var(--branco);
+    }
+    .portal-access-actions .btn-secondary:hover{
+      background:var(--branco);
+      color:var(--azul);
+    }
+    @media(max-width:768px){
+      .portal-access-section{padding:1.5rem 1rem 0}
+      .portal-access-card{padding:1.4rem;border-radius:22px}
+      .portal-access-card h2{font-size:1.65rem}
+      .portal-access-steps{grid-template-columns:1fr 1fr}
+      .portal-access-actions{flex-direction:column}
+      .portal-access-actions a{width:100%}
+    }
+    @media(max-width:480px){
+      .portal-access-steps{grid-template-columns:1fr}
+    }
+  </style>
+'''
+          if '.portal-access-section' not in text:
+              text = text.replace('</head>', portal_css + '\n</head>', 1)
+
+          portal_section = '''
+  <section class="portal-access-section" aria-labelledby="portal-access-title">
+    <div class="portal-access-card fade-in">
+      <span class="section-tag">🔐 Portal de Roteiros</span>
+      <h2 id="portal-access-title">Seu roteiro fica onde você realmente precisa dele</h2>
+      <p>Depois da confirmação do pagamento, a Modo cria seu acesso individual. Você recebe usuário e senha e encontra somente os roteiros liberados para a sua conta.</p>
+      <div class="portal-access-steps" aria-label="Como funciona o acesso">
+        <div class="portal-access-step"><strong>1.</strong> Escolha e compre o roteiro</div>
+        <div class="portal-access-step"><strong>2.</strong> A Modo cria seu acesso</div>
+        <div class="portal-access-step"><strong>3.</strong> Receba usuário e senha</div>
+        <div class="portal-access-step"><strong>4.</strong> Abra online ou salve em PDF</div>
+      </div>
+      <div class="portal-access-actions">
+        <a href="portal/" class="btn-primary">🔐 Acessar meus roteiros</a>
+        <a href="portal/dashboard.html?demo=1" class="btn-secondary">Ver demonstração</a>
+      </div>
+    </div>
+  </section>
+'''
+          if 'id="portal-access-title"' not in text:
+              note_match = re.search(r'(<div class="roteiros-note fade-in">.*?</div>)', text, flags=re.S)
+              if not note_match:
+                  raise RuntimeError("Bloco de nota da página de roteiros não encontrado")
+              text = text[:note_match.end()] + '\n' + portal_section + text[note_match.end():]
+          write(path, text)
+
+          # FAQ — separar produto, portal e PDF opcional
+          replace_faq_answer(
+              'O que exatamente vocês entregam?',
+              '''<p>O formato depende do serviço contratado:</p>
+            <ul class="highlight-list">
+              <li><strong>Roteiros Prontos:</strong> acesso individual ao Portal de Roteiros, com usuário, senha, biblioteca online, links organizados e opção de salvar em PDF.</li>
+              <li><strong>Consultoria personalizada:</strong> roteiro, curadoria, mapa, links e orientações conforme o plano contratado.</li>
+              <li><strong>Ajuda Expressa:</strong> pesquisa e recomendação pontual pelos canais combinados.</li>
+            </ul>
+            <p>O material é considerado entregue quando o acesso ou a entrega combinada é enviado pela Modo Turistagem.</p>'''
+          )
+          replace_faq_answer(
+              'Como recebo o roteiro?',
+              '''<p>Depois da confirmação do pagamento, a Modo cria um <strong>usuário e uma senha</strong> e libera o roteiro na sua biblioteca individual.</p>
+            <p>Você entra no <strong>Portal de Roteiros</strong>, consulta o conteúdo pelo celular e também pode salvar uma versão em PDF quando quiser.</p>'''
+          )
+
+          faq_items = '''
+    <div class="faq-item fade-in">
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">Como acesso um roteiro que já comprei?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-resposta">
+        <div class="faq-resposta-inner">
+          <div class="faq-resposta-conteudo">
+            <p>Acesse o <a href="portal/"><strong>Portal de Roteiros</strong></a> e entre com o usuário e a senha enviados pela Modo Turistagem. Não existe cadastro público: o acesso é criado e liberado pela Modo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item fade-in">
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">Perdi meu usuário ou minha senha. O que faço?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-resposta">
+        <div class="faq-resposta-inner">
+          <div class="faq-resposta-conteudo">
+            <p>Chama a Modo no WhatsApp para conferirmos seu acesso. Por segurança, não tente criar uma nova conta: cada login é individual e precisa estar ligado ao roteiro comprado.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item fade-in">
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">O roteiro recebe atualizações?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-resposta">
+        <div class="faq-resposta-inner">
+          <div class="faq-resposta-conteudo">
+            <p>Sim. Quando a Modo atualizar o roteiro liberado para sua conta, a versão mais recente aparece automaticamente na sua biblioteca. Por isso, vale abrir o portal antes e durante a viagem.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item fade-in">
+      <button class="faq-pergunta" type="button" aria-expanded="false">
+        <span class="faq-pergunta-texto">Consigo salvar o roteiro em PDF?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-resposta">
+        <div class="faq-resposta-inner">
+          <div class="faq-resposta-conteudo">
+            <p>Sim. O portal é o formato principal porque mantém links e atualizações no mesmo lugar, mas dentro do roteiro existe a opção <strong>Salvar em PDF</strong> para guardar uma cópia no aparelho.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+'''
+          faq_text = read('faq.html')
+          if 'Como acesso um roteiro que já comprei?' not in faq_text:
+              target_question = '<span class="faq-pergunta-texto">Posso usar em qualquer data e adaptar depois?</span>'
+              target_pos = faq_text.find(target_question)
+              if target_pos < 0:
+                  raise RuntimeError("Ponto de inserção das novas perguntas não encontrado")
+              item_start = faq_text.rfind('<div class="faq-item fade-in">', 0, target_pos)
+              if item_start < 0:
+                  raise RuntimeError("Início do item seguinte não encontrado")
+              faq_text = faq_text[:item_start] + faq_items + faq_text[item_start:]
+              write('faq.html', faq_text)
+
+          # HOME — trocar download pelo acesso e adicionar atalho do cliente
+          index_path = 'index.html'
+          index_text = read(index_path)
+          old_home_copy = 'Vai de roteiro pronto. Você escolhe o destino, baixa o material e já começa a viagem com mais clareza, menos pesquisa solta e muito mais segurança pra decidir o que faz sentido pra você.'
+          new_home_copy = 'Vai de roteiro pronto. Você escolhe o destino, recebe seu acesso individual e encontra tudo organizado no Portal de Roteiros — pronto pra abrir no celular, consultar durante a viagem e salvar em PDF quando quiser.'
+          if old_home_copy not in index_text:
+              raise RuntimeError('Chamada de roteiros prontos da home não encontrada')
+          index_text = index_text.replace(old_home_copy, new_home_copy, 1)
+          home_section_start = index_text.find('<section class="cta-roteiros-home">')
+          if home_section_start < 0:
+              raise RuntimeError('Seção final de roteiros da home não encontrada')
+          home_section_end = index_text.find('</section>', home_section_start)
+          home_section = index_text[home_section_start:home_section_end]
+          if 'Acessar meus roteiros' not in home_section:
+              pattern = r'(<a href="roteiros-prontos\.html" class="btn-primary">.*?Ver roteiros</a>)'
+              home_section, n = re.subn(pattern, r'\1\n          <a href="portal/" class="btn-blue">🔐 Acessar meus roteiros</a>', home_section, count=1, flags=re.S)
+              if n != 1:
+                  raise RuntimeError('Botão Ver roteiros da home não encontrado')
+              index_text = index_text[:home_section_start] + home_section + index_text[home_section_end:]
+          write(index_path, index_text)
+
+          # COMO FUNCIONA — explicar os dois formatos de entrega
+          como_path = 'como-funciona.html'
+          como_text = read(como_path)
+          old_step_title = '<h3><span class="emoji">📄</span> <span class="emoji">🔗</span> Entrega em PDF clicável (pra usar no celular)</h3>'
+          new_step_title = '<h3><span class="emoji">📱</span> <span class="emoji">🔗</span> Entrega organizada e pronta pra usar</h3>'
+          if old_step_title not in como_text:
+              raise RuntimeError('Título do passo 4 não encontrado')
+          como_text = como_text.replace(old_step_title, new_step_title, 1)
+          old_step_copy = '''A entrega chega organizada e pronta pra ação, com links e orientações.
+              Sem planilha infinita, sem textão confuso — é pra abrir e seguir.'''
+          new_step_copy = '''Nos Roteiros Prontos, o acesso acontece pelo Portal de Roteiros. Na consultoria, o formato segue o plano contratado.
+              Em ambos os casos, o conteúdo chega organizado, clicável e pensado pra usar no celular.'''
+          if old_step_copy not in como_text:
+              raise RuntimeError('Texto do passo 4 não encontrado')
+          como_text = como_text.replace(old_step_copy, new_step_copy, 1)
+          old_bullet = '<p class="bullet-txt"><strong>PDF clicável</strong> com tudo organizado (e links funcionando).</p>'
+          new_bullet = '<p class="bullet-txt"><strong>Portal ou PDF clicável</strong>, conforme o produto, com tudo organizado e links funcionando.</p>'
+          if old_bullet not in como_text:
+              raise RuntimeError('Bullet de entrega em PDF não encontrado')
+          como_text = como_text.replace(old_bullet, new_bullet, 1)
+
+          como_css = '''
+    .portal-info-box{
+      max-width:980px;
+      margin:2rem auto 0;
+      padding:1.5rem;
+      border-radius:20px;
+      background:linear-gradient(135deg,var(--azul) 0%,#2458B8 100%);
+      color:var(--branco);
+      text-align:center;
+      box-shadow:0 14px 34px rgba(0,53,153,.18);
+    }
+    .portal-info-box h3{color:var(--branco);margin-bottom:.6rem}
+    .portal-info-box p{max-width:760px;margin:0 auto 1rem;line-height:1.7}
+    .portal-info-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:.75rem}
+    .portal-info-actions .btn-secondary{border-color:var(--branco);color:var(--branco)}
+    .portal-info-actions .btn-secondary:hover{background:var(--branco);color:var(--azul)}
+    @media(max-width:768px){.portal-info-actions{flex-direction:column}.portal-info-actions a{width:100%}}
+'''
+          if '.portal-info-box' not in como_text:
+              como_text = como_text.replace('  </style>\n</head>', como_css + '  </style>\n</head>', 1)
+
+          como_box = '''
+      <div class="portal-info-box fade-in">
+        <h3>🔐 Já comprou um Roteiro Pronto?</h3>
+        <p>Seu acesso fica no Portal de Roteiros. Entre com o usuário e a senha enviados pela Modo para abrir sua biblioteca, acompanhar atualizações e salvar o conteúdo em PDF quando precisar.</p>
+        <div class="portal-info-actions">
+          <a href="portal/" class="btn-primary">Acessar meus roteiros</a>
+          <a href="portal/dashboard.html?demo=1" class="btn-secondary">Ver demonstração</a>
+        </div>
+      </div>
+
+'''
+          if 'class="portal-info-box fade-in"' not in como_text:
+              marker = '      <div class="cta-final fade-in">'
+              if marker not in como_text:
+                  raise RuntimeError('CTA final de Como Funciona não encontrado')
+              como_text = como_text.replace(marker, como_box + marker, 1)
+          write(como_path, como_text)
+
+          # PORTAL — evitar indexação e corrigir estado vazio
+          portal_files = [
+              'portal/index.html',
+              'portal/dashboard.html',
+              'portal/roteiro.html',
+              'portal/admin.html',
+          ]
+          for portal_path in portal_files:
+              portal_text = read(portal_path)
+              if 'name="robots"' not in portal_text:
+                  theme = '<meta name="theme-color" content="#003599" />'
+                  if theme not in portal_text:
+                      raise RuntimeError(f'Meta theme-color não encontrada em {portal_path}')
+                  portal_text = portal_text.replace(theme, theme + '<meta name="robots" content="noindex, nofollow" />', 1)
+              write(portal_path, portal_text)
+
+          dashboard_path = 'portal/dashboard.html'
+          dashboard_text = read(dashboard_path)
+          old_empty = 'Se você já comprou, fala com a gente para conferir o e-mail usado no pagamento.'
+          new_empty = 'Se você já comprou, chama a gente com seu comprovante para conferirmos a liberação do roteiro na sua conta.'
+          if old_empty not in dashboard_text:
+              raise RuntimeError('Texto antigo do estado vazio não encontrado')
+          dashboard_text = dashboard_text.replace(old_empty, new_empty, 1)
+          write(dashboard_path, dashboard_text)
+
+          # Validações finais de conteúdo
+          checks = {
+              'roteiros-prontos.html': [
+                  'href="portal/"',
+                  'id="portal-access-title"',
+                  'Acesso ao Portal enviado após a confirmação do pagamento',
+              ],
+              'faq.html': [
+                  'Como acesso um roteiro que já comprei?',
+                  'Consigo salvar o roteiro em PDF?',
+              ],
+              'index.html': ['Acessar meus roteiros'],
+              'como-funciona.html': ['class="portal-info-box fade-in"'],
+              'portal/dashboard.html': ['noindex, nofollow'],
+          }
+          for check_path, needles in checks.items():
+              check_text = read(check_path)
+              for needle in needles:
+                  if needle not in check_text:
+                      raise RuntimeError(f'Validação falhou em {check_path}: {needle}')
+              if '</html>' not in check_text:
+                  raise RuntimeError(f'HTML incompleto em {check_path}')
+
+          workflow = Path('.github/workflows/align-portal-copy.yml')
+          if workflow.exists():
+              workflow.unlink()
+          PY
+
+      - name: Validar alterações
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          for path in ['roteiros-prontos.html','faq.html','index.html','como-funciona.html','portal/index.html','portal/dashboard.html','portal/roteiro.html','portal/admin.html']:
+              text = Path(path).read_text(encoding='utf-8')
+              assert text.count('<html') == 1, path
+              assert text.count('</html>') == 1, path
+          assert 'Escolha seu destino, baixe seu roteiro pronto' not in Path('roteiros-prontos.html').read_text(encoding='utf-8')
+          assert 'Entrega do PDF: até 30 min após confirmação' not in Path('roteiros-prontos.html').read_text(encoding='utf-8')
+          print('Validação concluída com sucesso.')
+          PY
+
+      - name: Salvar alterações na branch
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add roteiros-prontos.html faq.html index.html como-funciona.html portal/index.html portal/dashboard.html portal/roteiro.html portal/admin.html .github/workflows/align-portal-copy.yml
+          git commit -m "Alinha site ao Portal de Roteiros"
+          git push origin HEAD:agent/alinha-site-portal-roteiros
