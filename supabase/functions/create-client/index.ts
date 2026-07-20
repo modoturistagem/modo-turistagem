@@ -19,6 +19,24 @@ const normalizeUsername = (value: string) => value
   .replace(/[^a-z0-9._-]/g, '')
   .replace(/^[._-]+|[._-]+$/g, '')
 
+const sixMonthsFrom = (source = new Date()) => {
+  const result = new Date(source)
+  const originalDay = result.getUTCDate()
+
+  result.setUTCDate(1)
+  result.setUTCMonth(result.getUTCMonth() + 6)
+
+  const lastDay = new Date(Date.UTC(
+    result.getUTCFullYear(),
+    result.getUTCMonth() + 1,
+    0,
+  )).getUTCDate()
+
+  result.setUTCDate(Math.min(originalDay, lastDay))
+  result.setUTCHours(23, 59, 59, 999)
+  return result
+}
+
 const readNamedKey = (raw: string | undefined, preferredName = 'default') => {
   if (!raw) return null
   try {
@@ -76,7 +94,7 @@ Deno.serve(async request => {
     const password = String(payload.password || '')
     const fullName = String(payload.full_name || '').trim()
     const itinerarySlug = String(payload.itinerary_slug || '').trim()
-    const accessExpiresAt = payload.access_expires_at ? String(payload.access_expires_at) : null
+    const accessExpiresAt = sixMonthsFrom().toISOString()
 
     if (username.length < 3 || username.length > 32) {
       return json({ ok: false, error: 'O usuário deve ter entre 3 e 32 caracteres.' }, 400)
@@ -146,6 +164,7 @@ Deno.serve(async request => {
       username,
       full_name: fullName,
       itinerary_title: itinerary.title,
+      access_expires_at: accessExpiresAt,
     })
   } catch (error) {
     console.error(error)

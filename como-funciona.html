@@ -437,6 +437,23 @@
 
       .info-card p, .bullet-txt{ font-size: .95rem; }
     }
+
+    .portal-info-box{
+      max-width:980px;
+      margin:2rem auto 0;
+      padding:1.5rem;
+      border-radius:20px;
+      background:linear-gradient(135deg,var(--azul) 0%,#2458B8 100%);
+      color:var(--branco);
+      text-align:center;
+      box-shadow:0 14px 34px rgba(0,53,153,.18);
+    }
+    .portal-info-box h3{color:var(--branco);margin-bottom:.6rem}
+    .portal-info-box p{max-width:760px;margin:0 auto 1rem;line-height:1.7}
+    .portal-info-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:.75rem}
+    .portal-info-actions .btn-secondary{border-color:var(--branco);color:var(--branco)}
+    .portal-info-actions .btn-secondary:hover{background:var(--branco);color:var(--azul)}
+    @media(max-width:768px){.portal-info-actions{flex-direction:column}.portal-info-actions a{width:100%}}
   </style>
 </head>
 
@@ -517,10 +534,10 @@
         <div class="passo-item fade-in">
           <div class="passo-numero">4</div>
           <div class="passo-conteudo">
-            <h3><span class="emoji">📄</span> <span class="emoji">🔗</span> Entrega em PDF clicável (pra usar no celular)</h3>
+            <h3><span class="emoji">📱</span> <span class="emoji">🔗</span> Entrega organizada e pronta pra usar</h3>
             <p>
-              A entrega chega organizada e pronta pra ação, com links e orientações.
-              Sem planilha infinita, sem textão confuso — é pra abrir e seguir.
+              Nos Roteiros Prontos, o acesso acontece pelo Portal de Roteiros. Na consultoria, o formato segue o plano contratado.
+              Em ambos os casos, o conteúdo chega organizado, clicável e pensado pra usar no celular.
             </p>
           </div>
         </div>
@@ -629,7 +646,7 @@
         <ul class="entrega-bullets">
           <li>
             <div class="bullet-ico"><span class="emoji">📄</span></div>
-            <p class="bullet-txt"><strong>PDF clicável</strong> com tudo organizado (e links funcionando).</p>
+            <p class="bullet-txt"><strong>Portal ou PDF clicável</strong>, conforme o produto, com tudo organizado e links funcionando.</p>
           </li>
           <li>
             <div class="bullet-ico"><span class="emoji">🗓️</span></div>
@@ -664,6 +681,15 @@
           <br /><br />
           <strong>Prazo padrão:</strong> <span class="info-strong">10 dias úteis</span>.
         </p>
+      </div>
+
+      <div class="portal-info-box fade-in">
+        <h3>🔐 Já comprou um Roteiro Pronto?</h3>
+        <p>Seu acesso fica no Portal de Roteiros. Entre com o usuário e a senha enviados pela Modo para abrir sua biblioteca, acompanhar atualizações e salvar o conteúdo em PDF quando precisar.</p>
+        <div class="portal-info-actions">
+          <a href="portal/" class="btn-primary">Acessar meus roteiros</a>
+          <a href="portal/dashboard.html?demo=1" class="btn-secondary">Ver demonstração</a>
+        </div>
       </div>
 
       <div class="cta-final fade-in">

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#003599" />
+  <meta name="theme-color" content="#003599" /><meta name="robots" content="noindex, nofollow" />
   <title>Administrar Roteiros | Modo Turistagem</title>
   <link rel="stylesheet" href="css/portal.css" />
   <link rel="stylesheet" href="css/private-full.css" />
@@ -60,7 +60,7 @@
         <form id="createClientForm" class="admin-card compact-card">
           <span class="eyebrow">Acesso de cliente</span>
           <h2>Criar usuário e senha</h2>
-          <p class="compact-help">Só você cria o acesso. O cliente recebe as credenciais prontas e não consegue se cadastrar sozinho.</p>
+          <p class="compact-help">Só você cria o acesso. O cliente recebe as credenciais prontas, válidas por 6 meses a partir da liberação, e não consegue se cadastrar sozinho.</p>
 
           <label>Nome do cliente<input id="clientFullName" type="text" required placeholder="Maria Silva" /></label>
           <label>Usuário<input id="clientUsername" type="text" required minlength="3" maxlength="32" autocapitalize="none" spellcheck="false" placeholder="maria.silva" /></label>
@@ -70,7 +70,8 @@
             <button type="button" id="generatePasswordButton" class="btn btn-small btn-secondary">Gerar</button>
           </div>
           <label>Roteiro<select id="clientItinerarySlug" required><option value="">Carregando roteiros…</option></select></label>
-          <label>Validade opcional<input id="clientExpiry" type="date" /></label>
+          <label>Validade do acesso<input id="clientExpiry" type="date" readonly aria-describedby="clientExpiryHelp" /></label>
+          <p id="clientExpiryHelp" class="compact-help">Calculada automaticamente: 6 meses a partir da criação do acesso.</p>
           <button type="submit" id="createClientButton" class="btn btn-primary">Criar acesso</button>
           <p id="clientMessage" class="form-message" role="status"></p>
 
@@ -89,6 +90,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="js/config.js"></script>
   <script src="data/andes-na-janela.preview.js"></script>
+  <script src="js/access-validity.js"></script>
   <script src="js/admin.js"></script>
 </body>
 </html>
