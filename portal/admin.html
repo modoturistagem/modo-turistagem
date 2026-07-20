@@ -5,12 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#003599" />
   <title>Administrar Roteiros | Modo Turistagem</title>
-  <link rel="stylesheet" href="css/portal.css" /><link rel="stylesheet" href="css/private-full.css" />
+  <link rel="stylesheet" href="css/portal.css" />
+  <link rel="stylesheet" href="css/private-full.css" />
 </head>
 <body>
   <header class="portal-header"><a href="dashboard.html" class="back-link">← Voltar à biblioteca</a><button id="adminSignOutButton" class="btn btn-small btn-secondary" type="button">Sair</button></header>
   <main class="admin-main">
-    <section class="dashboard-hero admin-hero"><span class="eyebrow eyebrow-orange">Bastidores da Modo</span><h1>Publicar sem diagramar tudo de novo.</h1><p>O visual já está pronto. Importe um JSON privado, confira a prévia e salve no banco protegido.</p></section>
+    <section class="dashboard-hero admin-hero"><span class="eyebrow eyebrow-orange">Bastidores da Modo</span><h1>Publicar sem diagramar tudo de novo.</h1><p>O visual já está pronto. Importe um JSON privado, confira a prévia, salve e crie os acessos dos clientes.</p></section>
+
     <section class="admin-grid">
       <form id="itineraryForm" class="admin-card">
         <div class="admin-card-head">
@@ -35,12 +37,40 @@
         <p id="editorMessage" class="form-message" role="status"></p>
         <div class="admin-actions"><button type="button" id="previewButton" class="btn btn-secondary">Pré-visualizar</button><button type="submit" id="saveButton" class="btn btn-primary">Salvar no portal protegido</button></div>
       </form>
+
       <aside class="admin-side">
-        <form id="grantForm" class="admin-card compact-card"><span class="eyebrow">Acesso de cliente</span><h2>Liberar roteiro</h2><label>E-mail do cliente<input id="grantEmail" type="email" required /></label><label>Slug do roteiro<input id="grantSlug" required value="andes-na-janela" /></label><label>Validade opcional<input id="grantExpiry" type="date" /></label><button type="submit" class="btn btn-primary">Liberar acesso</button><p id="grantMessage" class="form-message" role="status"></p></form>
-        <div class="admin-card compact-card tips-card"><span class="eyebrow">Privado de verdade</span><h2>Demonstração x completo</h2><p>A demonstração continua no GitHub. O JSON integral é importado somente por você e salvo no Supabase.</p><p>Tipos aceitos: <code>cards</code>, <code>budget</code>, <code>reservations</code>, <code>days</code>, <code>options</code>, <code>links</code>, <code>checklist</code>, <code>closing</code> e <code>pages</code>.</p></div>
+        <form id="createClientForm" class="admin-card compact-card">
+          <span class="eyebrow">Acesso de cliente</span>
+          <h2>Criar usuário e senha</h2>
+          <p class="compact-help">Só você cria o acesso. O cliente recebe as credenciais prontas e não consegue se cadastrar sozinho.</p>
+
+          <label>Nome do cliente<input id="clientFullName" type="text" required placeholder="Maria Silva" /></label>
+          <label>Usuário<input id="clientUsername" type="text" required minlength="3" maxlength="32" autocapitalize="none" spellcheck="false" placeholder="maria.silva" /></label>
+          <label>Senha</label>
+          <div class="credential-row">
+            <input id="clientPassword" type="text" required minlength="8" autocomplete="new-password" placeholder="mínimo de 8 caracteres" />
+            <button type="button" id="generatePasswordButton" class="btn btn-small btn-secondary">Gerar</button>
+          </div>
+          <label>Roteiro<select id="clientItinerarySlug" required><option value="andes-na-janela">Andes na Janela</option></select></label>
+          <label>Validade opcional<input id="clientExpiry" type="date" /></label>
+          <button type="submit" id="createClientButton" class="btn btn-primary">Criar acesso</button>
+          <p id="clientMessage" class="form-message" role="status"></p>
+
+          <div id="credentialResult" class="credential-result is-hidden" aria-live="polite">
+            <strong>Acesso criado ✨</strong>
+            <p><b>Usuário:</b> <span id="resultUsername"></span></p>
+            <p><b>Senha:</b> <span id="resultPassword"></span></p>
+            <button type="button" id="copyCredentialsButton" class="btn btn-small btn-secondary">Copiar dados</button>
+          </div>
+        </form>
+
+        <div class="admin-card compact-card tips-card"><span class="eyebrow">Privado de verdade</span><h2>Demonstração x completo</h2><p>A demonstração continua pública. O roteiro integral fica no Supabase e só aparece para os usuários criados por você.</p><p>Para criar contas com segurança, o portal usa uma Supabase Edge Function. A chave secreta nunca fica no GitHub nem no navegador.</p></div>
       </aside>
     </section>
   </main>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="js/config.js"></script><script src="data/andes-na-janela.preview.js"></script><script src="js/admin.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="data/andes-na-janela.preview.js"></script>
+  <script src="js/admin.js"></script>
 </body>
 </html>
