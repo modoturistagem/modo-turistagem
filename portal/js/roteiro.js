@@ -1,10 +1,41 @@
 (() => {
-  const injectedStyle = document.createElement('style');
-  injectedStyle.id = 'modo-itinerary-runtime-styles';
-  injectedStyle.textContent = `
-.content-button,.content-button:visited{background:#f47c20!important;color:#fff!important;border-color:#f47c20!important;box-shadow:none!important}.content-button:hover{filter:brightness(.96)}.content-button.has-platform{display:inline-flex!important;align-items:center;gap:.55rem}.button-brand-icon{width:1rem;height:1rem;display:inline-flex;flex:0 0 1rem}.button-brand-icon svg{width:100%;height:100%;display:block}.reservation-list{display:grid;gap:1.4rem!important}.reservation-card{padding:1.5rem!important;border-radius:20px!important}.reservation-card h3{margin-bottom:.75rem!important}.reservation-card p{line-height:1.7!important}.reservation-card .content-actions{margin-top:1rem!important}.day-badge{display:inline-flex!important;flex-direction:column;align-items:center;justify-content:center;line-height:1;min-width:84px;padding:.85rem .75rem!important}.day-badge-label{font-size:inherit;font-weight:600}.day-badge-number{font-size:1.8em;font-weight:700;margin-top:.15rem}.tag-row span,.option-card .tag-row span,.day-card .tag-row span{background:#f5d7c8!important;color:#7d4b33!important;font-weight:400!important;border:none!important}.price-legend{display:flex;flex-wrap:wrap;gap:.75rem;margin:0 0 1.25rem}.legend-pill{display:inline-flex;flex-direction:column;gap:.2rem;background:#fff3eb;border:1px solid #f0d8c8;border-radius:16px;padding:.75rem .95rem;min-width:150px}.legend-pill b{color:#003599;font-size:.95rem}.legend-pill small{color:#5c5c5c;font-size:.82rem;line-height:1.35}.option-card .price-pill{background:#fff3eb!important;color:#f47c20!important;border:1px solid #f3c6ab!important;font-weight:700!important}.closing-card .content-actions{margin-top:1.25rem!important}
+  const injectedStyle = `
+    .content-button,.content-button:visited{background:#f47c20!important;color:#fff!important;border-color:#f47c20!important;box-shadow:none!important}
+    .content-button:hover{filter:brightness(.96)}
+    .content-button.has-platform{display:inline-flex!important;align-items:center;gap:.55rem}
+    .button-brand-icon{width:1rem;height:1rem;display:inline-flex;flex:0 0 1rem}.button-brand-icon svg{width:100%;height:100%;display:block}
+
+    .reservation-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.3rem!important}
+    .reservation-card{display:grid;grid-template-columns:72px 1fr;gap:1rem;padding:1.45rem!important;border-radius:22px!important;align-items:start}
+    .reservation-number{display:grid;place-items:center;width:58px;height:58px;border-radius:999px;font-size:1.25rem;font-weight:700;background:#f47c20;color:#fff;margin-top:.1rem}
+    .reservation-card .eyebrow{display:inline-flex;margin:0 0 .65rem 0!important}
+    .reservation-card h3{margin:.1rem 0 .75rem!important}.reservation-card p{line-height:1.7!important}.reservation-card .content-actions{margin-top:1rem!important}
+
+    .day-badge{display:inline-flex!important;flex-direction:column;align-items:center;justify-content:center;line-height:1;min-width:88px;padding:.95rem .8rem!important}
+    .day-badge-label{font-size:inherit;font-weight:600}.day-badge-number{font-size:1.95em;font-weight:700;margin-top:.12rem}
+
+    .tag-row span,.option-card .tag-row span,.day-card .tag-row span{background:#f5d7c8!important;color:#003599!important;font-weight:400!important;border:none!important}
+    .tag-row{margin:.55rem 0 .75rem!important}
+
+    .price-legend{display:flex;flex-wrap:wrap;gap:.75rem;margin:0 0 1.25rem 0}
+    .legend-pill{display:inline-flex;align-items:center;gap:.55rem;background:#fff3eb;border:1px solid #f0d8c8;border-radius:999px;padding:.72rem .95rem;min-width:unset}
+    .legend-pill b{display:inline-grid;place-items:center;min-width:52px;height:52px;padding:0 .6rem;border-radius:999px;background:#fff;color:#f47c20;border:1.5px solid #f0d8c8;font-size:1rem;line-height:1}
+    .legend-pill small{color:#5c5c5c;font-size:.82rem;line-height:1.35;max-width:160px}
+
+    .option-card .price-pill{background:#fff3eb!important;color:#f47c20!important;border:1px solid #f3c6ab!important;font-weight:700!important;padding:.42rem .7rem!important;border-radius:999px!important;line-height:1}
+    .option-top{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:.5rem}
+    .option-title-wrap{display:flex;align-items:center;gap:.6rem;flex:1;min-width:0}.option-card h3{margin:0!important}.option-card .option-icon{font-size:1.2rem;line-height:1.1}.option-card .option-subtitle{font-size:.95rem;line-height:1.45;color:#6a6a6a;margin:0 0 .55rem}
+    .option-card .tag-row{margin:.2rem 0 .6rem!important}.option-card p{margin-top:0!important}
+
+    .modo-tip strong{font-weight:700!important;display:inline-block;margin-bottom:.4rem}.modo-tip p{font-weight:400!important;margin:0!important;line-height:1.7}
+
+    .closing-card p{max-width:62ch;margin-left:auto;margin-right:auto}.closing-card p + p{margin-top:1rem}
+
+    @media (max-width: 640px){.reservation-card{grid-template-columns:1fr}.reservation-number{margin-bottom:.25rem}.legend-pill{width:100%}.legend-pill small{max-width:none}}
   `;
-  if (!document.querySelector('#modo-itinerary-runtime-styles')) document.head.appendChild(injectedStyle);
+  const styleEl = document.createElement('style');
+  styleEl.textContent = injectedStyle;
+  document.head.appendChild(styleEl);
 
   const config = window.MODO_PORTAL_CONFIG || {};
   const params = new URLSearchParams(location.search);
@@ -52,14 +83,13 @@
 
   const button = (action) => {
     const href = safeUrl(action?.url);
-    return href
-      ? `<a class="content-button ${action?.platform ? `has-platform platform-${esc(action.platform)}` : ''}" href="${esc(href)}" target="_blank" rel="noopener noreferrer">${iconMarkup(action)}<span>${esc(action.label || 'Abrir')}</span></a>`
-      : '';
+    return href ? `<a class="content-button ${action?.platform ? `has-platform platform-${esc(action.platform)}` : ''}" href="${esc(href)}" target="_blank" rel="noopener noreferrer">${iconMarkup(action)}<span>${esc(action.label || 'Abrir')}</span></a>` : '';
   };
 
   const renderLegend = (section) => {
-    if (!section.legend?.length) return '';
-    return `<div class="price-legend">${section.legend.map(item => `<span class="legend-pill"><b>${esc(item.label)}</b><small>${esc(item.value)}</small></span>`).join('')}</div>`;
+    const legend = defaultLegend(section);
+    if (!legend.length) return '';
+    return `<div class="price-legend">${legend.map(item => `<span class="legend-pill"><b>${esc(item.label)}</b><small>${esc(item.value)}</small></span>`).join('')}</div>`;
   };
 
   const renderDayLabel = (label = '') => {
@@ -67,6 +97,39 @@
     const match = trimmed.match(/^Dia\s+(\d{2})$/i);
     if (!match) return esc(trimmed);
     return `<span class="day-badge-label">Dia</span><span class="day-badge-number">${esc(match[1])}</span>`;
+  };
+
+  const stopIconMap = {
+    'Como sair do aeroporto':'✈️','Lastarria ou Bellas Artes':'🚶','Jantar sem complicação':'🍽️','Plaza de Armas':'🏛️','Museo Histórico Nacional':'🏛️','Museo Nacional de Bellas Artes':'🖼️','Almoço':'🍽️','Cerro Santa Lucía':'⛰️','Teatro Municipal de Santiago':'🎭','Palacio de la Moneda':'🏰','Plaza de la Constitución':'📍','Museo de Arte Precolombino':'🗿','Jantar':'🍷','Se organizar cedo':'⏰','Saída para a montanha':'🚌','Estação de ski':'🎿','Retorno a Santiago':'🔁','Parque Arauco':'🛍️','Saída para a vinícola escolhida':'🍇','Cerro San Cristóbal':'🚠','Ida até o Safari Park Chile':'🚗','Safari Park':'🦁','Volta + malas':'🧳','Barrio Italia':'🛍️','Costanera Center + Sky Costanera':'🌇','MUT':'☕','Último almoço':'🍤','Organização':'✅','Ida ao aeroporto':'✈️','No aeroporto':'🛫'
+  };
+
+  const inferStopIcon = stop => stop?.icon || stopIconMap[stop?.title] || '📍';
+
+  const inferOptionIcon = (section, item) => {
+    if (section.id !== 'hospedagem') return item.icon || '📍';
+    const title = String(item.title || '').toLowerCase();
+    if (title.includes('airbnb')) return '🏠';
+    if (title.includes('hostal') || title.includes('hostel')) return '🛏️';
+    return '🏨';
+  };
+
+  const defaultLegend = section => {
+    if (section.legend?.length) return section.legend;
+    if (section.id === 'hospedagem') return [
+      {label:'$',value:'até 90.000 CLP'},{label:'$$',value:'90.001 a 140.000 CLP'},{label:'$$$',value:'140.001 a 220.000 CLP'},{label:'$$$$',value:'220.001 a 320.000 CLP'},{label:'$$$$$',value:'acima de 320.000 CLP'}
+    ];
+    if (section.id === 'restaurantes') return [
+      {label:'$',value:'até 8.000 CLP'},{label:'$$',value:'8.001 a 15.000 CLP'},{label:'$$$',value:'15.001 a 25.000 CLP'},{label:'$$$$',value:'25.001 a 40.000 CLP'},{label:'$$$$$',value:'acima de 40.000 CLP'}
+    ];
+    return [];
+  };
+
+  const normalizeClosingText = value => {
+    let text = String(value || '').trim();
+    if (!text) return '';
+    text = text.replace(/\s+Quando você responde o formulário depois da viagem,/i, '\n\nQuando você responde o formulário depois da viagem,');
+    text = text.replace(/\s+Esse retorno faz diferença de verdade nas próximas versões\.?/i, '\n\nEsse retorno faz diferença de verdade nas próximas versões.');
+    return text;
   };
 
   function cover(route) {
@@ -87,15 +150,15 @@
   }
 
   function days(section) {
-    return `<div class="days-list">${(section.items || []).map(day => `<article class="day-card" id="${esc(day.id || '')}"><div class="day-head"><span class="day-number day-badge">${renderDayLabel(day.label || '')}</span><div><h3>${esc(day.title)}</h3><p>${esc(day.summary || '')}</p></div></div>${day.tags?.length ? `<div class="tag-row">${day.tags.map(tag => `<span>${esc(tag)}</span>`).join('')}</div>` : ''}<div class="timeline">${(day.stops || []).map(stop => `<div class="timeline-item"><div class="timeline-time">${esc(stop.time || 'Ao longo do dia')}</div><div class="timeline-copy"><h4>${esc(stop.icon || '')} ${esc(stop.title)}</h4><p>${esc(stop.text || '')}</p>${stop.note ? `<p class="card-note">${esc(stop.note)}</p>` : ''}${stop.actions?.length ? `<div class="content-actions">${stop.actions.map(button).join('')}</div>` : ''}</div></div>`).join('')}</div>${day.tip ? `<div class="modo-tip"><strong>💙 Dica Modo</strong><p>${esc(day.tip)}</p></div>` : ''}</article>`).join('')}</div>`;
+    return `<div class="days-list">${(section.items || []).map(day => `<article class="day-card" id="${esc(day.id || '')}"><div class="day-head"><span class="day-number day-badge">${renderDayLabel(day.label || '')}</span><div><h3>${esc(day.title)}</h3><p>${esc(day.summary || '')}</p></div></div>${day.tags?.length ? `<div class="tag-row">${day.tags.map(tag => `<span>${esc(tag)}</span>`).join('')}</div>` : ''}<div class="timeline">${(day.stops || []).map(stop => `<div class="timeline-item"><div class="timeline-time">${esc(stop.time || 'Ao longo do dia')}</div><div class="timeline-copy"><h4>${esc(inferStopIcon(stop))} ${esc(stop.title)}</h4><p>${esc(stop.text || '')}</p>${stop.note ? `<p class="card-note">${esc(stop.note)}</p>` : ''}${stop.actions?.length ? `<div class="content-actions">${stop.actions.map(button).join('')}</div>` : ''}</div></div>`).join('')}</div>${day.tip ? `<div class="modo-tip"><strong>💙 Dica Modo</strong><p>${esc(day.tip)}</p></div>` : ''}</article>`).join('')}</div>`;
   }
 
   function options(section) {
-    return `${renderLegend(section)}<div class="options-grid">${(section.items || []).map(item => `<article class="option-card"><div class="option-top"><span class="option-icon">${esc(item.icon || '📍')}</span>${item.price ? `<span class="price-pill">${esc(item.price)}</span>` : ''}</div><h3>${esc(item.title)}</h3>${item.subtitle ? `<strong>${esc(item.subtitle)}</strong>` : ''}<p>${esc(item.text || '')}</p>${item.tags?.length ? `<div class="tag-row">${item.tags.map(tag => `<span>${esc(tag)}</span>`).join('')}</div>` : ''}${item.actions?.length ? `<div class="content-actions">${item.actions.map(button).join('')}</div>` : ''}</article>`).join('')}</div>`;
+    return `${renderLegend(section)}<div class="options-grid">${(section.items || []).map(item => `<article class="option-card"><div class="option-top"><div class="option-title-wrap"><span class="option-icon">${esc(inferOptionIcon(section, item))}</span><h3>${esc(item.title)}</h3></div>${item.price ? `<span class="price-pill">${esc(item.price)}</span>` : ''}</div>${item.tags?.length ? `<div class="tag-row">${item.tags.map(tag => `<span>${esc(tag)}</span>`).join('')}</div>` : ''}${item.subtitle ? `<div class="option-subtitle">${esc(item.subtitle)}</div>` : ''}<p>${esc(item.text || '')}</p>${item.actions?.length ? `<div class="content-actions">${item.actions.map(button).join('')}</div>` : ''}</article>`).join('')}</div>`;
   }
 
   function links(section) {
-    return `<div class="links-grid">${(section.items || []).map(item => { const href = safeUrl(item.url); const tag = href ? 'a' : 'div'; const attributes = href ? `href="${esc(href)}" target="_blank" rel="noopener noreferrer"` : ''; return `<${tag} class="link-card ${href ? '' : 'is-disabled'}" ${attributes}><span>${esc(item.icon || '🔗')}</span><div><strong>${esc(item.title)}</strong><small>${esc(item.text || '')}</small></div><b>→</b></${tag}>`; }).join('')}</div>`;
+    return `<div class="links-grid">${(section.items || []).map(item => {const href = safeUrl(item.url); const tag = href ? 'a' : 'div'; const attributes = href ? `href="${esc(href)}" target="_blank" rel="noopener noreferrer"` : ''; return `<${tag} class="link-card ${href ? '' : 'is-disabled'}" ${attributes}><span>${esc(item.icon || '🔗')}</span><div><strong>${esc(item.title)}</strong><small>${esc(item.text || '')}</small></div><b>→</b></${tag}>`;}).join('')}</div>`;
   }
 
   function checklist(section, routeSlug) {
@@ -107,15 +170,11 @@
   }
 
   function closing(section) {
-    return `<div class="closing-card"><div class="closing-icon">${esc(section.icon || '✈️')}</div><h3>${esc(section.title || '')}</h3><p>${esc(section.text || '')}</p>${section.actions?.length ? `<div class="content-actions centered">${section.actions.map(button).join('')}</div>` : ''}</div>`;
-  }
-
-  function pages(section) {
-    return `<div class="source-page-stack">${(section.items || []).map(item => `<article class="source-page-card"><div class="source-page-head"><span>Página ${String(item.page || '').padStart(2, '0')}</span><h3>${esc(item.title || '')}</h3></div><div class="source-page-body">${paragraphs(item.body || '')}</div></article>`).join('')}</div>`;
+    return `<div class="closing-card"><div class="closing-icon">${esc(section.icon || '✈️')}</div><h3>${esc(section.title || '')}</h3>${paragraphs(normalizeClosingText(section.text || ''))}${section.actions?.length ? `<div class="content-actions centered">${section.actions.map(button).join('')}</div>` : ''}</div>`;
   }
 
   function sectionMarkup(section, routeSlug) {
-    const renderers = { cards, budget, reservations, days, options, links, checklist: current => checklist(current, routeSlug), closing, pages };
+    const renderers = { cards, budget, reservations, days, options, links, checklist: current => checklist(current, routeSlug), closing };
     const renderer = renderers[section.type];
     if (!renderer) return '';
     return `<section class="itinerary-section" id="${esc(section.id)}"><div class="section-intro">${section.tag ? `<span class="eyebrow ${section.tagColor === 'orange' ? 'eyebrow-orange' : ''}">${esc(section.tag)}</span>` : ''}<h2>${esc(section.title || '')}</h2>${section.subtitle ? `<p>${esc(section.subtitle)}</p>` : ''}</div>${renderer(section)}</section>`;
@@ -143,16 +202,12 @@
     render(data);
   }
 
-  function openSidebar() { side.classList.add('is-open'); backdrop.classList.add('is-open'); }
-  function closeSidebar() { side.classList.remove('is-open'); backdrop.classList.remove('is-open'); }
-
+  function openSidebar(){ side.classList.add('is-open'); backdrop.classList.add('is-open'); }
+  function closeSidebar(){ side.classList.remove('is-open'); backdrop.classList.remove('is-open'); }
   document.querySelector('#summaryButton').onclick = openSidebar;
   document.querySelector('#floatingSummaryButton').onclick = openSidebar;
   document.querySelector('#closeSummaryButton').onclick = closeSidebar;
   backdrop.onclick = closeSidebar;
   document.querySelector('#printButton').onclick = () => print();
-
-  load().catch(error => {
-    root.innerHTML = `<div class="state-card itinerary-error"><strong>Não consegui abrir o roteiro.</strong><p>${esc(error.message)}</p><a class="btn btn-primary" href="dashboard.html">Voltar</a></div>`;
-  });
+  load().catch(error => { root.innerHTML = `<div class="state-card itinerary-error"><strong>Não consegui abrir o roteiro.</strong><p>${esc(error.message)}</p><a class="btn btn-primary" href="dashboard.html">Voltar</a></div>`; });
 })();
