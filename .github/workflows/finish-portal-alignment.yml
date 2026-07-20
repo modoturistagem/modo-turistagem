@@ -1,22 +1,21 @@
 name: Finalizar alinhamento do portal
 
 on:
-  pull_request:
+  push:
     branches:
-      - main
-    types: [opened, synchronize, reopened]
+      - agent/alinha-site-portal-roteiros
 
 permissions:
   contents: write
 
 jobs:
   finish:
-    if: github.event.pull_request.head.repo.full_name == github.repository
+    if: github.event.head_commit.message != 'Finaliza alinhamento do site com o portal'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.head.ref }}
+          ref: agent/alinha-site-portal-roteiros
           fetch-depth: 0
 
       - name: Aplicar ajustes restantes
@@ -125,6 +124,8 @@ jobs:
 
           # Validações
           required = {
+              'roteiros-prontos.html': ['portal-access-title','Acesso ao Portal enviado após a confirmação do pagamento'],
+              'faq.html': ['Como acesso um roteiro que já comprei?','Consigo salvar o roteiro em PDF?'],
               'index.html': ['Acessar meus roteiros','Portal de Roteiros'],
               'como-funciona.html': ['portal-info-box fade-in','Portal ou PDF clicável'],
               'portal/index.html': ['noindex, nofollow'],
@@ -143,6 +144,7 @@ jobs:
           for workflow in [
               '.github/workflows/align-portal-copy.yml',
               '.github/workflows/finish-portal-alignment.yml',
+              '.github/portal-alignment-trigger.txt',
           ]:
               Path(workflow).unlink(missing_ok=True)
           PY
@@ -154,4 +156,4 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
           git commit -m "Finaliza alinhamento do site com o portal"
-          git push origin HEAD:${{ github.event.pull_request.head.ref }}
+          git push origin HEAD:agent/alinha-site-portal-roteiros
