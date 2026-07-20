@@ -5,21 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Roteiros Prontos | Modo Turistagem</title>
 
-  <meta name="description" content="Viaje com tudo planejado, sem perder horas pesquisando. Escolha seu destino, baixe seu roteiro pronto e só aproveite." />
+  <meta name="description" content="Escolha seu destino e acesse seu roteiro pelo Portal de Roteiros da Modo Turistagem, com usuário e senha, links organizados e atualizações no mesmo lugar." />
   <meta name="theme-color" content="#003599" />
   <link rel="canonical" href="https://modoturistagem.github.io/modo-turistagem/roteiros-prontos.html" />
 
   <meta property="og:locale" content="pt_BR" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Roteiros Prontos | Modo Turistagem" />
-  <meta property="og:description" content="Escolha seu destino, baixe seu roteiro pronto e viaje com mais clareza, praticidade e zero enrolação." />
+  <meta property="og:description" content="Escolha seu destino e acesse seu roteiro pelo Portal de Roteiros, com uma biblioteca individual pronta para usar no celular." />
   <meta property="og:url" content="https://modoturistagem.github.io/modo-turistagem/roteiros-prontos.html" />
   <meta property="og:site_name" content="Modo Turistagem" />
   <meta property="og:image" content="https://modoturistagem.github.io/modo-turistagem/images/logotipo.png" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Roteiros Prontos | Modo Turistagem" />
-  <meta name="twitter:description" content="Escolha seu destino, baixe seu roteiro pronto e viaje com mais clareza, praticidade e zero enrolação." />
+  <meta name="twitter:description" content="Escolha seu destino e acesse seu roteiro pelo Portal de Roteiros, com uma biblioteca individual pronta para usar no celular." />
   <meta name="twitter:image" content="https://modoturistagem.github.io/modo-turistagem/images/logotipo.png" />
 
   <link rel="stylesheet" href="css/style.css" />
@@ -939,6 +939,74 @@
     }
   </style>
 
+
+  <style>
+    .portal-access-section{
+      padding:2.4rem 2rem 0;
+      background:var(--branco);
+    }
+    .portal-access-card{
+      max-width:980px;
+      margin:0 auto;
+      padding:2rem;
+      border-radius:28px;
+      background:linear-gradient(135deg,var(--azul) 0%,#2458B8 100%);
+      color:var(--branco);
+      text-align:center;
+      box-shadow:0 18px 42px rgba(0,53,153,.2);
+    }
+    .portal-access-card h2{
+      color:var(--branco);
+      font-size:2rem;
+      margin-bottom:.7rem;
+    }
+    .portal-access-card p{
+      max-width:760px;
+      margin:0 auto;
+      line-height:1.75;
+      opacity:.96;
+    }
+    .portal-access-steps{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:.75rem;
+      margin:1.35rem 0;
+    }
+    .portal-access-step{
+      padding:.9rem;
+      border-radius:16px;
+      background:rgba(255,255,255,.1);
+      border:1px solid rgba(255,255,255,.16);
+      line-height:1.5;
+      font-size:.92rem;
+    }
+    .portal-access-actions{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:.8rem;
+    }
+    .portal-access-actions .btn-secondary{
+      border-color:var(--branco);
+      color:var(--branco);
+    }
+    .portal-access-actions .btn-secondary:hover{
+      background:var(--branco);
+      color:var(--azul);
+    }
+    @media(max-width:768px){
+      .portal-access-section{padding:1.5rem 1rem 0}
+      .portal-access-card{padding:1.4rem;border-radius:22px}
+      .portal-access-card h2{font-size:1.65rem}
+      .portal-access-steps{grid-template-columns:1fr 1fr}
+      .portal-access-actions{flex-direction:column}
+      .portal-access-actions a{width:100%}
+    }
+    @media(max-width:480px){
+      .portal-access-steps{grid-template-columns:1fr}
+    }
+  </style>
+
 </head>
 <body>
   <nav>
@@ -968,24 +1036,43 @@
       </span>
 
       <h1>Viaje com tudo planejado — sem perder horas pesquisando</h1>
-      <p>Escolha seu destino, baixe seu roteiro pronto e só aproveite ✈️ É o jeito mais prático de sair da ideia e ir pra ação com uma base clara, organizada e feita por quem realmente ama montar viagem.</p>
+      <p>Escolha seu destino e receba acesso individual ao Portal de Roteiros ✈️ Tudo fica organizado em uma biblioteca feita pra abrir no celular, consultar durante a viagem e acompanhar sempre na versão mais recente.</p>
 
       <div class="hero-mini-actions">
-        <span class="hero-pill">📥 download digital</span>
-        <span class="hero-pill">🧳 prático e organizado</span>
-        <span class="hero-pill">🔄 atualizado regularmente</span>
+        <span class="hero-pill">🔐 acesso individual</span>
+        <span class="hero-pill">📱 feito pro celular</span>
+        <span class="hero-pill">🔄 sempre na versão mais recente</span>
       </div>
     </div>
   </section>
 
   <div class="roteiros-note fade-in">
-    Os roteiros são atualizados regularmente — então essa vitrine vai ficando cada vez mais bonita, completa e útil pra quem quer praticidade sem começar do zero.
+    Comprou um roteiro? A Modo cria seu usuário e sua senha, libera o destino na sua biblioteca e envia os dados de acesso depois da confirmação do pagamento.
   </div>
+
+  <section class="portal-access-section" aria-labelledby="portal-access-title">
+    <div class="portal-access-card fade-in">
+      <span class="section-tag">🔐 Portal de Roteiros</span>
+      <h2 id="portal-access-title">Seu roteiro fica onde você realmente precisa dele</h2>
+      <p>Depois da confirmação do pagamento, a Modo cria seu acesso individual. Você recebe usuário e senha e encontra somente os roteiros liberados para a sua conta.</p>
+      <div class="portal-access-steps" aria-label="Como funciona o acesso">
+        <div class="portal-access-step"><strong>1.</strong> Escolha e compre o roteiro</div>
+        <div class="portal-access-step"><strong>2.</strong> A Modo cria seu acesso</div>
+        <div class="portal-access-step"><strong>3.</strong> Receba usuário e senha</div>
+        <div class="portal-access-step"><strong>4.</strong> Abra online ou salve em PDF</div>
+      </div>
+      <div class="portal-access-actions">
+        <a href="portal/" class="btn-primary">🔐 Acessar meus roteiros</a>
+        <a href="portal/dashboard.html?demo=1" class="btn-secondary">Ver demonstração</a>
+      </div>
+    </div>
+  </section>
+
 
   <section class="roteiro-inclusos">
     <div class="roteiro-inclusos-card fade-in">
       <h2>O que está incluso em cada roteiro</h2>
-      <p class="intro">A ideia aqui é te entregar uma base útil de verdade — não um PDF bonito e vazio. Cada roteiro vem pensado pra facilitar decisão, economizar tempo e te deixar menos perdida na hora de organizar a viagem.</p>
+      <p class="intro">A ideia aqui é te entregar uma base útil de verdade — não um material bonito e vazio. Cada roteiro vem pensado pra facilitar decisão, economizar tempo e te deixar menos perdida na hora de organizar a viagem.</p>
 
       <div class="inclusos-grid">
         <div class="incluso-box">
@@ -1140,7 +1227,7 @@
         <img src="images/icons/whatsapp-logo.png" alt="" class="btn-ico" />
         Comprar via Pix
       </a>
-      <div class="pagamento-sub pix">Entrega do PDF: até 30 min após confirmação</div>
+      <div class="pagamento-sub pix">Acesso ao Portal enviado após a confirmação do pagamento</div>
     </div>
   </div>
 </details>
@@ -1169,7 +1256,7 @@
         <img src="images/icons/whatsapp-logo.png" alt="" class="btn-ico" />
         Comprar via Pix
       </a>
-      <div class="pagamento-sub pix">Entrega do PDF: até 30 min após confirmação</div>
+      <div class="pagamento-sub pix">Acesso ao Portal enviado após a confirmação do pagamento</div>
     </div>
   </div>
 </details>
@@ -1288,7 +1375,7 @@
         <img src="images/icons/whatsapp-logo.png" alt="" class="btn-ico" />
         Comprar via Pix
       </a>
-      <div class="pagamento-sub pix">Entrega do PDF: até 30 min após confirmação</div>
+      <div class="pagamento-sub pix">Acesso ao Portal enviado após a confirmação do pagamento</div>
     </div>
   </div>
 </details>
@@ -1317,7 +1404,7 @@
         <img src="images/icons/whatsapp-logo.png" alt="" class="btn-ico" />
         Comprar via Pix
       </a>
-      <div class="pagamento-sub pix">Entrega do PDF: até 30 min após confirmação</div>
+      <div class="pagamento-sub pix">Acesso ao Portal enviado após a confirmação do pagamento</div>
     </div>
   </div>
 </details>
