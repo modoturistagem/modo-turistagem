@@ -3,12 +3,28 @@
   const ready = Boolean(config.supabaseUrl && config.supabaseAnonKey && window.supabase);
   const db = ready ? window.supabase.createClient(config.supabaseUrl, config.supabaseAnonKey) : null;
   const message = document.querySelector('#editorMessage');
-  const grantMessage = document.querySelector('#grantMessage');
+  const clientMessage = document.querySelector('#clientMessage');
   const importInput = document.querySelector('#routeImportFile');
+  const credentialResult = document.querySelector('#credentialResult');
 
   const say = (element, text, type = '') => {
     element.textContent = text;
     element.className = `form-message ${type}`.trim();
+  };
+
+  const normalizeUsername = value => value
+    .trim()
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9._-]/g, '')
+    .replace(/^[._-]+|[._-]+$/g, '');
+
+  const makePassword = (length = 14) => {
+    const alphabet = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789!@#$%';
+    const values = new Uint32Array(length);
+    crypto.getRandomValues(values);
+    return Array.from(values, value => alphabet[value % alphabet.length]).join('');
   };
 
   function getRoute() {
@@ -49,15 +65,24 @@
     document.querySelector('#routeContent').value = JSON.stringify(route.content || { sections: [] }, null, 2);
   }
 
+  async function loadItineraryOptions() {
+    if (!db) return;
+    const select = document.querySelector('#clientItinerarySlug');
+    const { data, error } = await db.from('itineraries').select('slug,title').order('title');
+    if (error || !data?.length) return;
+    select.innerHTML = data.map(route => `<option value="${route.slug.replaceAll('"', '&quot;')}">${route.title}</option>`).join('');
+  }
+
   async function verify() {
     if (!db) {
-      say(message, 'Modo demonstração: importar e pré-visualizar já funciona. Para salvar e liberar clientes, conecte o Supabase.', 'warning');
+      say(message, 'Modo demonstração: importar e pré-visualizar funciona. Para salvar e criar acessos, conecte o Supabase.', 'warning');
       return;
     }
     const { data: sessionData } = await db.auth.getSession();
     if (!sessionData.session) return location.replace('index.html');
-    const { data } = await db.from('profiles').select('is_admin').eq('id', sessionData.session.user.id).single();
-    if (!data?.is_admin) location.replace('dashboard.html');
+    const { data, error } = await db.from('profiles').select('is_admin').eq('id', sessionData.session.user.id).single();
+    if (error || !data?.is_admin) return location.replace('dashboard.html');
+    await loadItineraryOptions();
   }
 
   document.querySelector('#loadExampleButton').onclick = () => fill(window.MODO_PREVIEW_ITINERARY);
@@ -113,22 +138,80 @@
       const { error } = await db.from('itineraries').upsert(getRoute(), { onConflict: 'slug' });
       if (error) throw error;
       say(message, 'Roteiro completo salvo no banco protegido ✨', 'success');
+      await loadItineraryOptions();
     } catch (error) {
       say(message, error.message, 'error');
     }
   });
 
-  document.querySelector('#grantForm').addEventListener('submit', async event => {
-    event.preventDefault();
-    if (!db) return say(grantMessage, 'Conecte o Supabase para liberar acessos reais.', 'warning');
-    const expiry = document.querySelector('#grantExpiry').value || null;
-    const { data, error } = await db.rpc('grant_itinerary_access_by_email', {
-      customer_email: document.querySelector('#grantEmail').value.trim(),
-      itinerary_slug: document.querySelector('#grantSlug').value.trim(),
-      expires_at_value: expiry ? new Date(`${expiry}T23:59:59`).toISOString() : null
-    });
-    say(grantMessage, error ? error.message : (data || 'Acesso liberado.'), error ? 'error' : 'success');
+  document.querySelector('#clientFullName').addEventListener('blur', event => {
+    const usernameField = document.querySelector('#clientUsername');
+    if (usernameField.value) return;
+    usernameField.value = normalizeUsername(event.target.value.replace(/\s+/g, '.'));
   });
+
+  document.querySelector('#clientUsername').addEventListener('input', event => {
+    const caret = event.target.selectionStart;
+    event.target.value = normalizeUsername(event.target.value);
+    event.target.setSelectionRange(caret, caret);
+  });
+
+  document.querySelector('#generatePasswordButton').onclick = () => {
+    document.querySelector('#clientPassword').value = makePassword();
+  };
+
+  document.querySelector('#createClientForm').addEventListener('submit', async event => {
+    event.preventDefault();
+    credentialResult.classList.add('is-hidden');
+    if (!db) return say(clientMessage, 'Conecte o Supabase para criar acessos.', 'warning');
+
+    const username = normalizeUsername(document.querySelector('#clientUsername').value);
+    const password = document.querySelector('#clientPassword').value;
+    const button = document.querySelector('#createClientButton');
+
+    if (username.length < 3) return say(clientMessage, 'O usuário precisa ter pelo menos 3 caracteres.', 'error');
+    if (password.length < 8) return say(clientMessage, 'A senha precisa ter pelo menos 8 caracteres.', 'error');
+
+    button.disabled = true;
+    button.textContent = 'Criando…';
+    say(clientMessage, '');
+
+    const expiry = document.querySelector('#clientExpiry').value || null;
+    const { data, error } = await db.functions.invoke('create-client', {
+      body: {
+        full_name: document.querySelector('#clientFullName').value.trim(),
+        username,
+        password,
+        itinerary_slug: document.querySelector('#clientItinerarySlug').value,
+        access_expires_at: expiry ? new Date(`${expiry}T23:59:59`).toISOString() : null
+      }
+    });
+
+    button.disabled = false;
+    button.textContent = 'Criar acesso';
+
+    if (error || !data?.ok) {
+      const detail = data?.error || error?.message || 'Não consegui criar o acesso.';
+      return say(clientMessage, `${detail} Confira se a Edge Function create-client foi publicada.`, 'error');
+    }
+
+    document.querySelector('#resultUsername').textContent = data.username;
+    document.querySelector('#resultPassword').textContent = password;
+    credentialResult.classList.remove('is-hidden');
+    say(clientMessage, `Acesso criado e roteiro “${data.itinerary_title}” liberado.`, 'success');
+  });
+
+  document.querySelector('#copyCredentialsButton').onclick = async () => {
+    const username = document.querySelector('#resultUsername').textContent;
+    const password = document.querySelector('#resultPassword').textContent;
+    const text = `Seu acesso ao Portal Modo Turistagem\nUsuário: ${username}\nSenha: ${password}\nAcesse: ${config.siteUrl || location.origin}`;
+    try {
+      await navigator.clipboard.writeText(text);
+      say(clientMessage, 'Dados de acesso copiados ✨', 'success');
+    } catch {
+      say(clientMessage, 'Não consegui copiar automaticamente. Selecione os dados acima.', 'warning');
+    }
+  };
 
   document.querySelector('#adminSignOutButton').onclick = async () => {
     if (db) await db.auth.signOut();
