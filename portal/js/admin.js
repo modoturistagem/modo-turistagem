@@ -4,13 +4,24 @@
   const db = ready ? window.supabase.createClient(config.supabaseUrl, config.supabaseAnonKey) : null;
   const message = document.querySelector('#editorMessage');
   const clientMessage = document.querySelector('#clientMessage');
+  const routesMessage = document.querySelector('#routesMessage');
+  const routesGrid = document.querySelector('#adminRoutesGrid');
+  const routesCount = document.querySelector('#adminRoutesCount');
   const importInput = document.querySelector('#routeImportFile');
   const credentialResult = document.querySelector('#credentialResult');
 
   const say = (element, text, type = '') => {
+    if (!element) return;
     element.textContent = text;
     element.className = `form-message ${type}`.trim();
   };
+
+  const escapeHtml = (value = '') => String(value)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#039;');
 
   const normalizeUsername = value => value
     .trim()
@@ -25,6 +36,21 @@
     const values = new Uint32Array(length);
     crypto.getRandomValues(values);
     return Array.from(values, value => alphabet[value % alphabet.length]).join('');
+  };
+
+  const statusName = status => ({
+    published: 'Publicado',
+    draft: 'Rascunho',
+    archived: 'Arquivado'
+  }[status] || status || 'Rascunho');
+
+  const formatDate = value => {
+    if (!value) return 'Sem atualização registrada';
+    try {
+      return `Atualizado em ${new Intl.DateTimeFormat('pt-BR', { dateStyle: 'short', timeStyle: 'short' }).format(new Date(value))}`;
+    } catch {
+      return 'Atualização registrada';
+    }
   };
 
   function getRoute() {
@@ -65,12 +91,86 @@
     document.querySelector('#routeContent').value = JSON.stringify(route.content || { sections: [] }, null, 2);
   }
 
+  function emptyRoute() {
+    return {
+      slug: '',
+      status: 'draft',
+      title: '',
+      subtitle: '',
+      destination: '',
+      duration: '',
+      season: '',
+      version: '',
+      intro: '',
+      cover_image: '',
+      overview: { style: 'equilibrado', profile: '' },
+      content: { sections: [] }
+    };
+  }
+
+  function renderRouteLibrary(routes) {
+    routesCount.textContent = `${routes.length} ${routes.length === 1 ? 'roteiro cadastrado' : 'roteiros cadastrados'} no portal.`;
+
+    if (!routes.length) {
+      routesGrid.innerHTML = '<div class="admin-route-empty">Nenhum roteiro salvo ainda. Importe o primeiro JSON ou crie um novo roteiro.</div>';
+      return;
+    }
+
+    routesGrid.innerHTML = routes.map(route => {
+      const canOpen = route.status === 'published';
+      return `
+        <article class="admin-route-card">
+          <div class="admin-route-card-top">
+            <span class="route-admin-status is-${escapeHtml(route.status)}">${escapeHtml(statusName(route.status))}</span>
+            <span class="admin-route-version">${escapeHtml(route.version || 'Sem versão')}</span>
+          </div>
+          <h3>${escapeHtml(route.title)}</h3>
+          <p>${escapeHtml(route.subtitle || route.destination || 'Roteiro Modo Turistagem')}</p>
+          <div class="admin-route-meta">
+            <span>${escapeHtml(route.destination || 'Destino não informado')}</span>
+            <span>${escapeHtml(route.duration || 'Duração não informada')}</span>
+            <small>${escapeHtml(formatDate(route.updated_at))}</small>
+          </div>
+          <div class="admin-route-actions">
+            <button type="button" class="btn btn-small btn-primary" data-route-action="edit" data-route-slug="${escapeHtml(route.slug)}">Editar</button>
+            ${canOpen ? `<button type="button" class="btn btn-small btn-secondary" data-route-action="open" data-route-slug="${escapeHtml(route.slug)}">Abrir completo</button>` : '<span class="route-draft-note">Publique para abrir pelo portal</span>'}
+          </div>
+        </article>`;
+    }).join('');
+  }
+
+  async function loadAllItineraries() {
+    if (!db) return;
+    routesGrid.innerHTML = '<div class="admin-route-empty">Carregando todos os roteiros…</div>';
+    say(routesMessage, '');
+
+    const { data, error } = await db
+      .from('itineraries')
+      .select('slug,title,subtitle,destination,duration,season,version,status,updated_at')
+      .order('updated_at', { ascending: false });
+
+    if (error) {
+      routesGrid.innerHTML = '<div class="admin-route-empty">Não consegui carregar os roteiros.</div>';
+      say(routesMessage, error.message, 'error');
+      return;
+    }
+
+    renderRouteLibrary(data || []);
+  }
+
   async function loadItineraryOptions() {
     if (!db) return;
     const select = document.querySelector('#clientItinerarySlug');
-    const { data, error } = await db.from('itineraries').select('slug,title').order('title');
-    if (error || !data?.length) return;
-    select.innerHTML = data.map(route => `<option value="${route.slug.replaceAll('"', '&quot;')}">${route.title}</option>`).join('');
+    const { data, error } = await db.from('itineraries').select('slug,title,status').eq('status', 'published').order('title');
+    if (error) {
+      select.innerHTML = '<option value="">Não consegui carregar os roteiros</option>';
+      return;
+    }
+    if (!data?.length) {
+      select.innerHTML = '<option value="">Publique um roteiro primeiro</option>';
+      return;
+    }
+    select.innerHTML = data.map(route => `<option value="${escapeHtml(route.slug)}">${escapeHtml(route.title)}</option>`).join('');
   }
 
   async function verify() {
@@ -82,10 +182,51 @@
     if (!sessionData.session) return location.replace('index.html');
     const { data, error } = await db.from('profiles').select('is_admin').eq('id', sessionData.session.user.id).single();
     if (error || !data?.is_admin) return location.replace('dashboard.html');
-    await loadItineraryOptions();
+    await Promise.all([loadAllItineraries(), loadItineraryOptions()]);
   }
 
-  document.querySelector('#loadExampleButton').onclick = () => fill(window.MODO_PREVIEW_ITINERARY);
+  document.querySelector('#loadExampleButton').onclick = () => {
+    fill(window.MODO_PREVIEW_ITINERARY);
+    say(message, 'Demonstração carregada no editor.', 'success');
+  };
+
+  document.querySelector('#newRouteButton').onclick = () => {
+    fill(emptyRoute());
+    say(message, 'Editor limpo para um novo roteiro.', 'success');
+    document.querySelector('#itineraryForm').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  document.querySelector('#refreshRoutesButton').onclick = loadAllItineraries;
+
+  routesGrid.addEventListener('click', async event => {
+    const button = event.target.closest('[data-route-action]');
+    if (!button || !db) return;
+    const slug = button.dataset.routeSlug;
+    const action = button.dataset.routeAction;
+
+    if (action === 'open') {
+      window.open(`roteiro.html?slug=${encodeURIComponent(slug)}`, '_blank', 'noopener');
+      return;
+    }
+
+    if (action === 'edit') {
+      button.disabled = true;
+      const originalLabel = button.textContent;
+      button.textContent = 'Abrindo…';
+      const { data, error } = await db.from('itineraries').select('*').eq('slug', slug).single();
+      button.disabled = false;
+      button.textContent = originalLabel;
+
+      if (error || !data) {
+        say(routesMessage, error?.message || 'Não consegui abrir esse roteiro.', 'error');
+        return;
+      }
+
+      fill(data);
+      say(message, `Roteiro “${data.title}” carregado para edição.`, 'success');
+      document.querySelector('#itineraryForm').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
 
   document.querySelector('#importRouteButton').onclick = () => importInput.click();
   importInput.addEventListener('change', async () => {
@@ -135,10 +276,11 @@
     event.preventDefault();
     try {
       if (!db) throw Error('Conecte o Supabase para salvar. A importação e a prévia já funcionam sem ele.');
-      const { error } = await db.from('itineraries').upsert(getRoute(), { onConflict: 'slug' });
+      const route = getRoute();
+      const { error } = await db.from('itineraries').upsert(route, { onConflict: 'slug' });
       if (error) throw error;
       say(message, 'Roteiro completo salvo no banco protegido ✨', 'success');
-      await loadItineraryOptions();
+      await Promise.all([loadAllItineraries(), loadItineraryOptions()]);
     } catch (error) {
       say(message, error.message, 'error');
     }
@@ -167,10 +309,12 @@
 
     const username = normalizeUsername(document.querySelector('#clientUsername').value);
     const password = document.querySelector('#clientPassword').value;
+    const itinerarySlug = document.querySelector('#clientItinerarySlug').value;
     const button = document.querySelector('#createClientButton');
 
     if (username.length < 3) return say(clientMessage, 'O usuário precisa ter pelo menos 3 caracteres.', 'error');
     if (password.length < 8) return say(clientMessage, 'A senha precisa ter pelo menos 8 caracteres.', 'error');
+    if (!itinerarySlug) return say(clientMessage, 'Escolha um roteiro publicado.', 'error');
 
     button.disabled = true;
     button.textContent = 'Criando…';
@@ -182,7 +326,7 @@
         full_name: document.querySelector('#clientFullName').value.trim(),
         username,
         password,
-        itinerary_slug: document.querySelector('#clientItinerarySlug').value,
+        itinerary_slug: itinerarySlug,
         access_expires_at: expiry ? new Date(`${expiry}T23:59:59`).toISOString() : null
       }
     });
