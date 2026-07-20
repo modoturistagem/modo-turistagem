@@ -191,10 +191,27 @@
       return render(window.MODO_PREVIEW_ITINERARY);
     }
     if (!db) return location.replace('index.html');
+
     const { data: sessionData } = await db.auth.getSession();
     if (!sessionData.session) return location.replace('index.html');
-    const { data, error } = await db.from('itineraries').select('*').eq('slug', slug).eq('status', 'published').single();
-    if (error || !data) throw Error('Esse roteiro não está liberado para esta conta.');
+
+    const userId = sessionData.session.user.id;
+    const { data: profile } = await db
+      .from('profiles')
+      .select('is_admin')
+      .eq('id', userId)
+      .maybeSingle();
+
+    let query = db.from('itineraries').select('*').eq('slug', slug);
+    if (!profile?.is_admin) query = query.eq('status', 'published');
+
+    const { data, error } = await query.single();
+    if (error || !data) {
+      throw Error(profile?.is_admin
+        ? 'Esse roteiro ainda não foi salvo no Supabase.'
+        : 'Esse roteiro não está liberado para esta conta.');
+    }
+
     render(data);
   }
 
