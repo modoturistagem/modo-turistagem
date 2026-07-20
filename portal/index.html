@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#003599" />
+  <title>Portal de Roteiros | Modo Turistagem</title>
+  <link rel="stylesheet" href="css/portal.css" />
+</head>
+<body class="auth-page">
+  <main class="auth-shell">
+    <section class="auth-brand" aria-label="Modo Turistagem">
+      <a href="../index.html" class="brand-link" aria-label="Voltar para Modo Turistagem">
+        <img src="../images/logotipo.png" alt="Modo Turistagem" class="brand-logo" />
+      </a>
+      <span class="eyebrow eyebrow-orange">Portal de Roteiros</span>
+      <h1>Seu roteiro, pronto pra abrir no meio da viagem.</h1>
+      <p>Entre para acessar somente os roteiros liberados para você — com links, checklist e atualizações no mesmo lugar.</p>
+      <div class="auth-benefits">
+        <span>📱 feito pro celular</span><span>🔗 links organizados</span><span>🔄 sempre na versão mais recente</span>
+      </div>
+    </section>
+    <section class="auth-card" aria-labelledby="login-title">
+      <div class="auth-card-header"><span class="eyebrow">Modo Roteiro ON</span><h2 id="login-title">Entrar no portal</h2><p>Use o e-mail informado na compra.</p></div>
+      <form id="passwordForm" class="auth-form">
+        <label for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email" required placeholder="voce@email.com" />
+        <label for="password">Senha</label><input id="password" name="password" type="password" autocomplete="current-password" required minlength="6" placeholder="••••••••" />
+        <button type="submit" class="btn btn-primary" id="passwordButton">Entrar</button>
+      </form>
+      <div class="auth-divider"><span>ou</span></div>
+      <form id="magicForm" class="auth-form compact-form">
+        <label for="magicEmail">Receber link de acesso por e-mail</label>
+        <div class="inline-form"><input id="magicEmail" name="magicEmail" type="email" autocomplete="email" required placeholder="voce@email.com" /><button type="submit" class="btn btn-secondary" id="magicButton">Enviar link</button></div>
+      </form>
+      <button type="button" class="demo-button" id="demoButton">Ver demonstração do roteiro do Chile →</button>
+      <p id="authMessage" class="form-message" role="status" aria-live="polite"></p>
+      <p class="auth-help">Não recebeu acesso? <a href="https://wa.me/5549991628403" target="_blank" rel="noopener noreferrer">Chama a Modo no WhatsApp</a>.</p>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="js/config.js"></script><script src="js/auth.js"></script>
+</body>
+</html>

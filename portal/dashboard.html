@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="theme-color" content="#003599" /><title>Meus Roteiros | Modo Turistagem</title><link rel="stylesheet" href="css/portal.css" /></head>
+<body>
+<header class="portal-header"><a href="../index.html" class="portal-brand"><img src="../images/logotipo.png" alt="Modo Turistagem" /></a><nav class="portal-actions" aria-label="Ações do portal"><span id="userGreeting" class="user-greeting"></span><a href="admin.html" id="adminLink" class="text-link is-hidden">Administrar</a><button id="signOutButton" class="btn btn-small btn-secondary" type="button">Sair</button></nav></header>
+<main class="dashboard-main"><section class="dashboard-hero"><span class="eyebrow eyebrow-orange">Biblioteca pessoal</span><h1>Seus roteiros estão aqui ✈️</h1><p>Abre, salva e usa no meio da viagem. Quando a Modo atualizar alguma informação, a versão nova aparece automaticamente.</p></section>
+<section class="library-section" aria-labelledby="library-title"><div class="section-heading-row"><div><span class="eyebrow">Modo Roteiro ON</span><h2 id="library-title">Roteiros liberados</h2></div><span id="routeCount" class="count-pill">0 roteiros</span></div><div id="loadingState" class="state-card">Carregando seus roteiros…</div><div id="emptyState" class="state-card is-hidden"><strong>Nenhum roteiro liberado por aqui ainda.</strong><p>Se você já comprou, fala com a gente para conferir o e-mail usado no pagamento.</p><a class="btn btn-primary" href="https://wa.me/5549991628403" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a></div><div id="routesGrid" class="routes-grid" aria-live="polite"></div></section></main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="js/config.js"></script><script src="js/dashboard.js"></script>
+</body></html>
